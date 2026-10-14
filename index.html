@@ -579,7 +579,8 @@ button.badge.tagq{border:0;cursor:pointer;font-family:inherit}button.badge.tagq:
 <script>
 /* ===== Supabase adapter — gives the app the same data API it had inside Claude ===== */
 const CFG=window.ARCHIVE_CONFIG||{};
-const SB=window.supabase.createClient(CFG.supabaseUrl,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true}});
+const SB_URL=String(CFG.supabaseUrl||"").trim().replace(/\/(rest|auth|storage)\/v1\/?.*$/,"").replace(/\/+$/,"");
+const SB=window.supabase.createClient(SB_URL,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true}});
 const SHARED=new Set(["feed","trends","channels","meta","seasonstats","nfmap"]);
 let UID=null,UEMAIL="";
 const stores={};
