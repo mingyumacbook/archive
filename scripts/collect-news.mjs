@@ -16,7 +16,9 @@ async function rest(path, opts = {}) {
   const t = await r.text(); return t ? JSON.parse(t) : null;
 }
 const list = c => rest(`shared_docs?collection=eq.${c}&select=id,data,updated_at&limit=2000`);
-const upsert = rows => rows.length ? rest("shared_docs?on_conflict=collection,id", { method: "POST", headers: { Prefer: "resolution=merge-duplicates,return=minimal" }, body: JSON.stringify(rows.map(r => ({ ...r, updated_at: new Date().toISOString() }))) }) : null;
+// one row per (collection, id): Postgres refuses an upsert that touches the same row twice (code 21000)
+const dedupe = rows => [...new Map(rows.map(r => [`${r.collection}|${r.id}`, r])).values()];
+const upsert = rows => (rows = dedupe(rows)).length ? rest("shared_docs?on_conflict=collection,id", { method: "POST", headers: { Prefer: "resolution=merge-duplicates,return=minimal" }, body: JSON.stringify(rows.map(r => ({ ...r, updated_at: new Date().toISOString() }))) }) : null;
 const del = (c, id) => rest(`shared_docs?collection=eq.${c}&id=eq.${encodeURIComponent(id)}`, { method: "DELETE" });
 
 const decode = s => String(s || "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&nbsp;/g, " ");
@@ -95,12 +97,12 @@ async function main() {
   const week = all.filter(x => now - (x.fetchedAt || 0) < 7 * 864e5);
   const byTag = {};
   week.forEach(x => (x.tags || []).forEach(t => { (byTag[t] ||= []).push(x); }));
-  const issueRows = [], heatRows = [];
+  const issueRows = [], heatRows = [], heatOf = new Map();
   const wk = `${new Date().getUTCFullYear()}-${Math.ceil((new Date().getUTCDate()) / 7)}-${new Date().getUTCMonth() + 1}`;
   for (const [t, xs] of Object.entries(byTag)) {
     const srcs = [...new Set(xs.map(x => x.source))];
     if (srcs.length < 3) continue;
-    xs.forEach(x => { if ((x.heat || 1) !== srcs.length) heatRows.push({ collection: "feed", id: x.id, data: { ...x, id: undefined, heat: srcs.length } }); });
+    xs.forEach(x => { const h = Math.max(srcs.length, heatOf.get(x.id) || 0); heatOf.set(x.id, h); if ((x.heat || 1) !== h) heatRows.push({ collection: "feed", id: x.id, data: { ...x, id: undefined, heat: h } }); });
     const top = xs.sort((a, b) => (b.fetchedAt || 0) - (a.fetchedAt || 0))[0];
     issueRows.push({ collection: "feed", id: `issue-${t.replace(/\W+/g, "-")}-${wk}`, data: { title: `${KO[t] || t} — 이번 주 ${srcs.length}개 매체`, title_en: `${t} — ${srcs.length} outlets this week`, summary: srcs.join(" · "), url: top.url, source: "ARCHIVE", channel: "", kind: "issue", tags: [t], heat: srcs.length, publishedAt: "", fetchedAt: now } });
   }
