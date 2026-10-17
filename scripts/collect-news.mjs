@@ -62,6 +62,27 @@ async function ogImage(url) {
   const m = h.match(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["'][^>]*content=["']([^"']+)["']/i) || h.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["']/i);
   if (!m) return ""; try { const u = new URL(decode(decode(m[1])).trim(), r.url).href; return /^https?:/.test(u) ? u : ""; } catch { return ""; }
 }
+
+// translation (free Google Translate web endpoint, no key): English stories get Korean title/summary, Korean stories get English ones
+const HANGUL = /[\uac00-\ud7a3]/;
+async function tr(text, tl) {
+  text = String(text || "").trim(); if (!text) return "";
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 12000);
+  try {
+    const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(text.slice(0, 1800))}`, { headers: { "User-Agent": "Mozilla/5.0" }, signal: ctl.signal });
+    if (!r.ok) return ""; const j = await r.json(); return (j?.[0] || []).map(x => x?.[0] || "").join("").trim();
+  } catch { return ""; } finally { clearTimeout(t); }
+}
+let trOK = 0, trFail = 0;
+async function translateRow(d) {
+  const ko = HANGUL.test(d.title || "");
+  const tl = ko ? "en" : "ko";
+  const [tt, ss] = await Promise.all([tr(d.title, tl), d.summary ? tr(d.summary, tl) : Promise.resolve("")]);
+  if (!tt) { trFail++; return false; }
+  if (ko) { d.title_ko = d.title; d.summary_ko = d.summary || ""; d.title_en = tt; d.summary_en = ss; }
+  else { d.title_en = d.title; d.summary_en = d.summary || ""; d.title_ko = tt; d.summary_ko = ss; }
+  d.tr = 1; trOK++; return true;
+}
 async function pool(items, n, fn) { let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const it = items[i++]; try { await fn(it); } catch {} } })); }
 
 const KW = {
@@ -108,6 +129,12 @@ async function main() {
   const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && !r.data.imgSrc && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 300);
   const filled = [];
   await pool(backfill, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; filled.push({ collection: "feed", id: r.id, data: r.data }); });
+  // translations: new stories, plus up to 160 recent stories (14 days) that don't have one yet
+  await pool(fresh, 3, async r => { await translateRow(r.data); });
+  const filledIds = new Set(filled.map(r => r.id));
+  const needTr = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.title && !r.data.tr && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 160);
+  await pool(needTr, 3, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
+  console.log(`translations: ${trOK} done, ${trFail} failed`);
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));

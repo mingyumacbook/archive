@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>VISUAL DEPT.</title>
-<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.webmanifest?v=3"><link rel="icon" href="icon-192.png?v=3"><link rel="apple-touch-icon" id="ati" href="apple-touch-icon.png?v=3">
-<script>if(/Mac/.test(navigator.platform)&&!navigator.maxTouchPoints)document.getElementById("ati").href="apple-touch-icon-mac.png?v=3"</script>
+<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.webmanifest?v=4"><link rel="icon" href="icon-192.png?v=4"><link rel="apple-touch-icon" id="ati" href="apple-touch-icon.png?v=4">
+<script>if(/Mac/.test(navigator.platform)&&!navigator.maxTouchPoints)document.getElementById("ati").href="apple-touch-icon-mac.png?v=4"</script>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="VISUAL DEPT."><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <script src="config.js"></script>
@@ -768,7 +768,7 @@ function home(){
   const s=SLIDES;if(!s.length)return `<section class="gut max"><div class="empty" style="padding-top:120px"><b>${t("News is on its way","뉴스를 모으는 중이에요")}</b>${t("Articles are collected every 2 hours. Check back soon.","기사는 2시간마다 자동으로 모여요. 잠시 후 다시 확인해 주세요.")}</div></section>`;
   return `<section class="slider" id="slider" aria-roledescription="carousel" aria-label="${t("Today's issues","오늘의 이슈")}">
    ${s.map((x,i)=>`<div class="slide ${i===slideI?"on":""}" role="group" aria-label="${i+1} / ${s.length}" data-img><img class="bgi" src="${esc(x.img)}" alt="" aria-hidden="true" ${IMGATTR} ${i>1?'loading="lazy"':""}><img class="fgi" src="${esc(x.img)}" alt="" ${IMGATTR} ${i>1?'loading="lazy"':""} onload="fitSlide(this)" ${slideFail}>
-     <div class="cap gut"><h2>${esc(shortT(t(x.title_en||x.title,x.title),lang==="ko"?42:78))}</h2>${x.summary?`<p>${esc(shortT(x.summary,lang==="ko"?90:150))}</p>`:""}
+     <div class="cap gut"><h2>${esc(shortT(tTitle(x),lang==="ko"?42:78))}</h2>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?90:150))}</p>`:""}
      <div class="acts"><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문 보기")} ${SV.arrow}</a><button class="save" data-save="s:${i}">${isSaved(x.id)?SV.bookf:SV.book}<span>${isSaved(x.id)?t("Saved","저장됨"):t("Save","저장")}</span></button></div></div></div>`).join("")}
    <div class="pager gut"><div class="nums">${s.map((_,i)=>`<button data-sl="${i}" class="${i===slideI?"on":""}" aria-label="${i+1}">${String(i+1).padStart(2,"0")}</button>`).join("")}</div><span class="sp"></span><button class="arr" data-sl="prev" aria-label="Previous">${SV.l}</button><button class="arr" data-sl="next" aria-label="Next">${SV.r}</button></div>
    <span class="prog" id="prog"></span></section>
@@ -776,12 +776,17 @@ function home(){
     <div class="tools"><label class="vh" for="nq">${t("Search news","뉴스 검색")}</label><input class="inp" id="nq" type="search" placeholder="${t("Search news","뉴스 검색")}" value="${esc(newsQ)}"></div></div>
     <ul class="news" id="newsList">${newsRows()}</ul></section>`;
 }
-function newsRows(){const q=newsQ.trim().toLowerCase();const list=NEWS.filter(x=>!q||[x.title,x.title_en,x.summary,x.source,(x.tags||[]).join(" ")].join(" ").toLowerCase().includes(q));
+const HAN=/[\uac00-\ud7a3]/;
+const tTitle=x=>lang==="ko"?(x.title_ko||x.title||x.title_en||""):(x.title_en&&!HAN.test(x.title_en)?x.title_en:(x.title_en||x.title||""));
+const tSum=x=>lang==="ko"?(x.summary_ko||x.summary||x.text||""):(x.summary_en||x.text_en||x.summary||x.text||"");
+const TAGKO={sheer:"시어",skirt:"스커트",lingerie:"란제리 레이어링",check:"체크",tailoring:"테일러링",leather:"레더",denim:"데님",knit:"니트",purple:"퍼플·라일락",orange:"오렌지",metallic:"메탈릭",leopard:"레오파드",boho:"보호",belt:"벨트","creative director":"디렉터 이동",retail:"리테일·실적",korea:"국내 시장",sustainability:"지속가능성",accessories:"액세서리",layering:"레이어링",jewelry:"주얼리",collaboration:"협업",outerwear:"아우터",luxury:"럭셔리",market:"시장",materials:"소재",trench:"트렌치","trench coat":"트렌치코트",oversize:"오버사이즈",oversized:"오버사이즈",wool:"울",cotton:"코튼",expansion:"확장",sourcing:"소싱",imagery:"이미지",consumer:"소비자"};
+const tagName=g=>lang==="ko"?(TAGKO[String(g).toLowerCase()]||DATA.ko[g]||g):g;
+function newsRows(){const q=newsQ.trim().toLowerCase();const list=NEWS.filter(x=>!q||[x.title,x.title_en,x.title_ko,x.summary,x.summary_ko,x.summary_en,x.source,(x.tags||[]).join(" ")].join(" ").toLowerCase().includes(q));
   if(!list.length)return `<li class="empty"><b>${t("No matching news","찾는 뉴스가 없어요")}</b>${t("Try another keyword.","다른 키워드로 찾아 보세요.")}</li>`;
   return list.slice(0,newsN).map(x=>newsRow(x)).join("")+(list.length>newsN?`<li><button class="more" data-more>${t("More","더 보기")} (${list.length-newsN})</button></li>`:"")}
 function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(x.source)}</b></div>
-  <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(t(x.title_en||x.title,x.title))}</a></h3>${lang==="ko"&&x.summary?`<p>${esc(x.summary)}</p>`:(x.title_en&&lang==="en"?`<p>${esc(x.title)}</p>`:"")}
-  <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(g)).join("  ")}</div></div>
+  <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(tTitle(x))}</a></h3>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?140:240))}</p>`:""}
+  <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(tagName(g))).join("  ")}</div></div>
   ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(x.source||"")}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(x.source||"")}</span></a>`}
   <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
 function startSlider(){clearInterval(slideTimer);const sl=$("#slider");if(!sl)return;const D=6500;

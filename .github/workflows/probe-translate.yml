@@ -1,0 +1,8 @@
+name: Probe translate
+on: { workflow_dispatch: {} }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          node -e 'fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ko&dt=t&q="+encodeURIComponent("Prada unveils its new runway collection")).then(r=>r.json()).then(j=>{const t=j[0].map(x=>x[0]).join("");console.log(t);if(!/[가-힣]/.test(t))process.exit(1)}).catch(e=>{console.error(e);process.exit(1)})'
