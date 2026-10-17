@@ -101,12 +101,13 @@ async function main() {
     console.log(`${c.data.name}: ${items.length} items`);
   }
   await upsert(chUpdates);
-  // pictures: new stories without one, plus up to 40 recent stories saved before pictures were collected
-  const needImg = fresh.filter(r => !r.data.img);
-  await pool(needImg, 6, async r => { r.data.img = await ogImage(r.data.url); });
-  const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && r.data.img === undefined && now - (r.data.fetchedAt || 0) < 10 * 864e5).slice(0, 40);
+  // pictures: the article's own large main picture (og:image) first, the feed's small thumbnail only as a fallback.
+  // New stories get one now; older stories (last 14 days) that don't have the article picture yet are filled in, up to 300 per run.
+  const needImg = fresh;
+  await pool(needImg, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; });
+  const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && !r.data.imgSrc && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 300);
   const filled = [];
-  await pool(backfill, 6, async r => { const img = await ogImage(r.data.url); r.data.img = img; filled.push({ collection: "feed", id: r.id, data: r.data }); });
+  await pool(backfill, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; filled.push({ collection: "feed", id: r.id, data: r.data }); });
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));

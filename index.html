@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>VISUAL DEPT.</title>
-<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.webmanifest?v=3"><link rel="icon" href="icon-192.png?v=3"><link rel="apple-touch-icon" id="ati" href="apple-touch-icon.png?v=3">
+<script>if(/Mac/.test(navigator.platform)&&!navigator.maxTouchPoints)document.getElementById("ati").href="apple-touch-icon-mac.png?v=3"</script>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="VISUAL DEPT."><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <script src="config.js"></script>
@@ -436,6 +437,32 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 .gitem .ldel{position:absolute;right:4px;top:2px;border:0;background:none;color:var(--ink-3);font-size:14px;line-height:1;padding:2px 4px;display:none}
 .gitem:hover .ldel{display:block}
 .agrid .empty{column-span:all}
+
+/* v3 banner */
+.slide .bgi{inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);filter:blur(40px) saturate(1.05) brightness(.58);transform:none!important;transition:none;opacity:0}
+.slide.fitc .bgi{opacity:1}
+.slide .fgi{object-position:50% 30%}
+.slide.fitc .fgi{object-fit:cover;transform:none!important;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.slide::after{background:linear-gradient(180deg,rgba(0,0,0,0) 42%,rgba(0,0,0,.66) 100%)}
+.cap{max-width:640px;gap:10px}
+.cap h2{font-size:clamp(23px,2.5vw,38px);line-height:1.1;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-wrap:balance}
+.ko .cap h2{font-size:clamp(21px,2.1vw,32px);line-height:1.32}
+.cap p{font-size:13.5px;line-height:1.6;max-width:52ch;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.86}
+@media (max-width:600px){.slider{height:min(76vh,138vw);min-height:440px}.cap h2{font-size:22px}.ko .cap h2{font-size:20px}.cap p{font-size:13px}}
+/* v3 news thumbnails */
+.nrow .th{width:160px;aspect-ratio:3/2}
+.nrow .th.ph{display:grid;place-items:center;background:var(--soft);color:var(--ink-3);text-align:center;padding:10px;font-family:var(--f-mark);font-size:13px;letter-spacing:.04em;line-height:1.2;overflow:hidden}
+.nrow .th img{transition:transform .5s ease}.nrow .th:hover img{transform:scale(1.03)}
+@media (max-width:760px){.nrow{grid-template-columns:minmax(0,1fr) 108px}.nrow .th{width:108px}.nrow .th.ph{font-size:11px}}
+/* v3 members */
+#gateWait{width:min(380px,100%);display:grid;gap:10px;text-align:center}
+#gateWait .gw1{margin:8px 0 0;font-size:16px}#gateWait .gw2{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.6}#gateWait .gw3{margin:0;font-size:12px;color:var(--ink-3)}
+#gateWait .glinks{justify-content:center}
+.mrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.mrow b{display:block;font-weight:500;font-size:14px;word-break:break-all}.mrow small{color:var(--ink-3);font-size:12px}
+.mrow .ma{display:flex;gap:6px;flex-shrink:0}.mrow .btn{padding:6px 10px;font-size:12px}
+.mrow.add{border:0;padding-top:0}.mrow.add .inp{flex:1;min-width:0}
+.hbtn.dots{position:relative}.hbtn.badge::after{content:"";position:absolute;top:6px;right:0;width:7px;height:7px;border-radius:50%;background:var(--alert,#c8102e)}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -443,7 +470,7 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 <label class="vh" for="gatePw">Password</label><input class="inp" type="password" id="gatePw" autocomplete="current-password" minlength="6">
 <button class="btn" type="submit" id="gateIn"></button>
 <div class="glinks"><button type="button" id="gateUp"></button><button type="button" id="gateForgot"></button><button type="button" id="gateLang"></button></div>
-<p class="gerr" id="gateErr"></p><p class="gmsg" id="gateMsg"></p></form></div>
+<p class="gerr" id="gateErr"></p><p class="gmsg" id="gateMsg"></p></form><div id="gateWait" hidden></div></div>
 <div id="app" hidden>
 <div id="alert"></div>
 <header class="hd"><div class="in gut max">
@@ -719,14 +746,27 @@ function toggleSave(item){const k=item.id;if(saved[k]){const doc=saved[k]._doc||
 
 /* ================= DATA: issues & news ================= */
 const IMGATTR='referrerpolicy="no-referrer" decoding="async"';
+const slideFail=`onerror="const s=this.closest('.slide');s.classList.add('noimg');s.querySelectorAll('img').forEach(i=>i.remove())"`;
+const thumbFail=`onerror="const a=this.parentNode;a.classList.add('ph');const s=document.createElement('span');s.textContent=a.dataset.src||'';this.replaceWith(s)"`;
+function shortT(s,n){s=String(s||"").replace(/\s+/g," ").trim().replace(/\s+[|\-–—]\s+(Vogue|BoF|WWD|Hypebeast|Highsnobiety|Dazed|i-D|Fashionista|The Cut|ELLE|Harper's BAZAAR|GQ|Business of Fashion|FashionNetwork|Fashion Network)[^|]*$/i,"");if(s.length<=n)return s;let c=s.slice(0,n);const sp=c.lastIndexOf(" ");if(sp>n*.6)c=c.slice(0,sp);return c.replace(/[\s,.;:·–—-]+$/,"")+"…"}
+function fitSlide(im){const sl=im.closest(".slide");if(!sl||!im.naturalWidth)return;const box=sl.parentNode.getBoundingClientRect();const W=box.width||innerWidth,H=box.height||innerHeight*.7;
+  const ri=im.naturalWidth/im.naturalHeight,rs=W/H,d=Math.abs(Math.log(ri/rs));im.style.cssText="";
+  if(d<.24&&im.naturalWidth>=W*.5){sl.classList.remove("fitc");im.style.objectPosition=ri<rs?"50% 28%":"50% 50%";return}
+  sl.classList.add("fitc");let w=ri>rs?W:H*ri,h=ri>rs?W/ri:H;const tall=rs<1.05;
+  const pad=tall?0:Math.round(H*.07);if(!tall){const k=(H-2*pad)/h;if(k<1){w*=k;h*=k}}
+  const up=Math.min(1,(im.naturalWidth*1.6)/w);w*=up;h*=up;
+  let x=(W-w)/2,y=(H-h)/2;
+  if(tall){y=Math.max(Math.min((H-h)*.22,H*.16),0)}else if(ri<rs){x=Math.min(W-w-Math.max(W*.07,24),Math.max(W*.52,(W-w)/2));if(W<1000)x=(W-w)/2}
+  im.style.cssText=`inset:auto;left:${Math.round(x)}px;top:${Math.round(y)}px;width:${Math.round(w)}px;height:${Math.round(h)}px`}
+addEventListener("resize",()=>{clearTimeout(fitSlide.t);fitSlide.t=setTimeout(()=>document.querySelectorAll(".slide .fgi").forEach(fitSlide),150)});
 const imgFail=`onerror="this.closest('[data-img]')?.classList.add('noimg');this.remove()"`;
 
 let slideI=0,slideTimer=null,newsN=12,newsQ="";
 function home(){
   const s=SLIDES;if(!s.length)return `<section class="gut max"><div class="empty" style="padding-top:120px"><b>${t("News is on its way","뉴스를 모으는 중이에요")}</b>${t("Articles are collected every 2 hours. Check back soon.","기사는 2시간마다 자동으로 모여요. 잠시 후 다시 확인해 주세요.")}</div></section>`;
   return `<section class="slider" id="slider" aria-roledescription="carousel" aria-label="${t("Today's issues","오늘의 이슈")}">
-   ${s.map((x,i)=>`<div class="slide ${i===slideI?"on":""}" role="group" aria-label="${i+1} / ${s.length}" data-img><img src="${esc(x.img)}" alt="" ${IMGATTR} ${i>1?'loading="lazy"':""} ${imgFail}>
-     <div class="cap gut"><h2>${esc(t(x.title_en||x.title,x.title))}</h2>${x.summary?`<p>${esc(String(x.summary).slice(0,240))}${String(x.summary).length>240?"…":""}</p>`:""}
+   ${s.map((x,i)=>`<div class="slide ${i===slideI?"on":""}" role="group" aria-label="${i+1} / ${s.length}" data-img><img class="bgi" src="${esc(x.img)}" alt="" aria-hidden="true" ${IMGATTR} ${i>1?'loading="lazy"':""}><img class="fgi" src="${esc(x.img)}" alt="" ${IMGATTR} ${i>1?'loading="lazy"':""} onload="fitSlide(this)" ${slideFail}>
+     <div class="cap gut"><h2>${esc(shortT(t(x.title_en||x.title,x.title),lang==="ko"?42:78))}</h2>${x.summary?`<p>${esc(shortT(x.summary,lang==="ko"?90:150))}</p>`:""}
      <div class="acts"><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문 보기")} ${SV.arrow}</a><button class="save" data-save="s:${i}">${isSaved(x.id)?SV.bookf:SV.book}<span>${isSaved(x.id)?t("Saved","저장됨"):t("Save","저장")}</span></button></div></div></div>`).join("")}
    <div class="pager gut"><div class="nums">${s.map((_,i)=>`<button data-sl="${i}" class="${i===slideI?"on":""}" aria-label="${i+1}">${String(i+1).padStart(2,"0")}</button>`).join("")}</div><span class="sp"></span><button class="arr" data-sl="prev" aria-label="Previous">${SV.l}</button><button class="arr" data-sl="next" aria-label="Next">${SV.r}</button></div>
    <span class="prog" id="prog"></span></section>
@@ -737,10 +777,10 @@ function home(){
 function newsRows(){const q=newsQ.trim().toLowerCase();const list=NEWS.filter(x=>!q||[x.title,x.title_en,x.summary,x.source,(x.tags||[]).join(" ")].join(" ").toLowerCase().includes(q));
   if(!list.length)return `<li class="empty"><b>${t("No matching news","찾는 뉴스가 없어요")}</b>${t("Try another keyword.","다른 키워드로 찾아 보세요.")}</li>`;
   return list.slice(0,newsN).map(x=>newsRow(x)).join("")+(list.length>newsN?`<li><button class="more" data-more>${t("More","더 보기")} (${list.length-newsN})</button></li>`:"")}
-function newsRow(x){return `<li class="nrow ${x.img?"":"noimg"}"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(x.source)}</b></div>
+function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(x.source)}</b></div>
   <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(t(x.title_en||x.title,x.title))}</a></h3>${lang==="ko"&&x.summary?`<p>${esc(x.summary)}</p>`:(x.title_en&&lang==="en"?`<p>${esc(x.title)}</p>`:"")}
   <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(g)).join("  ")}</div></div>
-  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-img><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${imgFail}></a>`:`<span class="th none"></span>`}
+  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(x.source||"")}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(x.source||"")}</span></a>`}
   <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
 function startSlider(){clearInterval(slideTimer);const sl=$("#slider");if(!sl)return;const D=6500;
   const tick=()=>{const p=$("#prog");if(!p)return;p.style.transition="none";p.style.width="0";requestAnimationFrame(()=>{p.style.transition=`width ${D}ms linear`;p.style.width="100%"})};
@@ -1068,14 +1108,56 @@ function account(edit){const P=PREF.profile;const f=(k,l)=>`<div class="kv"><spa
    <div class="acts">${edit?`<button class="btn" id="meSave">${t("Save","저장")}</button>`:`<button class="btn ghost" id="meEdit">${t("Edit","수정")}</button>`}<button class="btn ghost" id="mePw">${t("Change password","비밀번호 변경")}</button></div>
    <div class="grp">${t("Backup","백업")}</div><p style="margin:6px 0 0;font-size:13px;color:var(--ink-2)">${t("Everything is saved to your account as you go. A backup is an extra copy as a file. Restoring only adds what is missing — nothing is overwritten.","모든 데이터는 계정에 계속 저장돼요. 백업은 파일로 남기는 추가 사본이에요. 복원은 빠진 항목만 되살리고 덮어쓰지 않아요.")}</p>
    <div class="acts"><button class="btn" id="bk">${t("Back up now","지금 백업")}</button><label class="btn ghost" for="rsf" style="cursor:pointer">${t("Restore from file","파일로 복원")}</label><input type="file" id="rsf" accept="application/json,.json" hidden></div>
+   ${accessSection()}
    <div class="grp">${t("App icon","앱 아이콘")}</div><div class="iconprev"><img src="icon-192.png" alt="VISUAL DEPT. icon"><small>${t("On iPhone: Share → Add to Home Screen.","아이폰: 공유 → 홈 화면에 추가")}</small></div>
    <div class="acts" style="margin-top:22px"><button class="btn ghost" id="so">${t("Sign out","로그아웃")}</button></div>`);
   $("#meEdit")&&($("#meEdit").onclick=()=>account(true));
   $("#meSave")&&($("#meSave").onclick=()=>{["name","brand"].forEach(k=>{PREF.profile[k]=$("#me-"+k).value.trim()});savePrefs();toast(t("Saved","저장했어요"));account(false)});
-  $("#bk").onclick=backupNow;$("#rsf").onchange=e=>{const f=e.target.files[0];if(f){closeSheet();restoreFrom(f)}};
+  bindAccess();$("#bk").onclick=backupNow;$("#rsf").onchange=e=>{const f=e.target.files[0];if(f){closeSheet();restoreFrom(f)}};
   $("#mePw").onclick=async()=>{const {error}=await SB.auth.resetPasswordForEmail(UEMAIL,{redirectTo:location.origin+location.pathname});toast(error?error.message:t("We emailed you a link to set a new password","새 비밀번호를 정하는 링크를 메일로 보냈어요"))};
   $("#so").onclick=async()=>{await SB.auth.signOut();location.reload()}}
 $("#acctBtn").onclick=()=>account(false);
+
+/* ================= ACCESS (sign-up approval) ================= */
+let ACC={setup:false,admin:false,pending:0};
+const ACCESS_SQL="-- VISUAL DEPT. · 가입 승인 기능\n-- Supabase 대시보드 → SQL Editor → New query → 전체 붙여넣고 Run. 여러 번 실행해도 안전합니다.\n-- 켜는 순간 이미 가입한 계정은 모두 '승인'으로 들어가고, 이후 새로 가입한 사람은 관리자가 승인해야 쓸 수 있어요.\n\n-- 1) 회원 명단\ncreate table if not exists public.members (\n  email text primary key,\n  user_id uuid references auth.users(id) on delete set null,\n  status text not null default 'pending' check (status in ('pending','approved','blocked')),\n  role text not null default 'member' check (role in ('member','admin')),\n  requested_at timestamptz not null default now(),\n  decided_at timestamptz\n);\nalter table public.members enable row level security;\n\n-- 처음 켤 때만: 이미 있는 계정은 모두 승인\ndo $$ begin\n  if not exists (select 1 from public.members) then\n    insert into public.members (email, user_id, status, decided_at)\n      select lower(email), id, 'approved', now() from auth.users where email is not null\n      on conflict (email) do nothing;\n  end if;\nend $$;\n\n-- 관리자 지정 (비워 두면 가장 먼저 가입한 계정)\nupdate public.members set role = 'admin', status = 'approved'\n  where email = lower(coalesce(nullif('__ADMIN__', ''), (select email from auth.users where email is not null order by created_at limit 1)));\n\n-- 2) 승인 여부 확인 함수\ncreate or replace function public.vd_ok() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved')\n$$;\ncreate or replace function public.vd_admin() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved' and role = 'admin')\n$$;\n\n-- 3) 새로 가입하면 자동으로 '승인 대기' (관리자가 미리 승인해 둔 이메일이면 바로 사용 가능)\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status) values (lower(new.email), new.id, 'pending')\n    on conflict (email) do update set user_id = excluded.user_id;\n  return new;\nend $$;\ndrop trigger if exists vd_new_user on auth.users;\ncreate trigger vd_new_user after insert on auth.users for each row execute function public.vd_new_user();\n\n-- 4) 명단 접근: 본인 줄은 본인이, 전체는 관리자만\ndrop policy if exists \"see self\" on public.members;\ncreate policy \"see self\" on public.members for select to authenticated\n  using (user_id = auth.uid() or (select public.vd_admin()));\ndrop policy if exists \"admin manage\" on public.members;\ncreate policy \"admin manage\" on public.members for all to authenticated\n  using ((select public.vd_admin())) with check ((select public.vd_admin()));\n\n-- 5) 승인된 사람만 데이터·이미지 사용\ndrop policy if exists \"own docs\" on public.docs;\ncreate policy \"own docs\" on public.docs for all to authenticated\n  using (owner = auth.uid() and (select public.vd_ok())) with check (owner = auth.uid() and (select public.vd_ok()));\ndrop policy if exists \"read shared\" on public.shared_docs;\ncreate policy \"read shared\" on public.shared_docs for select to authenticated using ((select public.vd_ok()));\ndrop policy if exists \"edit channels\" on public.shared_docs;\ncreate policy \"edit channels\" on public.shared_docs for all to authenticated\n  using (collection = 'channels' and (select public.vd_ok())) with check (collection = 'channels' and (select public.vd_ok()));\n\ndrop policy if exists \"own files read\" on storage.objects;\ncreate policy \"own files read\" on storage.objects for select to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files write\" on storage.objects;\ncreate policy \"own files write\" on storage.objects for insert to authenticated\n  with check (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files update\" on storage.objects;\ncreate policy \"own files update\" on storage.objects for update to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files delete\" on storage.objects;\ncreate policy \"own files delete\" on storage.objects for delete to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\n";
+async function checkAccess(){const r=await SB.from("members").select("email,status,role").eq("user_id",UID).maybeSingle();
+  if(r.error){const m=(r.error.message||"")+" "+(r.error.code||"");if(/members|42P01|PGRST205|PGRST202|schema cache|does not exist/i.test(m))return {setup:false};return {setup:false,err:r.error}}
+  return {setup:true,row:r.data}}
+async function countPending(){if(!ACC.admin)return;const r=await SB.from("members").select("email",{count:"exact",head:true}).eq("status","pending");ACC.pending=r.count||0;$("#acctBtn").classList.toggle("badge",ACC.pending>0)}
+function showWaiting(st){$("#app").hidden=true;$("#gate").hidden=false;$("#gateForm").hidden=true;const w=$("#gateWait");w.hidden=false;
+  const blocked=st==="blocked";
+  w.innerHTML=`<h1 class="mark gmark">VISUAL DEPT.</h1><p class="gw1">${blocked?t("This account doesn't have access.","이 계정은 사용 권한이 없어요."):t("Your request has been sent.","가입 신청이 접수됐어요.")}</p>
+   <p class="gw2">${blocked?t("Ask the owner if you think this is a mistake.","잘못된 것 같다면 관리자에게 문의해 주세요."):t("You can start as soon as the owner approves it. This page checks again on its own.","관리자가 승인하면 바로 사용할 수 있어요. 이 화면은 저절로 다시 확인해요.")}</p>
+   <p class="gw3">${esc(UEMAIL)}</p><div class="glinks"><button type="button" id="gwRe">${t("Check again","다시 확인")}</button><button type="button" id="gwOut">${t("Sign out","로그아웃")}</button><button type="button" id="gwLang">${lang==="en"?"한국어":"English"}</button></div>`;
+  const again=async()=>{const {data:{session}}=await SB.auth.getSession();if(!session)return location.reload();started=false;signedIn(session.user)};
+  $("#gwRe").onclick=again;$("#gwOut").onclick=async()=>{await SB.auth.signOut();location.reload()};$("#gwLang").onclick=()=>{lang=lang==="en"?"ko":"en";LS.set("lang",lang);applyLang();showWaiting(st)};
+  clearTimeout(showWaiting.t);if(!blocked)showWaiting.t=setTimeout(again,20000)}
+function membersSheet(){sheet(t("Members","회원 관리"),`<p class="tip" style="margin:0 0 12px">${t("New sign-ups wait here until you approve them. Add an email in advance and that person can start right after signing up.","새로 가입한 사람은 승인 전까지 여기서 기다려요. 이메일을 미리 추가해 두면 그 사람은 가입하자마자 바로 쓸 수 있어요.")}</p>
+   <form id="mAdd" class="mrow add"><label class="vh" for="mEmail">Email</label><input class="inp" id="mEmail" type="email" placeholder="${t("Email to approve","승인할 이메일")}" required><button class="btn">${t("Approve","승인 추가")}</button></form>
+   <div id="mList"><p class="tip">${t("Loading…","불러오는 중…")}</p></div>`);
+  $("#mAdd").onsubmit=async e=>{e.preventDefault();const em=$("#mEmail").value.trim().toLowerCase();if(!em)return;const {error}=await SB.from("members").upsert({email:em,status:"approved",decided_at:new Date().toISOString()},{onConflict:"email"});toast(error?error.message:t("Approved","승인했어요"));$("#mEmail").value="";loadMembers()};
+  loadMembers()}
+async function loadMembers(){const box=$("#mList");if(!box)return;const {data,error}=await SB.from("members").select("*").order("requested_at",{ascending:false});if(error){box.innerHTML=`<p class="tip">${esc(error.message)}</p>`;return}
+  const fmt=d=>d?new Date(d).toLocaleDateString(lang==="ko"?"ko-KR":"en-GB"):"";
+  const grp=(st,title,acts)=>{const L=data.filter(m=>m.status===st);return `<div class="grp">${title} <small>${L.length}</small></div>${L.length?L.map(m=>`<div class="mrow"><div><b>${esc(m.email)}</b><small>${m.role==="admin"?t("Owner","관리자")+" · ":""}${m.user_id?t("Signed up ","가입 ")+fmt(m.requested_at):t("Not signed up yet","아직 가입 전")}</small></div><div class="ma">${m.role==="admin"?"":acts(m)}</div></div>`).join(""):`<p class="tip" style="margin:6px 0 0">${st==="pending"?t("No requests waiting.","기다리는 신청이 없어요."):"—"}</p>`}`};
+  const b=(k,em,l,ghost)=>`<button class="btn ${ghost?"ghost":""}" data-m${k}="${esc(em)}">${l}</button>`;
+  box.innerHTML=grp("pending",t("Waiting for approval","승인 대기"),m=>b("ok",m.email,t("Approve","승인"))+b("no",m.email,t("Decline","거절"),1))
+    +grp("approved",t("Approved","승인됨"),m=>b("no",m.email,t("Remove access","권한 해제"),1))
+    +(data.some(m=>m.status==="blocked")?grp("blocked",t("Declined","거절됨"),m=>b("ok",m.email,t("Approve","승인"),1)+b("del",m.email,t("Delete","삭제"),1)):"");
+  box.onclick=async e=>{const x=e.target.closest("[data-mok],[data-mno],[data-mdel]");if(!x)return;const em=x.dataset.mok||x.dataset.mno||x.dataset.mdel;
+    if(x.dataset.mno!=null&&!confirm(t(`Remove access for ${em}?`,`${em} 의 사용 권한을 막을까요?`)))return;
+    if(x.dataset.mdel!=null&&!confirm(t(`Delete ${em} from the list?`,`${em} 을(를) 명단에서 지울까요?`)))return;
+    const q=x.dataset.mdel!=null?SB.from("members").delete().eq("email",em):SB.from("members").update({status:x.dataset.mok!=null?"approved":"blocked",decided_at:new Date().toISOString()}).eq("email",em);
+    const {error}=await q;if(error)toast(error.message);loadMembers();countPending()}}
+function accessSection(){
+  if(ACC.admin)return `<div class="grp">${t("Members","회원 관리")}</div><div class="kv"><span>${t("Sign-ups","가입")}</span><span>${t("Only people you approve can use the app","내가 승인한 사람만 사용 가능")}</span></div><div class="acts"><button class="btn" id="mOpen">${t("Manage members","회원 관리")}${ACC.pending?` · ${t("waiting","대기")} ${ACC.pending}`:""}</button></div>`;
+  if(ACC.setup)return "";
+  return `<div class="grp">${t("Sign-up approval","가입 승인")}</div><p style="margin:6px 0 0;font-size:13px;color:var(--ink-2)">${t("Right now anyone with the link can sign up. To allow only people you approve, copy the setup below, open Supabase → SQL Editor, paste it and press Run once. Accounts that already exist stay approved, and you become the owner.","지금은 링크만 있으면 누구나 가입할 수 있어요. 내가 승인한 사람만 쓰게 하려면 아래 설정을 복사해 Supabase → SQL Editor에 붙여넣고 Run을 한 번 눌러 주세요. 이미 있는 계정은 그대로 승인되고, 지금 이 계정이 관리자가 돼요.")}</p>
+   <div class="acts"><button class="btn" id="sqlCopy">${t("Copy setup","설정 복사")}</button><a class="btn ghost" id="sqlOpen" target="_blank" rel="noopener" href="${esc(sqlEditorUrl())}">${t("Open Supabase","Supabase 열기")}</a></div>`}
+function sqlEditorUrl(){try{const ref=new URL(CFG.supabaseUrl).hostname.split(".")[0];return `https://supabase.com/dashboard/project/${ref}/sql/new`}catch(_){return "https://supabase.com/dashboard"}}
+function bindAccess(){$("#mOpen")&&($("#mOpen").onclick=membersSheet);
+  $("#sqlCopy")&&($("#sqlCopy").onclick=async()=>{const sql=ACCESS_SQL.replace("__ADMIN__",String(UEMAIL).toLowerCase().replace(/'/g,"''"));try{await navigator.clipboard.writeText(sql);toast(t("Copied — paste it in the SQL Editor and press Run","복사했어요 · SQL Editor에 붙여넣고 Run을 눌러 주세요"))}catch(_){const ta=document.createElement("textarea");ta.value=sql;ta.className="inp";ta.style.cssText="width:100%;height:140px;margin-top:10px;font:12px monospace";$("#sqlCopy").closest(".acts").after(ta);ta.select();toast(t("Select all and copy","전체 선택 후 복사해 주세요"))}})}
 
 /* ================= DRAWER ================= */
 function openDrawer(){$("#drawer").classList.add("on");$("#drawer").setAttribute("aria-hidden","false");$("#scrim").classList.add("on")}
@@ -1148,7 +1230,12 @@ let started=false,recovering=false;
 const gMsg=(m,err)=>{$("#gateErr").textContent=err?m:"";$("#gateMsg").textContent=err?"":m};
 function gateText(){const L=(en,ko)=>t(en,ko);$("#gateEmail").placeholder=L("Email","이메일");$("#gatePw").placeholder=L("Password (6+ characters)","비밀번호 (6자 이상)");$("#gateIn").textContent=recovering?L("Save new password","새 비밀번호 저장"):L("Sign in","로그인");$("#gateUp").textContent=L("Create account","회원가입");$("#gateForgot").textContent=L("Forgot password","비밀번호 찾기");$("#gateLang").textContent=lang==="en"?"한국어":"English"}
 async function signedIn(u){if(started)return;started=true;UID=u.id;UEMAIL=u.email||"";UJOINED=u.created_at?new Date(u.created_at).toLocaleDateString(lang==="ko"?"ko-KR":"en-GB"):"";
-  $("#gate").hidden=true;$("#app").hidden=false;gMsg("");
+  gMsg("");
+  try{const a=await checkAccess();ACC={setup:a.setup,admin:!!(a.row&&a.row.role==="admin"&&a.row.status==="approved"),pending:0};
+    if(a.setup&&(!a.row||a.row.status!=="approved")){showWaiting(a.row?.status);return}}catch(e){console.error(e)}
+  clearTimeout(showWaiting.t);$("#gateWait").hidden=true;$("#gateForm").hidden=false;
+  $("#gate").hidden=true;$("#app").hidden=false;
+  countPending().then(()=>{if(ACC.pending)toast(t(`${ACC.pending} sign-up request(s) waiting`,`가입 요청 ${ACC.pending}건이 기다리고 있어요`))}).catch(()=>{});
   try{await loadAll()}catch(e){console.error(e);toast(t("Couldn't load your data — check your connection","데이터를 불러오지 못했어요 · 연결을 확인해 주세요"))}
   applyLang();render(false);handleQuickSave()}
 $("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#gateEmail").value.trim(),pw=$("#gatePw").value;
