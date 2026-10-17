@@ -1,4 +1,4 @@
-// ARCHIVE news collector — runs on GitHub Actions every 2 hours (free).
+// VISUAL DEPT. news collector — runs on GitHub Actions every 2 hours (free).
 // Reads the shared channel list, finds each site's RSS feed, saves new stories,
 // marks "bloomed" issues (same keyword in 3+ outlets this week) and refreshes
 // the monthly keyword board. No AI, no paid services.
@@ -21,7 +21,7 @@ const dedupe = rows => [...new Map(rows.map(r => [`${r.collection}|${r.id}`, r])
 const upsert = rows => (rows = dedupe(rows)).length ? rest("shared_docs?on_conflict=collection,id", { method: "POST", headers: { Prefer: "resolution=merge-duplicates,return=minimal" }, body: JSON.stringify(rows.map(r => ({ ...r, updated_at: new Date().toISOString() }))) }) : null;
 const del = (c, id) => rest(`shared_docs?collection=eq.${c}&id=eq.${encodeURIComponent(id)}`, { method: "DELETE" });
 
-const decode = s => String(s || "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&nbsp;/g, " ");
+const decode = s => String(s || "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16))).replace(/&nbsp;/g, " ");
 const strip = s => decode(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 const tag = (x, name) => { const m = x.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, "i")); return m ? m[1] : ""; };
 
@@ -49,9 +49,20 @@ function parse(xml) {
   return [...items, ...entries].map(x => {
     let link = strip(tag(x, "link")); if (!link) link = (x.match(/<link[^>]+href=["']([^"']+)["']/i) || [])[1] || "";
     const date = strip(tag(x, "pubDate") || tag(x, "published") || tag(x, "updated") || tag(x, "dc:date"));
-    return { title: strip(tag(x, "title")), link: decode(link).trim(), date: date ? Date.parse(date) : NaN, desc: strip(tag(x, "description") || tag(x, "summary") || tag(x, "content")).slice(0, 220) };
+    const raw = tag(x, "content:encoded") + tag(x, "description") + tag(x, "content");
+    const img = (x.match(/<media:content[^>]+url=["']([^"']+)["'][^>]*>/i) || x.match(/<media:thumbnail[^>]+url=["']([^"']+)["']/i) || x.match(/<enclosure[^>]+url=["']([^"']+\.(?:jpe?g|png|webp)[^"']*)["']/i) || decode(raw).match(/<img[^>]+src=["']([^"']+)["']/i) || [])[1] || "";
+    return { title: strip(tag(x, "title")), link: decode(link).trim(), date: date ? Date.parse(date) : NaN, desc: strip(tag(x, "description") || tag(x, "summary") || tag(x, "content")).slice(0, 420), img: decode(img).trim() };
   }).filter(i => i.title && /^https?:/.test(i.link));
 }
+
+// the article's own main picture (og:image), so the banner image always matches the story
+async function ogImage(url) {
+  const r = await get(url, 12000); if (!r) return "";
+  const h = r.text.slice(0, 400000);
+  const m = h.match(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["'][^>]*content=["']([^"']+)["']/i) || h.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["']/i);
+  if (!m) return ""; try { const u = new URL(decode(decode(m[1])).trim(), r.url).href; return /^https?:/.test(u) ? u : ""; } catch { return ""; }
+}
+async function pool(items, n, fn) { let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const it = items[i++]; try { await fn(it); } catch {} } })); }
 
 const KW = {
   "sheer": ["sheer", "organza", "transparent", "see-through", "chiffon", "시스루", "시어"],
@@ -85,11 +96,19 @@ async function main() {
     for (const i of items) {
       if (known.has(i.link)) continue; known.add(i.link);
       const text = `${i.title} ${i.desc}`;
-      fresh.push({ collection: "feed", id: hid(i.link), data: { title: i.title, title_en: i.title, summary: i.desc, url: i.link, source: c.data.name, channel: c.data.name, kind: RUNWAY.test(text) ? "runway" : "news", tags: tagsOf(text), heat: 1, publishedAt: isNaN(i.date) ? "" : new Date(i.date).toISOString(), fetchedAt: isNaN(i.date) ? now : Math.min(now, i.date) } });
+      fresh.push({ collection: "feed", id: hid(i.link), data: { title: i.title, title_en: i.title, summary: i.desc, img: /^https?:/.test(i.img) ? i.img : "", url: i.link, source: c.data.name, channel: c.data.name, kind: RUNWAY.test(text) ? "runway" : "news", tags: tagsOf(text), heat: 1, publishedAt: isNaN(i.date) ? "" : new Date(i.date).toISOString(), fetchedAt: isNaN(i.date) ? now : Math.min(now, i.date) } });
     }
     console.log(`${c.data.name}: ${items.length} items`);
   }
   await upsert(chUpdates);
+  // pictures: new stories without one, plus up to 40 recent stories saved before pictures were collected
+  const needImg = fresh.filter(r => !r.data.img);
+  await pool(needImg, 6, async r => { r.data.img = await ogImage(r.data.url); });
+  const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && r.data.img === undefined && now - (r.data.fetchedAt || 0) < 10 * 864e5).slice(0, 40);
+  const filled = [];
+  await pool(backfill, 6, async r => { const img = await ogImage(r.data.url); r.data.img = img; filled.push({ collection: "feed", id: r.id, data: r.data }); });
+  if (filled.length) await upsert(filled);
+  console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));
 
   // bloom detection: same keyword in 3+ outlets within 7 days
