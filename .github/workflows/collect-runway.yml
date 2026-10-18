@@ -24,6 +24,5 @@ jobs:
           cp -r status /tmp/st
           git config user.name "collector" && git config user.email "collector@users.noreply.github.com"
           git fetch -q origin collector-status || true
-          (git checkout -q -B collector-status origin/collector-status 2>/dev/null || git checkout -q --orphan collector-status)
-          git rm -rqf . 2>/dev/null || true; git clean -fdq
+          if git checkout -q -B collector-status origin/collector-status 2>/dev/null; then git clean -fdq; else git checkout -q --orphan collector-status; git rm -rqf . ; git clean -fdq; fi
           cp /tmp/st/* . ; git add -A ; git commit -qm "status" || exit 0 ; git push -q origin collector-status
