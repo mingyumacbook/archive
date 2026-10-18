@@ -25,13 +25,24 @@ async function get(url) {
   return { status: 0 };
 }
 const plain = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const ALIAS = { dior: ["christian-dior"], maisonmargiela: ["maison-martin-margiela", "maison-margiela"], therow: ["row", "the-row"], alaia: ["alaia", "azzedine-alaia"], ferragamo: ["ferragamo", "salvatore-ferragamo"], mcqueen: ["alexander-mcqueen", "mcqueen"], michaelkors: ["michael-kors-collection", "michael-kors"], burberry: ["burberry-prorsum", "burberry"], ungaro: ["emanuel-ungaro", "ungaro"], simkhai: ["jonathan-simkhai", "simkhai"], theattico: ["the-attico", "attico"], actn1: ["act-n1", "act-n-1"], mm6maisonmargiela: ["mm6-maison-margiela", "mm6-maison-martin-margiela"], agnesb: ["agnes-b"], ms: ["marks-spencer", "m-s"], akok: ["ak-ok"], afewrahulmishra: ["rahul-mishra", "afew-rahul-mishra"], pierrecardin: ["pierre-cardin"], stephenjonesmillinery: ["stephen-jones"] };
+let DIR = new Map();
+async function directory() { // Vogue's own list of designers: name -> slug
+  const r = await get("https://www.vogue.com/fashion-shows/designers"); if (r.status !== 200) return;
+  const re = /\\u002Ffashion-shows\\u002Fdesigner\\u002F([a-z0-9-]+)"[^}]{0,400}?"(?:hed|name|title)":"([^"]{2,80})"|"(?:hed|name|title)":"([^"]{2,80})"[^}]{0,400}?\\u002Ffashion-shows\\u002Fdesigner\\u002F([a-z0-9-]+)"/g;
+  let m; while ((m = re.exec(r.text))) { const slug = m[1] || m[4], name = m[2] || m[3]; const k = plain(name).replace(/[^a-z0-9]/g, ""); if (k && !DIR.has(k)) DIR.set(k, slug); }
+  for (const m2 of r.text.matchAll(/href="\/fashion-shows\/designer\/([a-z0-9-]+)"[^>]*>(?:<[^>]+>)*([^<]{2,80})</g)) { const k = plain(m2[2]).replace(/[^a-z0-9]/g, ""); if (k && !DIR.has(k)) DIR.set(k, m2[1]); }
+  console.log("vogue directory:", DIR.size, "designers");
+}
 function candidates(name, nf) {
+  const k0 = plain(name).replace(/[^a-z0-9]/g, "");
+  const extra = [DIR.get(k0), ...(ALIAS[k0] || [])].filter(Boolean);
   const p = plain(name).replace(/[°º]/g, "");
   const a = p.replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const b = p.replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const c = a.replace(/-(?=\d)/g, "").replace(/(?<=\d)-/g, "");
   const d = p.replace(/[^a-z0-9]+/g, "");
-  return [...new Set([a, b, c, d, nf].filter(Boolean))];
+  return [...new Set([...extra, a, b, c, d, nf].filter(Boolean))];
 }
 function parseSeasons(text, slug) {
   const out = []; const seen = new Set();
@@ -50,13 +61,14 @@ const order = s => (/^resort/.test(s) ? 1 : /^spring/.test(s) ? 2 : /^pre-fall/.
 
 async function main() {
   const brands = JSON.parse(fs.readFileSync(new URL("./runway-brands.json", import.meta.url)));
+  await directory();
   const keys = Object.keys(brands); const index = {}; const rows = []; let found = 0;
   let i = 0;
-  await Promise.all(Array.from({ length: 3 }, async () => {
+  await Promise.all(Array.from({ length: 2 }, async () => {
     while (i < keys.length) {
       const k = keys[i++]; const b = brands[k]; let hit = null;
       for (const slug of candidates(b.name, b.nf)) {
-        const r = await get(`https://www.vogue.com/fashion-shows/designer/${slug}`); await sleep(400);
+        const r = await get(`https://www.vogue.com/fashion-shows/designer/${slug}`); await sleep(700);
         if (r.status !== 200) continue;
         const seasons = parseSeasons(r.text, slug);
         if (seasons.length) { hit = { slug, seasons }; break; }
@@ -65,7 +77,7 @@ async function main() {
         hit.seasons.sort((x, y) => yearOf(y.s) - yearOf(x.s) || order(y.s) - order(x.s));
         found++; index[k] = hit.seasons.length;
         rows.push({ collection: "runwayhist", id: k, data: { name: b.name, vogue: hit.slug, seasons: hit.seasons, checkedAt: Date.now() } });
-      } else { index[k] = 0; rows.push({ collection: "runwayhist", id: k, data: { name: b.name, vogue: "", seasons: [], checkedAt: Date.now() } }); }
+      } else { index[k] = 0; } // not found this time: keep whatever was saved before
       if (rows.length >= 25) await upsert(rows.splice(0));
     }
   }));

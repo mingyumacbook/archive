@@ -464,11 +464,44 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 .mrow.add{border:0;padding-top:0}.mrow.add .inp{flex:1;min-width:0}
 .hbtn.dots{position:relative}.hbtn.badge::after{content:"";position:absolute;top:6px;right:0;width:7px;height:7px;border-radius:50%;background:var(--alert,#c8102e)}
 .hbtn.rf svg{width:17px;height:17px}.hbtn.rf.spin svg{animation:rfspin .8s linear infinite}@keyframes rfspin{to{transform:rotate(360deg)}}
+
+/* v4 login options */
+.gchk{display:flex;gap:18px;justify-content:flex-start;font-size:12.5px;color:var(--ink-2);margin:2px 0 4px}
+.gchk label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}.gchk input{width:15px;height:15px;accent-color:var(--ink);margin:0}
+/* v4 mobile banner: always full, darker bottom for text */
+@media (max-width:600px){.slide::after{background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.82) 100%)}.slide .bgi{display:none}}
+/* v4 season report */
+.repmeta{font-size:12px;color:var(--ink-3);margin:-6px 0 0;line-height:1.6}
+.kw button{border:0;background:none;padding:0;font-family:var(--f-mark);font-size:17px;line-height:1.2;color:var(--ink);cursor:pointer;text-align:left}
+.kw button:hover{text-decoration:underline;text-underline-offset:3px}
+.kw small{font-size:10.5px}
+.swl button{border:0;background:none;padding:0;text-align:left;cursor:pointer;color:inherit}
+.evb{cursor:pointer}button.bar{border:0;background:none;width:100%;padding:0;color:inherit;font:inherit;text-align:left}
+button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
+.evb.lk{border:0;background:none;padding:0;font:inherit;font-weight:600;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.dl em{font-style:normal;color:var(--ink-3);font-size:10.5px}
+.wgsn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;gap:28px;align-items:start;padding-block:26px;border-bottom:1px solid var(--line)}
+.wgsn .tip{margin:6px 0 0;font-size:12px}
+.wgl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.wgl i{display:block;aspect-ratio:1;border:1px solid var(--line)}.wgl b{display:block;font-size:12.5px;font-weight:500;margin-top:6px}.wgl small{font-size:10.5px;color:var(--ink-3)}
+@media (max-width:900px){.wgsn{grid-template-columns:1fr;gap:14px}.wgl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.evnums{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px;margin:4px 0 6px}
+.evnums div{border:1px solid var(--line);padding:10px}.evnums b{display:block;font-family:var(--f-mark);font-size:22px;font-weight:400}.evnums span{font-size:11px;color:var(--ink-3)}
+.evl{display:grid;gap:0}.evl div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}.evl b{font-weight:500;font-variant-numeric:tabular-nums}.evl small{color:var(--ink-3);font-weight:400}
+.evp{display:grid}.evp a{display:block;padding:9px 0;border-bottom:1px solid var(--line)}.evp b{display:block;font-weight:500;font-size:13.5px;line-height:1.4}.evp small{font-size:11.5px;color:var(--ink-3)}
+.evp a:hover b{text-decoration:underline;text-underline-offset:3px}
+.evhr{border:0;border-top:1px solid var(--ink);margin:24px 0}
+/* v4 runway history */
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px 10px;margin:12px 0}
+.hgrid a{display:block}.hgrid img,.hgrid span{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;background:var(--soft)}
+.hgrid b{display:block;font-size:11.5px;font-weight:500;margin-top:5px;line-height:1.35}
+.hgrid a:hover b{text-decoration:underline}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
 <label class="vh" for="gateEmail">Email</label><input class="inp" type="email" id="gateEmail" autocomplete="email" required>
 <label class="vh" for="gatePw">Password</label><input class="inp" type="password" id="gatePw" autocomplete="current-password" minlength="6">
+<div class="gchk"><label><input type="checkbox" id="gateAuto"> <span id="gateAutoL"></span></label><label><input type="checkbox" id="gateSave"> <span id="gateSaveL"></span></label></div>
 <button class="btn" type="submit" id="gateIn"></button>
 <div class="glinks"><button type="button" id="gateUp"></button><button type="button" id="gateForgot"></button><button type="button" id="gateLang"></button></div>
 <p class="gerr" id="gateErr"></p><p class="gmsg" id="gateMsg"></p></form><div id="gateWait" hidden></div></div>
@@ -494,7 +527,7 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 /* ===== Supabase adapter — gives the app the same data API it had inside Claude ===== */
 const CFG=window.ARCHIVE_CONFIG||{};
 const SB_URL=String(CFG.supabaseUrl||"").trim().replace(/\/(rest|auth|storage)\/v1\/?.*$/,"").replace(/\/+$/,"");
-const SB=window.supabase.createClient(SB_URL,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true}});
+const SB=window.supabase.createClient(SB_URL,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,storage:(()=>{const st=()=>{try{return localStorage.getItem("vdAuto")==="0"?sessionStorage:localStorage}catch(_){return null}};return {getItem:k=>{try{return st().getItem(k)}catch(_){return null}},setItem:(k,v)=>{try{st().setItem(k,v)}catch(_){}},removeItem:k=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(_){}}}})()}});
 const SHARED=new Set(["feed","trends","channels","meta","seasonstats","nfmap"]);
 let UID=null,UEMAIL="";
 const stores={};
@@ -754,7 +787,7 @@ function shortT(s,n){s=String(s||"").replace(/\s+/g," ").trim().replace(/\s+[|\-
 function fitSlide(im){const sl=im.closest(".slide");if(!sl||!im.naturalWidth)return;const box=sl.parentNode.getBoundingClientRect();const W=box.width||innerWidth,H=box.height||innerHeight*.7;
   const ri=im.naturalWidth/im.naturalHeight,rs=W/H,d=Math.abs(Math.log(ri/rs));im.style.cssText="";
   if(d<.24&&im.naturalWidth>=W*.5){sl.classList.remove("fitc");im.style.objectPosition=ri<rs?"50% 28%":"50% 50%";return}
-  sl.classList.add("fitc");let w=ri>rs?W:H*ri,h=ri>rs?W/ri:H;const tall=rs<1.05;
+  sl.classList.add("fitc");let w=ri>rs?W:H*ri,h=ri>rs?W/ri:H;const tall=rs<1.05;if(tall){sl.classList.remove("fitc");im.style.objectPosition=ri>rs?"50% 50%":"50% 22%";return}
   const pad=tall?0:Math.round(H*.07);if(!tall){const k=(H-2*pad)/h;if(k<1){w*=k;h*=k}}
   const up=Math.min(1,(im.naturalWidth*1.6)/w);w*=up;h*=up;
   let x=(W-w)/2,y=(H-h)/2;
@@ -858,7 +891,7 @@ function drawBrand(b){
      ${!cols.length&&!noPhotos.length?`<div class="empty"><b>${t("No shows for this filter","이 조건의 쇼가 없어요")}</b></div>`:""}</div>
     <button class="btn sm ghost" data-cdedit="${esc(b.key)}" style="justify-self:start">${t("Edit designer name","디렉터 이름 수정")}</button>
     <span class="okmark"><i></i>${t("Links come from NOWFASHION's own schedule and brand pages · each opens straight to the look gallery","NOWFASHION 공식 일정·브랜드 페이지에 걸린 링크만 써요 · 누르면 바로 룩 사진이 열려요")}</span></div>`;
-  $("#drawer")._brand=b;
+  $("#drawer")._brand=b;const rh=document.createElement("div");rh.id="rhist";$("#drawer .db").appendChild(rh);loadHist(b);
 }
 let rdSeason="SS27",rdG="women";
 function rdataView(){
@@ -1233,10 +1266,96 @@ document.addEventListener("click",e=>{
   const dd=e.target.closest("[data-deldes]");if(dd){{const id=dd.dataset.deldes;if((PREF.addedDes||[]).some(x=>x.id===id))PREF.addedDes=PREF.addedDes.filter(x=>x.id!==id);else PREF.removedDes=[...(PREF.removedDes||[]),id];savePrefs();DES=DES.filter(x=>x.id!==id)}closeDrawer();render(false);toast(t("Removed","삭제했어요"));return}
 });
 
+/* ================= SEASON REPORT v4 (official data, refreshed daily) ================= */
+let REP=null,REPLOAD=null,REPERR="";
+async function loadReport(force){if(REP&&!force)return REP;if(REPLOAD&&!force)return REPLOAD;
+  REPLOAD=(async()=>{try{const {data,error}=await SB.from("shared_docs").select("id,data,updated_at").eq("collection","seasonreport");if(error)throw error;
+      const o={seasons:{},wgsn:null,meta:null};(data||[]).forEach(r=>{if(r.id==="wgsn")o.wgsn=r.data;else if(r.id==="_meta")o.meta={...r.data,updated_at:r.updated_at};else{const [s,g]=r.id.split("-");(o.seasons[s]??={})[g]=r.data}});
+      REP=o;REPERR="";if(!o.meta)REPERR="empty"}catch(e){REPERR=e.message||"error";REP=REP||{seasons:{},wgsn:null,meta:null}}REPLOAD=null;return REP})();return REPLOAD}
+const repName=n=>t(n,DATA.ko[n]||DATA.ko[String(n).replace(/s$/,"")]||n);
+const fmtDay=ms=>ms?new Date(ms).toLocaleDateString(lang==="ko"?"ko-KR":"en-GB",{year:"numeric",month:"short",day:"numeric"}):"";
+function chg(v,base){if(v==="new")return `<span class="dl">${t("new","신규")}</span>`;if(v==null)return "";const s=v>0?"+":v<0?"−":"±";return `<span class="dl ${v>0?"pos":v<0?"neg":""}">${s}${Math.abs(v).toFixed(1)}%p${base?` <em>${t("vs "+base,base+" 대비")}</em>`:""}</span>`}
+function coloroHex(code){const m=String(code).match(/(\d{3})-(\d{2})-(\d{2})/);if(!m)return "#ccc";const L=+m[2],C=+m[3],h=((+m[1]-1)*2.25+18)*Math.PI/180;
+  const a=C*Math.cos(h),b=C*Math.sin(h);const fy=(L+16)/116,fx=fy+a/500,fz=fy-b/200;const f=v=>v**3>0.008856?v**3:(v-16/116)/7.787;
+  const X=0.95047*f(fx),Y=1*f(fy),Z=1.08883*f(fz);let r=3.2406*X-1.5372*Y-0.4986*Z,g=-0.9689*X+1.8758*Y+0.0415*Z,bb=0.0557*X-0.2040*Y+1.0570*Z;
+  const c=v=>{v=v>0.0031308?1.055*v**(1/2.4)-0.055:12.92*v;return Math.round(Math.min(1,Math.max(0,v))*255).toString(16).padStart(2,"0")};return "#"+c(r)+c(g)+c(bb)}
+function rdataView(){
+  if(!REP){loadReport().then(()=>{if(route==="rdata")render(false)});return `<div class="gut max"><div class="empty" style="padding-top:120px"><b>${t("Loading the season report…","시즌 리포트를 불러오는 중…")}</b></div></div>`}
+  const SS=Object.keys(REP.seasons).sort((a,b)=>(+b.slice(2)-+a.slice(2))||(b<a?-1:1));
+  if(!SS.length)return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div><button class="btn ghost" id="repRef">${SV.refresh||""}${t("Refresh","새로고침")}</button></div><div class="empty"><b>${t("The report hasn't been collected yet","아직 리포트를 받지 못했어요")}</b>${t("It is collected every morning. Try Refresh in a little while.","매일 아침 자동으로 모아요. 잠시 후 새로고침해 보세요.")}</div></div>`;
+  if(!REP.seasons[rdSeason])rdSeason=SS[0];
+  const cur=REP.seasons[rdSeason],both=rdG==="both",W=cur.women,M=cur.men,D=both?null:cur[rdG];
+  const base=(D||W||M||{}).prevLabel||"";
+  const meta=REP.meta||{};
+  const row=(x,sw,cat)=>`<button class="bar evb" data-ev="${esc(cat)}|${esc(x.name)}"><span class="nm">${sw?`<i style="background:${DATA.hex[x.name]||"#ccc"}"></i>`:""}${esc(repName(x.name))}</span><span class="tr"><span style="width:${x._w}%"></span></span><b>${x.share}%${chg(x.change,base)}</b></button>`;
+  const bars=(cat,sw)=>{let L;
+    if(both){const Wl=(W&&W[cat])||[],Ml=(M&&M[cat])||[];L=Wl.filter(x=>Ml.some(y=>y.name===x.name)).map(x=>{const m=Ml.find(y=>y.name===x.name);return {...x,share:Math.round((x.share+m.share)/2*10)/10,_w:0,_wm:m}});
+      if(!L.length)return `<p class="tip">${t("No item appears in both the women's and men's published lists.","여성복·남성복 공개 목록에 함께 나온 항목이 없어요.")}</p>`;const mx=Math.max(...L.map(x=>x.share));
+      return `<div class="bars">${L.sort((a,b)=>b.share-a.share).map(x=>`<button class="bar evb" data-ev="${esc(cat)}|${esc(x.name)}"><span class="nm">${sw?`<i style="background:${DATA.hex[x.name]||"#ccc"}"></i>`:""}${esc(repName(x.name))}</span><span class="tr"><span style="width:${x.share/mx*100}%"></span></span><b>${x.share}%<small>${t("W","여")} ${x.share===x._wm.share?"":""}${(W[cat].find(y=>y.name===x.name)||{}).share}% · ${t("M","남")} ${x._wm.share}%</small></b></button>`).join("")}</div>`}
+    L=(D&&D[cat])||[];if(!L.length)return `<p class="tip">${t("Not published for this season.","이번 시즌은 공개된 수치가 없어요.")}</p>`;const mx=Math.max(...L.map(x=>x.share||0));
+    return `<div class="bars">${L.map(x=>row({...x,_w:(x.share||0)/mx*100},sw,cat)).join("")}</div>`};
+  const wg=(REP.wgsn&&REP.wgsn.seasons&&REP.wgsn.seasons[rdSeason])||null;
+  const kw=both?null:D;
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div>
+   <div class="tools"><span class="seg">${SS.map(s=>`<button data-rd="${s}" class="${s===rdSeason?"on":""}">${s}</button>`).join("")}</span>
+   <span class="seg">${[["women","Women","여성"],["men","Men","남성"],["both","Unisex","유니섹스"]].map(([k,en,ko2])=>`<button data-rg="${k}" class="${rdG===k?"on":""}">${t(en,ko2)}</button>`).join("")}</span>
+   <button class="btn ghost sm" id="repRef">${t("Refresh","새로고침")}</button></div></div>
+   <p class="repmeta">${t("Updated","업데이트")} ${esc(fmtDay(meta.updatedAt))} · ${t("T-Fashion data as of","T-Fashion 데이터 기준일")} ${esc((D||W||M||{}).refreshed||"—")}${D&&D.looks?` · ${t(`${D.looks.toLocaleString()} looks from ${D.designersTotal||"—"} designers, measured`,`${D.designersTotal||"—"}개 브랜드 ${D.looks.toLocaleString()}룩 실측`)}`:""}${base?` · ${t(`Changes are against ${base} (same season a year earlier), in percentage points`,`증감은 1년 전 같은 시즌(${base}) 대비 %p`)}`:""}</p>
+   ${!both?`<section class="rep-hero"><div><span class="lbl">${t("Key themes","메인 키워드")}</span><div class="kw">${(kw.themes||[]).length?kw.themes.map(x=>`<button class="evb" data-ev="themes|${esc(x.name)}">${esc(repName(x.name))}<small>${x.share}%</small></button>`).join(""):`<p class="tip">${t("Not published for this season.","이번 시즌은 공개된 수치가 없어요.")}</p>`}</div></div>
+     <div><span class="lbl">${t("Runway colours · measured","런웨이 컬러 · 실측")}</span><div class="swl">${(kw.colors||[]).slice(0,6).map(c=>`<button class="evb" data-ev="colors|${esc(c.name)}"><i style="background:${DATA.hex[c.name]||"#ccc"}"></i><b>${esc(repName(c.name))}</b><small>${c.share}%</small></button>`).join("")}</div></div>
+     <div class="rf"><div><span class="lbl">${t("Rising","상승")}</span>${(kw.rising||[]).map(x=>`<p><button class="evb lk" data-ev="rising|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl pos">${x.prev}% → ${x.share}%</span></p>`).join("")}</div><div><span class="lbl">${t("Fading","하락")}</span>${(kw.fading||[]).map(x=>`<p><button class="evb lk" data-ev="fading|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl neg">${x.prev}% → ${x.share}%</span></p>`).join("")}</div></div></section>`
+    :`<p class="legend">${t("Items that appear in both the women's and men's published lists. The big figure is the average of the two official shares; each share is shown under it.","여성복·남성복 공개 목록에 함께 나온 항목이에요. 큰 숫자는 두 공식 비중의 평균이고, 아래에 여성·남성 비중을 그대로 적었어요.")}</p>`}
+   ${wg?`<section class="wgsn"><div><span class="lbl">${t(`WGSN × Coloro key colours · ${rdSeason}`,`WGSN × Coloro 키 컬러 · ${rdSeason}`)}</span><p class="tip">${t("Announced by WGSN as the season's key colours (an official announcement, not a runway count). On-screen colour is approximate — use the Coloro code.","WGSN이 이 시즌의 키 컬러로 공식 발표한 색이에요(런웨이 집계가 아닌 발표 자료). 화면 색은 근사치라 정확한 색은 Coloro 코드로 확인하세요.")}</p></div>
+     <div class="wgl">${wg.map(c=>`<div><i style="background:${coloroHex(c.code)}"></i><b>${esc(c.name)}</b><small>Coloro ${esc(c.code)}${c.coty?` · ${t("Colour of the Year","올해의 컬러")} ${esc(c.coty)}`:""}</small></div>`).join("")}</div>
+     <a class="ext" href="${esc(REP.wgsn.src)}" target="_blank" rel="noopener">Coloro ${SV.arrow}</a></section>`:""}
+   <div class="repgrid">
+    <section><h2>${t("Colour","컬러")}</h2>${bars("colors",true)}</section>
+    <section><h2>${t("Pattern","패턴")}</h2>${bars("patterns")}</section>
+    <section><h2>${t("Fabric","소재")}</h2>${bars("fabrics")}</section>
+    <section><h2>${t("Key items","핵심 아이템")}</h2>${bars("items")}</section>
+    ${!both&&D&&D.garments&&D.garments.length?`<section><h2>${t("Garment","아이템 카테고리")}</h2><div class="bars">${(()=>{const mx=Math.max(...D.garments.map(x=>x.share));return D.garments.map(x=>`<div class="bar"><span class="nm">${esc(repName(x.name))}</span><span class="tr"><span style="width:${x.share/mx*100}%"></span></span><b>${x.share}%</b></div>`).join("")})()}</div></section>`:""}
+    ${both?`<section><h2>${t("Key themes","메인 키워드")}</h2>${bars("themes")}</section>`:""}
+   </div>
+   <p class="srcl">${t("Tap any item to see why it ranks there: looks and brands counted, top brands by number of looks, share by fashion week, and the press articles that named it. All figures are copied from T-Fashion's public Runway Index pages (share of all looks in the season). Its free pages publish only the top items, so some lists are short. Nothing here is estimated.","항목을 누르면 왜 그 순위인지 근거를 볼 수 있어요: 집계된 룩·브랜드 수, 룩 수가 많은 브랜드, 패션위크별 비중, 그 항목을 다룬 언론 기사. 모든 수치는 T-Fashion 런웨이 인덱스 공개 페이지(시즌 전체 룩 중 비중)를 그대로 옮긴 것이고, 추정한 값은 없어요. 무료 페이지는 상위 항목만 공개해서 일부 목록이 짧아요.")} · ${t("Source","출처")} ${[W,M].filter(Boolean).map(x=>`<a href="${esc(x.src)}" target="_blank" rel="noopener">T-Fashion ${x.gender==="men"?t("Menswear","남성복"):t("Womenswear","여성복")}</a>`).join(", ")}</p></div>`;
+}
+function findTrend(cat,name){const cur=REP.seasons[rdSeason]||{};const gs=rdG==="both"?["women","men"]:[rdG];const hits=[];
+  gs.forEach(g=>{const D=cur[g];if(!D)return;const L=[...(D[cat]||[]),...(D.rising||[]),...(D.fading||[]),...["colors","patterns","fabrics","themes","items"].flatMap(k=>D[k]||[])];const x=L.find(y=>y.name===name&&y.ev)||L.find(y=>y.name===name);if(x)hits.push({g,x,D})});return hits}
+function evidence(cat,name){const hits=findTrend(cat,name);if(!hits.length)return;
+  const sec=(title,body)=>body?`<div class="grp">${title}</div>${body}`:"";
+  const one=({g,x,D})=>{const e=x.ev||{};const base=D.prevLabel||"";
+    return `${rdG==="both"?`<div class="grp" style="font-size:13px">${g==="men"?t("Menswear","남성복"):t("Womenswear","여성복")}</div>`:""}
+     <div class="evnums"><div><b>${x.share}%</b><span>${t("of all looks","전체 룩 중 비중")}</span></div>${x.prev!=null?`<div><b>${x.prev}%</b><span>${esc(base||t("year before","1년 전"))}</span></div>`:""}${x.change!=null?`<div><b>${x.change==="new"?t("new","신규"):(x.change>0?"+":"")+x.change+"%p"}</b><span>${t("change","증감")}${base?` · ${t("vs "+base,base+" 대비")}`:""}</span></div>`:""}${x.looks?`<div><b>${x.looks.toLocaleString()}</b><span>${t("looks","룩")}</span></div>`:""}${x.designers?`<div><b>${x.designers}</b><span>${t("brands","브랜드")}</span></div>`:""}</div>
+     ${sec(t("Brands using it most (looks)","가장 많이 쓴 브랜드 (룩 수)"),(e.designers||[]).length?`<div class="evl">${e.designers.map(d=>`<div><span>${esc(d.name)}</span><b>${d.looks}</b></div>`).join("")}${e.moreDesigners?`<p class="tip">${t(`+ ${e.moreDesigners} more brands (full list is in T-Fashion's paid service)`,`그 외 ${e.moreDesigners}개 브랜드 (전체 목록은 T-Fashion 유료 서비스)`)}</p>`:""}</div>`:"")}
+     ${sec(t("By fashion week","패션위크별 비중"),(e.cities||[]).length?`<div class="evl">${e.cities.map(c=>`<div><span>${esc(t(c.city,CITY_KO[c.city]||c.city))}</span><b>${c.share}%${c.looks?` <small>${c.looks}${t(" looks","룩")}</small>`:""}</b></div>`).join("")}</div>`:"")}
+     ${sec(t("Worn with","함께 쓰인 요소"),(e.wornWith||[]).length?`<div class="evl">${e.wornWith.map(c=>`<div><span>${esc(repName(c.name))}</span><b>${c.share}%</b></div>`).join("")}</div>`:"")}
+     ${sec(t("In the press","언론 보도 (근거 기사)"),(e.press||[]).length?`${e.pressNote?`<p class="tip">${esc(e.pressNote)}</p>`:""}<div class="evp">${e.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><b>${esc(p.title)}</b><small>${esc(p.outlet)}${p.date?` · ${esc(p.date)}`:""}</small></a>`).join("")}</div>`:"")}
+     ${!x.ev?`<p class="tip">${t("No detail page was published for this item.","이 항목은 공개된 상세 자료가 없어요.")}</p>`:""}
+     ${x.url?`<a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Source: T-Fashion","출처: T-Fashion")} ${SV.arrow}</a>`:""}`};
+  sheet(`${repName(name)} · ${rdSeason}`,hits.map(one).join(`<hr class="evhr">`))}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-ev]");if(b&&route==="rdata"){const i=b.dataset.ev.indexOf("|");evidence(b.dataset.ev.slice(0,i),b.dataset.ev.slice(i+1));return}
+  if(e.target.closest("#repRef")){const btn=e.target.closest("#repRef");btn.disabled=true;btn.textContent=t("Refreshing…","새로고침 중…");loadReport(true).then(()=>{render(false);toast(REPERR?t("Couldn't refresh","새로고침하지 못했어요"):t("Season report is up to date","최신 시즌 리포트예요"))})}});
+
+/* ================= RUNWAY HISTORY (all past collections, Vogue Runway) ================= */
+const HIST={};let histF="all";
+async function loadHist(b){const box=$("#rhist");if(!box)return;
+  if(!HIST[b.key]){box.innerHTML=`<p class="tip">${t("Loading every past collection…","지난 컬렉션 전체를 불러오는 중…")}</p>`;
+    try{const {data}=await SB.from("shared_docs").select("data").eq("collection","runwayhist").eq("id",b.key).maybeSingle();HIST[b.key]=data?data.data:{seasons:[]}}catch(_){HIST[b.key]={seasons:[]}}}
+  drawHist(b)}
+function drawHist(b){const box=$("#rhist");if(!box||$("#drawer")._brand!==b)return;const h=HIST[b.key]||{seasons:[]};
+  const kind=s=>/menswear/.test(s)?"men":/couture/.test(s)?"couture":/resort|pre-fall/.test(s)?"pre":"rtw";
+  const L=h.seasons.filter(x=>histF==="all"||kind(x.s)===histF);const kinds=[["all","All","전체"],["rtw","Ready-to-wear","레디투웨어"],["men","Menswear","남성복"],["couture","Couture","쿠튀르"],["pre","Resort · Pre-fall","리조트 · 프리폴"]].filter(([k])=>k==="all"||h.seasons.some(x=>kind(x.s)===k));
+  const tr=s=>lang==="ko"?s.replace(/^Spring/,"봄·여름").replace(/^Fall/,"가을·겨울").replace(/^Resort/,"리조트").replace(/^Pre-Fall/,"프리폴").replace(/Ready-to-Wear/,"레디투웨어").replace(/Menswear/,"남성복").replace(/Couture/,"쿠튀르"):s;
+  box.innerHTML=`<div class="grp" style="margin-top:26px">${t("Every collection so far","지금까지의 모든 컬렉션")} ${h.seasons.length?`<small>${h.seasons.length}</small>`:""}</div>
+   ${h.seasons.length?`<div class="chipline">${kinds.map(([k,en,ko])=>`<button class="chip ${histF===k?"on":""}" data-hf="${k}">${t(en,ko)}</button>`).join("")}</div>
+   <div class="hgrid">${L.map(x=>`<a href="https://www.vogue.com/fashion-shows/${esc(x.s)}/${esc(h.vogue)}" target="_blank" rel="noopener">${x.img?`<img src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"<span></span>"}<b>${esc(tr(x.t))}</b></a>`).join("")}</div>
+   <span class="okmark"><i></i>${t("From the brand's Vogue Runway page · each opens the full look gallery","브랜드의 Vogue Runway 페이지 기준 · 누르면 전체 룩 사진이 열려요")}</span>`
+   :`<p class="tip">${t("Vogue Runway has no page for this brand yet.","Vogue Runway에 아직 이 브랜드 페이지가 없어요.")} <a class="ext" href="https://www.vogue.com/search?q=${encodeURIComponent(b.name)}" target="_blank" rel="noopener">${t("Search Vogue","Vogue에서 찾기")} ${SV.arrow}</a></p>`}`}
+document.addEventListener("click",e=>{const f=e.target.closest("[data-hf]");if(f){histF=f.dataset.hf;const b=$("#drawer")._brand;if(b)drawHist(b)}});
+
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;
 const gMsg=(m,err)=>{$("#gateErr").textContent=err?m:"";$("#gateMsg").textContent=err?"":m};
-function gateText(){const L=(en,ko)=>t(en,ko);$("#gateEmail").placeholder=L("Email","이메일");$("#gatePw").placeholder=L("Password (6+ characters)","비밀번호 (6자 이상)");$("#gateIn").textContent=recovering?L("Save new password","새 비밀번호 저장"):L("Sign in","로그인");$("#gateUp").textContent=L("Create account","회원가입");$("#gateForgot").textContent=L("Forgot password","비밀번호 찾기");$("#gateLang").textContent=lang==="en"?"한국어":"English"}
+function gateText(){const L=(en,ko)=>t(en,ko);$("#gateEmail").placeholder=L("Email","이메일");$("#gatePw").placeholder=L("Password (6+ characters)","비밀번호 (6자 이상)");$("#gateIn").textContent=recovering?L("Save new password","새 비밀번호 저장"):L("Sign in","로그인");$("#gateUp").textContent=L("Create account","회원가입");$("#gateForgot").textContent=L("Forgot password","비밀번호 찾기");$("#gateLang").textContent=lang==="en"?"한국어":"English";$("#gateAutoL").textContent=L("Stay signed in","자동 로그인");$("#gateSaveL").textContent=L("Remember email","아이디 저장")}
 async function signedIn(u){if(started)return;started=true;UID=u.id;UEMAIL=u.email||"";UJOINED=u.created_at?new Date(u.created_at).toLocaleDateString(lang==="ko"?"ko-KR":"en-GB"):"";
   gMsg("");
   try{const a=await checkAccess();ACC={setup:a.setup,admin:!!(a.row&&a.row.role==="admin"&&a.row.status==="approved"),pending:0};
@@ -1248,6 +1367,7 @@ async function signedIn(u){if(started)return;started=true;UID=u.id;UEMAIL=u.emai
   applyLang();render(false);try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
 $("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#gateEmail").value.trim(),pw=$("#gatePw").value;
   if(recovering){const {data,error}=await SB.auth.updateUser({password:pw});if(error)return gMsg(error.message,1);recovering=false;gMsg(t("Password changed","비밀번호를 바꿨어요"));if(data?.user)signedIn(data.user);return}
+  try{localStorage.setItem("vdAuto",$("#gateAuto").checked?"1":"0");if($("#gateSave").checked)localStorage.setItem("vdEmail",email);else localStorage.removeItem("vdEmail")}catch(_){}
   gMsg(t("Signing in…","로그인 중…"));const {data,error}=await SB.auth.signInWithPassword({email,password:pw});
   if(error)return gMsg(/confirm/i.test(error.message)?t("Open the link in the confirmation email first.","가입 확인 메일의 링크를 먼저 눌러주세요."):t("Email or password is not correct.","이메일 또는 비밀번호가 맞지 않아요."),1);
   signedIn(data.user)});
@@ -1260,8 +1380,8 @@ $("#gateLang").onclick=()=>{lang=lang==="en"?"ko":"en";LS.set("lang",lang);apply
 SB.auth.onAuthStateChange((ev,session)=>{
   if(ev==="PASSWORD_RECOVERY"){recovering=true;$("#gate").hidden=false;$("#app").hidden=true;$("#gateEmail").value=session?.user?.email||"";$("#gatePw").autocomplete="new-password";gateText();gMsg(t("Enter a new password.","새 비밀번호를 입력하세요."));return}
   if(session&&!started&&!recovering)signedIn(session.user)});
-(async()=>{applyLang();gateText();if(!CFG.supabaseUrl||/YOUR_/.test(CFG.supabaseUrl)){gMsg("config.js — Supabase URL / key missing",1);return}
-  const {data:{session}}=await SB.auth.getSession();if(session&&!recovering)signedIn(session.user);else setTimeout(()=>$("#gateEmail")?.focus(),50)})();
+(async()=>{applyLang();gateText();try{const em=localStorage.getItem("vdEmail");$("#gateSave").checked=!!em;if(em)$("#gateEmail").value=em;$("#gateAuto").checked=localStorage.getItem("vdAuto")!=="0"}catch(_){$("#gateAuto").checked=true}if(!CFG.supabaseUrl||/YOUR_/.test(CFG.supabaseUrl)){gMsg("config.js — Supabase URL / key missing",1);return}
+  const {data:{session}}=await SB.auth.getSession();if(session&&!recovering)signedIn(session.user);else setTimeout(()=>($("#gateEmail").value?$("#gatePw"):$("#gateEmail"))?.focus(),50)})();
 
 </script>
 
