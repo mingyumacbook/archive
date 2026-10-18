@@ -742,8 +742,8 @@ const fmtMD=s=>{const d=new Date(s);return isNaN(d)?"":`${String(d.getMonth()+1)
 /* ================= MENU ================= */
 const MENU=[
  {id:"home",en:"News",ko:"뉴스",subs:[["home","Today's issues","오늘의 이슈"],["saved","Saved","저장함"]]},
- {id:"runway",en:"Runway",ko:"런웨이",subs:[["runway","Brands","브랜드"],["rdata","Season Report","시즌 리포트"],["calendar","Calendar","캘린더"]]},
- {id:"designers",en:"Korean Designers",ko:"국내 디자이너",subs:[["designers","A – Z","A – Z"]]},
+ {id:"runway",en:"Collections",ko:"컬렉션",subs:[["runway","Brands","브랜드"],["rdata","Season Report","시즌 리포트"],["calendar","Calendar","캘린더"]]},
+ {id:"designers",en:"Designers",ko:"디자이너",subs:[["designers","Korean labels A – Z","국내 브랜드 A – Z"]]},
  {id:"archive",en:"Archive",ko:"아카이브",subs:[["archive","Images & folders","이미지 · 폴더"],["sites","Reference sites","레퍼런스 사이트"]]}
 ];
 function renderMenu(){$("#mgrid").innerHTML=MENU.map((m,i)=>`<section><span class="n">${String(i+1).padStart(2,"0")}</span><h3><a href="#${m.id}" data-go="${m.id}">${t(m.en,m.ko)}</a></h3><ul>${m.subs.map(([r,en,ko])=>`<li><a href="#${r}" data-go="${r}">${t(en,ko)}</a></li>`).join("")}</ul></section>`).join("")}
@@ -884,7 +884,7 @@ function runwayView(){
   let list=RUNWAY.filter(b=>(!rwLetter||first(b)===rwLetter)&&(!rwQ||b.name.toLowerCase().includes(rwQ.toLowerCase()))&&(rwCity==="all"||b.shows.some(s=>s.city===rwCity)));
   const groups={};list.forEach(b=>{(groups[first(b)]??=[]).push(b)});
   const cities=["Paris","Milan","London","New York"];
-  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")} · ${t("Spring–Summer 2027 shows","2027 봄·여름 쇼")}</span><h1>${t("Brands","브랜드")}</h1></div><div class="tools"><span class="seg">${[["all",t("All cities","전체 도시")],...cities.map(c=>[c,t(c,CITY_KO[c])])].map(([k,l])=>`<button data-rcity="${k}" class="${rwCity===k?"on":""}">${l}</button>`).join("")}</span><label class="vh" for="rwq">${t("Find a brand","브랜드 찾기")}</label><input class="inp" id="rwq" type="search" placeholder="${t("Find a brand","브랜드 찾기")}" value="${esc(rwQ)}"></div></div>
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")} · ${t("Spring–Summer 2027 shows","2027 봄·여름 쇼")}</span><h1>${t("Brands","브랜드")}</h1></div><div class="tools"><span class="seg">${[["all",t("All cities","전체 도시")],...cities.map(c=>[c,t(c,CITY_KO[c])])].map(([k,l])=>`<button data-rcity="${k}" class="${rwCity===k?"on":""}">${l}</button>`).join("")}</span><label class="vh" for="rwq">${t("Find a brand","브랜드 찾기")}</label><input class="inp" id="rwq" type="search" placeholder="${t("Find a brand","브랜드 찾기")}" value="${esc(rwQ)}"></div></div>
    <div class="az"><button class="${!rwLetter?"on has":"has"}" data-az="" style="width:auto;padding:0 8px">${t("All","전체")} ${RUNWAY.length}</button>${letters.map(l=>`<button data-az="${l}" class="${has.has(l)?"has":""} ${rwLetter===l?"on":""}" ${has.has(l)?"":"disabled"}>${l}</button>`).join("")}</div>
    <div class="blist">${Object.keys(groups).sort().map(L=>`<div class="bblock"><div class="bgroup">${L}</div>${groups[L].map(b=>`<button class="bitem" data-brand="${esc(b.key)}">${esc(b.name)}<span>${histCount(b)}</span></button>`).join("")}</div>`).join("")||`<div class="empty" style="grid-column:1/-1"><b>${t("No brand found","브랜드가 없어요")}</b></div>`}</div>
    <p class="srcl">${t(`All ${DATA.shows.length} shows from the New York, London, Milan and Paris SS27 schedules on NOWFASHION. Brands marked "photos soon" showed but NOWFASHION has no gallery for them yet.`,`NOWFASHION의 뉴욕·런던·밀라노·파리 SS27 공식 일정에 오른 ${DATA.shows.length}개 쇼를 모두 담았어요. '사진 준비 중'은 쇼는 열렸지만 아직 사진 페이지가 없는 브랜드예요.`)}</p></div>`;
@@ -895,7 +895,7 @@ function drawBrand(b){
   const years=[...new Set(b.cols.map(c=>c.year))].sort((a,c)=>c-a);
   let cols=b.cols.filter(c=>(bSeason==="all"||c.season===bSeason)&&(!bYear||c.year===bYear));
   const noPhotos=b.shows.filter(s=>!s.slug);
-  $("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Runway","런웨이")} · NOWFASHION</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
+  $("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Collections","컬렉션")} · NOWFASHION</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
    <div class="db gut"><h2>${esc(b.name)}</h2>
     ${b.cols.length?`<div style="display:grid;gap:10px"><span class="seg">${[["all","All","전체"],["SS","SS","SS"],["FW","FW","FW"]].map(([k,en,ko])=>`<button data-bs="${k}" class="${bSeason===k?"on":""}">${t(en,ko)}</button>`).join("")}</span>
     <div class="chipline"><button class="chip ${!bYear?"on":""}" data-by="">${t("All years","전체 연도")}</button>${years.map(y=>`<button class="chip ${bYear===y?"on":""}" data-by="${y}">${y}</button>`).join("")}</div></div>`:""}
@@ -919,7 +919,7 @@ function rdataView(){
     return `<div class="bars">${L.map(x=>`<div class="bar"><span class="nm">${sw?`<i style="background:${DATA.hex[x[0]]||"#ccc"}"></i>`:""}${esc(nm(x[0]))}</span><span class="tr"><span style="width:${x[1]/mx*100}%"></span></span><b>${pct(x[1])}${dlt(x[2])}</b></div>`).join("")}</div>`};
   const src=both?[W.src,M.src]:[D.src];
   const kw=both?null:D;
-  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div>
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div>
    <div class="tools"><span class="seg">${ss.map(s=>`<button data-rd="${s}" class="${s===rdSeason?"on":""}">${s}</button>`).join("")}</span>
    <span class="seg">${[["women","Women","여성"],["men","Men","남성"],["both","Unisex","유니섹스"]].map(([k,en,ko2])=>`<button data-rg="${k}" class="${rdG===k?"on":""}">${t(en,ko2)}</button>`).join("")}</span></div></div>
    ${!both?`<section class="rep-hero"><div><span class="lbl">${t("Key themes","메인 키워드")}</span><div class="kw">${(kw.themes||[]).length?kw.themes.map(x=>`<span>${esc(nm(x[0]))}<small>${x[1]}%</small></span>`).join(""):`<p class="tip">${t("Not published for this season.","이번 시즌은 공개된 수치가 없어요.")}</p>`}</div></div>
@@ -951,7 +951,7 @@ function calendarView(){
   const selD=new Date(sel+"T00:00:00");const selShows=(SHOWS_BY_DAY[sel]||[]).slice().sort((a,b)=>a.city.localeCompare(b.city));const selEv=EVENTS.filter(e=>selD>=e.s&&selD<=e.e);
   const up=EVENTS.filter(e=>e.e>=TODAY).sort((a,b)=>a.s-b.s).slice(0,6);
   const byCity={};selShows.forEach(s=>{(byCity[s.city]??=[]).push(s)});
-  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Calendar","캘린더")}</h1></div><span class="lbl">${t("Updated automatically","자동 업데이트")}</span></div>
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")}</span><h1>${t("Calendar","캘린더")}</h1></div><span class="lbl">${t("Updated automatically","자동 업데이트")}</span></div>
   <div class="calwrap"><section><div class="calnav"><h2>${mname}</h2><button data-cal="-1" aria-label="Previous month">${SV.l}</button><button data-cal="0" style="width:auto;padding:0 10px;font-size:12px">${t("Today","오늘")}</button><button data-cal="1" aria-label="Next month">${SV.r}</button></div>
    <div class="cal">${wd.map(w=>`<div class="wd">${w}</div>`).join("")}${cells.map(d=>{const k=dayKey(d);const ev=EVENTS.filter(e=>d>=e.s&&d<=e.e);const n=(SHOWS_BY_DAY[k]||[]).length;return `<button class="day ${d.getMonth()!==m?"out":""} ${+d===+TODAY?"today":""} ${k===sel?"sel":""}" data-day="${k}"><span class="n">${d.getDate()}</span>${ev.map(e=>`<span class="ev ${+d===+e.s?"st":""}">${esc(t(e.short_en||e.name,e.short_ko||e.name))}</span>`).join("")}${n?`<span class="cnt">${n} ${t(n>1?"shows":"show","개 쇼")}</span>`:""}</button>`}).join("")}</div>
    <p class="srcl">${t("Sources","출처")}: <a href="https://nowfashion.com/fashion-week-schedules" target="_blank" rel="noopener">NOWFASHION</a>, <a href="https://tfashion.ai/fashion-week-calendar" target="_blank" rel="noopener">T-Fashion</a>, <a href="https://www.modemonline.com/fashion/fashion-weeks/fall-winter-2027" target="_blank" rel="noopener">Modem</a> · ${t("New York FW27 dates differ between sources (Feb 4–9 or 8–12); London is still to be confirmed.","뉴욕 FW27은 매체마다 날짜가 달라요(2/4–9 또는 2/8–12). 런던은 아직 확정 전이에요.")}</p></section>
@@ -1134,10 +1134,10 @@ const dirOf=d=>d.director||(DATA.kr_dir[d.id]?t(DATA.kr_dir[d.id][1],DATA.kr_dir
 function designersView(){const q=dQ.trim().toLowerCase();let l=DES.filter(d=>!q||[d.name,d.ko,d.desc_en,d.desc_ko].join(" ").toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name,"en",{sensitivity:"base"}));
   const fav=l.filter(d=>FAV.has(d.id)),rest=l.filter(d=>!FAV.has(d.id));
   const row=d=>`<div class="ditem"><button class="star ${FAV.has(d.id)?"on":""}" data-fav="${d.id}" aria-label="${t("Favourite","즐겨찾기")}">${FAV.has(d.id)?SV.starf:SV.star}</button><button class="nm" data-des="${d.id}">${esc(d.name)}<small>${esc(d.ko)}${dirOf(d)?` · ${t("Director","디렉터")} ${esc(dirOf(d))}`:""}</small></button><span class="ss">${d.season?`<b>${esc(d.season)}</b>${d.concept_en?" · "+esc(t(d.concept_en,d.concept_ko)):""}`:`<span style="color:var(--ink-3)">${t("Season notes are collected automatically","시즌 정보 자동 수집 예정")}</span>`}</span><a class="ext" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Site","홈페이지")} ${SV.arrow}</a></div>`;
-  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Seoul designer brands","국내 디자이너 브랜드")}</span><h1>${t("Korean Designers","국내 디자이너")}</h1></div><div class="tools"><label class="vh" for="dq">${t("Search","검색")}</label><input class="inp" id="dq" type="search" placeholder="${t("Find a brand","브랜드 찾기")}" value="${esc(dQ)}"><button class="btn ghost" id="addDes">${SV.plus}${t("Add brand","브랜드 추가")}</button></div></div>
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Korean labels","국내 브랜드")}</span><h1>${t("Designers","디자이너")}</h1></div><div class="tools"><label class="vh" for="dq">${t("Search","검색")}</label><input class="inp" id="dq" type="search" placeholder="${t("Find a brand","브랜드 찾기")}" value="${esc(dQ)}"><button class="btn ghost" id="addDes">${SV.plus}${t("Add brand","브랜드 추가")}</button></div></div>
   <div class="dlist">${fav.length?`<div class="favhd">${t("Favourites","즐겨찾기")}</div>${fav.map(row).join("")}<div class="favhd">A – Z</div>`:""}${rest.map(row).join("")||(!fav.length?`<div class="empty"><b>${t("No brand found","브랜드가 없어요")}</b></div>`:"")}</div>
   <p class="srcl">${t("Descriptions are paraphrased from each brand's own site.","소개 문구는 각 브랜드 홈페이지를 읽고 요약했어요.")}</p></div>`}
-function openDes(id){const d=DES.find(x=>x.id===id);if(!d)return;$("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Korean Designers","국내 디자이너")}</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
+function openDes(id){const d=DES.find(x=>x.id===id);if(!d)return;$("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Designers · Korea","디자이너 · 국내")}</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
   <div class="db gut"><div><h2>${esc(d.name)}</h2><div style="color:var(--ink-3);margin-top:6px">${esc(d.ko)}</div></div>
    <p style="margin:0;font-size:15px;line-height:1.7">${esc(t(d.desc_en,d.desc_ko))}</p>
    <div><div class="kv"><span>${t("Director","디렉터")}</span><span>${esc(dirOf(d)||t("Not confirmed","확인 중"))} <button class="lnk2" data-diredit="${d.id}">${t("Edit","수정")}</button></span></div><div class="kv"><span>${t("Current season","현재 시즌")}</span><span>${esc(d.season||"—")}</span></div><div class="kv"><span>${t("Concept","컨셉")}</span><span>${esc(t(d.concept_en,d.concept_ko)||"—")}</span></div><div class="kv"><span>${t("Homepage","홈페이지")}</span><a href="${esc(d.url)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(d.url.replace(/^https?:\/\//,""))}</a></div><div class="kv"><span>${t("Link","링크")}</span><span class="okmark" style="color:${d.ok?"var(--ok)":"var(--warn)"}"><i></i>${d.ok?t("Checked","접속 확인됨"):t("Not checked","확인 전")}</span></div></div>
@@ -1320,7 +1320,7 @@ function coloroHex(code){const m=String(code).match(/(\d{3})-(\d{2})-(\d{2})/);i
 function rdataView(){
   if(!REP){loadReport().then(()=>{if(route==="rdata")render(false)});return `<div class="gut max"><div class="empty" style="padding-top:120px"><b>${t("Loading the season report…","시즌 리포트를 불러오는 중…")}</b></div></div>`}
   const SS=Object.keys(REP.seasons).sort((a,b)=>(+b.slice(2)-+a.slice(2))||(b<a?-1:1));
-  if(!SS.length)return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div><button class="btn ghost" id="repRef">${SV.refresh||""}${t("Refresh","새로고침")}</button></div><div class="empty"><b>${t("The report hasn't been collected yet","아직 리포트를 받지 못했어요")}</b>${t("It is collected every morning. Try Refresh in a little while.","매일 아침 자동으로 모아요. 잠시 후 새로고침해 보세요.")}</div></div>`;
+  if(!SS.length)return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div><button class="btn ghost" id="repRef">${SV.refresh||""}${t("Refresh","새로고침")}</button></div><div class="empty"><b>${t("The report hasn't been collected yet","아직 리포트를 받지 못했어요")}</b>${t("It is collected every morning. Try Refresh in a little while.","매일 아침 자동으로 모아요. 잠시 후 새로고침해 보세요.")}</div></div>`;
   if(!REP.seasons[rdSeason])rdSeason=SS[0];
   const cur=REP.seasons[rdSeason],both=rdG==="both",W=cur.women,M=cur.men,D=both?null:cur[rdG];
   const base=(D||W||M||{}).prevLabel||"";
@@ -1334,7 +1334,7 @@ function rdataView(){
     return `<div class="bars">${L.map(x=>row({...x,_w:(x.share||0)/mx*100},sw,cat)).join("")}</div>`};
   const wg=(REP.wgsn&&REP.wgsn.seasons&&REP.wgsn.seasons[rdSeason])||null;
   const kw=both?null:D;
-  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Runway","런웨이")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div>
+  return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div>
    <div class="tools"><span class="seg">${SS.map(s=>`<button data-rd="${s}" class="${s===rdSeason?"on":""}">${s}</button>`).join("")}</span>
    <span class="seg">${[["women","Women","여성"],["men","Men","남성"],["both","Unisex","유니섹스"]].map(([k,en,ko2])=>`<button data-rg="${k}" class="${rdG===k?"on":""}">${t(en,ko2)}</button>`).join("")}</span>
    <button class="btn ghost sm" id="repRef">${t("Refresh","새로고침")}</button></div></div>
