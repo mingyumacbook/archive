@@ -1,0 +1,349 @@
+{
+ "at": "2026-10-18T21:30:27.174Z",
+ "log": [
+  "seasons: SS27, FW26, SS26",
+  "SS27 women colors 10 patterns 3 fabrics 3 themes 3 items 3 details 26 prev SS26",
+  "SS27 men colors 10 patterns 3 fabrics 3 themes 3 items 3 details 26 prev SS26",
+  "FW26 women colors 10 patterns 3 fabrics 3 themes 0 items 3 details 19 prev FW25",
+  "FW26 men colors 10 patterns 3 fabrics 3 themes 0 items 3 details 20 prev FW25",
+  "SS26 women colors 10 patterns 3 fabrics 3 themes 0 items 3 details 19 prev SS25",
+  "SS26 men colors 10 patterns 3 fabrics 3 themes 0 items 3 details 21 prev SS25",
+  "coloro seasons: FW28(Bloodstone, Elemental Verdigris, Healing Turmeric, Smoky Amethyst, Liminal Yellow) SS28(Radiant Earth, Serene Green, Positively Yellow, Flourish Pink, Offline Blue) FW27(Luminous Blue, Russet, Peaceful Lilac, Maize, Deep Green) SS27(Luminous Blue, Energy Orange, Pop Pink, Meadowland Green, Clay)"
+ ],
+ "sample": [
+  {
+   "name": "Floral",
+   "url": "https://tfashion.ai/runway/ss27/floral",
+   "share": 14.4,
+   "prev": 11.2,
+   "change": 3.2,
+   "looks": 1656,
+   "designers": 216,
+   "cat": "patterns",
+   "ev": {
+    "pressNote": "Floral came up in 186 articles from WWD, Vogue, Marie Claire and 48 more. In the data it was in 14.4% of looks, up from 11.2% in SS26.",
+    "press": [
+     {
+      "outlet": "WWD",
+      "date": "2026-09-14",
+      "title": "Quick Takes From the Spring 2027 Luxury and Alternative Collections at NYFW",
+      "url": "https://wwd.com/fashion-news/shows-reviews/spring-2027-luxury-collections-nyfw-1239200391/"
+     },
+     {
+      "outlet": "Vogue",
+      "date": "2026-10-01",
+      "title": "Chloé Spring 2027 Ready-to-Wear Collection",
+      "url": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/chloe"
+     },
+     {
+      "outlet": "Vogue",
+      "date": "2026-10-01",
+      "title": "The Row Spring 2027 Ready-to-Wear Collection",
+      "url": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/row"
+     },
+     {
+      "outlet": "WWD",
+      "date": "2026-10-01",
+      "title": "Chloé Spring 2027: Broderie Anglaise — and Other Obsessions",
+      "url": "https://wwd.com/runway/spring-2027/paris/chloe/review/"
+     },
+     {
+      "outlet": "Marie Claire",
+      "date": "2026-10-01",
+      "title": "The Romantic Spring 2027 Fashion to Start Wearing Now",
+      "url": "https://www.marieclaire.com/fashion/romantic-runway-inspired-fashion/"
+     },
+     {
+      "outlet": "CNN",
+      "date": "2026-09-30",
+      "title": "Here’s what’s happening at Paris Fashion Week",
+      "url": "https://www.cnn.com/2026/09/30/style/paris-fashion-week-highlights-from-the-shows"
+     },
+     {
+      "outlet": "Grazia UK",
+      "date": "2026-09-29",
+      "title": "Follow The Highlights From Paris Fashion Week Spring/Summer ’27",
+      "url": "https://graziadaily.co.uk/fashion/news/paris-fashion-week-spring-summer-2027-highlights/"
+     },
+     {
+      "outlet": "InStyle",
+      "date": "2026-09-28",
+      "title": "The Best Designer Looks of Milan Fashion Week Spring/Summer 2027 From Prada, Gucci, and More",
+      "url": "https://www.instyle.com/best-milan-fashion-week-looks-spring-summer-2027-12142549"
+     },
+     {
+      "outlet": "Refinery29",
+      "date": "2026-09-17",
+      "title": "The Runways Spoke: Trendy Purple, Red & Teal Make The Best Color Combos",
+      "url": "https://www.refinery29.com/en-us/new-york-fashion-week-spring-summer-2027-color-trends"
+     },
+     {
+      "outlet": "W Magazine",
+      "date": "2026-09-16",
+      "title": "11 Things We Saw and Loved at New York Fashion Week Spring 2027",
+      "url": "https://www.wmagazine.com/fashion/new-york-fashion-week-spring-2027-recap"
+     },
+     {
+      "outlet": "The Cut",
+      "date": "2026-09-14",
+      "title": "Conner Ives Knows How to Dress the ‘It’ Girls",
+      "url": "https://www.thecut.com/article/cathy-horyn-new-york-fashion-review-conner-ives-khaite.html"
+     },
+     {
+      "outlet": "The Zoe Report",
+      "date": "",
+      "title": "New York Fashion Spring/Summer 2027 Was For Maximalists",
+      "url": "https://www.thezoereport.com/fashion/new-york-fashion-week-spring-summer-2027-trends"
+     }
+    ],
+    "designers": [
+     {
+      "name": "Luisa Beccaria",
+      "looks": 39
+     },
+     {
+      "name": "Dolce & Gabbana",
+      "looks": 35
+     },
+     {
+      "name": "Sea",
+      "looks": 33
+     }
+    ],
+    "moreDesigners": 213,
+    "cities": [
+     {
+      "city": "Paris",
+      "share": 12.1,
+      "looks": null
+     },
+     {
+      "city": "Milan",
+      "share": 15.3,
+      "looks": null
+     },
+     {
+      "city": "New York",
+      "share": 15.9,
+      "looks": null
+     },
+     {
+      "city": "London",
+      "share": 14.8,
+      "looks": null
+     }
+    ],
+    "wornWith": [
+     {
+      "name": "Dress",
+      "kind": "apparel",
+      "share": 42
+     },
+     {
+      "name": "Skirts",
+      "kind": "apparel",
+      "share": 24
+     },
+     {
+      "name": "White",
+      "kind": "color",
+      "share": 27
+     },
+     {
+      "name": "Black",
+      "kind": "color",
+      "share": 20
+     },
+     {
+      "name": "Lace",
+      "kind": "fabric",
+      "share": 26
+     },
+     {
+      "name": "Satin",
+      "kind": "fabric",
+      "share": 16
+     }
+    ],
+    "otherSeasons": [
+     {
+      "season": "FW26",
+      "share": 9.5
+     },
+     {
+      "season": "SS26",
+      "share": 12.3
+     }
+    ],
+    "refreshed": "October 7, 2026"
+   }
+  },
+  {
+   "name": "Striped",
+   "url": "https://tfashion.ai/runway/ss27/striped",
+   "share": 9,
+   "prev": 7.5,
+   "change": 1.5,
+   "looks": 1038,
+   "designers": 232,
+   "cat": "patterns",
+   "ev": {
+    "pressNote": "Striped came up in 82 articles from Vogue, WWD, Grazia UK and 31 more. In the data it was in 9.0% of looks, up from 7.5% in SS26.",
+    "press": [
+     {
+      "outlet": "Vogue",
+      "date": "2026-09-17",
+      "title": "Our Favorite New York Fashion Week Spring 2027 Moments",
+      "url": "https://www.vogue.com/article/our-favorite-new-york-fashion-week-spring-2027-moments"
+     },
+     {
+      "outlet": "WWD",
+      "date": "2026-09-14",
+      "title": "Quick Takes From the Spring 2027 Luxury and Alternative Collections at NYFW",
+      "url": "https://wwd.com/fashion-news/shows-reviews/spring-2027-luxury-collections-nyfw-1239200391/"
+     },
+     {
+      "outlet": "Vogue",
+      "date": "2026-10-01",
+      "title": "Carven Spring 2027 Ready-to-Wear Collection",
+      "url": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/carven"
+     },
+     {
+      "outlet": "WWD",
+      "date": "2026-09-26",
+      "title": "MSGM Spring 2027: Stars, Stripes — and Zing",
+      "url": "https://wwd.com/runway/spring-2027/milan/msgm/review/"
+     },
+     {
+      "outlet": "Grazia UK",
+      "date": "2026-09-29",
+      "title": "Follow The Highlights From Paris Fashion Week Spring/Summer ’27",
+      "url": "https://graziadaily.co.uk/fashion/news/paris-fashion-week-spring-summer-2027-highlights/"
+     },
+     {
+      "outlet": "W Magazine",
+      "date": "2026-09-16",
+      "title": "11 Things We Saw and Loved at New York Fashion Week Spring 2027",
+      "url": "https://www.wmagazine.com/fashion/new-york-fashion-week-spring-2027-recap"
+     },
+     {
+      "outlet": "Wallpaper*",
+      "date": "2026-09-16",
+      "title": "These were the best shows of New York Fashion Week S/S 2027",
+      "url": "https://www.wallpaper.com/fashion-beauty/best-shows-new-york-fashion-week-ss-2027-review-roundup"
+     },
+     {
+      "outlet": "Fashionista",
+      "date": "2026-08-11",
+      "title": "6 Standout Trends From Copenhagen Fashion Week Spring 2027",
+      "url": "https://fashionista.com/2026/08/copenhagen-fashion-week-spring-2027-trends"
+     },
+     {
+      "outlet": "ELLE",
+      "date": "2026-08-06",
+      "title": "At Copenhagen Fashion Week, Scandi Style Comes Into Focus",
+      "url": "https://www.elle.com/runway/a73345743/copenhagen-fashion-week-spring-summer-2027-trends/"
+     },
+     {
+      "outlet": "The Zoe Report",
+      "date": "",
+      "title": "New York Fashion Spring/Summer 2027 Was For Maximalists",
+      "url": "https://www.thezoereport.com/fashion/new-york-fashion-week-spring-summer-2027-trends"
+     },
+     {
+      "outlet": "Who What Wear",
+      "date": "",
+      "title": "The Runways Spoke—We Listened: 7 London Fashion Week Trends Set to Take Over Spring 2027",
+      "url": "https://www.whowhatwear.com/fashion/runway/london-fashion-week-trends-spring-summer-2027"
+     },
+     {
+      "outlet": "Vogue Scandinavia",
+      "date": "",
+      "title": "It took a heated group chat to whittle the CPHFW SS27 runway trends down to these 8",
+      "url": "https://www.voguescandinavia.com/articles/copenhagen-fashion-week-runway-trends-spring-summer-2027"
+     }
+    ],
+    "designers": [
+     {
+      "name": "Thom Browne",
+      "looks": 41
+     },
+     {
+      "name": "Junya Watanabe",
+      "looks": 22
+     },
+     {
+      "name": "Dries Van Noten",
+      "looks": 22
+     }
+    ],
+    "moreDesigners": 229,
+    "cities": [
+     {
+      "city": "Paris",
+      "share": 9.3,
+      "looks": null
+     },
+     {
+      "city": "Milan",
+      "share": 8.4,
+      "looks": null
+     },
+     {
+      "city": "New York",
+      "share": 10.2,
+      "looks": null
+     },
+     {
+      "city": "London",
+      "share": 8.7,
+      "looks": null
+     }
+    ],
+    "wornWith": [
+     {
+      "name": "Shirts",
+      "kind": "apparel",
+      "share": 25
+     },
+     {
+      "name": "Pants",
+      "kind": "apparel",
+      "share": 20
+     },
+     {
+      "name": "White",
+      "kind": "color",
+      "share": 38
+     },
+     {
+      "name": "Black",
+      "kind": "color",
+      "share": 27
+     },
+     {
+      "name": "Twill",
+      "kind": "fabric",
+      "share": 19
+     },
+     {
+      "name": "Poplin",
+      "kind": "fabric",
+      "share": 19
+     }
+    ],
+    "otherSeasons": [
+     {
+      "season": "FW26",
+      "share": 7
+     },
+     {
+      "season": "SS26",
+      "share": 7.4
+     }
+    ],
+    "refreshed": "October 7, 2026"
+   }
+  }
+ ]
+}
