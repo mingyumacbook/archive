@@ -1,0 +1,146 @@
+{
+ "total": 276,
+ "issue": 17,
+ "tr": 220,
+ "notr": 39,
+ "notrRecent": 39,
+ "notrOld": 0,
+ "hasImgOg": 214,
+ "ages": {
+  "0": 23,
+  "1": 70,
+  "2": 81,
+  "3": 53,
+  "4": 32
+ },
+ "untranslatedSamples": [
+  {
+   "t": "매번 같은 위치에 나는 여드름 해결법 5",
+   "age": 3,
+   "src": "W Korea",
+   "han": true
+  },
+  {
+   "t": "헤일리 비버, 아다놀라와 발레코어 녹인 캡슐 컬렉션 출시",
+   "age": 4,
+   "src": "Vogue Korea",
+   "han": true
+  },
+  {
+   "t": "‘성공한 여성’에게 나타난다는 불안 심리의 정체",
+   "age": 0,
+   "src": "W Korea",
+   "han": true
+  },
+  {
+   "t": "WWW Curates: The Knitwear Foundations to Build Your Autumn Wardrobe Around",
+   "age": 2,
+   "src": "Who What Wear",
+   "han": false
+  },
+  {
+   "t": "Fashion People Have Spoken—Every Great Autumn Outfit Features At Least One of These 7 Cult Buys",
+   "age": 0,
+   "src": "Who What Wear",
+   "han": false
+  },
+  {
+   "t": "The French Braid Is Making Moves to Become Autumn's Biggest Hairstyle Trend—Here's How to Do It",
+   "age": 3,
+   "src": "Who What Wear",
+   "han": false
+  },
+  {
+   "t": "Taylor Swift Seemingly Teases Her Wedding Dress in a Baby-Blue Dior Gown",
+   "age": 0,
+   "src": "Harper's BAZAAR",
+   "han": false
+  },
+  {
+   "t": "Jennifer Lawrence Puts Her Very Own Spin on the Skirt Suit for a Posh Date Night With Husband Cooke Maroney",
+   "age": 1,
+   "src": "Harper's BAZAAR",
+   "han": false
+  },
+  {
+   "t": "All the Celebrity Looks From the 2026 Academy Museum Gala",
+   "age": 0,
+   "src": "Harper's BAZAAR",
+   "han": false
+  },
+  {
+   "t": "Keri Russell and Matthew Rhys’s Complete Relationship Timeline",
+   "age": 3,
+   "src": "Harper's BAZAAR",
+   "han": false
+  },
+  {
+   "t": "올가을 하루걸러 하루 입게 될 ‘이 바지’!",
+   "age": 2,
+   "src": "Vogue Korea",
+   "han": true
+  },
+  {
+   "t": "유행 안타는 기본 롱 부츠, 신상처럼 스타일링하기",
+   "age": 0,
+   "src": "W Korea",
+   "han": true
+  },
+  {
+   "t": "제니와 몽클레르 리아이콘의 새로운 장면",
+   "age": 3,
+   "src": "W Korea",
+   "han": true
+  },
+  {
+   "t": "Quenlin Blackwell and Hennessy know it’s time to be outside",
+   "age": 3,
+   "src": "Dazed",
+   "han": false
+  },
+  {
+   "t": "The Bottega Veneta Tote That Made Me Call Off My Decade-Long Work-Bag Search",
+   "age": 0,
+   "src": "Who What Wear",
+   "han": false
+  }
+ ],
+ "translatedSamples": [
+  {
+   "t": "툭 걸치는 것 만으로 이보다 더 우아할 순 없을 겁니다",
+   "ko": "툭 걸치는 것 만으로 이보다 더 우아할 순 없을 겁니다",
+   "en": "You can't be more elegant than this just by throwing it on.",
+   "s": "케이프 하나면 스타일링 완벽 해결 기온이 뚝 떨어지면서 거리에 케이프를 두르고 나선 이들이 많아졌습니다. 우아함의 집약체라 할 수 있는 케이프는"
+  },
+  {
+   "t": "This HardWear by Tiffany Gold Jewelry Makes Simple Fall Outfits Feel More Polished",
+   "ko": "심플한 가을 의상을 더욱 세련된 느낌으로 만들어주는 티파니 골드 주얼리의 하드웨어",
+   "en": "This HardWear by Tiffany Gold Jewelry Makes Simple Fall Outfits Feel More Polished",
+   "s": "모든 것이 마무리 단계에 있습니다."
+  },
+  {
+   "t": "그레타 거윅의 ‘나니아 연대기: 마법사의 조카’ 베일 벗었다",
+   "ko": "그레타 거윅의 ‘나니아 연대기: 마법사의 조카’ 베일 벗었다",
+   "en": "Greta Gerwig's 'The Chronicles of Narnia: The Sorcerer's Nephew' unveiled",
+   "s": "그레타 거윅의 연출 아래, 장대한 나니아의 세계가 새롭게 펼쳐집니다. 전 세계 영화 팬들의 기대를 모으고 있는 거윅 감독의 가 마침내 베일을 벗"
+  },
+  {
+   "t": "The Dazed 100 is back for 2027! Put yourself forward",
+   "ko": "Dazed 100이 2027년에 돌아왔습니다! 자신을 앞으로 나아가십시오",
+   "en": "The Dazed 100 is back for 2027! Put yourself forward",
+   "s": ""
+  },
+  {
+   "t": "ICYMI: This Distributor Wants to Curate K-Beauty for U.S. Stores, What Buyers Are Buying From the Runways & Seán McGirr Leaves Alexander McQueen",
+   "ko": "ICYMI: 이 유통업체는 미국 매장을 위한 K-뷰티, 구매자가 런웨이에서 구매하는 제품 및 Sean McGirr가 Alexander McQueen을 떠나기를 원합니다.",
+   "en": "ICYMI: This Distributor Wants to Curate K-Beauty for U.S. Stores, What Buyers Are Buying From the Runways & Seán McGirr Leaves Alexander McQueen",
+   "s": ""
+  },
+  {
+   "t": "Croc-Embossed Bags Are the Key to a More Polished Fall Wardrobe",
+   "ko": "악어 무늬가 새겨진 가방은 더욱 세련된 가을 옷장의 핵심입니다",
+   "en": "Croc-Embossed Bags Are the Key to a More Polished Fall Wardrobe",
+   "s": "데일리 데님부터 드레시한 룩까지"
+  }
+ ]
+}
