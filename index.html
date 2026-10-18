@@ -741,7 +741,6 @@ const fmtMD=s=>{const d=new Date(s);return isNaN(d)?"":`${String(d.getMonth()+1)
 const MENU=[
  {id:"home",en:"News",ko:"뉴스",subs:[["home","Today's issues","오늘의 이슈"],["saved","Saved","저장함"]]},
  {id:"runway",en:"Runway",ko:"런웨이",subs:[["runway","Brands","브랜드"],["rdata","Season Report","시즌 리포트"],["calendar","Calendar","캘린더"]]},
- {id:"fitting",en:"Fitting",ko:"피팅",subs:[["fitting","Fitting room","피팅룸"],["looks","Saved looks","저장한 룩"]]},
  {id:"archive",en:"Archive",ko:"아카이브",subs:[["archive","Images & folders","이미지 · 폴더"],["sites","Reference sites","레퍼런스 사이트"]]},
  {id:"designers",en:"Korean Designers",ko:"국내 디자이너",subs:[["designers","A – Z","A – Z"]]},
  {id:"saved",en:"Saved",ko:"저장함",subs:[["saved","News & issues","뉴스 · 이슈"],["looks","Looks","룩"]]}
@@ -978,7 +977,7 @@ const snapshot=()=>JSON.stringify(fitItems.map(({img,prof,ctl,...r})=>r));
 const snap=()=>{fitHist.push(snapshot());if(fitHist.length>80)fitHist.shift()};
 function restore(js){const arr=JSON.parse(js);fitItems=arr.map(r=>{const lib=fitLib.find(l=>l.id===r.lib);return lib?prep({...r,img:lib.img,prof:lib.prof}):null}).filter(Boolean)}
 function prep(it){it.ctl=FE.controls(it,CQ.B[FIT].A);return it}
-async function wear(lib){if(BACKFOR){const it=fitItems.find(x=>x.uid===BACKFOR);BACKFOR=null;if(it){snap();it.back=lib.id;drawFit();toast(t("Back photo added","뒷면 사진을 넣었어요"))}return}if(lib.ready)await lib.ready;if(!lib.img){toast(t("Couldn't load this cut-out","누끼 이미지를 불러오지 못했어요"));return}snap();const z=CATS.find(c=>c[0]===lib.cat)[3];const single=["top","bottom","dress"];
+async function wear(lib){if(lib.ready)await lib.ready;if(!lib.img){toast(t("Couldn't load this cut-out","누끼 이미지를 불러오지 못했어요"));return}snap();const z=CATS.find(c=>c[0]===lib.cat)[3];const single=["top","bottom","dress"];
   fitItems=fitItems.filter(x=>!(single.includes(lib.cat)&&(x.cat===lib.cat||(lib.cat==="dress"&&(x.cat==="top"||x.cat==="bottom"))||(x.cat==="dress"&&(lib.cat==="top"||lib.cat==="bottom")))));
   const it=prep({uid:Math.random().toString(36).slice(2,8),lib:lib.id,cat:lib.cat,img:lib.img,prof:lib.prof,w:lib.w,h:lib.h,dx:0,dy:0,k:1,sx:1,sy:1,r:0,flip:false,z,handles:null});
   fitItems.push(it);fitSel=it.uid;drawFit()}
@@ -993,19 +992,12 @@ function fittingView(){
     ${fitLib.length?`<h3 style="margin-top:22px">${t("My cut-outs","내 누끼")}</h3><div class="libgrid">${fitLib.map((g,i)=>`<div class="gitem" style="padding:0"><button data-lib="${i}" title="${t("Put on","입히기")}" style="border:0;background:none;width:100%;height:100%;display:grid;place-items:center;padding:8px"><span style="position:absolute;left:6px;top:4px;font-size:10px;color:var(--ink-3)">${catName(g.cat)}</span><img src="${esc(g.src||blobSrc(g.assetId))}" alt=""></button><button class="ldel" data-libdel="${i}" aria-label="${t("Delete","삭제")}">×</button></div>`).join("")}</div>`:""}</section>
    <section class="stagebox" id="stagebox"><div class="stagebar"><span class="seg">${[["f","Women","여성"],["m","Men","남성"]].map(([k,en,ko])=>`<button data-g="${k}" class="${FIT===k?"on":""}">${t(en,ko)}</button>`).join("")}</span>
      <span style="display:flex;gap:6px"><button class="btn sm ghost" id="fitBack" ${fitHist.length?"":"disabled"}>${t("Back","뒤로")}</button><button class="btn sm ghost" id="fitReset">${t("Reset","원래대로")}</button><button class="btn sm ghost" id="fitClear">${t("Clear","비우기")}</button></span></div>
-     <span class="seg modes">${[["3d","3D","3D"],["2d","Edit","평면 편집"]].map(([k,en,ko])=>`<button data-fmode="${k}" class="${FMODE===k?"on":""}">${t(en,ko)}</button>`).join("")}</span>
-     <div id="f3host" class="f3host ${FMODE==="3d"?"":"hid"}"></div>
-     ${FMODE==="3d"?`<div class="f3bar"><span class="seg">${[[0,"Front","앞"],[90,"Side","옆"],[180,"Back","뒤"],[270,"Side","옆"]].map(([d,en,ko])=>`<button data-f3v="${d}">${t(en,ko)}</button>`).join("")}</span><button class="btn sm ghost" id="f3spin">${t("360° turn","360° 회전")}</button>
-       <div class="rng"><label for="f3t">${t("Fit","핏")}</label><input type="range" id="f3t" min="0" max="1" step=".05" value="${F3.tight}"><output>${t("loose ↔ close","여유 ↔ 밀착")}</output></div>
-       <span class="seg">${[["fabric","Back: same fabric","뒷면: 앞 원단 그대로"],["plain","Back: plain colour","뒷면: 단색"]].map(([k,en,ko])=>`<button data-f3b="${k}" class="${F3.backMode===k?"on":""}">${t(en,ko)}</button>`).join("")}</span>
-       <p class="f3note">${t("Drag to turn. The front is your cut-out. Add a back photo for a true back; without one the back repeats the front fabric (or a plain colour without prints).","끌어서 돌려 보세요. 앞면은 누끼 이미지 그대로예요. 뒷면 사진을 추가하면 실제 뒷면이 입혀지고, 없으면 앞 원단을 그대로 이어 쓰거나(단색 선택 시 프린트 없이) 채워요.")}</p></div>`:""}
-     <canvas id="stage" class="${FMODE==="3d"?"hid":""}" width="800" height="2000" aria-label="${t("Croquis","크로키")}"></canvas>
+     <canvas id="stage" width="800" height="2000" aria-label="${t("Croquis","크로키")}"></canvas>
      ${!fitItems.length?`<div class="stagehint">${t("Upload a cut-out on the left. It is fitted to the croquis automatically.","왼쪽에서 누끼 이미지를 올리면 크로키에 자동으로 입혀져요.")}</div>`:""}</section>
    <section class="ctrl">${sel?`<div><h3>${t("Selected","선택한 옷")} · ${catName(sel.cat)}</h3><div class="cats">${CATS.map(([k,en,ko])=>`<button data-cat="${k}" class="${sel.cat===k?"on":""}">${t(en,ko)}</button>`).join("")}</div></div>
      <div style="display:grid;gap:10px">${RNG.map(([k,l,mn,mx,st,f])=>`<div class="rng"><label for="r-${k}">${Array.isArray(l)?t(...l):l}</label><input type="range" id="r-${k}" data-rng="${k}" min="${mn}" max="${mx}" step="${st}" value="${sel[k]}"><output id="o-${k}">${f(sel[k])}</output></div>`).join("")}</div>
      <div style="display:flex;gap:18px;align-items:end;flex-wrap:wrap"><div><h3>${t("Nudge","미세 이동")}</h3><div class="nudge"><span></span><button data-nd="0,-1" aria-label="Up">↑</button><span></span><button data-nd="-1,0" aria-label="Left">←</button><button data-nd="0,1" aria-label="Down">↓</button><button data-nd="1,0" aria-label="Right">→</button></div></div>
       <div style="display:grid;gap:6px"><button class="btn sm ghost" data-fx="flip">${t("Flip","좌우 반전")}</button><button class="btn sm ghost" data-fx="fwd">${t("Bring forward","앞으로")}</button><button class="btn sm ghost" data-fx="bwd">${t("Send back","뒤로 보내기")}</button><button class="btn sm ghost" data-fx="del">${t("Remove","빼기")}</button></div></div>
-     <div><h3>${t("Back of this garment","이 옷의 뒷면")}</h3><div class="backrow">${sel.back&&fitLib.find(l=>l.id===sel.back)?`<img src="${esc(fitLib.find(l=>l.id===sel.back).src||blobSrc(fitLib.find(l=>l.id===sel.back).assetId))}" alt=""><button class="btn sm ghost" id="backDel">${t("Remove back photo","뒷면 빼기")}</button>`:`<label class="btn sm ghost" for="backUp" style="cursor:pointer">${t("Add back photo","뒷면 사진 추가")}</label>`}<input type="file" id="backUp" accept="image/png,image/webp" hidden></div><p class="tip" style="margin-top:6px">${t("A transparent PNG of the garment's back, shot the same way.","같은 방식으로 찍은 옷 뒷면의 투명 배경 PNG.")}</p></div>
      <label class="tip" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="hdl" ${showHandles?"checked":""}> ${t("Show fit points","맞춤 점 보기")}</label>
      <p class="tip">${t("Drag a fit point to pull the garment onto the body: shoulders, sleeve ends, waist, hip, hem. Drag elsewhere to move it. Arrow keys move 0.5, Shift 5.","맞춤 점(어깨·소매 끝·허리·힙·밑단)을 끌면 옷이 몸에 맞게 늘어나요. 다른 곳을 끌면 통째로 옮겨져요. 방향키는 0.5씩, Shift는 5씩.")}</p>`:`<div class="empty" style="padding:30px 0;text-align:left"><b>${t("Nothing on the croquis yet","아직 입힌 옷이 없어요")}</b>${t("Shoulders, sleeves, waist and hem are matched to the body automatically; then you can fine-tune every point here.","어깨·소매·허리·밑단이 자동으로 몸에 맞춰지고, 여기서 점 하나하나 미세하게 조정할 수 있어요.")}</div>`}
      ${fitItems.length?`<div><h3>${t("On the croquis","입힌 옷")}</h3><div class="layers">${fitItems.slice().sort((a,b)=>b.z-a.z).map(it=>`<button class="layer ${it.uid===fitSel?"on":""}" data-sel="${it.uid}"><img src="${esc((()=>{const l=fitLib.find(l=>l.id===it.lib);return l?(l.src||blobSrc(l.assetId)):""})())}" alt="">${catName(it.cat)}</button>`).join("")}</div></div>`:""}</section>
@@ -1014,9 +1006,9 @@ function fittingView(){
 const RNG=[["dx","X",-100,100,.5,v=>v.toFixed(1)],["dy","Y",-150,150,.5,v=>v.toFixed(1)],["k",["Size","크기"],.6,1.4,.005,v=>Math.round(v*100)+"%"],["sx",["Width","폭"],.7,1.4,.005,v=>Math.round(v*100)+"%"],["sy",["Length","기장"],.7,1.4,.005,v=>Math.round(v*100)+"%"],["r",["Rotate","회전"],-20,20,.1,v=>v.toFixed(1)+"°"]];
 function paint(exportMode){const cv=exportMode||$("#stage");if(!cv)return;const ctx=cv.getContext("2d");const S=cv.width/400;ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle="#f6f5f2";ctx.fillRect(0,0,cv.width,cv.height);
   const bg=cqImg(FIT);if(bg.complete)ctx.drawImage(bg,0,0,cv.width,cv.height);
-  if(exportMode&&FMODE==="3d"&&F3.ready){ctx.fillStyle="#f6f5f2";ctx.fillRect(0,0,cv.width,cv.height);F3.renderTo(ctx,cv.width,cv.height);return}fitItems.slice().sort((a,b)=>a.z-b.z).forEach(it=>FE.drawItem(ctx,it,S));if(!exportMode)queue3D();
+  fitItems.slice().sort((a,b)=>a.z-b.z).forEach(it=>FE.drawItem(ctx,it,S));
   if(!exportMode&&showHandles){const it=fitItems.find(x=>x.uid===fitSel);if(it){ctx.save();ctx.scale(S,S);FE.handles(it).forEach(p=>{ctx.beginPath();ctx.arc(p[0],p[1],4.2,0,7);ctx.fillStyle="#fff";ctx.fill();ctx.lineWidth=1.2;ctx.strokeStyle="#111";ctx.stroke()});ctx.restore()}}}
-function drawFit(){const y=scrollY;$("#view").innerHTML=fittingView();bindFit();bind3D();paint();scrollTo(0,y)}
+function drawFit(){const y=scrollY;$("#view").innerHTML=fittingView();bindFit();paint();scrollTo(0,y)}
 function bindFit(){
   const cv=$("#stage");const toV=e=>{const r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*400,(e.clientY-r.top)/r.height*1000]};let drag=null;
   const hit=p=>{for(const it of fitItems.slice().sort((a,b)=>b.z-a.z)){const {V}=FE.mesh(it);let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;V.flat().forEach(([,q])=>{x0=Math.min(x0,q[0]);x1=Math.max(x1,q[0]);y0=Math.min(y0,q[1]);y1=Math.max(y1,q[1])});if(p[0]>=x0&&p[0]<=x1&&p[1]>=y0&&p[1]<=y1)return it}return null};
@@ -1165,7 +1157,7 @@ async function restoreFrom(file){let j;try{j=JSON.parse(await file.text())}catch
   toast(t(`Restored ${added} items · reloading`,`${added}개를 되살렸어요 · 다시 불러옵니다`));setTimeout(()=>location.reload(),1200)}
 function account(edit){const P=PREF.profile;const f=(k,l)=>`<div class="kv"><span>${l}</span>${edit?`<input class="inp" id="me-${k}" value="${esc(P[k]||"")}">`:`<span>${esc(P[k]||"—")}</span>`}</div>`;
   sheet(t("Account","계정"),`<div class="grp">${t("Personal information","개인정보")}</div>${f("name",t("Name","이름"))}<div class="kv"><span>${t("Email","이메일")}</span><span>${esc(UEMAIL)}</span></div>${f("brand",t("Brand","브랜드"))}<div class="kv"><span>${t("Joined","가입일")}</span><span>${esc(UJOINED||"—")}</span></div>
-   <div class="kv"><span>${t("My data","내 데이터")}</span><span>${t(`${ARC.length} archive items · ${Object.keys(saved).length} saved · ${LOOKS.length} looks`,`아카이브 ${ARC.length}개 · 저장함 ${Object.keys(saved).length}개 · 룩 ${LOOKS.length}개`)}</span></div>
+   <div class="kv"><span>${t("My data","내 데이터")}</span><span>${t(`${ARC.length} archive items · ${Object.keys(saved).length} saved`,`아카이브 ${ARC.length}개 · 저장함 ${Object.keys(saved).length}개`)}</span></div>
    <div class="acts">${edit?`<button class="btn" id="meSave">${t("Save","저장")}</button>`:`<button class="btn ghost" id="meEdit">${t("Edit","수정")}</button>`}</div>
    <div class="grp">${t("Backup","백업")}</div><p style="margin:6px 0 0;font-size:13px;color:var(--ink-2)">${t("Everything is saved to your account as you go. A backup is an extra copy as a file. Restoring only adds what is missing — nothing is overwritten.","모든 데이터는 계정에 계속 저장돼요. 백업은 파일로 남기는 추가 사본이에요. 복원은 빠진 항목만 되살리고 덮어쓰지 않아요.")}</p>
    <div class="acts"><button class="btn" id="bk">${t("Back up now","지금 백업")}</button><label class="btn ghost" for="rsf" style="cursor:pointer">${t("Restore from file","파일로 복원")}</label><input type="file" id="rsf" accept="application/json,.json" hidden></div>
@@ -1252,8 +1244,8 @@ $("#scrim").onclick=closeDrawer;
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDrawer();closeMenu();closeSheet()}});
 
 /* ================= ROUTER ================= */
-const ROUTES={home,saved:savedView,runway:runwayView,rdata:rdataView,calendar:calendarView,fitting:fittingView,looks:looksView,archive:archiveView,sites:sitesView,designers:designersView};
-let route=(location.hash||"#home").slice(1);if(!ROUTES[route])route="home";
+const ROUTES={home,saved:savedView,runway:runwayView,rdata:rdataView,calendar:calendarView,archive:archiveView,sites:sitesView,designers:designersView};
+let route=(location.hash||"#home").slice(1);if(!ROUTES[route])route="home";if(!ROUTES[route])route="home";
 function render(top=true){clearInterval(slideTimer);const y=scrollY;$("#view").innerHTML=ROUTES[route]();applyLang();renderAlert();bind();if(route==="home")startSlider();if(top)scrollTo(0,0);else scrollTo(0,y)}
 function go(r){if(!ROUTES[r])return;route=r;closeMenu();closeDrawer();render();try{history.replaceState(null,"","#"+r)}catch(_){}}
 function bind(){
@@ -1417,150 +1409,6 @@ document.addEventListener("click",e=>{const f=e.target.closest("[data-hf],[data-
 let HISTIDX=null,HISTIDXL=false;
 function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs").select("data").eq("collection","runwayhist").eq("id","_index").maybeSingle().then(({data})=>{HISTIDX=(data&&data.data&&data.data.counts)||{};if(route==="runway")render(false)}).catch(()=>{HISTIDX={}})}
   const n=Math.max((HISTIDX&&HISTIDX[b.key])||0,b.cols.length);return n?`${n} ${t(n>1?"collections":"collection","개 컬렉션")}`:t("photos soon","사진 준비 중")}
-
-/* ================= 3D FITTING =================
-   A 3D mannequin built from the same croquis outline (so its front view matches the 2D fit exactly),
-   turned 360°. The garment is the body-fitted 2D cut-out projected onto a shell around the body:
-   front from the photo, back from a back photo when one is added (otherwise the front's colours, blurred,
-   without prints), sides blended. Where the cut-out is wider than the body (skirts, wide legs, oversize)
-   the shell widens to follow it. */
-const F3=(()=>{
-let backMode="fabric",HOST=null,R=null,scene,cam,group,bodyG,garG,floor,W=0,H=0,ang=0,spin=false,raf=0,ready=false,curG="",tight=0.5,lastFront=null;
-const yW=y=>1000-y;                       /* croquis y (down) -> world Y (up) */
-function cr(P,steps=6){const out=[];for(let i=0;i<P.length-1;i++){const p0=P[Math.max(0,i-1)],p1=P[i],p2=P[i+1],p3=P[Math.min(P.length-1,i+2)];
-  for(let s=0;s<steps;s++){const t=s/steps,t2=t*t,t3=t2*t;out.push([0,1].map(k=>0.5*((2*p1[k])+(-p0[k]+p2[k])*t+(2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*t2+(-p0[k]+3*p1[k]-3*p2[k]+p3[k])*t3)))}}out.push(P[P.length-1]);return out}
-function interp(P,y){/* P sorted by y; returns x at y */if(y<=P[0][1])return P[0][0];for(let i=1;i<P.length;i++)if(P[i][1]>=y){const a=P[i-1],b=P[i];const t=(y-a[1])/((b[1]-a[1])||1);return a[0]+(b[0]-a[0])*t}return P[P.length-1][0]}
-const mono=P=>{const out=[];let my=-1e9;P.forEach(p=>{if(p[1]>my){out.push(p);my=p[1]}});return out};
-function outline(g){const b=CQ.B[g];const body=b.body;let iFoot=0;body.forEach((p,i)=>{if(p[1]>body[iFoot][1])iFoot=i});
-  const outer=mono(cr(body.slice(0,iFoot+1)));const inner=mono(cr(body.slice(iFoot).reverse()));
-  const arm=b.arm;let iTip=0;arm.forEach((p,i)=>{if(p[1]>arm[iTip][1])iTip=i});const aOut=mono(cr(arm.slice(0,iTip+1)));const aIn=mono(cr(arm.slice(iTip).reverse()));
-  return {A:b.A,head:b.head,outer,inner,aOut,aIn,foot:body[iFoot][1]}}
-/* cross-section: superellipse with separate front/back depth */
-function ring(cx,cz,w,df,db,n,seg,extra){const pts=[];for(let j=0;j<seg;j++){const th=j/seg*Math.PI*2;const c=Math.cos(th),s=Math.sin(th);const e=2/n;
-  let x=cx+w*Math.sign(c)*Math.abs(c)**e,z=cz+(s>=0?df:db)*Math.sign(s)*Math.abs(s)**e;if(extra){const d=extra(th,x,z);x+=d[0];z+=d[1]}pts.push([x,z])}return pts}
-function tubeGeo(rows,seg,capTop,capBot){/* rows: [{y, pts:[[x,z]...]}] top->bottom */const pos=[],idx=[];rows.forEach(r=>r.pts.forEach(([x,z])=>pos.push(x,r.Y,z)));
-  for(let i=0;i<rows.length-1;i++)for(let j=0;j<seg;j++){const a=i*seg+j,b=i*seg+(j+1)%seg,c=(i+1)*seg+j,d=(i+1)*seg+(j+1)%seg;idx.push(a,b,c,b,d,c)}
-  const cap=(ri,up)=>{const r=rows[ri];let cx=0,cz=0;r.pts.forEach(p=>{cx+=p[0];cz+=p[1]});cx/=seg;cz/=seg;const ci=pos.length/3;pos.push(cx,r.Y+(up?1.5:-1.5),cz);for(let j=0;j<seg;j++){const a=ri*seg+j,b=ri*seg+(j+1)%seg;up?idx.push(ci,b,a):idx.push(ci,a,b)}};
-  if(capTop)cap(0,true);if(capBot)cap(rows.length-1,false);
-  const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);g.computeVertexNormals();return g}
-const lerp=(a,b,t)=>a+(b-a)*Math.max(0,Math.min(1,t));
-function depthRatio(g,A,y){const K=g==="f"?[[A.neck-30,1],[A.neck,1],[A.shY,.44],[A.arm,.62],[A.bust,.74],[A.waist,.84],[A.hip,.72],[A.crotch+12,.7]]:[[A.neck-30,1],[A.neck,1],[A.shY,.42],[A.arm,.6],[A.bust,.68],[A.waist,.8],[A.hip,.72],[A.crotch+12,.7]];
-  if(y<=K[0][0])return K[0][1];for(let i=1;i<K.length;i++)if(y<=K[i][0])return lerp(K[i-1][1],K[i][1],(y-K[i-1][0])/(K[i][0]-K[i-1][0]));return K[K.length-1][1]}
-/* body model: sections for torso, legs, arms (shared by the mannequin and the garment shell) */
-function model(g){const O=outline(g),A=O.A;const halfW=y=>interp(O.outer,y)-200;const gauss=(v,s)=>Math.exp(-(v*v)/(2*s*s));
-  const torso=y=>{const w=Math.max(4,halfW(y));const r=depthRatio(g,A,y);let df=w*r,db=w*r;
-    if(g==="f"){df+=9*gauss(y-A.bust,22)}else{df+=3*gauss(y-A.bust,30)}db+=(g==="f"?7:5)*gauss(y-(A.hip+A.crotch)/2+12,26);db+=3*gauss(y-A.arm,30);
-    return {cx:0,cz:(g==="f"?2:1)*gauss(y-A.bust,40),w,df,db,n:y<A.neck?2:2.25,extra:g==="f"&&Math.abs(y-A.bust)<60?(th,x,z)=>{const s=Math.sin(th);if(s<=0)return [0,0];const k=gauss(y-A.bust-4,16)*(gauss(Math.abs(x)-A.bustW*.42,A.bustW*.22));return [0,k*7]}:null}};
-  const legX=y=>{const o=interp(O.outer,y)-200,i=interp(O.inner,y)-200;return {cx:(o+i)/2,r:Math.max(2.5,(o-i)/2)}};
-  const leg=(y,side)=>{const L=legX(y);const r=L.r;const calf=gauss(y-(A.knee+90),45);const thigh=gauss(y-A.crotch-40,60);
-    let df=r*(1.02+.06*thigh),db=r*(.98+.18*calf);let cz=0;if(y>A.ankle-6){const f=(y-(A.ankle-6))/(O.foot-A.ankle+6);df=r+f*30;cz=f*6}return {cx:side*L.cx,cz,w:r,df,db,n:2}};
-  const armX=y=>{const o=interp(O.aOut,y)-200;const yi=Math.max(y,O.aIn[0][1]);const iRaw=interp(O.aIn,yi)-200;const r0=(o-iRaw)/2;return {cx:o-r0,r:Math.max(2,r0)}};
-  const arm=(y,side)=>{const a=armX(y);return {cx:side*a.cx,cz:-2,w:a.r,df:a.r*.98,db:a.r*1.02,n:2}};
-  return {O,A,torso,leg,arm,ranges:{torso:[O.outer[0][1]-2,A.crotch+14],leg:[A.crotch-4,O.foot-1],arm:[Math.max(O.aOut[0][1]+14,A.shY+10),O.aOut[O.aOut.length-1][1]-2]}}}
-function rowsFor(range,step,sec,seg,grow){const rows=[];for(let y=range[0];y<=range[1]+1e-6;y+=step){const s=sec(y);const k=grow?grow(y,s):null;const w=k?k.w:s.w,df=k?k.df:s.df,db=k?k.db:s.db;rows.push({Y:yW(y),y,pts:ring(s.cx,s.cz,w,df,db,s.n,seg,s.extra)})}return rows}
-/* ---------- garment shell from the fitted 2D picture ---------- */
-let MASK=null;/* {w,h,a:Uint8Array} at 400x1000 */
-function readMask(cv){const c=document.createElement("canvas");c.width=400;c.height=1000;const x=c.getContext("2d");x.drawImage(cv,0,0,400,1000);const d=x.getImageData(0,0,400,1000).data;const a=new Uint8Array(400*1000);for(let i=0;i<a.length;i++)a[i]=d[i*4+3]>110?1:0;return {a}}
-const cov=(x,y)=>{x=Math.round(x+200);y=Math.round(y);if(x<0||x>=400||y<0||y>=1000)return 0;return MASK.a[y*400+x]};
-function runAround(cxW,y,maxR){/* half-width of the covered run around world-x cxW on row y (croquis units) */if(!MASK)return 0;let l=0,r=0;const c=Math.round(cxW);
-  let hit=false;for(let d=0;d<=maxR;d++){if(cov(c-d,y)||cov(c+d,y)){hit=true;break}}if(!hit)return 0;
-  while(l<maxR&&(cov(c-l-1,y)||cov(c-l-2,y)))l++;while(r<maxR&&(cov(c+r+1,y)||cov(c+r+2,y)))r++;return {l,r}}
-function smoothArr(a,k){const o=a.slice();for(let i=0;i<a.length;i++){let s=0,n=0;for(let j=-k;j<=k;j++){const v=a[i+j];if(v!=null){s+=v;n++}}o[i]=s/n}return o}
-/* The flat cut-out is wrapped round the body like real cloth: for each height the flat width of the
-   garment (from the fitted picture) is laid along the front half of the cross-section by arc length,
-   and the back half takes the back panel. A flat width larger than the body makes the shell looser. */
-function perim(pts){let P=0;for(let i=0;i<pts.length;i++){const a=pts[i],b=pts[(i+1)%pts.length];P+=Math.hypot(a[0]-b[0],a[1]-b[1])}return P}
-function shell(ys,sec,runOf,seg,capW){const rows=[],uvs=[],sides=[];const half=seg/2;const pad=1.4;
-  const raw=ys.map(y=>{const s=sec(y);const base=ring(s.cx,s.cz,s.w,s.df,s.db,s.n,seg,s.extra);const run=runOf(y,s);const hb=perim(base)/2;
-    const flat=run?run.R-run.L:0;let ht=hb+pad*Math.PI/2;if(flat>ht)ht=flat*(1-tight)+ht*tight;let k=ht/hb;if(capW){const c=capW(y);if(c)k=Math.max(1.03,Math.min(k,c/s.w))}return {y,s,base,run,k}});
-  const ks=smoothArr(raw.map(r=>r.k),2),Ls=smoothArr(raw.map(r=>r.run?r.run.L:null),1),Rs=smoothArr(raw.map(r=>r.run?r.run.R:null),1);
-  raw.forEach((r,i)=>{const {s,base}=r;const k=ks[i];const pts=base.map(([x,z])=>[s.cx+(x-s.cx)*k,s.cz+(z-s.cz)*k]);rows.push({Y:yW(r.y),y:r.y,pts});
-    const L=r.run?Math.max(Ls[i],r.run.L)+1.2:s.cx-s.w,R=r.run?Math.min(Rs[i],r.run.R)-1.2:s.cx+s.w;const cum=[0];for(let j=1;j<=seg;j++){const a=pts[j-1],b=pts[j%seg];cum.push(cum[j-1]+Math.hypot(a[0]-b[0],a[1]-b[1]))}
-    const fr=cum[half],bk=cum[seg]-cum[half];
-    for(let j=0;j<seg;j++){let f;if(j<=half)f=1-cum[j]/fr;else f=(cum[j]-cum[half])/bk;f=1-f;/* 0 at the right side seam, 1 at the left */
-      const u=(R-(R-L)*f+200)/400;uvs.push(u,(1000-r.y)/1000);sides.push(j===0||j===half?.5:(j<half?1:0))}});
-  const g=tubeGeo(rows,seg,false,false);g.setAttribute("uv",new THREE.Float32BufferAttribute(uvs,2));g.setAttribute("side",new THREE.Float32BufferAttribute(sides,1));return g}
-function garmentGeos(M){const out=[];if(!MASK)return out;const {A,O}=M;
-  const armIn=y=>{const q=M.arm(Math.max(y,M.ranges.arm[0]),1);return q.cx-q.w};
-  const range=(a,b,st)=>{const r=[];for(let y=a;y<=b+1e-6;y+=st)r.push(y);return r};
-  /* where does the garment end? one hem across the centre = skirt / dress / long coat */
-  let bot=-1;for(let y=999;y>=0;y--){let c=0;for(let x=-200;x<200;x+=2)c+=cov(x,y);if(c>3){bot=y;break}}
-  let skirt=false;if(bot>A.crotch+20){let n=0,g=0;for(let y=A.crotch+10;y<=bot-4;y+=2){n++;if(!(cov(0,y)&&cov(-1,y)&&cov(1,y)))g++}skirt=n>0&&g/n<.25}
-  const cap=y=>y>=A.arm+20&&y<=M.ranges.arm[1]+8?armIn(y)-4:0;
-  /* torso */{const lim=y=>{let l=y<A.arm?M.torso(y).w+6:(y<=M.ranges.arm[1]?Math.max(M.torso(y).w+4,armIn(y)-1):M.torso(y).w+14);return l};
-    const top=M.ranges.torso[0],end=skirt?A.hip:M.ranges.torso[1];
-    out.push(shell(range(top,end,3),M.torso,(y,s)=>{const r=runAround(0,y,lim(y));return r?{L:-Math.min(r.l,lim(y)),R:Math.min(r.r,lim(y))}:null},72,cap))}
-  if(skirt){const top=A.hip-3;out.push(shell(range(top,bot+1,3),y=>{const s=M.torso(Math.min(y,A.crotch+10));return {...s,extra:null}},
-      (y,s)=>{let lim=200;if(y<=M.ranges.arm[1]+6)lim=Math.max(s.w+6,armIn(y)-3);const r=runAround(0,y,lim);return r?{L:-Math.min(r.l,lim),R:Math.min(r.r,lim)}:null},72,cap))}
-  for(const side of [-1,1]){const st=skirt?bot-6:M.ranges.leg[0];if(st<M.ranges.leg[1])out.push(shell(range(st,M.ranges.leg[1],4),y=>M.leg(y,side),(y,s)=>{const r=runAround(s.cx,y,s.w+60);if(!r)return null;const inner=Math.max(2,Math.abs(s.cx)-1);
-      return side<0?{L:s.cx-r.l,R:s.cx+Math.min(r.r,inner)}:{L:s.cx-Math.min(r.l,inner),R:s.cx+r.r}},40))}
-  for(const side of [-1,1]){const R0=M.ranges.arm;out.push(shell(range(R0[0]-12,R0[1],3),y=>M.arm(Math.max(y,R0[0]),side),(y,s)=>{const r=runAround(s.cx,y,s.w+30);if(!r)return null;const inn=s.w+5;
-      return side>0?{L:s.cx-Math.min(r.l,inn),R:s.cx+r.r}:{L:s.cx-r.l,R:s.cx+Math.min(r.r,inn)}},32))}
-  return out}
-/* ---------- materials ---------- */
-function garmentMat(front,blur,back,hasBack){return new THREE.ShaderMaterial({uniforms:{tF:{value:front},tB:{value:blur},tK:{value:back},hasK:{value:hasBack?1:0}},side:THREE.DoubleSide,
-  vertexShader:`attribute float side;varying float vS;varying vec2 vUv;varying vec3 vP;varying vec3 vN;varying vec3 vWN;varying vec3 vV;void main(){vS=side;vUv=uv;vP=position;vN=normal;vWN=normalize(mat3(modelMatrix)*normal);vec4 wp=modelMatrix*vec4(position,1.);vV=normalize(cameraPosition-wp.xyz);gl_Position=projectionMatrix*viewMatrix*wp;}`,
-  fragmentShader:`uniform sampler2D tF;uniform sampler2D tB;uniform sampler2D tK;uniform float hasK;varying float vS;varying vec2 vUv;varying vec3 vP;varying vec3 vN;varying vec3 vWN;varying vec3 vV;
-   void main(){vec4 f=texture2D(tF,vUv);if(f.a<.45)discard;vec4 k=texture2D(tK,vUv);vec3 bc=hasK>.5&&k.a>.45?k.rgb:texture2D(tB,vUv).rgb;vec3 col=mix(bc,f.rgb,smoothstep(.2,.8,vS));
-    vec3 N=normalize(vWN);if(!gl_FrontFacing)N=-N;vec3 L1=normalize(vec3(-.45,.6,.75)),L2=normalize(vec3(.7,.2,.35)),L3=normalize(vec3(0.,.4,-1.));
-    float d=.5+.42*max(dot(N,L1),0.)+.16*max(dot(N,L2),0.)+.14*max(dot(N,L3),0.);float fr=pow(1.-abs(dot(N,normalize(vV))),2.);
-    col*=d*(1.-.2*fr);gl_FragColor=vec4(col,1.);}`})}
-/* ---------- scene ---------- */
-function init(host){if(!window.THREE){host.innerHTML=`<p class="tip" style="padding:20px">${t("3D view could not load. Check your connection.","3D 보기를 불러오지 못했어요. 연결을 확인해 주세요.")}</p>`;return false}
-  if(!R){R=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,alpha:false});R.setPixelRatio(Math.min(2,devicePixelRatio||1));R.setClearColor(0xf6f5f2,1);
-    scene=new THREE.Scene();cam=new THREE.PerspectiveCamera(16,1,10,20000);cam.position.set(0,520,3700);cam.lookAt(0,500,0);
-    scene.add(new THREE.HemisphereLight(0xffffff,0xd9d4cc,.95));const d1=new THREE.DirectionalLight(0xffffff,1.25);d1.position.set(-900,1400,1800);scene.add(d1);const d2=new THREE.DirectionalLight(0xffffff,.45);d2.position.set(1200,500,800);scene.add(d2);const d3=new THREE.DirectionalLight(0xffffff,.35);d3.position.set(0,800,-1600);scene.add(d3);
-    group=new THREE.Group();scene.add(group);
-    const sh=document.createElement("canvas");sh.width=sh.height=128;const sx=sh.getContext("2d");const gr=sx.createRadialGradient(64,64,4,64,64,62);gr.addColorStop(0,"rgba(0,0,0,.28)");gr.addColorStop(1,"rgba(0,0,0,0)");sx.fillStyle=gr;sx.fillRect(0,0,128,128);
-    floor=new THREE.Mesh(new THREE.PlaneGeometry(260,120),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sh),transparent:true,depthWrite:false}));floor.rotation.x=-Math.PI/2;scene.add(floor)}
-  HOST=host;host.innerHTML="";host.appendChild(R.domElement);R.domElement.className="f3c";resize(host);bindDrag(R.domElement);ready=true;return true}
-function resize(host){const r=host.getBoundingClientRect();W=Math.max(200,r.width);H=Math.max(300,r.height);R.setSize(W,H,false);R.domElement.style.width=W+"px";R.domElement.style.height=H+"px";cam.aspect=W/H;
-  const fit=1060/(2*Math.tan(cam.fov*Math.PI/360));cam.position.set(0,505,Math.max(fit,fit/Math.min(1,cam.aspect*1.9)));cam.lookAt(0,500,0);cam.updateProjectionMatrix();draw()}
-function setBody(g){if(curG===g&&bodyG)return;curG=g;if(bodyG){group.remove(bodyG);bodyG.traverse(o=>{o.geometry&&o.geometry.dispose()})}
-  const M=model(g);bodyG=new THREE.Group();const mat=new THREE.MeshStandardMaterial({color:0xf2efe9,roughness:.82,metalness:0});
-  bodyG.add(new THREE.Mesh(tubeGeo(rowsFor(M.ranges.torso,3,M.torso,72),72,true,true),mat));
-  for(const s of [-1,1]){bodyG.add(new THREE.Mesh(tubeGeo(rowsFor(M.ranges.leg,4,y=>M.leg(y,s),40),40,false,true),mat));bodyG.add(new THREE.Mesh(tubeGeo(rowsFor([M.ranges.arm[0]-12,M.ranges.arm[1]],3,y=>M.arm(Math.max(y,M.ranges.arm[0]),s),32),32,true,true),mat))}
-  const [hx,hy,rx,ry]=M.O.head;const hd=new THREE.Mesh(new THREE.SphereGeometry(1,40,28),mat);hd.scale.set(rx,ry,rx*1.12);hd.position.set(0,yW(hy),4);bodyG.add(hd);
-  floor.position.set(0,yW(M.O.foot)+.5,0);group.add(bodyG);MODEL=M}
-let MODEL=null;
-function setGarment(frontCv,backCv){lastFront=[frontCv,backCv];if(!ready)return;if(garG){group.remove(garG);garG.traverse(o=>{o.geometry&&o.geometry.dispose();o.material&&o.material.dispose()})}garG=null;
-  if(!frontCv){draw();return}MASK=readMask(frontCv);const tex=c=>{const x=new THREE.CanvasTexture(c);x.colorSpace=THREE.SRGBColorSpace;x.anisotropy=4;return x};
-  const bl=document.createElement("canvas");bl.width=200;bl.height=500;const bx=bl.getContext("2d");bx.filter="blur(7px)";bx.drawImage(frontCv,0,0,200,500);bx.filter="none";
-  /* keep blurred colour only inside the garment */bx.globalCompositeOperation="destination-in";bx.drawImage(frontCv,0,0,200,500);
-  const bl2=document.createElement("canvas");bl2.width=200;bl2.height=500;const b2=bl2.getContext("2d");b2.filter="blur(14px)";b2.drawImage(bl,0,0);b2.filter="none";b2.drawImage(bl,0,0);
-  const tF=tex(frontCv);const mat=garmentMat(tF,backMode==="plain"?tex(bl2):tF,tex(backCv||bl2),!!backCv);garG=new THREE.Group();garmentGeos(MODEL).forEach(g=>garG.add(new THREE.Mesh(g,mat)));group.add(garG);draw()}
-function draw(){if(!R)return;group.rotation.y=ang;R.render(scene,cam)}
-function loop(){raf=0;if(!spin||!document.body.contains(R.domElement))return;ang+=0.012;draw();raf=requestAnimationFrame(loop)}
-function setSpin(v){spin=v;if(spin&&!raf)raf=requestAnimationFrame(loop)}
-function view(deg){setSpin(false);const to=deg*Math.PI/180;const from=ang%(Math.PI*2);let d=to-from;while(d>Math.PI)d-=Math.PI*2;while(d<-Math.PI)d+=Math.PI*2;const t0=performance.now();
-  const step=now=>{const k=Math.min(1,(now-t0)/450);const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;ang=from+d*e;draw();if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
-function bindDrag(el){if(el._b)return;el._b=1;let sx=null,a0=0;el.addEventListener("pointerdown",e=>{sx=e.clientX;a0=ang;setSpin(false);el.setPointerCapture(e.pointerId)});
-  el.addEventListener("pointermove",e=>{if(sx==null)return;ang=a0+(e.clientX-sx)/W*Math.PI*1.6;draw()});const end=()=>{sx=null};el.addEventListener("pointerup",end);el.addEventListener("pointercancel",end)}
-function setBack(v){backMode=v;if(lastFront)setGarment(...lastFront)}
-function setTight(v){tight=v;if(lastFront)setGarment(...lastFront)}
-function shots(){/* front, side, back for saving a look */const a=ang,out=[];for(const d of [0,90,180]){ang=d*Math.PI/180;draw();out.push(R.domElement.toDataURL("image/png"))}ang=a;draw();return out}
-function renderTo(ctx,w,h){if(!ready)return false;const a=ang;const pr=R.getPixelRatio();R.setPixelRatio(1);R.setSize(w,h,false);cam.aspect=w/h;const fit=1060/(2*Math.tan(cam.fov*Math.PI/360));cam.position.set(0,505,Math.max(fit,fit/Math.min(1,cam.aspect*1.9)));cam.lookAt(0,500,0);cam.updateProjectionMatrix();ang=0;draw();ctx.drawImage(R.domElement,0,0,w,h);ang=a;R.setPixelRatio(pr);if(HOST)resize(HOST);return true}
-return {get _scene(){return scene},get _draw(){return draw},setBack,get backMode(){return backMode},renderTo,get ready(){return ready},init,resize,setBody,setGarment,view,setSpin,setTight,shots,get spin(){return spin},get tight(){return tight}}})();
-
-let FMODE="3d",BACKFOR=null,q3=0;const BACKC={};
-function ensureThree(){if(window.THREE)return Promise.resolve();if(ensureThree.p)return ensureThree.p;ensureThree.p=new Promise((res,rej)=>{const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js";s.onload=res;s.onerror=()=>{ensureThree.p=null;rej()};document.head.appendChild(s)});return ensureThree.p}
-function layerCanvas(back){const c=document.createElement("canvas");c.width=800;c.height=2000;const x=c.getContext("2d");let any=false;
-  fitItems.slice().sort((a,b)=>a.z-b.z).forEach(it=>{if(it.cat==="acc")return;if(!back){FE.drawItem(x,it,2);any=true;return}
-    const lib=it.back&&fitLib.find(l=>l.id===it.back);if(!lib||!lib.img)return;const key=it.uid+"|"+lib.id+"|"+FIT;
-    let bi=BACKC[key];if(!bi){bi={uid:it.uid,cat:it.cat,img:lib.img,prof:lib.prof||FE.profile(lib.img),w:lib.w,h:lib.h};bi.ctl=FE.controls(bi,CQ.B[FIT].A);BACKC[key]=bi}
-    Object.assign(bi,{dx:-it.dx,dy:it.dy,k:it.k,sx:it.sx,sy:it.sy,r:-it.r,flip:false,handles:null});FE.drawItem(x,bi,2);any=true});
-  if(!any)return null;if(!back)return c;const f=document.createElement("canvas");f.width=800;f.height=2000;const fx=f.getContext("2d");fx.translate(800,0);fx.scale(-1,1);fx.drawImage(c,0,0);return f}
-function push3D(){F3.setGarment(fitItems.some(i=>i.cat!=="acc")?layerCanvas(false):null,layerCanvas(true))}
-function queue3D(){if(FMODE!=="3d"||!F3.ready)return;clearTimeout(q3);q3=setTimeout(()=>{if(route==="fitting")push3D()},120)}
-function bind3D(){$$("[data-fmode]").forEach(b=>b.onclick=()=>{FMODE=b.dataset.fmode;F3.setSpin(false);drawFit()});
-  const host=$("#f3host");if(FMODE==="3d"&&host){host.innerHTML=`<p class="tip" style="padding:20px;text-align:center">${t("Loading the 3D mannequin…","3D 마네킹을 불러오는 중…")}</p>`;
-    ensureThree().then(()=>{if(!document.body.contains(host))return;if(F3.init(host)){F3.setBody(FIT);push3D()}}).catch(()=>{host.innerHTML=`<p class="tip" style="padding:20px">${t("3D view could not load. Check your connection.","3D 보기를 불러오지 못했어요. 연결을 확인해 주세요.")}</p>`})}
-  $$("[data-f3b]").forEach(b=>b.onclick=()=>{F3.setBack(b.dataset.f3b);$$("[data-f3b]").forEach(x=>x.classList.toggle("on",x===b))});
-  $$("[data-f3v]").forEach(b=>b.onclick=()=>F3.view(+b.dataset.f3v));const sp=$("#f3spin");if(sp)sp.onclick=()=>{F3.setSpin(!F3.spin);sp.classList.toggle("on",F3.spin)};
-  const tr=$("#f3t");if(tr)tr.oninput=()=>{clearTimeout(tr._t);tr._t=setTimeout(()=>F3.setTight(+tr.value),60)};
-  const bu=$("#backUp");if(bu)bu.onchange=e=>{const f=e.target.files[0];if(!f||!fitSel)return;BACKFOR=fitSel;loadCutout(f,(fitItems.find(x=>x.uid===fitSel)||{}).cat||"top");e.target.value=""};
-  const bd=$("#backDel");if(bd)bd.onclick=()=>{const it=fitItems.find(x=>x.uid===fitSel);if(it){snap();delete it.back;drawFit()}}}
-addEventListener("resize",()=>{if(route==="fitting"&&FMODE==="3d"&&F3.ready&&$("#f3host"))F3.resize($("#f3host"))});
 
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;
