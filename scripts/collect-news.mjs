@@ -139,6 +139,8 @@ async function main() {
   const needTr = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.title && !r.data.tr).sort((a, b) => (b.data.fetchedAt || 0) - (a.data.fetchedAt || 0)).slice(0, 250);
   await pool(needTr, 2, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
   console.log(`translations: ${trOK} done, ${trFail} failed`);
+  try { const fs = await import("node:fs"); fs.mkdirSync("status", { recursive: true }); const rowsAll = [...feedRows.map(r => r.data), ...fresh.map(r => r.data)].filter(d => d && d.kind !== "issue");
+    fs.writeFileSync("status/news.json", JSON.stringify({ at: new Date().toISOString(), stories: rowsAll.length, translated: rowsAll.filter(d => d.tr).length, notTranslated: rowsAll.filter(d => !d.tr).map(d => d.title).slice(0, 20), trOK, trFail }, null, 1)); } catch {}
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));
