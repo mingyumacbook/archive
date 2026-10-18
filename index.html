@@ -510,9 +510,8 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 .f3bar .rng{min-width:220px}.f3note{font-size:11.5px;color:var(--ink-3);text-align:center;margin:6px 0 0;width:100%}
 .backrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.backrow img{width:36px;height:46px;object-fit:contain;background:var(--soft)}
 .stagebox .modes{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:2}
-.slider .save,.nrow .save{display:none!important}
-.nrow .side{align-self:start;height:calc(160px * 2 / 3);justify-content:flex-end}
-@media (max-width:760px){.nrow .side{height:auto;grid-column:2;grid-row:3;justify-content:flex-end;flex-direction:row}}
+.nrow .side{align-self:start;height:calc(160px * 2 / 3);justify-content:space-between}
+@media (max-width:760px){.nrow .side{height:auto;grid-column:1/-1;grid-row:3;justify-content:space-between;flex-direction:row}}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -742,7 +741,7 @@ const fmtMD=s=>{const d=new Date(s);return isNaN(d)?"":`${String(d.getMonth()+1)
 
 /* ================= MENU ================= */
 const MENU=[
- {id:"home",en:"News",ko:"뉴스",subs:[["home","Today's issues","오늘의 이슈"]]},
+ {id:"home",en:"News",ko:"뉴스",subs:[["home","Today's issues","오늘의 이슈"],["saved","Saved","저장함"]]},
  {id:"runway",en:"Runway",ko:"런웨이",subs:[["runway","Brands","브랜드"],["rdata","Season Report","시즌 리포트"],["calendar","Calendar","캘린더"]]},
  {id:"designers",en:"Korean Designers",ko:"국내 디자이너",subs:[["designers","A – Z","A – Z"]]},
  {id:"archive",en:"Archive",ko:"아카이브",subs:[["archive","Images & folders","이미지 · 폴더"],["sites","Reference sites","레퍼런스 사이트"]]}
@@ -1246,7 +1245,7 @@ $("#scrim").onclick=closeDrawer;
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDrawer();closeMenu();closeSheet()}});
 
 /* ================= ROUTER ================= */
-const ROUTES={home,runway:runwayView,rdata:rdataView,calendar:calendarView,archive:archiveView,sites:sitesView,designers:designersView};
+const ROUTES={home,saved:savedView,runway:runwayView,rdata:rdataView,calendar:calendarView,archive:archiveView,sites:sitesView,designers:designersView};
 let route=(location.hash||"#home").slice(1);if(!ROUTES[route])route="home";if(!ROUTES[route])route="home";
 function render(top=true){clearInterval(slideTimer);const y=scrollY;$("#view").innerHTML=ROUTES[route]();applyLang();renderAlert();bind();if(route==="home")startSlider();if(top)scrollTo(0,0);else scrollTo(0,y)}
 function go(r){if(!ROUTES[r])return;route=r;closeMenu();closeDrawer();render();try{history.replaceState(null,"","#"+r)}catch(_){}}
