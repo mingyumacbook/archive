@@ -67,11 +67,15 @@ async function ogImage(url) {
 const HANGUL = /[\uac00-\ud7a3]/;
 async function tr(text, tl) {
   text = String(text || "").trim(); if (!text) return "";
-  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 12000);
-  try {
-    const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(text.slice(0, 1800))}`, { headers: { "User-Agent": "Mozilla/5.0" }, signal: ctl.signal });
-    if (!r.ok) return ""; const j = await r.json(); return (j?.[0] || []).map(x => x?.[0] || "").join("").trim();
-  } catch { return ""; } finally { clearTimeout(t); }
+  for (let i = 0; i < 4; i++) { // retry: the free endpoint sometimes refuses bursts
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 12000);
+    try {
+      const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(text.slice(0, 1800))}`, { headers: { "User-Agent": "Mozilla/5.0" }, signal: ctl.signal });
+      if (r.ok) { const j = await r.json(); const out = (j?.[0] || []).map(x => x?.[0] || "").join("").trim(); if (out) { await new Promise(r => setTimeout(r, 150)); return out; } }
+    } catch {} finally { clearTimeout(t); }
+    await new Promise(r => setTimeout(r, 1500 * (i + 1)));
+  }
+  return "";
 }
 let trOK = 0, trFail = 0;
 async function translateRow(d) {
@@ -129,11 +133,11 @@ async function main() {
   const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && !r.data.imgSrc && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 300);
   const filled = [];
   await pool(backfill, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; filled.push({ collection: "feed", id: r.id, data: r.data }); });
-  // translations: new stories, plus up to 160 recent stories (14 days) that don't have one yet
-  await pool(fresh, 3, async r => { await translateRow(r.data); });
+  // translations: new stories, plus up to 250 older stories that don't have one yet (failed ones are retried every run)
+  await pool(fresh, 2, async r => { await translateRow(r.data); });
   const filledIds = new Set(filled.map(r => r.id));
-  const needTr = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.title && !r.data.tr && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 160);
-  await pool(needTr, 3, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
+  const needTr = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.title && !r.data.tr).sort((a, b) => (b.data.fetchedAt || 0) - (a.data.fetchedAt || 0)).slice(0, 250);
+  await pool(needTr, 2, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
   console.log(`translations: ${trOK} done, ${trFail} failed`);
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);

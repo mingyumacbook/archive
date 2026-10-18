@@ -1,0 +1,886 @@
+{
+"juliekegels": {
+"name": "Julie Kegels"
+},
+"fidannovruzova": {
+"name": "Fidan Novruzova"
+},
+"kimhekim": {
+"name": "Kimhekim"
+},
+"jsimone": {
+"name": "J.Simone"
+},
+"weinsanto": {
+"name": "Weinsanto"
+},
+"vautrait": {
+"name": "Vautrait"
+},
+"maxhosaafrica": {
+"name": "Maxhosa Africa"
+},
+"hodakova": {
+"name": "Hodakova"
+},
+"matieresfecales": {
+"name": "Matieres Fecales"
+},
+"alexandragolovanoff": {
+"name": "Alexandra Golovanoff"
+},
+"estermanas": {
+"name": "Ester Manas"
+},
+"ganni": {
+"name": "Ganni"
+},
+"marieadamleenaerdt": {
+"name": "Marie Adam-Leenaerdt"
+},
+"mamekurogouchi": {
+"name": "Mame Kurogouchi"
+},
+"dior": {
+"name": "Dior",
+"nf": "dior"
+},
+"burcakyol": {
+"name": "Burc Akyol"
+},
+"byfang": {
+"name": "byFANG"
+},
+"maisonmargiela": {
+"name": "Maison Margiela"
+},
+"pressiat": {
+"name": "Pressiat"
+},
+"anrealage": {
+"name": "Anrealage"
+},
+"saintlaurent": {
+"name": "Saint Laurent"
+},
+"vaillant": {
+"name": "Vaillant"
+},
+"louloudesaison": {
+"name": "Loulou de Saison"
+},
+"courreges": {
+"name": "Courrèges"
+},
+"therow": {
+"name": "The Row"
+},
+"balmain": {
+"name": "Balmain"
+},
+"ruohan": {
+"name": "Ruohan"
+},
+"juozasstatkevicius": {
+"name": "Juozas Statkevicius"
+},
+"driesvannoten": {
+"name": "Dries Van Noten"
+},
+"maitrepierre": {
+"name": "Maitrepierre"
+},
+"nothingnine": {
+"name": "Nothing Nine"
+},
+"stellamccartney": {
+"name": "Stella McCartney"
+},
+"vaquera": {
+"name": "Vaquera"
+},
+"awge": {
+"name": "AWGE"
+},
+"acnestudios": {
+"name": "Acne Studios"
+},
+"tomford": {
+"name": "Tom Ford"
+},
+"chloe": {
+"name": "Chloé"
+},
+"junkoshimada": {
+"name": "Junko Shimada"
+},
+"alainpaul": {
+"name": "Alainpaul"
+},
+"jennyfax": {
+"name": "Jenny Fax"
+},
+"carven": {
+"name": "Carven"
+},
+"balenciaga": {
+"name": "Balenciaga"
+},
+"ceciliebahnsen": {
+"name": "Cecilie Bahnsen"
+},
+"umawang": {
+"name": "Uma Wang"
+},
+"icicle": {
+"name": "Icicle"
+},
+"rickowens": {
+"name": "Rick Owens"
+},
+"gauchere": {
+"name": "Gauchère"
+},
+"schiaparelli": {
+"name": "Schiaparelli"
+},
+"isabelmarant": {
+"name": "Isabel Marant"
+},
+"leonardparis": {
+"name": "Leonard Paris"
+},
+"marineserre": {
+"name": "Marine Serre"
+},
+"undercover": {
+"name": "Undercover"
+},
+"afewrahulmishra": {
+"name": "AFEW Rahul Mishra"
+},
+"loewe": {
+"name": "Loewe",
+"nf": "loewe"
+},
+"isseymiyake": {
+"name": "Issey Miyake"
+},
+"jitrois": {
+"name": "Jitrois"
+},
+"casablanca": {
+"name": "Casablanca"
+},
+"lanvin": {
+"name": "Lanvin"
+},
+"reveriebycarolinehu": {
+"name": "Reverie by Caroline Hu"
+},
+"ottolinger": {
+"name": "Ottolinger"
+},
+"givenchy": {
+"name": "Givenchy"
+},
+"yohjiyamamoto": {
+"name": "Yohji Yamamoto"
+},
+"victoriabeckham": {
+"name": "Victoria Beckham"
+},
+"barbarabui": {
+"name": "Barbara Bui"
+},
+"veroniqueleroy": {
+"name": "Véronique Leroy"
+},
+"junyawatanabe": {
+"name": "Junya Watanabe"
+},
+"celine": {
+"name": "Céline"
+},
+"noirkeininomiya": {
+"name": "Noir Kei Ninomiya"
+},
+"nehera": {
+"name": "Nehera"
+},
+"viviennewestwood": {
+"name": "Vivienne Westwood"
+},
+"hermes": {
+"name": "Hermès"
+},
+"eliesaab": {
+"name": "Elie Saab"
+},
+"commedesgarcons": {
+"name": "Comme des Garçons"
+},
+"alaia": {
+"name": "Alaïa"
+},
+"anndemeulemeester": {
+"name": "Ann Demeulemeester"
+},
+"margarethowell": {
+"name": "Margaret Howell"
+},
+"lacoste": {
+"name": "Lacoste"
+},
+"niccolopasqualetti": {
+"name": "Niccolo Pasqualetti"
+},
+"miumiu": {
+"name": "Miu Miu",
+"nf": "miu-miu"
+},
+"chromatiquelab": {
+"name": "Chromatique Lab"
+},
+"akris": {
+"name": "Akris"
+},
+"dicekayek": {
+"name": "Dice Kayek"
+},
+"palomawool": {
+"name": "Paloma Wool"
+},
+"valentino": {
+"name": "Valentino",
+"nf": "valentino"
+},
+"zomer": {
+"name": "Zomer"
+},
+"mossi": {
+"name": "Mossi"
+},
+"mugler": {
+"name": "Mugler"
+},
+"jeanpaulgaultier": {
+"name": "Jean Paul Gaultier"
+},
+"sacai": {
+"name": "Sacai",
+"nf": "sacai"
+},
+"ungaro": {
+"name": "Ungaro"
+},
+"akok": {
+"name": "AK|OK"
+},
+"shiatzychen": {
+"name": "Shiatzy Chen"
+},
+"abra": {
+"name": "Abra"
+},
+"gabrielahearst": {
+"name": "Gabriela Hearst"
+},
+"time": {
+"name": "Time"
+},
+"wildroseandsparrow": {
+"name": "Wild Rose & Sparrow"
+},
+"zimmermann": {
+"name": "Zimmermann"
+},
+"kikokostadinov": {
+"name": "Kiko Kostadinov"
+},
+"florentinaleitner": {
+"name": "Florentina Leitner"
+},
+"agnesb": {
+"name": "Agnès b."
+},
+"chanel": {
+"name": "Chanel",
+"nf": "chanel"
+},
+"xulybet": {
+"name": "Xuly.Bët"
+},
+"ujoh": {
+"name": "Ujoh"
+},
+"didu": {
+"name": "DIDU"
+},
+"litkovska": {
+"name": "LITKOVSKA"
+},
+"christopheresber": {
+"name": "Christopher Esber"
+},
+"cfcl": {
+"name": "CFCL"
+},
+"eenk": {
+"name": "EENK"
+},
+"situationist": {
+"name": "Situationist"
+},
+"boyarovskaya": {
+"name": "Boyarovskaya"
+},
+"pierrecardin": {
+"name": "Pierre Cardin"
+},
+"louisvuitton": {
+"name": "Louis Vuitton",
+"nf": "louis-vuitton"
+},
+"martinomidali": {
+"name": "Martino Midali"
+},
+"prada": {
+"name": "Prada",
+"nf": "prada"
+},
+"dhruvkapoor": {
+"name": "Dhruv Kapoor"
+},
+"diesel": {
+"name": "Diesel"
+},
+"sagio": {
+"name": "Sagío"
+},
+"jsalinas": {
+"name": "J.Salinas"
+},
+"venerdipomeriggio": {
+"name": "Venerdì Pomeriggio"
+},
+"luisabeccaria": {
+"name": "Luisa Beccaria"
+},
+"jilsander": {
+"name": "Jil Sander"
+},
+"danielagregis": {
+"name": "Daniela Gregis"
+},
+"antoniomarras": {
+"name": "Antonio Marras"
+},
+"fendi": {
+"name": "Fendi"
+},
+"vivetta": {
+"name": "Vivetta"
+},
+"missoni": {
+"name": "Missoni"
+},
+"mm6maisonmargiela": {
+"name": "MM6 Maison Margiela"
+},
+"brioni": {
+"name": "Brioni"
+},
+"etro": {
+"name": "Etro"
+},
+"onitsukatiger": {
+"name": "Onitsuka Tiger"
+},
+"maxmara": {
+"name": "Max Mara"
+},
+"genny": {
+"name": "Genny"
+},
+"phandanghoang": {
+"name": "Phan Dang Hoang"
+},
+"albertozambelli": {
+"name": "Alberto Zambelli"
+},
+"anteprima": {
+"name": "Anteprima"
+},
+"marni": {
+"name": "Marni"
+},
+"francescomurano": {
+"name": "Francesco Murano"
+},
+"albertaferretti": {
+"name": "Alberta Ferretti"
+},
+"robertocavalli": {
+"name": "Roberto Cavalli"
+},
+"florania": {
+"name": "Florania"
+},
+"emporioarmani": {
+"name": "Emporio Armani"
+},
+"tods": {
+"name": "Tod's"
+},
+"institutionbygalibgassanoff": {
+"name": "Institution by Galib Gassanoff"
+},
+"sergiodavila": {
+"name": "Sergio Davila"
+},
+"sportmax": {
+"name": "Sportmax"
+},
+"blumarine": {
+"name": "Blumarine"
+},
+"gucci": {
+"name": "Gucci"
+},
+"simoncracker": {
+"name": "Simon Cracker"
+},
+"elisabettafranchi": {
+"name": "Elisabetta Franchi"
+},
+"moschino": {
+"name": "Moschino"
+},
+"luisaspagnoli": {
+"name": "Luisa Spagnoli"
+},
+"chen1988": {
+"name": "CHEN1988"
+},
+"theattico": {
+"name": "The Attico"
+},
+"neithanherbert": {
+"name": "Neithan Herbert"
+},
+"davii": {
+"name": "Davii"
+},
+"ermannoscervino": {
+"name": "Ermanno Scervino"
+},
+"ferragamo": {
+"name": "Ferragamo"
+},
+"dolceandgabbana": {
+"name": "Dolce&Gabbana"
+},
+"jarelzhang": {
+"name": "Jarel Zhang"
+},
+"msgm": {
+"name": "MSGM"
+},
+"laurabiagiotti": {
+"name": "Laura Biagiotti"
+},
+"marea": {
+"name": "Marea"
+},
+"actn1": {
+"name": "ACT N°1"
+},
+"marcorambaldi": {
+"name": "Marco Rambaldi"
+},
+"barbararizzi": {
+"name": "Barbara Rizzi"
+},
+"victorhart": {
+"name": "Victor Hart"
+},
+"bottegaveneta": {
+"name": "Bottega Veneta",
+"nf": "bottega-veneta"
+},
+"hui": {
+"name": "Hui"
+},
+"giorgioarmani": {
+"name": "Giorgio Armani"
+},
+"marquesalmeida": {
+"name": "Marques'Almeida"
+},
+"casapreti": {
+"name": "Casa Preti"
+},
+"tellthetruth": {
+"name": "Tell The Truth"
+},
+"francescaliberatore": {
+"name": "Francesca Liberatore"
+},
+"miguelvieira": {
+"name": "Miguel Vieira"
+},
+"aquilanorimondi": {
+"name": "Aquilano Rimondi"
+},
+"uniform": {
+"name": "Uni Form"
+},
+"nadyadzyak": {
+"name": "Nadya Dzyak"
+},
+"bankekuku": {
+"name": "Banke Kuku"
+},
+"ayadesign": {
+"name": "Aya Design"
+},
+"deanlapchan": {
+"name": "Dean Lap Chan"
+},
+"paulcostelloe": {
+"name": "Paul Costelloe"
+},
+"stephenjonesmillinery": {
+"name": "Stephen Jones Millinery"
+},
+"keburia": {
+"name": "Keburia"
+},
+"agrostudio": {
+"name": "Agro Studio"
+},
+"maximilianraynor": {
+"name": "Maximilian Raynor"
+},
+"mithridate": {
+"name": "Mithridate"
+},
+"markfast": {
+"name": "Mark Fast"
+},
+"barbour": {
+"name": "Barbour"
+},
+"harrisreed": {
+"name": "Harris Reed"
+},
+"kseniaschnaider": {
+"name": "Ksenia Schnaider"
+},
+"handm": {
+"name": "H&M"
+},
+"boraaksu": {
+"name": "Bora Aksu"
+},
+"petrafagerstrom": {
+"name": "Petra Fagerström"
+},
+"mands": {
+"name": "M&S"
+},
+"susanfang": {
+"name": "Susan Fang"
+},
+"ashleywilliams": {
+"name": "Ashley Williams"
+},
+"oscarouyang": {
+"name": "Oscar Ouyang"
+},
+"fashioneast": {
+"name": "Fashion East"
+},
+"annies": {
+"name": "Annie's"
+},
+"aaronesh": {
+"name": "Aaron Esh"
+},
+"natashazinko": {
+"name": "Natasha Zinko"
+},
+"paolocarzana": {
+"name": "Paolo Carzana"
+},
+"taliabyre": {
+"name": "Talia Byre"
+},
+"patrickmcdowell": {
+"name": "Patrick McDowell"
+},
+"johnrichmond": {
+"name": "John Richmond"
+},
+"ahluwalia": {
+"name": "Ahluwalia"
+},
+"paulinedujancourt": {
+"name": "Pauline Dujancourt"
+},
+"toga": {
+"name": "Toga"
+},
+"dreamingeli": {
+"name": "Dreaming Eli"
+},
+"knwls": {
+"name": "KNWLS"
+},
+"richardquinn": {
+"name": "Richard Quinn"
+},
+"yuhanwang": {
+"name": "Yuhan Wang"
+},
+"chopovalowena": {
+"name": "Chopova Lowena"
+},
+"simonerocha": {
+"name": "Simone Rocha"
+},
+"edelinelee": {
+"name": "Edeline Lee"
+},
+"erdem": {
+"name": "Erdem"
+},
+"emiliawickstead": {
+"name": "Emilia Wickstead"
+},
+"labrumlondon": {
+"name": "Labrum London"
+},
+"mulberry": {
+"name": "Mulberry"
+},
+"charlieconstantinou": {
+"name": "Charlie Constantinou"
+},
+"roksanda": {
+"name": "Roksanda"
+},
+"mcqueen": {
+"name": "McQueen"
+},
+"alessandrarich": {
+"name": "Alessandra Rich"
+},
+"selasi": {
+"name": "Selasi"
+},
+"dipetsa": {
+"name": "Di Petsa"
+},
+"tolucoker": {
+"name": "Tolu Coker"
+},
+"ashish": {
+"name": "Ashish"
+},
+"burberry": {
+"name": "Burberry"
+},
+"aadnevik": {
+"name": "Aadnevik"
+},
+"rachelcomey": {
+"name": "Rachel Comey"
+},
+"coach": {
+"name": "Coach"
+},
+"dianevonfurstenberg": {
+"name": "Diane von Furstenberg"
+},
+"proenzaschouler": {
+"name": "Proenza Schouler"
+},
+"tommyhilfiger": {
+"name": "Tommy Hilfiger"
+},
+"kallmeyer": {
+"name": "Kallmeyer"
+},
+"loveshackfancy": {
+"name": "LoveShackFancy"
+},
+"toryburch": {
+"name": "Tory Burch"
+},
+"christiansiriano": {
+"name": "Christian Siriano"
+},
+"publicschool": {
+"name": "Public School"
+},
+"nardos": {
+"name": "Nardos"
+},
+"michaelkors": {
+"name": "Michael Kors"
+},
+"wiederhoeft": {
+"name": "Wiederhoeft"
+},
+"calvinklein": {
+"name": "Calvin Klein"
+},
+"pamellaroland": {
+"name": "Pamella Roland"
+},
+"alixeofbohemia": {
+"name": "Alix(e) of Bohemia"
+},
+"christiancowan": {
+"name": "Christian Cowan"
+},
+"monse": {
+"name": "Monse"
+},
+"simkhai": {
+"name": "Simkhai"
+},
+"eckhauslatta": {
+"name": "Eckhaus Latta"
+},
+"rio": {
+"name": "RIO"
+},
+"altuzarra": {
+"name": "Altuzarra"
+},
+"katebarton": {
+"name": "Kate Barton"
+},
+"pdf": {
+"name": "PDF"
+},
+"shao": {
+"name": "Shao"
+},
+"tabbe": {
+"name": "T'ABBE"
+},
+"connerives": {
+"name": "Conner Ives"
+},
+"advisry": {
+"name": "Advisry"
+},
+"annasui": {
+"name": "Anna Sui"
+},
+"tibi": {
+"name": "Tibi"
+},
+"ashlyn": {
+"name": "Ashlyn"
+},
+"prabalgurung": {
+"name": "Prabal Gurung"
+},
+"khaite": {
+"name": "Khaite"
+},
+"elenavelez": {
+"name": "Elena Velez"
+},
+"area": {
+"name": "Area"
+},
+"cos": {
+"name": "Cos"
+},
+"sandyliang": {
+"name": "Sandy Liang"
+},
+"magdabutrym": {
+"name": "Magda Butrym"
+},
+"sergiohudson": {
+"name": "Sergio Hudson"
+},
+"graceling": {
+"name": "Grace Ling"
+},
+"privatepolicy": {
+"name": "Private Policy"
+},
+"adeam": {
+"name": "Adeam"
+},
+"ullajohnson": {
+"name": "Ulla Johnson"
+},
+"normakamali": {
+"name": "Norma Kamali"
+},
+"tannerfletcher": {
+"name": "Tanner Fletcher"
+},
+"fforme": {
+"name": "Fforme"
+},
+"lii": {
+"name": "Lii"
+},
+"zankov": {
+"name": "Zankov"
+},
+"bibhumohapatra": {
+"name": "Bibhu Mohapatra"
+},
+"carolinezimbalist": {
+"name": "Caroline Zimbalist"
+},
+"zaldy": {
+"name": "Zaldy"
+},
+"diotima": {
+"name": "Diotima"
+},
+"carolinaherrera": {
+"name": "Carolina Herrera"
+},
+"luar": {
+"name": "Luar"
+},
+"laquansmith": {
+"name": "LaQuan Smith"
+},
+"patbo": {
+"name": "Patbo"
+},
+"collinastrada": {
+"name": "Collina Strada"
+},
+"andrewkwon": {
+"name": "Andrew Kwon"
+},
+"sabyasachi": {
+"name": "Sabyasachi"
+},
+"thombrowne": {
+"name": "Thom Browne"
+},
+"anderssonbell": {
+"name": "Andersson Bell",
+"nf": "andersson-bell"
+},
+"jacquemus": {
+"name": "Jacquemus",
+"nf": "jacquemus"
+}
+}
