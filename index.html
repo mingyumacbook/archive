@@ -534,6 +534,232 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 #admAlert .dot{width:8px;height:8px;border-radius:50%;background:var(--alert,#c8102e);flex:none}#admAlert b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
 #admAlert button{border:0;background:none;font:inherit;color:inherit;cursor:pointer;padding:2px 4px}#admAlert .aa-go{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 @media (max-width:600px){#admAlert{top:auto;bottom:16px;left:16px;right:16px;max-width:none}}
+#vdcFab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:38px;height:34px;border:0;background:none;padding:0;transition:transform .2s}
+#vdcFab:active{transform:scale(.93)}
+#vdcFab>*{position:absolute;left:0;top:0;width:64px;height:58px;transform-origin:0 0;transform:scale(.59375)}
+#vdcFab .shd{display:none}
+#vdcFab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(13,13,13,.2);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+#vdcFab .rim{display:none}
+#vdcFab .ix{left:13.5px;top:9px;width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
+#vdcFab.open .ix{opacity:1;transform:none}
+#vdcFab .bd{color:#fff!important;left:auto;transform:none;top:-7px;right:-9px;width:auto;height:17px;min-width:17px;padding:0 5px;border-radius:9px;font-size:10.5px!important;background:var(--alert);color:var(--bg);font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px var(--bg)}
+#vdcFab .bd:empty{display:none}
+#vdc{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:96px;z-index:44;width:384px;height:min(640px,calc(100vh - 150px));background:var(--bg);border-radius:22px;overflow:hidden;
+ box-shadow:0 30px 80px rgba(0,0,0,.22),0 0 0 .5px rgba(0,0,0,.08);display:flex;flex-direction:column;opacity:0;transform:translateY(14px) scale(.98);transform-origin:100% 100%;pointer-events:none;transition:opacity .2s,transform .22s}
+#vdc.on{opacity:1;transform:none;pointer-events:auto}
+#vdc.wide{width:min(860px,calc(100vw - 48px));height:min(680px,calc(100vh - 150px))}
+#vdc .split{display:flex;flex:1;min-height:0}
+#vdc .side{width:310px;flex:none;border-right:.5px solid var(--line);display:flex;flex-direction:column;min-height:0}
+#vdc .main{flex:1;min-width:0;display:flex;flex-direction:column;min-height:0}
+#vdc .ch{position:relative;text-align:center;padding:14px 48px 10px;background:var(--bg);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:.5px solid var(--line);flex:none}
+#vdc .ch .nm{display:block;font-size:12.5px;font-weight:500;margin-top:5px}
+#vdc .ch small{display:block;font-size:11px;color:var(--ink-3);margin-top:2px}
+#vdc .ibtn{position:absolute;top:12px;width:30px;height:30px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;padding:0}
+#vdc .ibtn:hover{background:var(--soft)}
+#vdc .ibtn svg{width:16px;height:16px;fill:none;stroke:var(--ink);stroke-width:1.7}
+#vdc .x{right:12px}
+#vdc .bk{left:10px}
+#vdc .av{width:42px;height:42px;border-radius:50%;margin:0 auto;display:grid;place-items:center;color:var(--bg);font-size:14px;font-weight:500;letter-spacing:.02em;background:linear-gradient(#b4b4b2,#8d8d8b);flex:none}
+#vdc .av.vd{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:15px;letter-spacing:.04em}
+#vdc .av.s{width:44px;height:44px;margin:0}
+#vdc .av.big{width:64px;height:64px;font-size:21px}
+#vdc .seg2{display:flex;margin:10px 14px 4px;background:var(--soft);border-radius:9px;padding:2px;flex:none}
+#vdc .seg2 button{flex:1;border:0;background:none;border-radius:7px;padding:6px 0;font-size:13px;color:var(--ink-2)}
+#vdc .seg2 button.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#vdc .seg2 i{font-style:normal;font-size:11px;background:var(--ink);color:var(--bg);border-radius:8px;padding:0 6px;margin-left:3px}
+#vdc .msgs{flex:1;overflow:auto;padding:6px 14px 10px;display:flex;flex-direction:column;overscroll-behavior:contain}
+#vdc .intro{text-align:center;color:var(--ink-3);font-size:12px;line-height:1.6;padding:14px 18px 4px}
+#vdc .intro b{color:var(--ink-2);font-weight:500}
+#vdc .ts{align-self:center;font-size:11px;color:var(--ink-3);margin:16px 0 6px}
+#vdc .ts b{font-weight:600}
+#vdc .sys{align-self:center;max-width:86%;text-align:center;font-size:11.5px;color:var(--ink-2);margin:10px 0 4px;line-height:1.5}
+#vdc .sys em{font-style:normal;border-bottom:1px solid currentColor}
+#vdc .row{display:flex;flex-direction:column;align-items:flex-start;margin-top:2px}
+#vdc .row.me{align-items:flex-end}
+#vdc .row.gap{margin-top:9px}
+#vdc .b{position:relative;max-width:76%;padding:8px 13px;border-radius:19px;font-size:15px;line-height:1.38;background:var(--bub);color:var(--ink);white-space:pre-wrap;word-break:break-word}
+#vdc .me .b{background:var(--ink);color:var(--bg)}
+#vdc .b.tl:before{content:"";position:absolute;bottom:0;left:-7px;width:20px;height:20px;background:var(--bub);border-bottom-right-radius:15px}
+#vdc .b.tl:after{content:"";position:absolute;bottom:0;left:-10px;width:10px;height:20px;background:var(--bg);border-bottom-right-radius:10px}
+#vdc .me .b.tl:before{left:auto;right:-7px;background:var(--ink);border-bottom-right-radius:0;border-bottom-left-radius:15px}
+#vdc .me .b.tl:after{left:auto;right:-10px;border-bottom-right-radius:0;border-bottom-left-radius:10px}
+#vdc .b.img{padding:0;background:none!important}
+#vdc .b.img img{display:block;max-width:220px;max-height:260px;border-radius:18px}
+#vdc .b.card{cursor:pointer}
+#vdc .b .ql{display:flex;gap:6px;align-items:center;font-size:11px;letter-spacing:.04em;opacity:.72;margin:1px 0 4px}
+#vdc .st{font-style:normal;font-size:10.5px;border:1px solid currentColor;border-radius:9px;padding:0 6px;line-height:16px}
+#vdc .rc{font-size:11px;color:var(--ink-3);margin:3px 4px 0}
+#vdc .stp{display:flex;gap:5px;margin:6px 0 2px;flex-wrap:wrap}
+#vdc .stp span{font-size:11px;color:var(--ink-3);align-self:center;margin-right:2px}
+#vdc .stp button{border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:4px 10px;font-size:12px}
+#vdc .stp button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#vdc .flash .b,#vdc .qi.flash{animation:vdcfl 1.6s}
+@keyframes vdcfl{0%,40%{box-shadow:0 0 0 3px rgba(13,13,13,.25)}100%{box-shadow:0 0 0 3px rgba(13,13,13,0)}}
+#vdc .tray{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px;flex:none}
+#vdc .tray .tt{width:100%;font-size:11.5px;color:var(--ink-3);margin-bottom:2px}
+#vdc .chip{border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:6px 12px;font-size:13px;display:inline-flex;gap:5px;align-items:center}
+#vdc .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#vdc .chip svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6}
+#vdc .tagrow{padding:8px 14px 0;font-size:12px;color:var(--ink-2);display:flex;align-items:center;gap:6px;flex:none}
+#vdc .tagrow b{font-weight:500;color:var(--ink);border:1px solid var(--ink);border-radius:12px;padding:1px 9px}
+#vdc .tagrow button{border:0;background:none;color:var(--ink-3);padding:0 4px}
+#vdc .cmp{display:flex;align-items:flex-end;gap:8px;padding:8px 10px 10px;flex:none}
+#vdc .plus{width:34px;height:34px;flex:none;border-radius:50%;border:0;background:var(--soft);display:grid;place-items:center;padding:0;transition:transform .2s}
+#vdc .plus svg{width:15px;height:15px;stroke:var(--ink-2);stroke-width:2;fill:none}
+#vdc .plus.on{transform:rotate(45deg)}
+#vdc .field{flex:1;display:flex;align-items:flex-end;border:1px solid var(--line);border-radius:18px;padding:2px 3px 2px 13px;min-height:34px}
+#vdc .field textarea{flex:1;border:0;outline:0;resize:none;background:none;font-size:15px;line-height:1.35;padding:5px 0;max-height:110px}
+#vdc .send{width:28px;height:28px;flex:none;border-radius:50%;border:0;background:var(--ink);display:grid;place-items:center;padding:0;opacity:.18;transition:opacity .15s}
+#vdc .send.on{opacity:1}
+#vdc .send svg{width:14px;height:14px;stroke:var(--bg);stroke-width:2.2;fill:none}
+#vdc .sh{position:relative;padding:16px 16px 0;flex:none}
+#vdc .lt{font-family:var(--f-mark);font-weight:400;font-size:30px;margin:0;line-height:1}
+#vdc .sh small{display:block;color:var(--ink-3);font-size:11.5px;margin-top:6px}
+#vdc .sh .x{top:12px}
+#vdc .srch{margin:8px 14px 6px;background:var(--soft);border:0;border-radius:10px;padding:7px 11px;font-size:14px;outline:0;flex:none}
+#vdc .scroll{flex:1;overflow:auto;min-height:0}
+#vdc .ci{position:relative;display:flex;gap:11px;align-items:center;padding:10px 14px 10px 20px;cursor:pointer}
+#vdc .ci+.ci .cm{border-top:.5px solid var(--line)}
+#vdc .ci .cm{flex:1;min-width:0;padding:2px 0}
+#vdc .ci.on{background:var(--soft)}
+#vdc .ci .ud{position:absolute;left:6px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--ink)}
+#vdc .r1{display:flex;align-items:baseline;gap:8px}
+#vdc .r1 .nm{flex:1;font-size:15px;font-weight:600}
+#vdc .tm{font-size:12px;color:var(--ink-3)}
+#vdc .pv{font-size:13.5px;color:var(--ink-2);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:1px}
+#vdc .qf{display:flex;gap:5px;flex-wrap:wrap;padding:8px 14px 6px;flex:none}
+#vdc .qf .chip{padding:4px 10px;font-size:12px}
+#vdc .qi{padding:14px 16px;border-bottom:.5px solid var(--line);cursor:pointer}
+#vdc .qi:hover{background:#fafafa}
+#vdc .qi .k{font-size:11px;letter-spacing:.04em;color:var(--ink-3)}
+#vdc .qi .t{font-size:15px;margin:4px 0 12px;line-height:1.4}
+#vdc .steps{display:flex;align-items:center}
+#vdc .steps span{display:flex;gap:5px;align-items:center;font-size:11px;color:var(--ink-3);white-space:nowrap}
+#vdc .steps i{width:7px;height:7px;border-radius:50%;border:1px solid var(--ink-3)}
+#vdc .steps .d{color:var(--ink)}
+#vdc .steps .d i{background:var(--ink);border-color:var(--ink)}
+#vdc .steps b{flex:1;height:1px;background:var(--line);margin:0 7px;min-width:14px}
+#vdc .steps b.d{background:var(--ink)}
+#vdc .qi .lg{font-size:11px;color:var(--ink-3);margin-top:10px}
+#vdc .sec{font-size:11px;letter-spacing:.1em;color:var(--ink-3);padding:16px 16px 4px;text-transform:uppercase}
+#vdc .empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--ink-3);font-size:13px;line-height:1.7;padding:30px}
+#vdc .empty p{margin:14px 0 0}
+@media (min-width:641px){#vdc .main .x,#vdc .main .bk{display:none}}
+@media (max-width:640px){#vdc .draftbar .dtxt{display:none}
+#vdcFab{right:16px;bottom:max(16px,env(safe-area-inset-bottom))}
+#vdc,#vdc.wide{left:0;right:0;bottom:0;top:52px;width:auto;height:auto;border-radius:16px 16px 0 0;transform:translateY(40px)}
+#vdc.on{transform:none}
+#vdc.on~#vdcFab,#vdcFab.open{display:none}
+#vdc .side{width:100%;border:0}
+#vdc.wide.conv .side{display:none}
+#vdc.wide:not(.conv) .main{display:none}
+#vdc .b{max-width:80%}}
+#vdc .b{font-size:14px;padding:7px 12px;border-radius:18px}
+#vdc .b .ql{font-size:10.5px}
+#vdc .lt{font-size:26px}
+#vdc .r1 .nm{font-size:14px}
+#vdc .pv{font-size:12.5px}
+#vdc .tm{font-size:11.5px}
+#vdc .qi .t{font-size:14px}
+#vdc .qi .k{font-size:10.5px}
+#vdc .ch .nm{font-size:12px}
+#vdc .ch small{font-size:10.5px}
+#vdc .sys{font-size:11px}
+#vdc .ts{font-size:10.5px}
+#vdc .intro{font-size:11.5px}
+#vdc .seg2 button{font-size:12.5px}
+#vdc .field textarea{font-size:14px}
+#vdc .chip{font-size:12.5px}
+#vdc .stp button{font-size:11.5px}
+#vdc .srch{font-size:13px}
+#vdc .ro{font-size:11.5px}
+#vdc .av.brand{background:#fff;border:.5px solid #d9d9d7;padding:0}
+#vdc .av.brand svg{width:100%;height:100%;display:block}
+#vdc .av.s{width:40px;height:40px}
+#vdc .b{font-size:13.5px;padding:7px 12px}
+#vdc .b .ql,#vdc .b .nt{font-size:10px}
+#vdc .lt{font-size:24px}
+#vdc .r1 .nm{font-size:13.5px}
+#vdc .pv{font-size:12px}
+#vdc .tm{font-size:11px}
+#vdc .qi .t{font-size:13.5px}
+#vdc .qi .k{font-size:10px}
+#vdc .ch .nm{font-size:11.5px}
+#vdc .ch small,#vdc .sh small{font-size:10px}
+#vdc .sys{font-size:10.5px}
+#vdc .ts{font-size:10px}
+#vdc .intro{font-size:11px}
+#vdc .seg2 button{font-size:12px}
+#vdc .field textarea{font-size:13.5px}
+#vdc .chip{font-size:12px}
+#vdc .stp button,#vdc .stp span{font-size:11px}
+#vdc .srch{font-size:12.5px}
+#vdc .ro{font-size:11px}
+#vdc .qi .qs{font-size:11px}
+#vdc .ed{font-size:10px}
+#vdc .tagrow{font-size:11.5px}
+#vdc .empty{font-size:12px}
+#vdc .qi.open{background:var(--soft)}
+#vdc .qa{display:flex;gap:14px;margin-top:8px}
+#vdc .qa button{border:0;background:none;padding:0;font-size:11.5px;text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}
+#vdc .qi .qa{align-items:center;height:18px}
+#vdc .qi .qa button,#vdc .qi .qa .trash{display:inline-flex;align-items:center;height:18px;font-size:11.5px;line-height:18px;padding:0;margin:0;-webkit-appearance:none;appearance:none}
+#vdc .qi .qa .trash{color:var(--ink-3)}
+#vdc .qi .qa .trash.on{color:var(--alert)}
+#vdc .qrf{margin-top:10px;cursor:default}
+#vdc .qrf .ql2{font-size:11px;color:var(--ink-3);margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#vdc .qrf .fl{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:16px;padding:2px 3px 2px 12px}
+#vdc .qrf input{flex:1;border:0;outline:0;font-size:13px;padding:5px 0;background:none;min-width:0}
+#vdc .dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;vertical-align:1px}
+#vdc .s-new{background:#b3b3b1}
+#vdc .s-doing{background:#ef8a17}
+#vdc .s-done{background:#2e9d58}
+#vdc .s-hold{background:#d8382c}
+#vdc .st{display:inline-flex;align-items:center;gap:4px}
+#vdc .lamp{width:10px;height:10px}
+#vdc .lamp.s-new{box-shadow:0 0 0 3px rgba(179,179,177,.25)}
+#vdc .lamp.s-doing{box-shadow:0 0 0 3px rgba(239,138,23,.2)}
+#vdc .lamp.s-done{box-shadow:0 0 0 3px rgba(46,157,88,.18)}
+#vdc .lamp.s-hold{box-shadow:0 0 0 3px rgba(216,56,44,.16)}
+#vdc .qi{display:flex;gap:12px;align-items:flex-start}
+#vdc .qi .qm{flex:1;min-width:0}
+#vdc .qi .t{margin:4px 0 0}
+#vdc .qi .qs{display:flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap;padding-top:2px}
+#vdc .qi .trash{border:0;background:none;color:var(--ink-3);font-size:12px;padding:2px 0;margin-top:8px;text-decoration:underline;text-underline-offset:3px}
+#vdc .qi .trash.on{color:var(--alert)}
+#vdc .sys .dot{margin-right:5px}
+#vdc .ed{display:block;font-size:10.5px;opacity:.55;margin-top:2px}
+#vdc .stp .del{color:var(--alert);border-color:rgba(200,16,46,.3)}
+#vdc .stp .del.on{color:#fff!important;background:var(--alert);color:var(--bg);border-color:var(--alert)}
+#vdc .stp button{display:inline-flex;align-items:center;gap:5px}
+#vdc .b[data-m]{cursor:pointer}
+#vdc .b ul{list-style:none;margin:3px 0 0;padding:0;white-space:normal}
+#vdc .b li{margin:0;padding-left:11px;position:relative;line-height:1.45}
+#vdc .b li:before{content:"–";position:absolute;left:0;opacity:.55}
+#vdc .b .nt{display:block;font-size:11px;letter-spacing:.06em;opacity:.65;margin-bottom:2px}
+#vdc .ro{flex:none;text-align:center;font-size:12px;color:var(--ink-3);padding:12px 16px 16px;border-top:.5px solid var(--line)}
+#vdc .av.m{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:19px}
+#vdc .av.s.m{font-size:20px}
+#vdc .ci.pin .nm:after{content:"모든 회원";font-size:10.5px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
+#vdc .ci.top .nm:after{content:var(--pin,"고정");font-size:10px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
+#vdc .ci.top{background:var(--soft)}
+#vdc .cnt{min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:11px;display:grid;place-items:center;padding:0 6px}
+@media (max-width:640px){#vdc.on~#vdcFab{display:none}}
+#vdc,#vdcFab{--bub:#ececeb;font-family:var(--f-ui)}
+#vdc{position:fixed;z-index:70;color:var(--ink);text-align:left;letter-spacing:0}#vdcFab{z-index:71}
+#vdc button,#vdc input,#vdc textarea{font-family:inherit;color:inherit;letter-spacing:0}
+#vdc .ch .ibtn svg,#vdc .sh .ibtn svg{stroke:var(--ink)}
+#vdc .b.tl:after{background:var(--bg)}
+#vdc .me .b.tl:before{background:var(--ink)}
+#vdc .setup{padding:22px;font-size:13px;line-height:1.7;color:var(--ink-2)}#vdc .setup .btn2{margin-top:12px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:9px 14px;font-size:12.5px}
+#vdcFab[hidden]{display:none}
+#vdc .qi .qs{border:0;padding:2px 0 0;margin:0;flex-wrap:nowrap;justify-content:flex-start;gap:7px;background:none}
+#vdc .chip{color:var(--ink)}#vdc .chip.on{color:var(--bg)}#vdc .lg{width:auto;height:auto;display:block;background:none}
+#vdc .ci.pin .nm:after,#vdc .ci.top .nm:after{content:none}#vdc .pinl{font-size:10px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
+@media (max-width:640px){#vdc,#vdc.wide{top:calc(env(safe-area-inset-top,0px) + 10px)}#admAlert{bottom:70px!important}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #vdc,:root:not([data-theme="light"]) #vdcFab{--bub:#242424}:root:not([data-theme="light"]) #vdcFab .glass{background:rgba(242,242,240,.22)!important}}
+:root[data-theme="dark"] #vdc,:root[data-theme="dark"] #vdcFab{--bub:#242424}:root[data-theme="dark"] #vdcFab .glass{background:rgba(242,242,240,.22)!important}
+
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -1209,7 +1435,7 @@ $("#refreshBtn").onclick=()=>{$("#refreshBtn").classList.add("spin");try{session
 let PW={st:"none",upgrade:false};
 async function loadPw(){PW={st:"none",upgrade:false};if(!ACC.setup)return;const r=await SB.from("members").select("pw_status").eq("user_id",UID).maybeSingle();
   if(r.error){PW.upgrade=/pw_status/.test(r.error.message||"");return}PW.st=(r.data&&r.data.pw_status)||"none"}
-const PW_SQL="\n-- 6) 비밀번호 변경 승인 (한 계정당 한 번 승인 → 이후 자유롭게 변경)\nalter table public.members add column if not exists pw_status text not null default 'none';\nalter table public.members add column if not exists pw_requested_at timestamptz;\nalter table public.members add column if not exists pw_decided_at timestamptz;\ncreate or replace function public.vd_request_pw() returns text language plpgsql security definer set search_path = public as $$\ndeclare st text;\nbegin\n  select pw_status into st from public.members where user_id = auth.uid() and status = 'approved';\n  if st is null then return 'not_member'; end if;\n  if st in ('pending', 'approved') then return st; end if;\n  update public.members set pw_status = 'pending', pw_requested_at = now(), pw_decided_at = null where user_id = auth.uid();\n  return 'pending';\nend $$;\ngrant execute on function public.vd_request_pw() to authenticated;\n\n-- 7) 회원 이름 (가입할 때 입력한 이름 · 관리자가 수정 가능)\nalter table public.members add column if not exists name text;\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status, name) values (lower(new.email), new.id, 'pending', nullif(new.raw_user_meta_data->>'name', ''))\n    on conflict (email) do update set user_id = excluded.user_id, name = coalesce(public.members.name, excluded.name);\n  return new;\nend $$;\nupdate public.members m set name = nullif(u.raw_user_meta_data->>'name', '') from auth.users u\n  where m.user_id = u.id and m.name is null and coalesce(u.raw_user_meta_data->>'name', '') <> '';\n\n-- 8) 앱 설정 (업데이트 노트 숨김 항목 등) — 관리자만 저장, 승인된 사람은 읽기\ndrop policy if exists \"admin app meta\" on public.shared_docs;\ncreate policy \"admin app meta\" on public.shared_docs for all to authenticated\n  using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));\n";
+const PW_SQL="\n-- 6) 비밀번호 변경 승인 (한 계정당 한 번 승인 → 이후 자유롭게 변경)\nalter table public.members add column if not exists pw_status text not null default 'none';\nalter table public.members add column if not exists pw_requested_at timestamptz;\nalter table public.members add column if not exists pw_decided_at timestamptz;\ncreate or replace function public.vd_request_pw() returns text language plpgsql security definer set search_path = public as $$\ndeclare st text;\nbegin\n  select pw_status into st from public.members where user_id = auth.uid() and status = 'approved';\n  if st is null then return 'not_member'; end if;\n  if st in ('pending', 'approved') then return st; end if;\n  update public.members set pw_status = 'pending', pw_requested_at = now(), pw_decided_at = null where user_id = auth.uid();\n  return 'pending';\nend $$;\ngrant execute on function public.vd_request_pw() to authenticated;\n\n-- 7) 회원 이름 (가입할 때 입력한 이름 · 관리자가 수정 가능)\nalter table public.members add column if not exists name text;\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status, name) values (lower(new.email), new.id, 'pending', nullif(new.raw_user_meta_data->>'name', ''))\n    on conflict (email) do update set user_id = excluded.user_id, name = coalesce(public.members.name, excluded.name);\n  return new;\nend $$;\nupdate public.members m set name = nullif(u.raw_user_meta_data->>'name', '') from auth.users u\n  where m.user_id = u.id and m.name is null and coalesce(u.raw_user_meta_data->>'name', '') <> '';\n\n-- 8) 앱 설정 (업데이트 노트 숨김 항목 등) — 관리자만 저장, 승인된 사람은 읽기\ndrop policy if exists \"admin app meta\" on public.shared_docs;\ncreate policy \"admin app meta\" on public.shared_docs for all to authenticated\n  using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));\n\n-- 9) 문의 채팅 (회원 ↔ 마스터 1:1) · 공지 메시지함\n--    회원은 자기 대화만, 마스터는 모든 대화를 봐요. 보낸 메시지는 5분 안에만 고칠 수 있어요.\ncreate table if not exists public.chat_inq (\n  id uuid primary key default gen_random_uuid(),\n  uid uuid not null references auth.users(id) on delete cascade,\n  cat text not null check (cat in ('bug','idea','cut','etc')),\n  title text not null,\n  st text not null default 'new' check (st in ('new','doing','done','hold')),\n  created_at timestamptz not null default now()\n);\ncreate table if not exists public.chat_msgs (\n  id uuid primary key default gen_random_uuid(),\n  uid uuid not null references auth.users(id) on delete cascade,\n  sender text not null check (sender in ('u','a','s')),\n  body text not null default '',\n  img text,\n  inq uuid references public.chat_inq(id) on delete cascade,\n  st text,\n  edited boolean not null default false,\n  created_at timestamptz not null default now()\n);\ncreate index if not exists chat_msgs_uid_at on public.chat_msgs (uid, created_at);\ncreate table if not exists public.chat_read (\n  uid uuid not null references auth.users(id) on delete cascade,\n  who text not null check (who in ('u','a','n')),\n  at timestamptz not null default now(),\n  primary key (uid, who)\n);\nalter table public.chat_inq enable row level security;\nalter table public.chat_msgs enable row level security;\nalter table public.chat_read enable row level security;\n\n-- 바꾸면 안 되는 값은 그대로 유지 (상태는 마스터만 바꿀 수 있어요)\ncreate or replace function public.vd_chat_guard() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  new.uid := old.uid; new.created_at := old.created_at;\n  if tg_table_name = 'chat_msgs' then new.sender := old.sender; new.inq := old.inq; new.st := old.st;\n  elsif not public.vd_admin() then new.st := old.st; new.cat := old.cat;\n  end if;\n  return new;\nend $$;\ndrop trigger if exists vd_chat_guard on public.chat_msgs;\ncreate trigger vd_chat_guard before update on public.chat_msgs for each row execute function public.vd_chat_guard();\ndrop trigger if exists vd_chat_guard on public.chat_inq;\ncreate trigger vd_chat_guard before update on public.chat_inq for each row execute function public.vd_chat_guard();\n\ndrop policy if exists \"chat inq read\" on public.chat_inq;\ncreate policy \"chat inq read\" on public.chat_inq for select to authenticated\n  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat inq add\" on public.chat_inq;\ncreate policy \"chat inq add\" on public.chat_inq for insert to authenticated\n  with check (uid = auth.uid() and st = 'new' and (select public.vd_ok()));\ndrop policy if exists \"chat inq edit\" on public.chat_inq;\ncreate policy \"chat inq edit\" on public.chat_inq for update to authenticated\n  using ((uid = auth.uid() and created_at > now() - interval '5 minutes' and (select public.vd_ok())) or (select public.vd_admin()))\n  with check ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat inq delete\" on public.chat_inq;\ncreate policy \"chat inq delete\" on public.chat_inq for delete to authenticated using ((select public.vd_admin()));\n\ndrop policy if exists \"chat msgs read\" on public.chat_msgs;\ncreate policy \"chat msgs read\" on public.chat_msgs for select to authenticated\n  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat msgs add\" on public.chat_msgs;\ncreate policy \"chat msgs add\" on public.chat_msgs for insert to authenticated\n  with check ((uid = auth.uid() and sender = 'u' and (select public.vd_ok())) or (sender in ('a','s') and (select public.vd_admin())));\ndrop policy if exists \"chat msgs edit\" on public.chat_msgs;\ncreate policy \"chat msgs edit\" on public.chat_msgs for update to authenticated\n  using (created_at > now() - interval '5 minutes' and ((sender = 'u' and uid = auth.uid() and (select public.vd_ok())) or (sender = 'a' and (select public.vd_admin()))))\n  with check ((sender = 'u' and uid = auth.uid()) or (sender = 'a' and (select public.vd_admin())));\ndrop policy if exists \"chat msgs delete\" on public.chat_msgs;\ncreate policy \"chat msgs delete\" on public.chat_msgs for delete to authenticated using ((select public.vd_admin()));\n\ndrop policy if exists \"chat read marks\" on public.chat_read;\ncreate policy \"chat read marks\" on public.chat_read for all to authenticated\n  using ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())))\n  with check ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())));\n\n-- 공지 (마스터가 쓰고, 승인된 회원은 읽기)\ndrop policy if exists \"admin notices\" on public.shared_docs;\ncreate policy \"admin notices\" on public.shared_docs for all to authenticated\n  using (collection = 'notices' and (select public.vd_admin())) with check (collection = 'notices' and (select public.vd_admin()));\n";
 function pwCan(){return !ACC.setup||ACC.admin||PW.st==="approved"}
 function pwSection(){const head=`<div class="grp">${t("Password","비밀번호")}</div>`;
   if(pwCan())return head+`<form id="pwForm" class="pwf"><label class="vh" for="pw1">${t("New password","새 비밀번호")}</label><input class="inp" id="pw1" type="password" autocomplete="new-password" minlength="6" placeholder="${t("New password (6+ characters)","새 비밀번호 (6자 이상)")}" required><label class="vh" for="pw2">${t("Confirm","확인")}</label><input class="inp" id="pw2" type="password" autocomplete="new-password" minlength="6" placeholder="${t("Type it again","한 번 더 입력")}" required><button class="btn">${t("Change password","비밀번호 변경")}</button></form>${ACC.setup&&!ACC.admin?`<p class="tip">${t("Approved — you can change it whenever you like.","승인됨 · 언제든 자유롭게 바꿀 수 있어요.")}</p>`:""}`;
@@ -1229,7 +1455,7 @@ async function loadPwRequests(){const box=$("#pwList");if(!box)return;const r=aw
 
 /* ================= ACCESS (sign-up approval) ================= */
 let ACC={setup:false,admin:false,pending:0};
-const ACCESS_SQL="-- VISUAL DEPT. · 가입 승인 기능\n-- Supabase 대시보드 → SQL Editor → New query → 전체 붙여넣고 Run. 여러 번 실행해도 안전합니다.\n-- 켜는 순간 이미 가입한 계정은 모두 '승인'으로 들어가고, 이후 새로 가입한 사람은 관리자가 승인해야 쓸 수 있어요.\n\n-- 1) 회원 명단\ncreate table if not exists public.members (\n  email text primary key,\n  user_id uuid references auth.users(id) on delete set null,\n  status text not null default 'pending' check (status in ('pending','approved','blocked')),\n  role text not null default 'member' check (role in ('member','admin')),\n  requested_at timestamptz not null default now(),\n  decided_at timestamptz\n);\nalter table public.members enable row level security;\n\n-- 처음 켤 때만: 이미 있는 계정은 모두 승인\ndo $$ begin\n  if not exists (select 1 from public.members) then\n    insert into public.members (email, user_id, status, decided_at)\n      select lower(email), id, 'approved', now() from auth.users where email is not null\n      on conflict (email) do nothing;\n  end if;\nend $$;\n\n-- 관리자 지정 (비워 두면 가장 먼저 가입한 계정)\nupdate public.members set role = 'admin', status = 'approved'\n  where email = lower(coalesce(nullif('__ADMIN__', ''), (select email from auth.users where email is not null order by created_at limit 1)));\n\n-- 2) 승인 여부 확인 함수\ncreate or replace function public.vd_ok() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved')\n$$;\ncreate or replace function public.vd_admin() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved' and role = 'admin')\n$$;\n\n-- 3) 새로 가입하면 자동으로 '승인 대기' (관리자가 미리 승인해 둔 이메일이면 바로 사용 가능)\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status) values (lower(new.email), new.id, 'pending')\n    on conflict (email) do update set user_id = excluded.user_id;\n  return new;\nend $$;\ndrop trigger if exists vd_new_user on auth.users;\ncreate trigger vd_new_user after insert on auth.users for each row execute function public.vd_new_user();\n\n-- 4) 명단 접근: 본인 줄은 본인이, 전체는 관리자만\ndrop policy if exists \"see self\" on public.members;\ncreate policy \"see self\" on public.members for select to authenticated\n  using (user_id = auth.uid() or (select public.vd_admin()));\ndrop policy if exists \"admin manage\" on public.members;\ncreate policy \"admin manage\" on public.members for all to authenticated\n  using ((select public.vd_admin())) with check ((select public.vd_admin()));\n\n-- 5) 승인된 사람만 데이터·이미지 사용\ndrop policy if exists \"own docs\" on public.docs;\ncreate policy \"own docs\" on public.docs for all to authenticated\n  using (owner = auth.uid() and (select public.vd_ok())) with check (owner = auth.uid() and (select public.vd_ok()));\ndrop policy if exists \"read shared\" on public.shared_docs;\ncreate policy \"read shared\" on public.shared_docs for select to authenticated using ((select public.vd_ok()));\ndrop policy if exists \"edit channels\" on public.shared_docs;\ncreate policy \"edit channels\" on public.shared_docs for all to authenticated\n  using (collection = 'channels' and (select public.vd_ok())) with check (collection = 'channels' and (select public.vd_ok()));\n\ndrop policy if exists \"own files read\" on storage.objects;\ncreate policy \"own files read\" on storage.objects for select to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files write\" on storage.objects;\ncreate policy \"own files write\" on storage.objects for insert to authenticated\n  with check (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files update\" on storage.objects;\ncreate policy \"own files update\" on storage.objects for update to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files delete\" on storage.objects;\ncreate policy \"own files delete\" on storage.objects for delete to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\n\n-- 6) 비밀번호 변경 승인 (한 계정당 한 번 승인 → 이후 자유롭게 변경)\nalter table public.members add column if not exists pw_status text not null default 'none';\nalter table public.members add column if not exists pw_requested_at timestamptz;\nalter table public.members add column if not exists pw_decided_at timestamptz;\ncreate or replace function public.vd_request_pw() returns text language plpgsql security definer set search_path = public as $$\ndeclare st text;\nbegin\n  select pw_status into st from public.members where user_id = auth.uid() and status = 'approved';\n  if st is null then return 'not_member'; end if;\n  if st in ('pending', 'approved') then return st; end if;\n  update public.members set pw_status = 'pending', pw_requested_at = now(), pw_decided_at = null where user_id = auth.uid();\n  return 'pending';\nend $$;\ngrant execute on function public.vd_request_pw() to authenticated;\n\n-- 7) 회원 이름 (가입할 때 입력한 이름 · 관리자가 수정 가능)\nalter table public.members add column if not exists name text;\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status, name) values (lower(new.email), new.id, 'pending', nullif(new.raw_user_meta_data->>'name', ''))\n    on conflict (email) do update set user_id = excluded.user_id, name = coalesce(public.members.name, excluded.name);\n  return new;\nend $$;\nupdate public.members m set name = nullif(u.raw_user_meta_data->>'name', '') from auth.users u\n  where m.user_id = u.id and m.name is null and coalesce(u.raw_user_meta_data->>'name', '') <> '';\n\n-- 8) 앱 설정 (업데이트 노트 숨김 항목 등) — 관리자만 저장, 승인된 사람은 읽기\ndrop policy if exists \"admin app meta\" on public.shared_docs;\ncreate policy \"admin app meta\" on public.shared_docs for all to authenticated\n  using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));\n";
+const ACCESS_SQL="-- VISUAL DEPT. · 가입 승인 기능\n-- Supabase 대시보드 → SQL Editor → New query → 전체 붙여넣고 Run. 여러 번 실행해도 안전합니다.\n-- 켜는 순간 이미 가입한 계정은 모두 '승인'으로 들어가고, 이후 새로 가입한 사람은 관리자가 승인해야 쓸 수 있어요.\n\n-- 1) 회원 명단\ncreate table if not exists public.members (\n  email text primary key,\n  user_id uuid references auth.users(id) on delete set null,\n  status text not null default 'pending' check (status in ('pending','approved','blocked')),\n  role text not null default 'member' check (role in ('member','admin')),\n  requested_at timestamptz not null default now(),\n  decided_at timestamptz\n);\nalter table public.members enable row level security;\n\n-- 처음 켤 때만: 이미 있는 계정은 모두 승인\ndo $$ begin\n  if not exists (select 1 from public.members) then\n    insert into public.members (email, user_id, status, decided_at)\n      select lower(email), id, 'approved', now() from auth.users where email is not null\n      on conflict (email) do nothing;\n  end if;\nend $$;\n\n-- 관리자 지정 (비워 두면 가장 먼저 가입한 계정)\nupdate public.members set role = 'admin', status = 'approved'\n  where email = lower(coalesce(nullif('__ADMIN__', ''), (select email from auth.users where email is not null order by created_at limit 1)));\n\n-- 2) 승인 여부 확인 함수\ncreate or replace function public.vd_ok() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved')\n$$;\ncreate or replace function public.vd_admin() returns boolean language sql stable security definer set search_path = public as $$\n  select exists (select 1 from public.members where user_id = auth.uid() and status = 'approved' and role = 'admin')\n$$;\n\n-- 3) 새로 가입하면 자동으로 '승인 대기' (관리자가 미리 승인해 둔 이메일이면 바로 사용 가능)\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status) values (lower(new.email), new.id, 'pending')\n    on conflict (email) do update set user_id = excluded.user_id;\n  return new;\nend $$;\ndrop trigger if exists vd_new_user on auth.users;\ncreate trigger vd_new_user after insert on auth.users for each row execute function public.vd_new_user();\n\n-- 4) 명단 접근: 본인 줄은 본인이, 전체는 관리자만\ndrop policy if exists \"see self\" on public.members;\ncreate policy \"see self\" on public.members for select to authenticated\n  using (user_id = auth.uid() or (select public.vd_admin()));\ndrop policy if exists \"admin manage\" on public.members;\ncreate policy \"admin manage\" on public.members for all to authenticated\n  using ((select public.vd_admin())) with check ((select public.vd_admin()));\n\n-- 5) 승인된 사람만 데이터·이미지 사용\ndrop policy if exists \"own docs\" on public.docs;\ncreate policy \"own docs\" on public.docs for all to authenticated\n  using (owner = auth.uid() and (select public.vd_ok())) with check (owner = auth.uid() and (select public.vd_ok()));\ndrop policy if exists \"read shared\" on public.shared_docs;\ncreate policy \"read shared\" on public.shared_docs for select to authenticated using ((select public.vd_ok()));\ndrop policy if exists \"edit channels\" on public.shared_docs;\ncreate policy \"edit channels\" on public.shared_docs for all to authenticated\n  using (collection = 'channels' and (select public.vd_ok())) with check (collection = 'channels' and (select public.vd_ok()));\n\ndrop policy if exists \"own files read\" on storage.objects;\ncreate policy \"own files read\" on storage.objects for select to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files write\" on storage.objects;\ncreate policy \"own files write\" on storage.objects for insert to authenticated\n  with check (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files update\" on storage.objects;\ncreate policy \"own files update\" on storage.objects for update to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\ndrop policy if exists \"own files delete\" on storage.objects;\ncreate policy \"own files delete\" on storage.objects for delete to authenticated\n  using (bucket_id = 'archive' and (storage.foldername(name))[1] = auth.uid()::text and (select public.vd_ok()));\n\n-- 6) 비밀번호 변경 승인 (한 계정당 한 번 승인 → 이후 자유롭게 변경)\nalter table public.members add column if not exists pw_status text not null default 'none';\nalter table public.members add column if not exists pw_requested_at timestamptz;\nalter table public.members add column if not exists pw_decided_at timestamptz;\ncreate or replace function public.vd_request_pw() returns text language plpgsql security definer set search_path = public as $$\ndeclare st text;\nbegin\n  select pw_status into st from public.members where user_id = auth.uid() and status = 'approved';\n  if st is null then return 'not_member'; end if;\n  if st in ('pending', 'approved') then return st; end if;\n  update public.members set pw_status = 'pending', pw_requested_at = now(), pw_decided_at = null where user_id = auth.uid();\n  return 'pending';\nend $$;\ngrant execute on function public.vd_request_pw() to authenticated;\n\n-- 7) 회원 이름 (가입할 때 입력한 이름 · 관리자가 수정 가능)\nalter table public.members add column if not exists name text;\ncreate or replace function public.vd_new_user() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  if new.email is null then return new; end if;\n  insert into public.members (email, user_id, status, name) values (lower(new.email), new.id, 'pending', nullif(new.raw_user_meta_data->>'name', ''))\n    on conflict (email) do update set user_id = excluded.user_id, name = coalesce(public.members.name, excluded.name);\n  return new;\nend $$;\nupdate public.members m set name = nullif(u.raw_user_meta_data->>'name', '') from auth.users u\n  where m.user_id = u.id and m.name is null and coalesce(u.raw_user_meta_data->>'name', '') <> '';\n\n-- 8) 앱 설정 (업데이트 노트 숨김 항목 등) — 관리자만 저장, 승인된 사람은 읽기\ndrop policy if exists \"admin app meta\" on public.shared_docs;\ncreate policy \"admin app meta\" on public.shared_docs for all to authenticated\n  using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));\n\n-- 9) 문의 채팅 (회원 ↔ 마스터 1:1) · 공지 메시지함\n--    회원은 자기 대화만, 마스터는 모든 대화를 봐요. 보낸 메시지는 5분 안에만 고칠 수 있어요.\ncreate table if not exists public.chat_inq (\n  id uuid primary key default gen_random_uuid(),\n  uid uuid not null references auth.users(id) on delete cascade,\n  cat text not null check (cat in ('bug','idea','cut','etc')),\n  title text not null,\n  st text not null default 'new' check (st in ('new','doing','done','hold')),\n  created_at timestamptz not null default now()\n);\ncreate table if not exists public.chat_msgs (\n  id uuid primary key default gen_random_uuid(),\n  uid uuid not null references auth.users(id) on delete cascade,\n  sender text not null check (sender in ('u','a','s')),\n  body text not null default '',\n  img text,\n  inq uuid references public.chat_inq(id) on delete cascade,\n  st text,\n  edited boolean not null default false,\n  created_at timestamptz not null default now()\n);\ncreate index if not exists chat_msgs_uid_at on public.chat_msgs (uid, created_at);\ncreate table if not exists public.chat_read (\n  uid uuid not null references auth.users(id) on delete cascade,\n  who text not null check (who in ('u','a','n')),\n  at timestamptz not null default now(),\n  primary key (uid, who)\n);\nalter table public.chat_inq enable row level security;\nalter table public.chat_msgs enable row level security;\nalter table public.chat_read enable row level security;\n\n-- 바꾸면 안 되는 값은 그대로 유지 (상태는 마스터만 바꿀 수 있어요)\ncreate or replace function public.vd_chat_guard() returns trigger language plpgsql security definer set search_path = public as $$\nbegin\n  new.uid := old.uid; new.created_at := old.created_at;\n  if tg_table_name = 'chat_msgs' then new.sender := old.sender; new.inq := old.inq; new.st := old.st;\n  elsif not public.vd_admin() then new.st := old.st; new.cat := old.cat;\n  end if;\n  return new;\nend $$;\ndrop trigger if exists vd_chat_guard on public.chat_msgs;\ncreate trigger vd_chat_guard before update on public.chat_msgs for each row execute function public.vd_chat_guard();\ndrop trigger if exists vd_chat_guard on public.chat_inq;\ncreate trigger vd_chat_guard before update on public.chat_inq for each row execute function public.vd_chat_guard();\n\ndrop policy if exists \"chat inq read\" on public.chat_inq;\ncreate policy \"chat inq read\" on public.chat_inq for select to authenticated\n  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat inq add\" on public.chat_inq;\ncreate policy \"chat inq add\" on public.chat_inq for insert to authenticated\n  with check (uid = auth.uid() and st = 'new' and (select public.vd_ok()));\ndrop policy if exists \"chat inq edit\" on public.chat_inq;\ncreate policy \"chat inq edit\" on public.chat_inq for update to authenticated\n  using ((uid = auth.uid() and created_at > now() - interval '5 minutes' and (select public.vd_ok())) or (select public.vd_admin()))\n  with check ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat inq delete\" on public.chat_inq;\ncreate policy \"chat inq delete\" on public.chat_inq for delete to authenticated using ((select public.vd_admin()));\n\ndrop policy if exists \"chat msgs read\" on public.chat_msgs;\ncreate policy \"chat msgs read\" on public.chat_msgs for select to authenticated\n  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));\ndrop policy if exists \"chat msgs add\" on public.chat_msgs;\ncreate policy \"chat msgs add\" on public.chat_msgs for insert to authenticated\n  with check ((uid = auth.uid() and sender = 'u' and (select public.vd_ok())) or (sender in ('a','s') and (select public.vd_admin())));\ndrop policy if exists \"chat msgs edit\" on public.chat_msgs;\ncreate policy \"chat msgs edit\" on public.chat_msgs for update to authenticated\n  using (created_at > now() - interval '5 minutes' and ((sender = 'u' and uid = auth.uid() and (select public.vd_ok())) or (sender = 'a' and (select public.vd_admin()))))\n  with check ((sender = 'u' and uid = auth.uid()) or (sender = 'a' and (select public.vd_admin())));\ndrop policy if exists \"chat msgs delete\" on public.chat_msgs;\ncreate policy \"chat msgs delete\" on public.chat_msgs for delete to authenticated using ((select public.vd_admin()));\n\ndrop policy if exists \"chat read marks\" on public.chat_read;\ncreate policy \"chat read marks\" on public.chat_read for all to authenticated\n  using ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())))\n  with check ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())));\n\n-- 공지 (마스터가 쓰고, 승인된 회원은 읽기)\ndrop policy if exists \"admin notices\" on public.shared_docs;\ncreate policy \"admin notices\" on public.shared_docs for all to authenticated\n  using (collection = 'notices' and (select public.vd_admin())) with check (collection = 'notices' and (select public.vd_admin()));\n";
 async function checkAccess(){const r=await SB.from("members").select("email,status,role").eq("user_id",UID).maybeSingle();
   if(r.error){const m=(r.error.message||"")+" "+(r.error.code||"");if(/members|42P01|PGRST205|PGRST202|schema cache|does not exist/i.test(m))return {setup:false};return {setup:false,err:r.error}}
   return {setup:true,row:r.data}}
@@ -1455,6 +1681,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.10.20-1",d:"2026.10.20",ko:["오른쪽 아래 말풍선에서 마스터에게 문의하고 답장을 받을 수 있어요","문의 유형을 고르면 ‘문의 내역’에서 처리 상태를 불빛으로 확인할 수 있어요","업데이트 소식은 이제 위쪽 알림 대신 ‘공지’ 메시지함으로 와요"],en:["Ask the master anything from the speech bubble at the bottom right","Pick an inquiry type to follow its status lights in My inquiries","Update news now arrives in the Notice box instead of a top banner"]},
  {v:"2026.10.19-6",d:"2026.10.19",ko:["디자이너: 시즌 · 컨셉 대신 브랜드 아이덴티티를 보여줘요","브랜드 홈페이지 링크를 매일 자동으로 확인해요","브랜드를 추가하면 홈페이지에서 아이덴티티를 자동으로 불러와요"],en:["Designers show each brand's identity instead of season and concept","Homepage links are checked automatically every day","Added brands get their identity from their homepage automatically"]},
  {v:"2026.10.19-5",d:"2026.10.19",ko:["시즌 리포트 제목 아래 안내 문구 간격을 넓혔어요"],en:["More room under the Season Report heading"]},
  {v:"2026.10.19-4",d:"2026.10.19",ko:["업데이트 노트를 새로 시작했어요","회원가입은 새 창에서 이름 · 아이디 · 비밀번호로 신청해요"],en:["Update notes start fresh from today","Sign-up opens its own window with name, ID and password"]}
@@ -1477,6 +1704,230 @@ async function showUpdateBar(){await loadNotesMeta();let seen=null;try{seen=loca
   bar.querySelector(".ubm").onclick=()=>{done();notesSheet()};bar.querySelector(".ubx").onclick=done;setTimeout(()=>bar.classList.add("in"),30)}
 document.addEventListener("click",e=>{if(e.target.closest("#notesBtn"))loadNotesMeta().then(notesSheet)});
 
+/* ================= INQUIRY CHAT + NOTICE BOX =================
+   Members: one chat with the master (문의하기 / Inquiry) + a pinned notice box (공지 / Notice).
+   Master: every member's chat, the inquiry status list (reply in place), and notices to everyone.
+   Data lives in Supabase (chat_msgs, chat_inq, chat_read; notices in shared_docs 'notices'). */
+const VC={ok:null,open:false,view:"home",tab:"chat",aTab:"chats",aConv:null,aF:"all",tray:false,tag:null,sel:null,delC:null,editId:null,flash:null,q:"",draft:"",rq:null,rqDraft:"",
+  msgs:[],inq:[],reads:{},uRead:0,nRead:0,mem:{},notices:[],sig:"",busy:false};
+const VC_H=3600e3,VC_D=24*VC_H,VC_EDIT=5*60e3,VC_NB="__n";
+const VCC=()=>({bug:t("Bug","오류 신고"),idea:t("Idea","기능 제안"),cut:t("Could go","빼도 될 기능"),etc:t("Other","기타 문의")});
+const VCS=()=>({new:t("Not read","확인 전"),doing:t("Reading","확인 중"),done:t("Answered","답변 완료"),hold:t("On hold","보류")});
+const VCSM=k=>({new:t("is back to not read","확인 전으로 돌아갔어요"),doing:t("is being read","확인 중이에요"),done:t("has been answered","답변 완료 되었어요"),hold:t("is on hold","보류 되었어요")})[k];
+const VCN={help:()=>t("Inquiry","문의하기"),notice:()=>t("Notice","공지")};
+const VCI={x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',back:'<svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg>',
+ up:'<svg viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>',plus:'<svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg>',
+ img:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>'};
+const VCB='<svg viewBox="0 0 100 100"><text x="50" y="54.5" text-anchor="middle" font-family="VD Mark,Palatino,Georgia,serif" font-size="12.6" textLength="72" lengthAdjust="spacingAndGlyphs" fill="#0d0d0d">VISUAL DEPT.</text></svg>';
+const vcPad=n=>String(n).padStart(2,"0");
+const vcHm=x=>{const d=new Date(x);let h=d.getHours();if(lang!=="ko")return `${h%12||12}:${vcPad(d.getMinutes())} ${h<12?"AM":"PM"}`;const ap=h<12?"오전":"오후";h=h%12||12;return `${ap} ${h}:${vcPad(d.getMinutes())}`};
+const vcDd=x=>{const d=new Date(x),n=new Date();return Math.round((new Date(n.getFullYear(),n.getMonth(),n.getDate())-new Date(d.getFullYear(),d.getMonth(),d.getDate()))/VC_D)};
+const vcDay=x=>{const n=vcDd(x),d=new Date(x);return n===0?t("Today","오늘"):n===1?t("Yesterday","어제"):lang==="ko"?`${d.getMonth()+1}월 ${d.getDate()}일 (${"일월화수목금토"[d.getDay()]})`:d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"})};
+const vcLt=x=>{const n=vcDd(x),d=new Date(x);return n===0?vcHm(x):n===1?t("Yesterday","어제"):`${d.getMonth()+1}.${d.getDate()}`};
+const vcMd=x=>{const d=new Date(x);return `${d.getMonth()+1}.${d.getDate()}`};
+const vcIni=n=>{n=String(n||"").trim();if(!n)return "·";return /[가-힣]/.test(n)?n.replace(/\s/g,"").slice(-2):n.split(/[\s@._-]+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("")};
+const vcName=uid=>{const m=VC.mem[uid];return m?(m.name||String(m.email||"").split("@")[0]):t("Member","회원")};
+const vcMiss=e=>e&&(/chat_(msgs|inq|read)/.test(e.message||"")||["42P01","PGRST205","PGRST204"].includes(e.code));
+const vcMsg=r=>({id:r.id,uid:r.uid,f:r.sender,t:r.body||"",img:r.img||null,q:r.inq||null,k:r.st||null,ed:!!r.edited,at:Date.parse(r.created_at)});
+const vcInq=r=>({id:r.id,uid:r.uid,cat:r.cat,title:r.title,st:r.st,at:Date.parse(r.created_at)});
+const vcNoteAt=n=>{const m=/^(\d{4})\.(\d{1,2})\.(\d{1,2})(?:-(\d+))?/.exec(n.v||n.d||"");return m?new Date(+m[1],+m[2]-1,+m[3],0,0).getTime()+(+(m[4]||0))*60e3:0};
+
+/* ---------- data ---------- */
+async function vcLoad(){if(typeof SB==="undefined"||!UID)return;
+  try{
+    const admin=ACC.admin;
+    let mq=SB.from("chat_msgs").select("id,uid,sender,body,img,inq,st,edited,created_at");mq=admin?mq.order("created_at",{ascending:false}).limit(3000):mq.eq("uid",UID).order("created_at",{ascending:false}).limit(1500);
+    let iq=SB.from("chat_inq").select("id,uid,cat,title,st,created_at").order("created_at",{ascending:false});if(!admin)iq=iq.eq("uid",UID);
+    let rq=SB.from("chat_read").select("uid,who,at");rq=admin?rq.eq("who","a"):rq.eq("uid",UID);
+    const [m,i,r,n]=await Promise.all([mq,iq,rq,SB.from("shared_docs").select("id,data").eq("collection","notices")]);
+    if(vcMiss(m.error)||vcMiss(i.error)||vcMiss(r.error)){VC.ok=false;vcSync();return}
+    if(m.error)throw m.error;VC.ok=true;
+    VC.msgs=(m.data||[]).map(vcMsg).reverse();VC.inq=(i.data||[]).map(vcInq);
+    VC.reads={};(r.data||[]).forEach(x=>{const at=Date.parse(x.at);if(admin)VC.reads[x.uid]=at;else if(x.who==="u")VC.uRead=at;else if(x.who==="n")VC.nRead=at});
+    VC.notices=(n.data||[]).map(x=>({id:x.id,at:+x.data.at||0,t:String(x.data.t||"")})).filter(x=>x.t);
+    if(admin&&!Object.keys(VC.mem).length){const {data}=await SB.from("members").select("*");(data||[]).forEach(x=>{if(x.user_id)VC.mem[x.user_id]={name:x.name||"",email:x.email,status:x.status,role:x.role}})}
+    vcSync()}catch(e){console.error(e)}}
+function vcSync(){const sig=[VC.ok,VC.msgs.length,VC.msgs.length&&VC.msgs[VC.msgs.length-1].id,VC.inq.map(x=>x.id+x.st).join(),VC.notices.length,VC.msgs.filter(m=>m.ed).length].join("|");
+  const changed=sig!==VC.sig;VC.sig=sig;vcBadge();if(VC.open&&changed)vcRender(true,true)}
+const VCMK=new Set();async function vcMark(uid,who){const key=uid+who;if(VCMK.has(key))return;VCMK.add(key);const at=new Date().toISOString();try{await SB.from("chat_read").upsert({uid,who,at},{onConflict:"uid,who"})}catch(_){}
+  if(who==="a")VC.reads[uid]=Date.parse(at);else if(who==="u")VC.uRead=Date.parse(at);else VC.nRead=Date.parse(at);VCMK.delete(key);vcBadge()}
+
+/* ---------- derived ---------- */
+function vcNotices(){const list=NOTES.map(n=>{const items=visibleItems(n).map(x=>x.text);return items.length?{id:"note:"+n.v,at:vcNoteAt(n),items}:null}).filter(Boolean);
+  return list.concat(VC.notices).sort((a,b)=>a.at-b.at)}
+const vcConv=uid=>VC.msgs.filter(m=>m.uid===uid);
+const vcUnA=uid=>VC.msgs.filter(m=>m.uid===uid&&m.f==="u"&&m.at>(VC.reads[uid]||0)).length;
+const vcUnU=()=>VC.msgs.filter(m=>m.uid===UID&&m.f!=="u"&&m.at>VC.uRead).length;
+const vcUnN=()=>vcNotices().filter(n=>n.at>VC.nRead).length;
+function vcBadge(){const f=$("#vdcFab");if(!f)return;f.hidden=VC.ok===false&&!ACC.admin;
+  const n=VC.ok?(ACC.admin?new Set(VC.msgs.filter(m=>m.f==="u"&&m.at>(VC.reads[m.uid]||0)).map(m=>m.uid)).size:vcUnU()+vcUnN()):0;
+  f.querySelector(".bd").textContent=!VC.open&&n?n:""}
+
+/* ---------- bubbles ---------- */
+function vcTools(m,me,x){let h="";
+  if(me){const left=VC_EDIT-(Date.now()-m.at);
+    if(!m.img)h+=left>0?`<button data-vedit="${m.id}">${t("Edit","수정")}</button><span>${t(`${Math.ceil(left/60e3)} min left to edit`,`${Math.ceil(left/60e3)}분 안에 수정할 수 있어요`)}</span>`:`<span>${t("Can't edit after 5 minutes","보낸 지 5분이 지나 수정할 수 없어요")}</span>`;
+    if(x&&!ACC.admin)h+=`<button data-vgoq="${x.id}">${t("See in inquiry list","문의 내역 보기")}</button>`}
+  else if(ACC.admin&&x)h+=x.st==="hold"?`<button data-vst="doing" data-q="${x.id}"><i class="dot s-doing"></i>${t("Release hold","보류 해제")}</button>`:`<button data-vst="hold" data-q="${x.id}"><i class="dot s-hold"></i>${t("Hold","보류")}</button>`;
+  if(ACC.admin)h+=`<button class="del${VC.delC===m.id?" on":""}" data-vdel="${m.id}">${VC.delC===m.id?t("Tap again to delete","한 번 더 누르면 삭제"):x?t("Delete inquiry","문의 삭제"):t("Delete","삭제")}</button>`;
+  return h?`<div class="stp">${h}</div>`:""}
+function vcSysText(m){const x=m.q&&VC.inq.find(z=>z.id===m.q);return x?(lang==="ko"?`‘${x.title}’ 문의가 ${VCSM(m.k)}`:`‘${x.title}’ ${VCSM(m.k)}`):m.t}
+function vcBubbles(ms,mine,readOther,intro){let h="",prev=null,lm=-1;ms.forEach((m,i)=>{if(m.f===mine)lm=i});const C=VCC(),S=VCS();
+  ms.forEach((m,i)=>{if(!prev||m.at-prev.at>VC_H)h+=`<div class="ts"><b>${vcDay(m.at)}</b> ${vcHm(m.at)}</div>`;
+    if(m.f==="s"){h+=`<div class="sys">${m.k?`<i class="dot s-${m.k}"></i>`:""}${esc(vcSysText(m))}</div>`;prev=m;return}
+    const nx=ms[i+1],tail=!nx||nx.f!==m.f||nx.at-m.at>VC_H,gap=!prev||prev.f!==m.f||m.at-prev.at>VC_H,me=m.f===mine,x=m.q&&VC.inq.find(z=>z.id===m.q);
+    const can=!m.n&&(me||ACC.admin);
+    const inner=m.n?(m.n.items?`<span class="nt">${t("Update","업데이트")} · ${vcMd(m.at)}</span><ul>${m.n.items.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`:`<span class="nt">${t("Notice","공지")} · ${vcMd(m.at)}</span>${esc(m.n.t)}`):
+      `${x?`<span class="ql">${C[x.cat]||""} <em class="st"><i class="dot s-${x.st}"></i>${S[x.st]}</em></span>`:""}${esc(m.t)}${m.ed?`<span class="ed">${t("Edited","수정됨")}</span>`:""}`;
+    const body=m.img?`<div class="b img"${can?` data-vm="${m.id}"`:""}><img src="${esc(m.img)}" alt="" loading="lazy"></div>`:`<div class="b${tail?" tl":""}${x?" card":""}"${can?` data-vm="${m.id}"`:""}>${inner}</div>`;
+    h+=`<div class="row${me?" me":""}${gap?" gap":""}${x&&VC.flash===x.id?" flash":""}">${body}${VC.sel===m.id?vcTools(m,me,x):""}${i===lm&&i===ms.length-1&&readOther!=null?`<div class="rc">${readOther?t("Read","읽음"):t("Sent","전송됨")}</div>`:""}</div>`;prev=m});
+  return `<div class="msgs">${intro||""}${h}</div>`}
+const vcNoticeMsgs=()=>vcNotices().map(n=>({id:n.id,f:"n",at:n.at,n}));
+function vcComposer(mode){const C=VCC();
+  return `${VC.tray?`<div class="tray">${mode==="user"?`<span class="tt">${t("Pick a type — it is kept in your inquiry list","문의 유형 고르기 · 고르면 ‘문의 내역’에 기록돼요")}</span>${Object.entries(C).map(([k,v])=>`<button class="chip${VC.tag===k?" on":""}" data-vcat="${k}">${v}</button>`).join("")}`:""}<button class="chip" data-vphoto>${VCI.img} ${t("Photo","사진")}</button></div>`:""}
+  ${VC.editId?`<div class="tagrow"><b>${t("Editing","메시지 수정 중")}</b>${t("only within 5 minutes of sending","보낸 지 5분 안에만 고칠 수 있어요")}<button data-vunedit aria-label="${t("Cancel","취소")}">✕</button></div>`:VC.tag?`<div class="tagrow"><b>${C[VC.tag]}</b>${t("will be sent as this type","(으)로 보내요")}<button data-vuntag aria-label="${t("Cancel","취소")}">✕</button></div>`:""}
+  <div class="cmp">${mode==="notice"?"":`<button class="plus${VC.tray?" on":""}" data-vtray aria-label="${t("More","더보기")}">${VCI.plus}</button>`}<div class="field"><textarea id="vcTxt" rows="1" placeholder="${mode==="notice"?t("Send a notice to every member","모든 회원에게 공지 보내기"):VC.tag?t("Write your message","내용을 적어주세요"):t("Message","메시지")}">${esc(VC.draft)}</textarea><button class="send${VC.draft.trim()?" on":""}" data-vsend aria-label="${t("Send","보내기")}">${VCI.up}</button></div></div><input type="file" id="vcFile" accept="image/*" hidden>`}
+function vcQItem(x,admin){const S=VCS(),C=VCC();
+  return `<div class="qi${VC.flash===x.id?" flash":""}${admin&&VC.rq===x.id?" open":""}" ${admin?`data-vrq="${x.id}"`:`data-vgoq="${x.id}"`}><div class="qm"><div class="k">${admin?esc(vcName(x.uid))+" · ":""}${C[x.cat]||""} · ${vcLt(x.at)}</div><div class="t">${esc(x.title)}</div>
+  ${admin?`<div class="qa"><button data-vrq="${x.id}">${VC.rq===x.id?t("Close","닫기"):t("Reply","답장하기")}</button><button class="trash${VC.delC==="q:"+x.id?" on":""}" data-vdelq="${x.id}">${VC.delC==="q:"+x.id?t("Tap again to delete","한 번 더 누르면 삭제"):t("Delete","삭제")}</button></div>${VC.rq===x.id?(()=>{const l=[...vcConv(x.uid)].reverse().find(m=>m.f!=="s");return `<div class="qrf">${l?`<div class="ql2">${t("Latest","최근")} · ${l.f==="a"?t("Me: ","나: "):""}${l.img?t("Photo","사진"):esc(l.t)}</div>`:""}<div class="fl"><input id="vcRq" placeholder="${esc(t(`Reply to ${vcName(x.uid)}`,`${vcName(x.uid)}님에게 답장`))}" value="${esc(VC.rqDraft)}"><button class="send${VC.rqDraft.trim()?" on":""}" data-vrqs="${x.id}" aria-label="${t("Send","보내기")}">${VCI.up}</button></div></div>`})():""}`:""}</div>
+  <div class="qs"><i class="dot lamp s-${x.st}"></i>${S[x.st]}</div></div>`}
+const vcLegend=()=>`<div class="qf" style="gap:12px;font-size:11px;color:var(--ink-2)">${Object.entries(VCS()).map(([k,v])=>`<span style="display:inline-flex;gap:5px;align-items:center"><i class="dot s-${k}"></i>${v}</span>`).join("")}</div>`;
+const vcX=`<button class="ibtn x" data-vclose aria-label="${"닫기"}">${VCI.x}</button>`;
+
+/* ---------- member view ---------- */
+function vcUser(){const c=vcConv(UID),nu=vcUnN(),uu=vcUnU(),ns=vcNotices();
+  if(VC.view==="home"){const l=c[c.length-1],ln=ns[ns.length-1];
+    return `<div class="sh">${vcX}<h2 class="lt">Messages</h2><small>${t("Inquiries and notices in one place","문의와 공지를 한곳에서 받아요")}</small></div><div class="scroll" style="margin-top:10px">
+    <div class="ci top" data-vview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${VCB}</span><div class="cm"><div class="r1"><b class="nm">${VCN.notice()}<span class="pinl">${t("Pinned","고정")}</span></b><span class="tm">${ln?vcLt(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||(t("Update","업데이트")+" · "+ln.items[0])):t("No notices yet","아직 공지가 없어요")}</div></div></div>
+    <div class="ci" data-vview="chat">${uu?`<i class="ud"></i>`:""}<span class="av s brand">${VCB}</span><div class="cm"><div class="r1"><b class="nm">${VCN.help()}</b><span class="tm">${l?vcLt(l.at):""}</span></div><div class="pv">${l?(l.f==="u"?t("Me: ","나: "):"")+(l.img?t("Photo","사진"):l.f==="s"?esc(vcSysText(l)):esc(l.t)):t("Bugs, ideas, features to drop — ask anything","오류, 바라는 기능, 빼도 될 기능 — 편하게 보내주세요")}</div></div></div></div>`}
+  if(VC.view==="notice")return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Update news arrives here","업데이트 소식이 이곳으로 와요")}</small></div>${vcBubbles(vcNoticeMsgs(),"u",null)}<div class="ro">${t(`Notices can't be replied to · send questions in ${VCN.help()}`,`공지에는 답장할 수 없어요 · 문의는 ${VCN.help()}에서 보내주세요`)}</div>`;
+  const my=VC.inq.filter(x=>x.uid===UID);
+  return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.help()}</b><small>${t("VISUAL DEPT. master · usually replies within a day","VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요")}</small></div>
+  <div class="seg2"><button data-vtab="chat" class="${VC.tab==="chat"?"on":""}">${t("Chat","채팅")}</button><button data-vtab="list" class="${VC.tab==="list"?"on":""}">${t("My inquiries","문의 내역")}</button></div>
+  ${VC.tab==="chat"?vcBubbles(c,"u",null,`<div class="intro"><span class="av brand big">${VCB}</span><p style="margin:10px 0 0">${t("Bugs, ideas, features to drop —<br>send anything.<br>Pick a type with <b>+</b> to follow its progress in <b>My inquiries</b>.","오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.")}</p></div>`)+vcComposer("user")
+   :`${vcLegend()}<div class="scroll">${my.length?my.map(x=>vcQItem(x)).join(""):`<div class="empty">${t("No inquiries yet<br>Pick a type with + in the chat and send — it shows up here","아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요")}</div>`}</div>`}`}
+
+/* ---------- master view ---------- */
+function vcMembers(){const ids=new Set(Object.keys(VC.mem).filter(k=>VC.mem[k].role!=="admin"&&VC.mem[k].status==="approved"));VC.msgs.forEach(m=>{if(m.uid!==UID)ids.add(m.uid)});return [...ids]}
+function vcRows(){const ns=vcNotices(),ln=ns[ns.length-1],q=VC.q.toLowerCase();
+  const pin=!q?`<div class="ci pin${VC.aConv===VC_NB?" on":""}" data-vconv="${VC_NB}"><span class="av s brand">${VCB}</span><div class="cm"><div class="r1"><b class="nm">${VCN.notice()}<span class="pinl">${t("All members","모든 회원")}</span></b><span class="tm">${ln?vcLt(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||(t("Update","업데이트")+" · "+ln.items[0])):t("No notices sent","보낸 공지가 없어요")}</div></div></div>`:"";
+  const last=k=>{const c=vcConv(k);return c[c.length-1]};
+  return pin+(vcMembers().filter(k=>(vcName(k)+" "+(VC.mem[k]?.email||"")).toLowerCase().includes(q)).sort((a,b)=>((last(b)||{}).at||0)-((last(a)||{}).at||0)).map(k=>{const l=last(k),un=vcUnA(k);
+    return `<div class="ci${VC.aConv===k?" on":""}" data-vconv="${k}">${un?`<i class="ud"></i>`:""}<span class="av s">${esc(vcIni(vcName(k)))}</span><div class="cm"><div class="r1"><b class="nm">${esc(vcName(k))}</b><span class="tm">${l?vcLt(l.at):""}</span></div><div class="pv">${l?(l.f==="a"?t("Me: ","나: "):"")+(l.img?t("Photo","사진"):l.f==="s"?esc(vcSysText(l)):esc(l.t)):`<span style="color:var(--ink-3)">${t("No messages yet","아직 대화가 없어요")}</span>`}</div></div></div>`}).join("")||`<div class="empty">${t("No results","검색 결과가 없어요")}</div>`)}
+function vcAdmin(){const S=VCS(),ks=vcMembers(),un=ks.filter(k=>vcUnA(k)).length,pend=VC.inq.filter(x=>x.st==="new").length,ql=VC.inq.filter(x=>VC.aF==="all"||x.st===VC.aF);
+  const side=`<div class="side"><div class="sh">${vcX}<h2 class="lt">Messages</h2><small>${t(`${ks.length} members · ${un} unread`,`회원 ${ks.length}명 · 안 읽은 대화 ${un}`)}</small></div>
+   <div class="seg2"><button data-vatab="chats" class="${VC.aTab==="chats"?"on":""}">${t("Chats","대화")}</button><button data-vatab="inq" class="${VC.aTab==="inq"?"on":""}">${t("Inquiries","문의 현황")}${pend?`<i>${pend}</i>`:""}</button></div>
+   ${VC.aTab==="chats"?`<input class="srch" id="vcSrch" placeholder="${t("Search names","이름 검색")}" value="${esc(VC.q)}"><div class="scroll" id="vcList">${vcRows()}</div>`:
+   `<div class="qf">${[["all",t("All","전체")],...Object.entries(S)].map(([k,v])=>`<button class="chip${VC.aF===k?" on":""}" data-vaf="${k}">${k!=="all"?`<i class="dot s-${k}"></i>`:""}${v} ${k==="all"?VC.inq.length:VC.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>vcQItem(x,true)).join("")||`<div class="empty">${t("Nothing here","해당 문의가 없어요")}</div>`}</div>`}</div>`;
+  let main;
+  if(VC.aConv===VC_NB)main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Goes to every member's notice box · update notes are sent automatically","모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요")}</small></div>${vcBubbles(vcNoticeMsgs(),"n",null)}${vcComposer("notice")}`;
+  else if(VC.aConv){const k=VC.aConv,qs=VC.inq.filter(x=>x.uid===k);
+    main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av">${esc(vcIni(vcName(k)))}</span><b class="nm">${esc(vcName(k))}</b><small>${esc(VC.mem[k]?.email||"")} · ${t(`${qs.length} inquiries · ${qs.filter(x=>x.st==="new").length} not read`,`문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건`)}</small></div>${vcBubbles(vcConv(k),"a",null)}${vcComposer("admin")}`}
+  else main=`<div class="empty"><span class="av brand big">${VCB}</span><p>${t("Pick a chat on the left<br>Opening a chat marks its inquiries ‘Reading’; replying marks them ‘Answered’<br>Tap a member's bubble to hold or delete","왼쪽에서 대화를 고르세요<br>대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요<br>회원 말풍선을 누르면 보류 · 삭제할 수 있어요")}</p></div>`;
+  return `<div class="split">${side}<div class="main">${main}</div></div>`}
+function vcSetup(){return `<div class="sh">${vcX}<h2 class="lt">Messages</h2></div><div class="setup">${t("To turn on inquiries and notices, run the Supabase update once: copy it, paste it in Supabase → SQL Editor and press Run. Then refresh the app.","문의 · 공지 메시지를 켜려면 Supabase 업데이트를 한 번 실행해 주세요. 복사해서 Supabase → SQL Editor에 붙여넣고 Run을 누른 뒤 앱을 새로고침하면 돼요.")}<br><button class="btn2" data-vsql>${t("Copy update","업데이트 복사")}</button></div>`}
+
+/* ---------- render ---------- */
+function vcRender(keep,soft){const P=$("#vdc");if(!P)return;
+  const typing=soft&&document.activeElement&&["vcTxt","vcRq","vcSrch"].includes(document.activeElement.id);
+  if(VC.open&&VC.ok){if(!ACC.admin){if(VC.view==="chat"&&VC.tab==="chat"&&vcUnU())vcMark(UID,"u");if(VC.view==="notice"&&vcUnN())vcMark(UID,"n")}
+    else if(VC.aConv&&VC.aConv!==VC_NB){const k=VC.aConv;if(vcUnA(k))vcMark(k,"a");VC.inq.filter(x=>x.uid===k&&x.st==="new").forEach(x=>vcStSet(x,"doing"))}}
+  if(typing){const tmp=document.createElement("div");tmp.innerHTML=ACC.admin?vcAdmin():vcUser();const nm=tmp.querySelector(".msgs"),om=P.querySelector(".msgs");if(nm&&om){const atEnd=om.scrollHeight-om.scrollTop-om.clientHeight<40;om.innerHTML=nm.innerHTML;if(atEnd)om.scrollTop=om.scrollHeight}
+    const nl=tmp.querySelector("#vcList"),ol=P.querySelector("#vcList");if(nl&&ol&&document.activeElement.id!=="vcSrch")ol.innerHTML=nl.innerHTML;vcBadge();return}
+  const m=P.querySelector(".msgs"),st=keep&&m?m.scrollTop:null,sc=P.querySelector(".scroll"),ss=keep&&sc?sc.scrollTop:null;
+  P.className="panel"+(VC.open?" on":"")+(ACC.admin&&VC.ok?" wide":"")+(ACC.admin&&VC.aConv?" conv":"");
+  P.innerHTML=VC.ok===false?vcSetup():ACC.admin?vcAdmin():vcUser();
+  const m2=P.querySelector(".msgs"),f=VC.flash&&P.querySelector(".flash");
+  if(f)f.scrollIntoView({block:"center"});else if(m2)m2.scrollTop=st!=null?st:m2.scrollHeight;
+  const sc2=P.querySelector(".scroll");if(sc2&&ss!=null&&!f)sc2.scrollTop=ss;
+  const tp=VC.sel&&P.querySelector(".stp");if(tp)tp.scrollIntoView({block:"nearest"});
+  if(VC.flash)setTimeout(()=>{VC.flash=null},1700);
+  $("#vdcFab").classList.toggle("open",VC.open);vcBadge();const tx=$("#vcTxt");if(tx)vcGrow(tx)}
+const vcGrow=x=>{x.style.height="auto";x.style.height=Math.min(x.scrollHeight,110)+"px"};
+const vcFocus=()=>{const x=$("#vcTxt");if(x&&innerWidth>640){x.focus();x.setSelectionRange(x.value.length,x.value.length)}};
+const vcFail=()=>toast(t("Couldn't send — check your connection and try again","보내지 못했어요 · 연결을 확인하고 다시 시도해 주세요"));
+
+/* ---------- actions ---------- */
+async function vcInsert(row){const {data,error}=await SB.from("chat_msgs").insert(row).select("id,uid,sender,body,img,inq,st,edited,created_at").single();if(error)throw error;const m=vcMsg(data);VC.msgs.push(m);return m}
+async function vcStSet(x,k){if(!x||x.st===k)return;const prev=x.st;x.st=k;
+  const {error}=await SB.from("chat_inq").update({st:k}).eq("id",x.id);if(error){x.st=prev;return toast(t("Couldn't change the status","상태를 바꾸지 못했어요"))}
+  try{await vcInsert({uid:x.uid,sender:"s",body:"",inq:x.id,st:k})}catch(_){}vcSync();if(VC.open)vcRender(true)}
+async function vcReplyTo(uid,text){await vcInsert({uid,sender:"a",body:text});
+  for(const x of VC.inq.filter(z=>z.uid===uid&&(z.st==="new"||z.st==="doing")))await vcStSet(x,"done")}
+async function vcSend(){const text=VC.draft.trim();if(!text||VC.busy)return;VC.busy=true;
+  try{
+    if(VC.editId){const m=VC.msgs.find(z=>z.id===VC.editId);
+      if(m&&Date.now()-m.at<VC_EDIT){const {error}=await SB.from("chat_msgs").update({body:text,edited:true}).eq("id",m.id).select("id").single();
+        if(error)toast(t("Can't edit after 5 minutes","보낸 지 5분이 지나 수정할 수 없어요"));else{m.t=text;m.ed=true;if(m.q){const x=VC.inq.find(z=>z.id===m.q);const tt=text.split("\n")[0].slice(0,60);if(x){x.title=tt;await SB.from("chat_inq").update({title:tt}).eq("id",x.id)}}}}
+      else toast(t("Can't edit after 5 minutes","보낸 지 5분이 지나 수정할 수 없어요"));
+      VC.editId=null;VC.draft="";return vcRender(true)}
+    if(ACC.admin&&VC.aConv===VC_NB){const id=(crypto.randomUUID?crypto.randomUUID():String(Date.now()));const at=Date.now();
+      const {error}=await SB.from("shared_docs").upsert({collection:"notices",id,data:{t:text,at}},{onConflict:"collection,id"});if(error)throw error;VC.notices.push({id,at,t:text});VC.draft="";return vcRender()}
+    if(ACC.admin){await vcReplyTo(VC.aConv,text)}
+    else{let q=null;if(VC.tag){const {data,error}=await SB.from("chat_inq").insert({uid:UID,cat:VC.tag,title:text.split("\n")[0].slice(0,60)}).select("id,uid,cat,title,st,created_at").single();if(error)throw error;VC.inq.unshift(vcInq(data));q=data.id}
+      await vcInsert({uid:UID,sender:"u",body:text,inq:q});VC.tag=null}
+    VC.tray=false;VC.draft="";vcRender();vcFocus()}
+  catch(e){console.error(e);vcFail()}finally{VC.busy=false;vcSync()}}
+async function vcRqSend(id){const text=VC.rqDraft.trim(),x=VC.inq.find(z=>z.id===id);if(!text||!x||VC.busy)return;VC.busy=true;
+  try{await vcReplyTo(x.uid,text);VC.rq=null;VC.rqDraft="";VC.flash=x.id;vcRender(true);toast(t(`Sent to ${vcName(x.uid)}`,`${vcName(x.uid)}님에게 보냈어요`))}catch(e){console.error(e);vcFail()}finally{VC.busy=false}}
+async function vcDelete(id){const m=VC.msgs.find(z=>z.id===id);if(!m)return;
+  const {error}=m.q?await SB.from("chat_inq").delete().eq("id",m.q):await SB.from("chat_msgs").delete().eq("id",id);
+  if(error)return toast(t("Couldn't delete","삭제하지 못했어요"));
+  if(m.q){VC.inq=VC.inq.filter(z=>z.id!==m.q);VC.msgs=VC.msgs.filter(z=>z.q!==m.q)}else VC.msgs=VC.msgs.filter(z=>z.id!==id);VC.delC=null;VC.sel=null;vcRender(true)}
+async function vcDelInq(id){const {error}=await SB.from("chat_inq").delete().eq("id",id);if(error)return toast(t("Couldn't delete","삭제하지 못했어요"));
+  VC.inq=VC.inq.filter(z=>z.id!==id);VC.msgs=VC.msgs.filter(z=>z.q!==id);VC.delC=null;if(VC.rq===id)VC.rq=null;vcRender(true)}
+function vcImg(f){return new Promise((res,rej)=>{const fr=new FileReader();fr.onerror=rej;fr.onload=()=>{const im=new Image();im.onerror=rej;im.onload=()=>{const s=Math.min(1,900/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=Math.round(im.width*s);cv.height=Math.round(im.height*s);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);res(cv.toDataURL("image/jpeg",.78))};im.src=fr.result};fr.readAsDataURL(f)})}
+
+function vcBind(){const P=$("#vdc");
+  P.addEventListener("click",e=>{const g=s=>e.target.closest(s);let b;
+    if(g("[data-vclose]")){VC.open=false;return vcRender()}
+    if(g("[data-vsql]")){const sql=typeof PW_SQL!=="undefined"?PW_SQL:"";navigator.clipboard.writeText(sql).then(()=>toast(t("Copied — paste it in the SQL Editor and press Run","복사했어요 · SQL Editor에 붙여넣고 Run을 눌러 주세요")),()=>toast(t("Couldn't copy","복사하지 못했어요")));return}
+    if(b=g("[data-vview]")){VC.view=b.dataset.vview;VC.tab="chat";VC.sel=null;VC.editId=null;VC.draft="";return vcRender()}
+    if(b=g("[data-vtab]")){VC.tab=b.dataset.vtab;VC.tray=false;VC.sel=null;return vcRender()}
+    if(b=g("[data-vatab]")){VC.aTab=b.dataset.vatab;VC.delC=null;VC.rq=null;return vcRender()}
+    if(b=g("[data-vconv]")){if(VC.aConv!==b.dataset.vconv){VC.aConv=b.dataset.vconv;VC.sel=null;VC.delC=null;VC.tray=false;VC.draft="";VC.editId=null}return vcRender()}
+    if(g("[data-vback]")){if(ACC.admin)VC.aConv=null;else VC.view="home";VC.sel=null;VC.editId=null;VC.draft="";VC.tray=false;return vcRender()}
+    if(g("[data-vtray]")){VC.tray=!VC.tray;return vcRender(true)}
+    if(b=g("[data-vcat]")){VC.tag=VC.tag===b.dataset.vcat?null:b.dataset.vcat;VC.tray=false;vcRender(true);return vcFocus()}
+    if(g("[data-vuntag]")){VC.tag=null;return vcRender(true)}
+    if(g("[data-vunedit]")){VC.editId=null;VC.draft="";return vcRender(true)}
+    if(g("[data-vphoto]"))return $("#vcFile").click();
+    if(g("[data-vsend]"))return vcSend();
+    if(b=g("[data-vst]")){VC.sel=null;return vcStSet(VC.inq.find(z=>z.id===b.dataset.q),b.dataset.vst)}
+    if(b=g("[data-vedit]")){const m=VC.msgs.find(z=>z.id===b.dataset.vedit);if(m&&Date.now()-m.at<VC_EDIT){VC.editId=m.id;VC.draft=m.t;VC.tag=null;VC.tray=false}VC.sel=null;vcRender(true);return vcFocus()}
+    if(b=g("[data-vdel]")){const id=b.dataset.vdel;if(VC.delC!==id){VC.delC=id;return vcRender(true)}return vcDelete(id)}
+    if(b=g("[data-vdelq]")){e.stopPropagation();const id=b.dataset.vdelq;if(VC.delC!=="q:"+id){VC.delC="q:"+id;return vcRender(true)}return vcDelInq(id)}
+    if(b=g("[data-vrqs]"))return vcRqSend(b.dataset.vrqs);
+    if(g(".qrf"))return;
+    if(b=g("[data-vrq]")){const x=VC.inq.find(z=>z.id===b.dataset.vrq);if(!x)return;if(VC.rq===x.id)VC.rq=null;else{VC.rq=x.id;VC.rqDraft="";VC.delC=null;if(x.st==="new")vcStSet(x,"doing");if(vcUnA(x.uid))vcMark(x.uid,"a")}vcRender(true);const i=$("#vcRq");if(i)i.focus();return}
+    if(b=g("[data-vm]")){const id=b.dataset.vm;VC.sel=VC.sel===id?null:id;VC.delC=null;return vcRender(true)}
+    if(b=g("[data-vgoq]")){const x=VC.inq.find(z=>z.id===b.dataset.vgoq);if(!x)return;VC.sel=null;VC.flash=x.id;VC.tab=VC.tab==="chat"?"list":"chat";return vcRender()}
+    if(b=g("[data-vaf]")){VC.aF=b.dataset.vaf;return vcRender()}});
+  P.addEventListener("input",e=>{const id=e.target.id;
+    if(id==="vcTxt"){VC.draft=e.target.value;vcGrow(e.target);P.querySelector("[data-vsend]").classList.toggle("on",!!VC.draft.trim())}
+    if(id==="vcRq"){VC.rqDraft=e.target.value;const s=P.querySelector("[data-vrqs]");if(s)s.classList.toggle("on",!!VC.rqDraft.trim())}
+    if(id==="vcSrch"){VC.q=e.target.value.trim();$("#vcList").innerHTML=vcRows()}});
+  P.addEventListener("keydown",e=>{const id=e.target.id;if(e.key!=="Enter"||e.isComposing||e.keyCode===229)return;
+    if(id==="vcTxt"&&!e.shiftKey&&innerWidth>640){e.preventDefault();vcSend()}
+    if(id==="vcRq"){e.preventDefault();vcRqSend(VC.rq)}});
+  P.addEventListener("change",async e=>{if(e.target.id!=="vcFile"||!e.target.files[0])return;if(VC.busy)return;VC.busy=true;
+    try{const img=await vcImg(e.target.files[0]);VC.tray=false;
+      if(ACC.admin){if(!VC.aConv||VC.aConv===VC_NB)return;await vcInsert({uid:VC.aConv,sender:"a",body:"",img})}else await vcInsert({uid:UID,sender:"u",body:"",img});vcRender()}
+    catch(err){console.error(err);vcFail()}finally{VC.busy=false;e.target.value=""}});
+  $("#vdcFab").onclick=()=>{VC.open=!VC.open;if(VC.open&&!ACC.admin)VC.view="home";if(VC.open)vcLoad();vcRender()}}
+
+let vcStarted=false;
+function chatInit(){if(vcStarted)return;vcStarted=true;
+  const P=document.createElement("section");P.id="vdc";P.className="panel";P.setAttribute("aria-label","Messages");document.body.appendChild(P);
+  const F=document.createElement("button");F.id="vdcFab";F.hidden=true;F.setAttribute("aria-label",t("Messages","메시지"));
+  const BP="M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z";
+  F.innerHTML=`<span class="glass"></span><svg class="ix" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg><span class="bd"></span>`;document.body.appendChild(F);
+  vcBind();(typeof loadNotesMeta==="function"?loadNotesMeta():Promise.resolve()).then(vcLoad).then(()=>{if(VC.ok||ACC.admin)F.hidden=false;vcBadge()});
+  setInterval(()=>{if(!VC.open&&document.visibilityState==="visible")vcLoad()},45000);
+  setInterval(()=>{if(VC.open&&document.visibilityState==="visible")vcLoad()},15000);
+  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")vcLoad()})}
+
+{const _vcAL=applyLang;applyLang=function(){const r=_vcAL.apply(this,arguments);try{if(vcStarted)vcRender(true)}catch(_){}return r}}
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;
 const gMsg=(m,err)=>{$("#gateErr").textContent=err?m:"";$("#gateMsg").textContent=err?"":m};
@@ -1490,7 +1941,7 @@ async function signedIn(u){if(started)return;started=true;window.__UNAME=(u.user
   loadPw().catch(()=>{});
   countPending().catch(()=>{});
   try{await loadAll();if(window.__UNAME&&!PREF.profile.name){PREF.profile.name=window.__UNAME;savePrefs()}}catch(e){console.error(e);toast(t("Couldn't load your data — check your connection","데이터를 불러오지 못했어요 · 연결을 확인해 주세요"))}
-  applyLang();render(false);setTimeout(showUpdateBar,700);try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
+  applyLang();render(false);chatInit();try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
 $("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#gateEmail").value.trim(),pw=$("#gatePw").value;
   if(recovering){const {data,error}=await SB.auth.updateUser({password:pw});if(error)return gMsg(error.message,1);recovering=false;gMsg(t("Password changed","비밀번호를 바꿨어요"));if(data?.user)signedIn(data.user);return}
   try{localStorage.setItem("vdAuto",$("#gateAuto").checked?"1":"0");if($("#gateSave").checked)localStorage.setItem("vdEmail",email);else localStorage.removeItem("vdEmail")}catch(_){}

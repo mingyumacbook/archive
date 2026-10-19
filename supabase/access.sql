@@ -107,3 +107,85 @@ update public.members m set name = nullif(u.raw_user_meta_data->>'name', '') fro
 drop policy if exists "admin app meta" on public.shared_docs;
 create policy "admin app meta" on public.shared_docs for all to authenticated
   using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));
+
+-- 9) 문의 채팅 (회원 ↔ 마스터 1:1) · 공지 메시지함
+--    회원은 자기 대화만, 마스터는 모든 대화를 봐요. 보낸 메시지는 5분 안에만 고칠 수 있어요.
+create table if not exists public.chat_inq (
+  id uuid primary key default gen_random_uuid(),
+  uid uuid not null references auth.users(id) on delete cascade,
+  cat text not null check (cat in ('bug','idea','cut','etc')),
+  title text not null,
+  st text not null default 'new' check (st in ('new','doing','done','hold')),
+  created_at timestamptz not null default now()
+);
+create table if not exists public.chat_msgs (
+  id uuid primary key default gen_random_uuid(),
+  uid uuid not null references auth.users(id) on delete cascade,
+  sender text not null check (sender in ('u','a','s')),
+  body text not null default '',
+  img text,
+  inq uuid references public.chat_inq(id) on delete cascade,
+  st text,
+  edited boolean not null default false,
+  created_at timestamptz not null default now()
+);
+create index if not exists chat_msgs_uid_at on public.chat_msgs (uid, created_at);
+create table if not exists public.chat_read (
+  uid uuid not null references auth.users(id) on delete cascade,
+  who text not null check (who in ('u','a','n')),
+  at timestamptz not null default now(),
+  primary key (uid, who)
+);
+alter table public.chat_inq enable row level security;
+alter table public.chat_msgs enable row level security;
+alter table public.chat_read enable row level security;
+
+-- 바꾸면 안 되는 값은 그대로 유지 (상태는 마스터만 바꿀 수 있어요)
+create or replace function public.vd_chat_guard() returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  new.uid := old.uid; new.created_at := old.created_at;
+  if tg_table_name = 'chat_msgs' then new.sender := old.sender; new.inq := old.inq; new.st := old.st;
+  elsif not public.vd_admin() then new.st := old.st; new.cat := old.cat;
+  end if;
+  return new;
+end $$;
+drop trigger if exists vd_chat_guard on public.chat_msgs;
+create trigger vd_chat_guard before update on public.chat_msgs for each row execute function public.vd_chat_guard();
+drop trigger if exists vd_chat_guard on public.chat_inq;
+create trigger vd_chat_guard before update on public.chat_inq for each row execute function public.vd_chat_guard();
+
+drop policy if exists "chat inq read" on public.chat_inq;
+create policy "chat inq read" on public.chat_inq for select to authenticated
+  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));
+drop policy if exists "chat inq add" on public.chat_inq;
+create policy "chat inq add" on public.chat_inq for insert to authenticated
+  with check (uid = auth.uid() and st = 'new' and (select public.vd_ok()));
+drop policy if exists "chat inq edit" on public.chat_inq;
+create policy "chat inq edit" on public.chat_inq for update to authenticated
+  using ((uid = auth.uid() and created_at > now() - interval '5 minutes' and (select public.vd_ok())) or (select public.vd_admin()))
+  with check ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));
+drop policy if exists "chat inq delete" on public.chat_inq;
+create policy "chat inq delete" on public.chat_inq for delete to authenticated using ((select public.vd_admin()));
+
+drop policy if exists "chat msgs read" on public.chat_msgs;
+create policy "chat msgs read" on public.chat_msgs for select to authenticated
+  using ((uid = auth.uid() and (select public.vd_ok())) or (select public.vd_admin()));
+drop policy if exists "chat msgs add" on public.chat_msgs;
+create policy "chat msgs add" on public.chat_msgs for insert to authenticated
+  with check ((uid = auth.uid() and sender = 'u' and (select public.vd_ok())) or (sender in ('a','s') and (select public.vd_admin())));
+drop policy if exists "chat msgs edit" on public.chat_msgs;
+create policy "chat msgs edit" on public.chat_msgs for update to authenticated
+  using (created_at > now() - interval '5 minutes' and ((sender = 'u' and uid = auth.uid() and (select public.vd_ok())) or (sender = 'a' and (select public.vd_admin()))))
+  with check ((sender = 'u' and uid = auth.uid()) or (sender = 'a' and (select public.vd_admin())));
+drop policy if exists "chat msgs delete" on public.chat_msgs;
+create policy "chat msgs delete" on public.chat_msgs for delete to authenticated using ((select public.vd_admin()));
+
+drop policy if exists "chat read marks" on public.chat_read;
+create policy "chat read marks" on public.chat_read for all to authenticated
+  using ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())))
+  with check ((uid = auth.uid() and who in ('u','n') and (select public.vd_ok())) or (who = 'a' and (select public.vd_admin())));
+
+-- 공지 (마스터가 쓰고, 승인된 회원은 읽기)
+drop policy if exists "admin notices" on public.shared_docs;
+create policy "admin notices" on public.shared_docs for all to authenticated
+  using (collection = 'notices' and (select public.vd_admin())) with check (collection = 'notices' and (select public.vd_admin()));
