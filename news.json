@@ -1,17 +1,21 @@
 {
- "at": "2026-10-19T20:48:25.686Z",
- "stories": 359,
+ "at": "2026-10-19T22:46:03.330Z",
+ "stories": 363,
  "translated": 356,
  "notTranslated": [
+  "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks",
   "Y2K Makeup Is So Back, According to Megan Thee Stallion",
   "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party",
-  "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks"
+  "Millennial Side Parts Are Angel-Approved on the Victoria’s Secret Runway",
+  "It's Here: The Winter Accessory Trend It Girls Will Use to Elevate Their Outfits",
+  "My 54-Year-Old Mom and I Struggle With Dry Skin—7 Derm-Approved Moisturizers We Both Swear By",
+  "Not Every Ballet-Flats Color Works With Light-Wash Jeans—This One Does"
  ],
  "trOK": 0,
- "trFail": 3,
+ "trFail": 7,
  "pictures": {
-  "checked": 359,
-  "landscape": 326,
+  "checked": 363,
+  "landscape": 330,
   "portrait": 93
  }
 }
