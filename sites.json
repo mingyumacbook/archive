@@ -1,8 +1,16 @@
 {
- "at": "2026-10-19T05:39:04.363Z",
+ "at": "2026-10-19T05:40:10.146Z",
  "links": 33,
- "checkedNow": 33,
- "ok": 27,
- "unreachable": 6,
- "withDescription": 15
+ "checkedNow": 0,
+ "ok": 0,
+ "unreachable": 0,
+ "withDescription": 0,
+ "defaultUnreachable": [
+  "juunj.com (0)",
+  "minjukim.com (0)",
+  "nohant.co.kr (0)",
+  "recto.co.kr (0)",
+  "restandrecreation.co.kr (0)",
+  "thugclub.net (0)"
+ ]
 }
