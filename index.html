@@ -528,6 +528,7 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 .suf{display:grid;gap:12px}.suf label{display:grid;gap:5px;font-size:12px;color:var(--ink-2)}.suf .inp{width:100%;padding:11px 12px;font-size:15px}.suf .btn{justify-content:center;padding:12px}
 .mname{width:100%;padding:5px 8px;font-size:13.5px;font-weight:500;margin-bottom:3px}.mrow b.me{font-weight:400;font-size:12.5px;color:var(--ink-2)}
 .mup{border:1px solid var(--line);padding:12px;margin:10px 0}
+.repmeta{margin:16px 0 0!important}
 .note li label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}.note li input{margin-top:5px}.note li.hidn span{opacity:.4;text-decoration:line-through}.note ul:has(label){list-style:none;padding-left:0}
 </style>
 
@@ -1432,6 +1433,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.10.19-5",d:"2026.10.19",ko:["시즌 리포트 제목 아래 안내 문구 간격을 넓혔어요"],en:["More room under the Season Report heading"]},
  {v:"2026.10.19-4",d:"2026.10.19",ko:["업데이트 노트를 새로 시작했어요","회원가입은 새 창에서 이름 · 아이디 · 비밀번호로 신청해요"],en:["Update notes start fresh from today","Sign-up opens its own window with name, ID and password"]}
 ];
 const APP_VER=NOTES[0].v;let NOTES_HIDDEN=new Set(),NOTES_META_OK=true;
