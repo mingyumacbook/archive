@@ -25,9 +25,9 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .fab:active{transform:scale(.93)}
 .fab>*{position:absolute;left:0;top:0;width:64px;height:58px;transform-origin:0 0;transform:scale(.6875)}
 .fab .shd{display:none}
-.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(236,236,234,.62);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
-.fab .rim path{fill:url(#gl);stroke:none}
-.fab .ix{left:16px;top:11px;width:13px;height:13px;fill:none;stroke:var(--ink);stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
+.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(13,13,13,.6);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+.fab .rim{display:none}
+.fab .ix{left:16px;top:11px;width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
 .fab.open .ix{opacity:1;transform:none}
 .fab .bd{left:auto;transform:none;top:-6px;right:-7px;width:auto;height:17px;min-width:17px;padding:0 5px;border-radius:9px;font-size:10.5px!important;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
 .fab .bd:empty{display:none}
@@ -124,7 +124,7 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .qi .t{font-size:13.5px}.qi .k{font-size:10px}.ch .nm{font-size:11.5px}.ch small,.sh small{font-size:10px}.sys{font-size:10.5px}.ts{font-size:10px}.intro{font-size:11px}
 .seg2 button{font-size:12px}.field textarea{font-size:13.5px}.chip{font-size:12px}.stp button,.stp span{font-size:11px}.srch{font-size:12.5px}.ro{font-size:11px}.qi .qs{font-size:11px}.ed{font-size:10px}
 .tagrow{font-size:11.5px}.empty{font-size:12px}
-.qa{display:flex;gap:14px;margin-top:8px}.qa button{border:0;background:none;padding:0;font-size:11.5px;text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}.qa .trash{margin:0;color:var(--ink-3)}
+.qi.open{background:#fafaf9}.qa{display:flex;gap:14px;margin-top:8px}.qa button{border:0;background:none;padding:0;font-size:11.5px;text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}.qa .trash{margin:0;color:var(--ink-3)}
 .qrf{margin-top:10px;cursor:default}.qrf .ql2{font-size:11px;color:var(--ink-3);margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .qrf .fl{display:flex;align-items:center;gap:6px;border:1px solid #d6d6d4;border-radius:16px;padding:2px 3px 2px 12px}.qrf input{flex:1;border:0;outline:0;font-size:13px;padding:5px 0;background:none;min-width:0}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;vertical-align:1px}
@@ -144,6 +144,7 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .av.m{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:19px}
 .av.s.m{font-size:20px}
 .ci.pin .nm:after{content:"모든 회원";font-size:10.5px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.ci.top .nm:after{content:"고정";font-size:10px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}.ci.top{background:#fafaf9}
 .cnt{min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 6px}
 @media (max-width:640px){.panel.on~.fab{display:none}}
 </style></head><body>
@@ -236,19 +237,20 @@ function composer(mode){/* mode: user | admin | notice */
  ${editId?`<div class="tagrow"><b>메시지 수정 중</b>보낸 지 5분 안에만 고칠 수 있어요<button data-unedit aria-label="취소">✕</button></div>`:tag?`<div class="tagrow"><b>${CATS[tag]}</b>(으)로 보내요<button data-untag aria-label="취소">✕</button></div>`:""}
  <div class="cmp">${mode==="notice"?"":`<button class="plus${tray?" on":""}" data-tray aria-label="더보기">${IC.plus}</button>`}<div class="field"><textarea id="txt" rows="1" placeholder="${mode==="notice"?"모든 회원에게 공지 보내기":tag?"내용을 적어주세요":"메시지"}">${esc(draft)}</textarea><button class="send${draft.trim()?" on":""}" data-send aria-label="보내기">${IC.up}</button></div></div><input type="file" id="file" accept="image/*" hidden>`}
 
-function qItem(x,admin){return `<div class="qi${flash===x.id?" flash":""}" data-goq="${x.id}"><div class="qm"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${admin?`<div class="qa"><button data-rq="${x.id}">${rq===x.id?"닫기":"답장"}</button><button class="trash${delC==="q:"+x.id?" on":""}" data-delq="${x.id}">${delC==="q:"+x.id?"한 번 더 누르면 삭제":"삭제"}</button></div>${rq===x.id?(()=>{const l=[...S.conv[x.uid].msgs].reverse().find(m=>m.f!=="s");return `<div class="qrf">${l?`<div class="ql2">최근 · ${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t)}</div>`:""}<div class="fl"><input id="rqt" placeholder="${esc(S.users[x.uid].name)}님에게 답장" value="${esc(rqDraft)}"><button class="send${rqDraft.trim()?" on":""}" data-rqs="${x.id}" aria-label="보내기">${IC.up}</button></div></div>`})():""}`:""}</div><div class="qs"><i class="dot lamp s-${x.st}"></i>${ST[x.st]}</div></div>`}
+function qItem(x,admin){return `<div class="qi${flash===x.id?" flash":""}${admin&&rq===x.id?" open":""}" ${admin?`data-rq="${x.id}"`:`data-goq="${x.id}"`}><div class="qm"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${admin?`<div class="qa"><button data-rq="${x.id}">${rq===x.id?"닫기":"답장하기"}</button><button class="trash${delC==="q:"+x.id?" on":""}" data-delq="${x.id}">${delC==="q:"+x.id?"한 번 더 누르면 삭제":"삭제"}</button></div>${rq===x.id?(()=>{const l=[...S.conv[x.uid].msgs].reverse().find(m=>m.f!=="s");return `<div class="qrf">${l?`<div class="ql2">최근 · ${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t)}</div>`:""}<div class="fl"><input id="rqt" placeholder="${esc(S.users[x.uid].name)}님에게 답장" value="${esc(rqDraft)}"><button class="send${rqDraft.trim()?" on":""}" data-rqs="${x.id}" aria-label="보내기">${IC.up}</button></div></div>`})():""}`:""}</div><div class="qs"><i class="dot lamp s-${x.st}"></i>${ST[x.st]}</div></div>`}
 const legend=`<div class="qf" style="gap:12px;font-size:11.5px;color:var(--ink-2)">${Object.entries(ST).map(([k,v])=>`<span style="display:inline-flex;gap:5px;align-items:center"><i class="dot s-${k}"></i>${v}</span>`).join("")}</div>`;
 
 /* ---------- user ---------- */
 function userView(){const c=S.conv[S.me],nu=nUnread();
  if(uView==="home"){const l=last(c),ln=S.notices[S.notices.length-1];
   return `<div class="sh"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><h2 class="lt">Messages</h2><small>문의와 공지를 한곳에서 받아요</small></div><div class="scroll" style="margin-top:10px">
-  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Inquiry</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
-  <div class="ci" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div></div>`}
+  <div class="ci top" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div>
+  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Help</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
+  </div>`}
  if(uView==="notice"){if(open)S.nRead[S.me]=Date.now();
-  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 Inquiry에서 보내주세요</div>`}
+  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 Help에서 보내주세요</div>`}
  const my=S.inq.filter(x=>x.uid===S.me);if(open&&uTab==="chat")c.unU=0;
- return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Inquiry</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
+ return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Help</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
  <div class="seg2"><button data-utab="chat" class="${uTab==="chat"?"on":""}">채팅</button><button data-utab="list" class="${uTab==="list"?"on":""}">문의 내역</button></div>
  ${uTab==="chat"?bubbles(c.msgs,"u",c,`<div class="intro"><span class="av big brand">${BRAND}</span><p style="margin:10px 0 0">오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.</p></div>`)+composer("user")
   :`${legend}<div class="scroll">${my.length?my.map(x=>qItem(x)).join(""):`<div class="empty">아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요</div>`}</div>`}`}
