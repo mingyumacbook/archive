@@ -55,7 +55,7 @@ async function main() {
     rows.push({ collection: "sitecheck", id: k, data }); } }));
   for (let j = 0; j < rows.length; j += 100) await upsert(rows.slice(j, j + 100));
   fs.mkdirSync("status", { recursive: true });
-  fs.writeFileSync("status/sites.json", JSON.stringify({ at: new Date().toISOString(), links: want.size, checkedNow: rows.length, ok, unreachable: bad, withDescription: rows.filter(r => r.data.desc).length }, null, 1));
+  fs.writeFileSync("status/sites.json", JSON.stringify({ at: new Date().toISOString(), links: want.size, checkedNow: rows.length, ok, unreachable: bad, withDescription: rows.filter(r => r.data.desc).length, defaultUnreachable: [...L.designers.map(d => d.url), ...L.sites].filter(u => { const d = rows.find(r => r.id === key(u))?.data || have.get(key(u)); return d && !d.ok; }).map(u => `${norm(u)} (${(rows.find(r => r.id === key(u))?.data || have.get(key(u))).status})`) }, null, 1));
   console.log(`homepages: ${rows.length} checked (${ok} ok, ${bad} unreachable) of ${want.size}`);
 }
 main().catch(e => { console.error(e); process.exit(1); });
