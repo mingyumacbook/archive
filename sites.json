@@ -1,9 +1,9 @@
 {
- "at": "2026-10-19T18:57:52.976Z",
+ "at": "2026-10-19T20:48:38.474Z",
  "links": 33,
- "checkedNow": 0,
+ "checkedNow": 6,
  "ok": 0,
- "unreachable": 0,
+ "unreachable": 6,
  "withDescription": 0,
  "defaultUnreachable": [
   "juunj.com (0)",

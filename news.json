@@ -1,16 +1,17 @@
 {
- "at": "2026-10-19T18:57:48.266Z",
- "stories": 358,
+ "at": "2026-10-19T20:48:25.686Z",
+ "stories": 359,
  "translated": 356,
  "notTranslated": [
   "Y2K Makeup Is So Back, According to Megan Thee Stallion",
-  "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party"
+  "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party",
+  "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks"
  ],
- "trOK": 2,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 3,
  "pictures": {
-  "checked": 358,
-  "landscape": 325,
-  "portrait": 92
+  "checked": 359,
+  "landscape": 326,
+  "portrait": 93
  }
 }
