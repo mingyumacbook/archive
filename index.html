@@ -1429,11 +1429,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
 
 /* ================= UPDATE NOTES ================= */
 const NOTES=[
- {v:"2026.10.19-3",d:"2026.10.19",ko:["회원가입이 새 창에서 이름 · 아이디 · 비밀번호로 진행돼요","회원 관리에 이름이 보이고, 관리자가 이름을 직접 고칠 수 있어요","업데이트 노트가 생겼어요 (화면 맨 아래 오른쪽)"],en:["Sign-up now opens its own window with name, ID and password","Members show their names, and the owner can edit them","Update notes added (bottom right of every page)"]},
- {v:"2026.10.19-2",d:"2026.10.19",ko:["메인 배너가 PC · 모바일 모두 꽉 차게 보여요","PC는 가로형, 모바일은 세로형 기사 사진을 우선 보여줘요","메뉴 이름 정리: 뉴스 · 컬렉션 · 디자이너 · 아카이브","저장함은 뉴스 메뉴 안으로 옮겼어요"],en:["The main banner fills the frame on computers and phones","Landscape pictures on computers, portrait ones on phones","Menu renamed: News · Collections · Designers · Archive","Saved now sits under News"]},
- {v:"2026.10.19-1",d:"2026.10.19",ko:["브랜드 컬렉션을 연도 · 시즌별로 정리했어요 (ALL 표기)","비밀번호 변경은 관리자 승인 한 번 후 자유롭게 바꿀 수 있어요","피팅 메뉴는 제외했어요","뉴스 원문 버튼을 이미지 아래 선에 맞췄어요"],en:["Brand collections grouped by year and season (ALL)","Password changes need the owner's approval once","Fitting removed from the menu","News 'Read' aligned to the picture"]},
- {v:"2026.10.18",d:"2026.10.18",ko:["시즌 리포트를 공식 자료로 매일 자동 갱신해요 (T-Fashion 실측 · WGSN×Coloro 발표)","항목을 누르면 근거(브랜드 · 패션위크 · 기사)를 볼 수 있어요","증감은 1년 전 같은 시즌 대비 %p로 표기해요","브랜드별 지금까지의 모든 컬렉션을 볼 수 있어요","자동 로그인 · 아이디 저장, 새로고침 버튼, 가입 승인 기능"],en:["Season report refreshed daily from official sources (T-Fashion, WGSN×Coloro)","Tap any item for the evidence: brands, fashion weeks, articles","Changes shown in percentage points vs the same season a year earlier","Every past collection per brand","Stay signed in, remember email, refresh button, sign-up approval"]},
- {v:"2026.10.17",d:"2026.10.17",ko:["VISUAL DEPT. 로 새롭게 바뀌었어요"],en:["Relaunched as VISUAL DEPT."]}
+ {v:"2026.10.19-3",d:"2026.10.19",ko:["회원가입이 새 창에서 이름 · 아이디 · 비밀번호로 진행돼요","회원 관리에 이름이 보이고, 관리자가 이름을 직접 고칠 수 있어요","업데이트 노트가 생겼어요 (화면 맨 아래 오른쪽)"],en:["Sign-up now opens its own window with name, ID and password","Members show their names, and the owner can edit them","Update notes added (bottom right of every page)"]}
 ];
 const APP_VER=NOTES[0].v;
 function notesSheet(){sheet(t("Update notes","업데이트 노트"),NOTES.map(n=>`<div class="note"><div class="nh"><b>${esc(n.d)}</b>${n.v===APP_VER?`<span class="lbl">${t("Latest","최신")}</span>`:""}</div><ul>${(lang==="ko"?n.ko:n.en).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join(""))}
