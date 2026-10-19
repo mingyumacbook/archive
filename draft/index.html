@@ -19,16 +19,18 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .news{padding:36px 24px;max-width:1100px}.news h2{font-family:var(--f-mark);font-weight:400;font-size:26px;margin:0 0 18px}
 .sk{height:12px;background:var(--soft);margin:12px 0}.sk.w6{width:60%}.sk.w8{width:80%}.sk.w4{width:40%}
 
-/* ---------- chat button: iOS-style frosted circle, bubble only ---------- */
-.fab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:58px;height:58px;border-radius:50%;
- border:.5px solid rgba(255,255,255,.55);background:rgba(250,250,249,.5);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);
- box-shadow:0 10px 30px rgba(0,0,0,.16),inset 0 0 0 .5px rgba(0,0,0,.05);display:grid;place-items:center;padding:0;transition:transform .2s}
-.fab:active{transform:scale(.94)}.fab svg{width:27px;height:27px;fill:var(--ink);transition:transform .25s,opacity .2s;grid-area:1/1}
-.fab .ix{opacity:0;transform:rotate(-45deg) scale(.6);fill:none;stroke:var(--ink);stroke-width:1.8;width:20px;height:20px}
-.fab.open .ib{opacity:0;transform:scale(.6)}.fab.open .ix{opacity:1;transform:none}
-.fab .bd{position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
-.fab .bd:empty{display:none}
 
+/* ---------- chat button: translucent speech bubble only ---------- */
+.fab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:64px;height:58px;border:0;background:none;padding:0;transition:transform .2s}
+.fab:active{transform:scale(.93)}
+.fab>*{position:absolute;inset:0;width:64px;height:58px}
+.fab .shd{fill:rgba(0,0,0,.2);filter:blur(7px);transform:translateY(5px)}
+.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+.fab .rim path{fill:url(#gl);stroke:rgba(0,0,0,.16);stroke-width:1}
+.fab .ix{left:23px;top:16px;width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:1.8;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
+.fab.open .ix{opacity:1;transform:none}
+.fab .bd{inset:auto;top:-5px;right:-5px;width:auto;height:20px;min-width:20px;padding:0 6px;border-radius:10px;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
+.fab .bd:empty{display:none}
 /* ---------- panel ---------- */
 .panel{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:96px;z-index:44;width:384px;height:min(640px,calc(100vh - 150px));background:#fff;border-radius:22px;overflow:hidden;
  box-shadow:0 30px 80px rgba(0,0,0,.22),0 0 0 .5px rgba(0,0,0,.08);display:flex;flex-direction:column;opacity:0;transform:translateY(14px) scale(.98);transform-origin:100% 100%;pointer-events:none;transition:opacity .2s,transform .22s}
@@ -111,22 +113,46 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
  .panel.on{transform:none}.panel.on~.fab,.fab.open{display:none}
  .side{width:100%;border:0}.panel.wide.conv .side{display:none}.panel.wide:not(.conv) .main{display:none}
  .b{max-width:80%}}
+
+/* ---------- v3 additions ---------- */
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;vertical-align:1px}
+.s-new{background:#b3b3b1}.s-doing{background:#ef8a17}.s-done{background:#2e9d58}.s-hold{background:#d8382c}
+.st{display:inline-flex;align-items:center;gap:4px}
+.lamp{width:10px;height:10px}.lamp.s-new{box-shadow:0 0 0 3px rgba(179,179,177,.25)}.lamp.s-doing{box-shadow:0 0 0 3px rgba(239,138,23,.2)}.lamp.s-done{box-shadow:0 0 0 3px rgba(46,157,88,.18)}.lamp.s-hold{box-shadow:0 0 0 3px rgba(216,56,44,.16)}
+.qi{display:flex;gap:12px;align-items:flex-start}.qi .qm{flex:1;min-width:0}.qi .t{margin:4px 0 0}
+.qi .qs{display:flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap;padding-top:2px}
+.qi .trash{border:0;background:none;color:var(--ink-3);font-size:12px;padding:2px 0;margin-top:8px;text-decoration:underline;text-underline-offset:3px}.qi .trash.on{color:var(--alert)}
+.sys .dot{margin-right:5px}
+.ed{display:block;font-size:10.5px;opacity:.55;margin-top:2px}
+.stp .del{color:var(--alert);border-color:rgba(200,16,46,.3)}.stp .del.on{background:var(--alert);color:#fff;border-color:var(--alert)}
+.stp button{display:inline-flex;align-items:center;gap:5px}
+.b[data-m]{cursor:pointer}
+.b ul{margin:4px 0 0;padding-left:17px;white-space:normal}.b li{margin:2px 0}.b .nt{display:block;font-size:11px;letter-spacing:.06em;opacity:.65;margin-bottom:2px}
+.ro{flex:none;text-align:center;font-size:12px;color:var(--ink-3);padding:12px 16px 16px;border-top:.5px solid var(--line)}
+.av.m{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:19px}
+.av.s.m{font-size:20px}
+.ci.pin .nm:after{content:"모든 회원";font-size:10.5px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.cnt{min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 6px}
+@media (max-width:640px){.panel.on~.fab{display:none}}
 </style></head><body>
 <div class="draftbar"><b>초안</b><span class="dtxt">문의 채팅 미리보기 · 실제 앱에는 아직 반영 전이에요</span>
  <span class="seg"><button data-role="user" class="on">사용자 화면</button><button data-role="admin">관리자(내) 화면</button></span><button class="rs" id="reset">처음으로</button></div>
 <header class="hd"><span class="mark">VISUAL DEPT.</span><small>NEWS · COLLECTIONS · DESIGNERS · ARCHIVE</small></header>
-<section class="hero"><h1>Inquiry <span>— 오른쪽 아래 버튼을 눌러보세요</span></h1></section>
+<section class="hero"><h1>Inquiry <span>— 오른쪽 아래 말풍선을 눌러보세요</span></h1></section>
 <section class="news"><h2>News</h2><div class="sk w8"></div><div class="sk w6"></div><div class="sk w4"></div><div class="sk w8"></div><div class="sk w6"></div></section>
-<section class="panel" id="panel" aria-label="문의 채팅"></section>
-<button class="fab" id="fab" aria-label="문의 채팅 열기">
- <svg class="ib" viewBox="0 0 24 24"><path d="M12 3.6c-5.1 0-9.2 3.4-9.2 7.6 0 2.4 1.3 4.5 3.4 5.9-.2 1.4-.9 2.6-1.9 3.4 2.1 0 3.9-.7 5.2-1.8.8.1 1.6.2 2.5.2 5.1 0 9.2-3.4 9.2-7.7S17.1 3.6 12 3.6z"/></svg>
+<section class="panel" id="panel" aria-label="메시지"></section>
+<button class="fab" id="fab" aria-label="메시지 열기">
+ <svg class="shd" viewBox="0 0 64 58"><path d="M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z"/></svg>
+ <span class="glass"></span>
+ <svg class="rim" viewBox="0 0 64 58"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".55" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient></defs><path d="M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z"/></svg>
  <svg class="ix" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg><span class="bd"></span></button>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const KEY="vdChatDraft2",H=3600e3,D=24*H;
+const KEY="vdChatDraft3",H=3600e3,D=24*H,EDIT=5*60e3,NB="__n";
 const CATS={bug:"오류 신고",idea:"기능 제안",cut:"빼도 될 기능",etc:"기타 문의"};
-const ST={new:"접수",doing:"확인 중",done:"반영 완료",hold:"보류"};
+const ST={new:"확인 전",doing:"확인 중",done:"답변 완료",hold:"보류"};
+const STMSG={new:"확인 전으로 돌아갔어요",doing:"확인 중이에요",done:"답변 완료 되었어요",hold:"보류 되었어요"};
 const IC={x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',back:'<svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg>',
  up:'<svg viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>',plus:'<svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg>',
  img:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>'};
@@ -135,109 +161,154 @@ const hm=t=>{const d=new Date(t);let h=d.getHours();const ap=h<12?"오전":"오�
 const dd=t=>{const d=new Date(t),n=new Date();return Math.round((new Date(n.getFullYear(),n.getMonth(),n.getDate())-new Date(d.getFullYear(),d.getMonth(),d.getDate()))/D)};
 const dayL=t=>{const n=dd(t),d=new Date(t);return n===0?"오늘":n===1?"어제":`${d.getMonth()+1}월 ${d.getDate()}일 (${"일월화수목금토"[d.getDay()]})`};
 const listT=t=>{const n=dd(t),d=new Date(t);return n===0?hm(t):n===1?"어제":`${d.getMonth()+1}.${d.getDate()}`};
+const md=t=>{const d=new Date(t);return `${d.getMonth()+1}.${d.getDate()}`};
+let SEQ=0;const nid=()=>"m"+Date.now().toString(36)+(SEQ++);
 
-function seed(){const n=Date.now(),I=(id,uid,cat,title,st,at,log)=>({id,uid,cat,title,st,at,log});
- return {v:2,me:"u1",
+function seed(){const n=Date.now(),I=(id,uid,cat,title,st,at)=>({id,uid,cat,title,st,at});let k=0;const M=o=>Object.assign({id:"s"+(k++)},o);
+ return {v:3,me:"u1",
  users:{u1:{name:"김서연",mail:"seoyeon@mail.com"},u2:{name:"박지훈",mail:"jihoon@mail.com"},u3:{name:"이하늘",mail:"haneul@mail.com"},u4:{name:"최도윤",mail:"doyun@mail.com"}},
- inq:[I("i5","u4","cut","저장함은 거의 안 써서 빼도 될 것 같아요","new",n-35*60e3,[{s:"new",at:n-35*60e3}]),
-  I("i4","u2","idea","컬렉션에서 브랜드 검색이 있으면 좋겠어요","new",n-50*60e3,[{s:"new",at:n-50*60e3}]),
-  I("i2","u1","idea","아카이브 폴더를 다른 사람과 공유하고 싶어요","doing",n-3*H,[{s:"new",at:n-3*H},{s:"doing",at:n-25*60e3}]),
-  I("i3","u3","bug","뉴스 번역이 일부만 돼요","done",n-3*D,[{s:"new",at:n-3*D},{s:"doing",at:n-3*D+H},{s:"done",at:n-2*D}]),
-  I("i1","u1","bug","시즌 리포트에서 남성복 컬러가 안 보여요","done",n-2*D,[{s:"new",at:n-2*D},{s:"doing",at:n-2*D+40*60e3},{s:"done",at:n-D}])],
+ inq:[I("i5","u4","cut","저장함은 거의 안 써서 빼도 될 것 같아요","new",n-35*60e3),
+  I("i4","u2","idea","컬렉션에서 브랜드 검색이 있으면 좋겠어요","new",n-50*60e3),
+  I("i2","u1","idea","아카이브 폴더를 다른 사람과 공유하고 싶어요","doing",n-3*H),
+  I("i6","u1","etc","모바일에서 글씨를 조금 더 키울 수 있나요?","hold",n-4*D),
+  I("i3","u3","bug","뉴스 번역이 일부만 돼요","done",n-3*D),
+  I("i1","u1","bug","시즌 리포트에서 남성복 컬러가 안 보여요","done",n-2*D)],
+ notices:[{id:"n1",at:n-6*H,items:["업데이트 노트를 새로 시작했어요","회원가입은 새 창에서 이름 · 아이디 · 비밀번호로 신청해요"]},
+  {id:"n2",at:n-5*H,items:["시즌 리포트 제목 아래 안내 문구 간격을 넓혔어요"]},
+  {id:"n3",at:n-40*60e3,items:["디자이너: 시즌 · 컨셉 대신 브랜드 아이덴티티를 보여줘요","브랜드 홈페이지 링크를 매일 자동으로 확인해요","브랜드를 추가하면 홈페이지에서 아이덴티티를 자동으로 불러와요"]}],
+ nRead:{u1:n-5.5*H},
  conv:{
-  u1:{unA:0,unU:2,msgs:[{f:"u",q:"i1",t:"시즌 리포트에서 남성복 컬러가 안 보여요",at:n-2*D},
-   {f:"a",t:"알려줘서 고마워요! 확인해보니 FW26 남성복 데이터가 늦게 들어왔어요.",at:n-2*D+40*60e3},
-   {f:"s",t:"‘시즌 리포트에서 남성복 컬러가 안 보여요’ 문의가 반영 완료 되었어요",at:n-D},{f:"a",t:"지금은 잘 보일 거예요.",at:n-D+60e3},
-   {f:"u",t:"확인했어요. 감사합니다!",at:n-D+H},
-   {f:"u",q:"i2",t:"아카이브 폴더를 다른 사람과 공유하고 싶어요",at:n-3*H},{f:"u",t:"팀원이랑 같은 무드보드를 같이 보면 편할 것 같아서요",at:n-3*H+30e3},
-   {f:"s",t:"‘아카이브 폴더를 다른 사람과 공유하고 싶어요’ 문의가 확인 중이에요",at:n-25*60e3},
-   {f:"a",t:"좋은 아이디어예요. 보기만 가능한 공유면 충분할까요, 같이 수정도 해야 할까요?",at:n-20*60e3}]},
-  u2:{unA:1,unU:0,msgs:[{f:"u",q:"i4",t:"컬렉션에서 브랜드 검색이 있으면 좋겠어요",at:n-50*60e3}]},
-  u3:{unA:0,unU:0,msgs:[{f:"u",q:"i3",t:"뉴스 번역이 일부만 돼요",at:n-3*D},{f:"a",t:"확인했어요. 번역을 다시 돌리도록 고쳤어요.",at:n-2*D},
-   {f:"s",t:"‘뉴스 번역이 일부만 돼요’ 문의가 반영 완료 되었어요",at:n-2*D+60e3},{f:"u",t:"이제 다 한글로 보여요 👍",at:n-2*D+2*H}]},
-  u4:{unA:2,unU:0,msgs:[{f:"u",t:"안녕하세요!",at:n-36*60e3},{f:"u",q:"i5",t:"저장함은 거의 안 써서 빼도 될 것 같아요",at:n-35*60e3}]}}}}
-let S;function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(_){}if(!S||S.v!==2)S=seed()}function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){}}
-let role="user",open=false,uTab="chat",aTab="chats",aConv=null,aF="all",tray=false,tag=null,pick=null,flash=null,q="",draft="";
+  u1:{unA:0,unU:1,msgs:[M({f:"u",q:"i6",t:"모바일에서 글씨를 조금 더 키울 수 있나요?",at:n-4*D}),M({f:"a",t:"지금은 화면 구성이 깨질 수 있어서 잠시 보류할게요. 다음 디자인 정리 때 같이 볼게요.",at:n-4*D+2*H}),
+   M({f:"s",k:"hold",q:"i6",t:"‘모바일에서 글씨를 조금 더 키울 수 있나요?’ 문의가 보류 되었어요",at:n-4*D+2*H+60e3}),
+   M({f:"u",q:"i1",t:"시즌 리포트에서 남성복 컬러가 안 보여요",at:n-2*D}),
+   M({f:"a",t:"알려줘서 고마워요! 확인해보니 FW26 남성복 데이터가 늦게 들어왔어요.",at:n-2*D+40*60e3}),
+   M({f:"s",k:"done",q:"i1",t:"‘시즌 리포트에서 남성복 컬러가 안 보여요’ 문의가 답변 완료 되었어요",at:n-D}),M({f:"a",t:"지금은 잘 보일 거예요.",at:n-D+60e3}),
+   M({f:"u",t:"확인했어요. 감사합니다!",at:n-D+H}),
+   M({f:"u",q:"i2",t:"아카이브 폴더를 다른 사람과 공유하고 싶어요",at:n-3*H}),M({f:"u",t:"팀원이랑 같은 무드보드를 같이 보면 편할 것 같아서요",at:n-3*H+30e3}),
+   M({f:"s",k:"doing",q:"i2",t:"‘아카이브 폴더를 다른 사람과 공유하고 싶어요’ 문의가 확인 중이에요",at:n-25*60e3}),
+   M({f:"a",t:"좋은 아이디어예요. 보기만 가능한 공유면 충분할까요, 같이 수정도 해야 할까요?",at:n-20*60e3})]},
+  u2:{unA:1,unU:0,msgs:[M({f:"u",q:"i4",t:"컬렉션에서 브랜드 검색이 있으면 좋겠어요",at:n-50*60e3})]},
+  u3:{unA:0,unU:0,msgs:[M({f:"u",q:"i3",t:"뉴스 번역이 일부만 돼요",at:n-3*D}),M({f:"a",t:"확인했어요. 번역을 다시 돌리도록 고쳤어요.",at:n-2*D}),
+   M({f:"s",k:"done",q:"i3",t:"‘뉴스 번역이 일부만 돼요’ 문의가 답변 완료 되었어요",at:n-2*D+60e3}),M({f:"u",t:"이제 다 한글로 보여요 👍",at:n-2*D+2*H})]},
+  u4:{unA:2,unU:0,msgs:[M({f:"u",t:"안녕하세요!",at:n-36*60e3}),M({f:"u",q:"i5",t:"저장함은 거의 안 써서 빼도 될 것 같아요",at:n-35*60e3})]}}}}
+let S;function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(_){}if(!S||S.v!==3)S=seed()}function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){}}
+let role="user",open=false,uView="home",uTab="chat",aTab="chats",aConv=null,aF="all",tray=false,tag=null,sel=null,delC=null,editId=null,flash=null,q="",draft="";
 const P=$("#panel"),last=c=>c.msgs[c.msgs.length-1]||{at:0,t:""};
+const nUnread=()=>S.notices.filter(n=>n.at>(S.nRead[S.me]||0)).length;
+const curConv=()=>role==="user"?S.conv[S.me]:(aConv&&aConv!==NB?S.conv[aConv]:null);
 
-function msgs(c,mine){let h="",prev=null;const ms=c.msgs;let lm=-1;ms.forEach((m,i)=>{if(m.f===mine)lm=i});
- const read=(mine==="u"?c.unA:c.unU)===0;
+/* ---------- bubbles ---------- */
+function tools(m,me,x){let h="";
+ if(me){const left=EDIT-(Date.now()-m.at);
+  if(!m.img&&!m.n)h+=left>0?`<button data-edit="${m.id}">수정</button><span>${Math.ceil(left/60e3)}분 안에 수정할 수 있어요</span>`:`<span>보낸 지 5분이 지나 수정할 수 없어요</span>`;
+  if(x&&role==="user")h+=`<button data-goq="${x.id}">문의 내역 보기</button>`}
+ else if(role==="admin"&&x)h+=`<span>상태</span>${Object.entries(ST).map(([k,v])=>`<button data-st="${k}" data-q="${x.id}" class="${x.st===k?"on":""}"><i class="dot s-${k}"></i>${v}</button>`).join("")}`;
+ if(role==="admin"&&!m.n)h+=`<button class="del${delC===m.id?" on":""}" data-del="${m.id}">${delC===m.id?"한 번 더 누르면 삭제":x?"문의 삭제":"삭제"}</button>`;
+ return h?`<div class="stp">${h}</div>`:""}
+function bubbles(ms,mine,c,intro){let h="",prev=null,lm=-1;ms.forEach((m,i)=>{if(m.f===mine)lm=i});
+ const read=c?((mine==="u"?c.unA:c.unU)===0):true;
  ms.forEach((m,i)=>{if(!prev||m.at-prev.at>H)h+=`<div class="ts"><b>${dayL(m.at)}</b> ${hm(m.at)}</div>`;
-  if(m.f==="s"){h+=`<div class="sys">${esc(m.t)}</div>`;prev=m;return}
+  if(m.f==="s"){h+=`<div class="sys">${m.k?`<i class="dot s-${m.k}"></i>`:""}${esc(m.t)}</div>`;prev=m;return}
   const nx=ms[i+1],tail=!nx||nx.f!==m.f||nx.at-m.at>H,gap=!prev||prev.f!==m.f||m.at-prev.at>H,me=m.f===mine,x=m.q&&S.inq.find(z=>z.id===m.q);
-  const body=m.img?`<div class="b img"><img src="${m.img}" alt=""></div>`:
-   `<div class="b${tail?" tl":""}${x?" card":""}"${x?` data-card="${x.id}"`:""}>${x?`<span class="ql">${CATS[x.cat]} <em class="st">${ST[x.st]}</em></span>`:""}${esc(m.t)}</div>`;
-  h+=`<div class="row${me?" me":""}${gap?" gap":""}${x&&flash===x.id?" flash":""}">${body}${role==="admin"&&x&&pick===x.id?`<div class="stp"><span>처리 상태</span>${Object.entries(ST).map(([k,v])=>`<button data-st="${k}" data-q="${x.id}" class="${x.st===k?"on":""}">${v}</button>`).join("")}</div>`:""}${i===lm&&i===ms.length-1?`<div class="rc">${read?"읽음":"전송됨"}</div>`:""}</div>`;prev=m});
- return `<div class="msgs">${mine==="u"?`<div class="intro"><span class="av vd big">VD</span><p style="margin:10px 0 0">오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.</p></div>`:""}${h}</div>`}
+  const can=!m.n&&(me||role==="admin");
+  const inner=m.n?`<span class="nt">${m.n.items?"업데이트":"공지"} · ${md(m.at)}</span><ul>${(m.n.items||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>${m.n.t?esc(m.n.t):""}`:
+   `${x?`<span class="ql">${CATS[x.cat]} <em class="st"><i class="dot s-${x.st}"></i>${ST[x.st]}</em></span>`:""}${esc(m.t)}${m.ed?`<span class="ed">수정됨</span>`:""}`;
+  const body=m.img?`<div class="b img"${can?` data-m="${m.id}"`:""}><img src="${m.img}" alt=""></div>`:`<div class="b${tail?" tl":""}${x?" card":""}"${can?` data-m="${m.id}"`:""}>${inner}</div>`;
+  h+=`<div class="row${me?" me":""}${gap?" gap":""}${x&&flash===x.id?" flash":""}">${body}${sel===m.id?tools(m,me,x):""}${i===lm&&i===ms.length-1&&c?`<div class="rc">${read?"읽음":"전송됨"}</div>`:""}</div>`;prev=m});
+ return `<div class="msgs">${intro||""}${h}</div>`}
+const noticeMsgs=()=>S.notices.map(n=>({id:n.id,f:"n",at:n.at,n}));
 
-function composer(user){return `${tray?`<div class="tray">${user?`<span class="tt">문의 유형 고르기</span>${Object.entries(CATS).map(([k,v])=>`<button class="chip${tag===k?" on":""}" data-cat="${k}">${v}</button>`).join("")}`:""}<button class="chip" data-photo>${IC.img} 사진</button></div>`:""}
- ${tag?`<div class="tagrow"><b>${CATS[tag]}</b>(으)로 보내요 · 문의 내역에 기록돼요<button data-untag aria-label="취소">✕</button></div>`:""}
- <div class="cmp"><button class="plus${tray?" on":""}" data-tray aria-label="더보기">${IC.plus}</button><div class="field"><textarea id="txt" rows="1" placeholder="${tag?"내용을 적어주세요":"메시지"}">${esc(draft)}</textarea><button class="send${draft.trim()?" on":""}" data-send aria-label="보내기">${IC.up}</button></div></div><input type="file" id="file" accept="image/*" hidden>`}
+function composer(mode){/* mode: user | admin | notice */
+ return `${tray?`<div class="tray">${mode==="user"?`<span class="tt">문의 유형 고르기 · 고르면 ‘문의 내역’에 기록돼요</span>${Object.entries(CATS).map(([k,v])=>`<button class="chip${tag===k?" on":""}" data-cat="${k}">${v}</button>`).join("")}`:""}<button class="chip" data-photo>${IC.img} 사진</button></div>`:""}
+ ${editId?`<div class="tagrow"><b>메시지 수정 중</b>보낸 지 5분 안에만 고칠 수 있어요<button data-unedit aria-label="취소">✕</button></div>`:tag?`<div class="tagrow"><b>${CATS[tag]}</b>(으)로 보내요<button data-untag aria-label="취소">✕</button></div>`:""}
+ <div class="cmp">${mode==="notice"?"":`<button class="plus${tray?" on":""}" data-tray aria-label="더보기">${IC.plus}</button>`}<div class="field"><textarea id="txt" rows="1" placeholder="${mode==="notice"?"모든 회원에게 공지 보내기":tag?"내용을 적어주세요":"메시지"}">${esc(draft)}</textarea><button class="send${draft.trim()?" on":""}" data-send aria-label="보내기">${IC.up}</button></div></div><input type="file" id="file" accept="image/*" hidden>`}
 
-function steps(x){if(x.st==="hold")return `<div class="steps"><span class="d"><i></i>접수</span><b class="d"></b><span class="d"><i></i>보류</span></div>`;
- const o=["new","doing","done"],n=o.indexOf(x.st);return `<div class="steps">${o.map((k,i)=>`${i?`<b class="${i<=n?"d":""}"></b>`:""}<span class="${i<=n?"d":""}"><i></i>${ST[k]}</span>`).join("")}</div>`}
-function qItem(x,admin){const l=x.log[x.log.length-1];return `<div class="qi${flash===x.id?" flash":""}" data-goq="${x.id}"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${steps(x)}<div class="lg">${x.log.length>1?`${ST[l.s]} · ${dayL(l.at)} ${hm(l.at)}`:"답장을 기다리는 중"}</div></div>`}
+function qItem(x,admin){return `<div class="qi${flash===x.id?" flash":""}" data-goq="${x.id}"><div class="qm"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${admin?`<button class="trash${delC==="q:"+x.id?" on":""}" data-delq="${x.id}">${delC==="q:"+x.id?"한 번 더 누르면 삭제":"삭제"}</button>`:""}</div><div class="qs"><i class="dot lamp s-${x.st}"></i>${ST[x.st]}</div></div>`}
+const legend=`<div class="qf" style="gap:12px;font-size:11.5px;color:var(--ink-2)">${Object.entries(ST).map(([k,v])=>`<span style="display:inline-flex;gap:5px;align-items:center"><i class="dot s-${k}"></i>${v}</span>`).join("")}</div>`;
 
-function userView(){const c=S.conv[S.me],my=S.inq.filter(x=>x.uid===S.me),act=my.filter(x=>x.st==="new"||x.st==="doing");
- if(open&&uTab==="chat")c.unU=0;
- return `<div class="ch"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av vd">VD</span><b class="nm">VISUAL DEPT.</b><small>운영자 · 보통 하루 안에 답장해요</small></div>
- <div class="seg2"><button data-utab="chat" class="${uTab==="chat"?"on":""}">채팅</button><button data-utab="list" class="${uTab==="list"?"on":""}">문의 내역${act.length?`<i>${act.length}</i>`:""}</button></div>
- ${uTab==="chat"?msgs(c,"u")+composer(true):`<div class="scroll">${my.length?(act.length?`<div class="sec">진행 중</div>${act.map(x=>qItem(x)).join("")}`:"")+(my.length>act.length?`<div class="sec">완료 · 보류</div>${my.filter(x=>!act.includes(x)).map(x=>qItem(x)).join("")}`:""):`<div class="empty">아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요</div>`}</div>`}`}
+/* ---------- user ---------- */
+function userView(){const c=S.conv[S.me],nu=nUnread();
+ if(uView==="home"){const l=last(c),ln=S.notices[S.notices.length-1];
+  return `<div class="sh"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><h2 class="lt">Messages</h2><small>문의와 공지를 한곳에서 받아요</small></div><div class="scroll" style="margin-top:10px">
+  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s m">M</span><div class="cm"><div class="r1"><b class="nm">문의 · Master</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
+  <div class="ci" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s vd">VD</span><div class="cm"><div class="r1"><b class="nm">공지 · VISUAL DEPT.</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div></div>`}
+ if(uView==="notice"){if(open)S.nRead[S.me]=Date.now();
+  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av vd">VD</span><b class="nm">VISUAL DEPT. 공지</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 ‘문의’ 메시지함에서 보내주세요</div>`}
+ const my=S.inq.filter(x=>x.uid===S.me);if(open&&uTab==="chat")c.unU=0;
+ return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av m">M</span><b class="nm">Master</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
+ <div class="seg2"><button data-utab="chat" class="${uTab==="chat"?"on":""}">채팅</button><button data-utab="list" class="${uTab==="list"?"on":""}">문의 내역</button></div>
+ ${uTab==="chat"?bubbles(c.msgs,"u",c,`<div class="intro"><span class="av m big">M</span><p style="margin:10px 0 0">오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.<br>보낸 메시지는 눌러서 5분 안에 수정할 수 있어요.</p></div>`)+composer("user")
+  :`${legend}<div class="scroll">${my.length?my.map(x=>qItem(x)).join(""):`<div class="empty">아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요</div>`}</div>`}`}
 
-function chatRows(){return Object.keys(S.users).filter(k=>S.users[k].name.includes(q)).sort((a,b)=>last(S.conv[b]).at-last(S.conv[a]).at).map(k=>{const c=S.conv[k],l=last(c),u=S.users[k];
- return `<div class="ci${aConv===k?" on":""}" data-conv="${k}">${c.unA?`<i class="ud"></i>`:""}<span class="av s">${esc(u.name.slice(-2))}</span><div class="cm"><div class="r1"><b class="nm">${esc(u.name)}</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>`}).join("")||`<div class="empty">검색 결과가 없어요</div>`}
-function adminView(){if(open&&aConv)S.conv[aConv].unA=0;const ks=Object.keys(S.users),un=ks.filter(k=>S.conv[k].unA).length,opn=S.inq.filter(x=>x.st==="new"||x.st==="doing").length;
+/* ---------- admin ---------- */
+function chatRows(){const ln=S.notices[S.notices.length-1];
+ const pin=!q?`<div class="ci pin${aConv===NB?" on":""}" data-conv="${NB}"><span class="av s vd">VD</span><div class="cm"><div class="r1"><b class="nm">공지</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"보낸 공지가 없어요"}</div></div></div>`:"";
+ return pin+(Object.keys(S.users).filter(k=>S.users[k].name.includes(q)).sort((a,b)=>last(S.conv[b]).at-last(S.conv[a]).at).map(k=>{const c=S.conv[k],l=last(c),u=S.users[k];
+ return `<div class="ci${aConv===k?" on":""}" data-conv="${k}">${c.unA?`<i class="ud"></i>`:""}<span class="av s">${esc(u.name.slice(-2))}</span><div class="cm"><div class="r1"><b class="nm">${esc(u.name)}</b><span class="tm">${l.at?listT(l.at):""}</span></div><div class="pv">${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t||"")}</div></div></div>`}).join("")||`<div class="empty">검색 결과가 없어요</div>`)}
+function adminView(){if(open&&aConv&&aConv!==NB)S.conv[aConv].unA=0;const ks=Object.keys(S.users),un=ks.filter(k=>S.conv[k].unA).length,pend=S.inq.filter(x=>x.st==="new").length;
  const ql=S.inq.filter(x=>aF==="all"||x.st===aF);
  const side=`<div class="side"><div class="sh"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><h2 class="lt">Messages</h2><small>회원 ${ks.length}명 · 안 읽은 대화 ${un}</small></div>
-  <div class="seg2"><button data-atab="chats" class="${aTab==="chats"?"on":""}">대화</button><button data-atab="inq" class="${aTab==="inq"?"on":""}">문의 현황${opn?`<i>${opn}</i>`:""}</button></div>
+  <div class="seg2"><button data-atab="chats" class="${aTab==="chats"?"on":""}">대화</button><button data-atab="inq" class="${aTab==="inq"?"on":""}">문의 현황${pend?`<i>${pend}</i>`:""}</button></div>
   ${aTab==="chats"?`<input class="srch" id="srch" placeholder="이름 검색" value="${esc(q)}"><div class="scroll" id="clist">${chatRows()}</div>`:
-  `<div class="qf">${[["all","전체"],...Object.entries(ST)].map(([k,v])=>`<button class="chip${aF===k?" on":""}" data-af="${k}">${v} ${k==="all"?S.inq.length:S.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>qItem(x,true)).join("")||`<div class="empty">해당 문의가 없어요</div>`}</div>`}</div>`;
- let main;if(aConv){const u=S.users[aConv],qs=S.inq.filter(x=>x.uid===aConv);
-  main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av">${esc(u.name.slice(-2))}</span><b class="nm">${esc(u.name)}</b><small>${esc(u.mail)} · 문의 ${qs.length}건 · 진행 중 ${qs.filter(x=>x.st==="new"||x.st==="doing").length}건</small></div>${msgs(S.conv[aConv],"a")}${composer(false)}`}
- else main=`<div class="empty"><span class="av vd big">VD</span><p>왼쪽에서 대화를 고르세요<br>문의 말풍선을 누르면 처리 상태를 바꿀 수 있어요</p></div>`;
+  `<div class="qf">${[["all","전체"],...Object.entries(ST)].map(([k,v])=>`<button class="chip${aF===k?" on":""}" data-af="${k}">${k!=="all"?`<i class="dot s-${k}"></i>`:""}${v} ${k==="all"?S.inq.length:S.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>qItem(x,true)).join("")||`<div class="empty">해당 문의가 없어요</div>`}</div>`}</div>`;
+ let main;
+ if(aConv===NB)main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av vd">VD</span><b class="nm">VISUAL DEPT. 공지</b><small>모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요</small></div>${bubbles(noticeMsgs(),"n",null)}${composer("notice")}`;
+ else if(aConv){const u=S.users[aConv],qs=S.inq.filter(x=>x.uid===aConv);
+  main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av">${esc(u.name.slice(-2))}</span><b class="nm">${esc(u.name)}</b><small>${esc(u.mail)} · 문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건</small></div>${bubbles(S.conv[aConv].msgs,"a",S.conv[aConv])}${composer("admin")}`}
+ else main=`<div class="empty"><span class="av m big">M</span><p>왼쪽에서 대화를 고르세요<br>회원 말풍선을 누르면 처리 상태를 바꾸거나 삭제할 수 있어요</p></div>`;
  return `<div class="split">${side}<div class="main">${main}</div></div>`}
 
+/* ---------- render & actions ---------- */
 function render(keep){const m=P.querySelector(".msgs"),st=keep&&m?m.scrollTop:null;
  P.className="panel"+(open?" on":"")+(role==="admin"?" wide":"")+(role==="admin"&&aConv?" conv":"");
  P.innerHTML=role==="user"?userView():adminView();save();
- const m2=P.querySelector(".msgs");const f=flash&&P.querySelector(".flash");
- if(f)f.scrollIntoView({block:"center"});else if(m2)m2.scrollTop=st!=null?st:m2.scrollHeight;
- if(flash){setTimeout(()=>{flash=null},1700)}
+ const m2=P.querySelector(".msgs"),f=flash&&P.querySelector(".flash");
+ if(f)f.scrollIntoView({block:"center"});else if(m2)m2.scrollTop=st!=null?st:m2.scrollHeight;const tp=sel&&P.querySelector(".stp");if(tp)tp.scrollIntoView({block:"nearest"});
+ if(flash)setTimeout(()=>{flash=null},1700);
  const fab=$("#fab");fab.classList.toggle("open",open);
- const n=role==="user"?S.conv[S.me].unU:Object.values(S.conv).reduce((a,c)=>a+c.unA,0);fab.querySelector(".bd").textContent=!open&&n?n:"";
+ const n=role==="user"?S.conv[S.me].unU+nUnread():Object.values(S.conv).reduce((a,c)=>a+c.unA,0);fab.querySelector(".bd").textContent=!open&&n?n:"";
  document.querySelectorAll("[data-role]").forEach(b=>b.classList.toggle("on",b.dataset.role===role));const t=$("#txt");if(t)grow(t)}
 const grow=t=>{t.style.height="auto";t.style.height=Math.min(t.scrollHeight,110)+"px"};
 const focusT=()=>{const t=$("#txt");if(t&&innerWidth>640){t.focus();t.setSelectionRange(t.value.length,t.value.length)}};
-const uidNow=()=>role==="user"?S.me:aConv;
-function push(m){const c=S.conv[uidNow()];c.msgs.push(m);if(m.f==="u")c.unA++;else c.unU++}
-function send(){const t=draft.trim();if(!t)return;const m={f:role==="user"?"u":"a",t,at:Date.now()};
- if(m.f==="u"&&tag){const id="i"+m.at;S.inq.unshift({id,uid:S.me,cat:tag,title:t.split("\n")[0].slice(0,48),st:"new",at:m.at,log:[{s:"new",at:m.at}]});m.q=id;tag=null}
+const findM=id=>{const c=curConv();return c&&c.msgs.find(m=>m.id===id)};
+function push(m){const c=curConv();m.id=nid();c.msgs.push(m);if(m.f==="u")c.unA++;else c.unU++}
+function send(){const t=draft.trim();if(!t)return;
+ if(editId){const m=findM(editId);if(m&&Date.now()-m.at<EDIT){m.t=t;m.ed=1;if(m.q){const x=S.inq.find(z=>z.id===m.q);if(x)x.title=t.split("\n")[0].slice(0,48)}}editId=null;draft="";return render(true)}
+ if(role==="admin"&&aConv===NB){S.notices.push({id:nid(),at:Date.now(),t});draft="";return render()}
+ const m={f:role==="user"?"u":"a",t,at:Date.now()};
+ if(m.f==="u"&&tag){const id="i"+m.at;S.inq.unshift({id,uid:S.me,cat:tag,title:t.split("\n")[0].slice(0,48),st:"new",at:m.at});m.q=id;tag=null}
  tray=false;push(m);draft="";render();focusT()}
-function setSt(id,k){const x=S.inq.find(z=>z.id===id);if(!x||x.st===k){pick=null;return render(true)}x.st=k;x.log.push({s:k,at:Date.now()});
- const c=S.conv[x.uid];c.msgs.push({f:"s",t:`‘${x.title}’ 문의가 ${k==="doing"?"확인 중이에요":k==="done"?"반영 완료 되었어요":k==="hold"?"보류 되었어요":"다시 접수 되었어요"}`,at:Date.now()});c.unU++;pick=null;render()}
+function setSt(id,k){const x=S.inq.find(z=>z.id===id);if(!x||x.st===k)return;x.st=k;
+ const c=S.conv[x.uid];c.msgs.push({id:nid(),f:"s",k,q:x.id,t:`‘${x.title}’ 문의가 ${STMSG[k]}`,at:Date.now()});c.unU++;sel=null;render()}
+function delInq(id){const x=S.inq.find(z=>z.id===id);if(!x)return;S.inq=S.inq.filter(z=>z.id!==id);const c=S.conv[x.uid];c.msgs=c.msgs.filter(m=>m.q!==id)}
 function readImg(f){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,700/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);r(cv.toDataURL("image/jpeg",.8))};im.src=fr.result};fr.readAsDataURL(f)})}
 
 P.addEventListener("click",e=>{const g=s=>e.target.closest(s);let b;
  if(g("[data-close]")){open=false;return render()}
- if(b=g("[data-utab]")){uTab=b.dataset.utab;tray=false;return render()}
- if(b=g("[data-atab]")){aTab=b.dataset.atab;return render()}
- if(b=g("[data-conv]")){if(aConv!==b.dataset.conv){aConv=b.dataset.conv;pick=null;tray=false;draft=""}return render()}
- if(g("[data-back]")){aConv=null;return render()}
+ if(b=g("[data-uview]")){uView=b.dataset.uview;uTab="chat";sel=null;editId=null;draft="";return render()}
+ if(b=g("[data-utab]")){uTab=b.dataset.utab;tray=false;sel=null;return render()}
+ if(b=g("[data-atab]")){aTab=b.dataset.atab;delC=null;return render()}
+ if(b=g("[data-conv]")){if(aConv!==b.dataset.conv){aConv=b.dataset.conv;sel=null;delC=null;tray=false;draft="";editId=null}return render()}
+ if(g("[data-back]")){if(role==="user")uView="home";else aConv=null;sel=null;editId=null;draft="";tray=false;return render()}
  if(g("[data-tray]")){tray=!tray;return render(true)}
  if(b=g("[data-cat]")){tag=tag===b.dataset.cat?null:b.dataset.cat;tray=false;render(true);return focusT()}
  if(g("[data-untag]")){tag=null;return render(true)}
+ if(g("[data-unedit]")){editId=null;draft="";return render(true)}
  if(g("[data-photo]"))return $("#file").click();
  if(g("[data-send]"))return send();
  if(b=g("[data-st]"))return setSt(b.dataset.q,b.dataset.st);
- if(b=g("[data-card]")){const id=b.dataset.card;if(role==="admin"){pick=pick===id?null:id;return render(true)}uTab="list";flash=id;return render()}
- if(b=g("[data-goq]")){const x=S.inq.find(z=>z.id===b.dataset.goq);flash=x.id;if(role==="user")uTab="chat";else{aConv=x.uid;aTab="chats"}return render()}
+ if(b=g("[data-edit]")){const m=findM(b.dataset.edit);if(m&&Date.now()-m.at<EDIT){editId=m.id;draft=m.t;tag=null;tray=false}sel=null;render(true);return focusT()}
+ if(b=g("[data-del]")){const id=b.dataset.del;if(delC!==id){delC=id;return render(true)}const m=findM(id);if(m){if(m.q)delInq(m.q);else{const c=curConv();c.msgs=c.msgs.filter(z=>z.id!==id)}}delC=null;sel=null;return render(true)}
+ if(b=g("[data-delq]")){e.stopPropagation();const id=b.dataset.delq;if(delC!=="q:"+id){delC="q:"+id;return render(true)}delInq(id);delC=null;return render(true)}
+ if(b=g("[data-m]")){const id=b.dataset.m;sel=sel===id?null:id;delC=null;return render(true)}
+ if(b=g("[data-goq]")){const x=S.inq.find(z=>z.id===b.dataset.goq);if(!x)return;sel=null;if(role==="user"&&uTab==="chat"){uTab="list";flash=x.id;return render()}flash=x.id;if(role==="user")uTab="chat";else{aConv=x.uid;aTab="chats"}return render()}
  if(b=g("[data-af]")){aF=b.dataset.af;return render()}});
 P.addEventListener("input",e=>{if(e.target.id==="txt"){draft=e.target.value;grow(e.target);P.querySelector("[data-send]").classList.toggle("on",!!draft.trim())}
  if(e.target.id==="srch"){q=e.target.value.trim();$("#clist").innerHTML=chatRows()}});
 P.addEventListener("keydown",e=>{if(e.target.id==="txt"&&e.key==="Enter"&&!e.shiftKey&&!e.isComposing&&e.keyCode!==229){e.preventDefault();send()}});
-P.addEventListener("change",async e=>{if(e.target.id==="file"&&e.target.files[0]){const img=await readImg(e.target.files[0]);tray=false;push({f:role==="user"?"u":"a",t:"",img,at:Date.now()});render()}});
-$("#fab").onclick=()=>{open=!open;render();if(open)focusT()};
-document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{role=b.dataset.role;open=true;tray=false;tag=null;pick=null;draft="";render()});
-$("#reset").onclick=()=>{try{localStorage.removeItem(KEY)}catch(_){}S=seed();role="user";open=false;uTab="chat";aTab="chats";aConv=null;aF="all";tag=null;tray=false;draft="";render()};
+P.addEventListener("change",async e=>{if(e.target.id==="file"&&e.target.files[0]){const img=await readImg(e.target.files[0]);tray=false;if(role==="admin"&&aConv===NB)return;push({f:role==="user"?"u":"a",t:"",img,at:Date.now()});render()}});
+$("#fab").onclick=()=>{open=!open;if(open&&role==="user")uView="home";render()};
+document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{role=b.dataset.role;open=true;uView="home";tray=false;tag=null;sel=null;delC=null;editId=null;draft="";render()});
+$("#reset").onclick=()=>{try{localStorage.removeItem(KEY)}catch(_){}S=seed();role="user";open=false;uView="home";uTab="chat";aTab="chats";aConv=null;aF="all";tag=null;tray=false;sel=null;delC=null;editId=null;draft="";render()};
 load();render();
 </script></body></html>
