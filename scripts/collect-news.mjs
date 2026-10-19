@@ -174,7 +174,7 @@ async function main() {
   await pool(needTr, 2, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
   console.log(`translations: ${trOK} done, ${trFail} failed`);
   try { const fs = await import("node:fs"); fs.mkdirSync("status", { recursive: true }); const rowsAll = [...feedRows.map(r => r.data), ...fresh.map(r => r.data)].filter(d => d && d.kind !== "issue");
-    fs.writeFileSync("status/news.json", JSON.stringify({ at: new Date().toISOString(), stories: rowsAll.length, translated: rowsAll.filter(d => d.tr).length, notTranslated: rowsAll.filter(d => !d.tr).map(d => d.title).slice(0, 20), trOK, trFail }, null, 1)); } catch {}
+    fs.writeFileSync("status/news.json", JSON.stringify({ at: new Date().toISOString(), stories: rowsAll.length, translated: rowsAll.filter(d => d.tr).length, notTranslated: rowsAll.filter(d => !d.tr).map(d => d.title).slice(0, 20), trOK, trFail, pictures: { checked: rowsAll.filter(d => d.imgSrc === "v2").length, landscape: rowsAll.filter(d => d.imgW && d.imgW / d.imgH >= 1.2).length, portrait: rowsAll.filter(d => d.imgV).length } }, null, 1)); } catch {}
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));
