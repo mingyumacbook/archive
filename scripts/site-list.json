@@ -1,0 +1,123 @@
+{
+"designers": [
+{
+"id": "ader-error",
+"name": "Ader Error",
+"url": "https://www.adererror.com"
+},
+{
+"id": "andersson-bell",
+"name": "Andersson Bell",
+"url": "https://www.anderssonbell.com"
+},
+{
+"id": "avouavou",
+"name": "AVOUAVOU",
+"url": "https://www.avouavou.com"
+},
+{
+"id": "blankroom",
+"name": "BLANKROOM",
+"url": "https://www.blankroom.co.kr"
+},
+{
+"id": "dunst",
+"name": "DUNST",
+"url": "https://www.dunststudio.com"
+},
+{
+"id": "hyein-seo",
+"name": "HYEIN SEO",
+"url": "https://www.hyeinseo.com"
+},
+{
+"id": "juun-j",
+"name": "JUUN.J",
+"url": "https://www.juunj.com"
+},
+{
+"id": "kimhekim",
+"name": "KIMHĒKIM",
+"url": "https://www.kimhekim.com"
+},
+{
+"id": "kusikohc",
+"name": "KUSIKOHC",
+"url": "https://www.kusikohc.com"
+},
+{
+"id": "low-classic",
+"name": "LOW CLASSIC",
+"url": "https://www.lowclassic.com"
+},
+{
+"id": "marge-sherwood",
+"name": "MARGESHERWOOD",
+"url": "https://www.margesherwood.com"
+},
+{
+"id": "matin-kim",
+"name": "MATIN KIM",
+"url": "https://www.matinkim.com"
+},
+{
+"id": "minjukim",
+"name": "MINJUKIM",
+"url": "https://www.minjukim.com"
+},
+{
+"id": "nohant",
+"name": "NOHANT",
+"url": "https://www.nohant.co.kr"
+},
+{
+"id": "post-archive-faction",
+"name": "POST ARCHIVE FACTION (PAF)",
+"url": "https://www.postarchivefaction.com"
+},
+{
+"id": "pushbutton",
+"name": "PUSHBUTTON",
+"url": "https://www.pushbutton.co.kr"
+},
+{
+"id": "recto",
+"name": "RECTO",
+"url": "https://www.recto.co.kr"
+},
+{
+"id": "rest-recreation",
+"name": "REST & RECREATION",
+"url": "https://www.restandrecreation.co.kr"
+},
+{
+"id": "solid-homme",
+"name": "SOLID HOMME",
+"url": "https://www.solidhomme.com"
+},
+{
+"id": "thug-club",
+"name": "THUG CLUB",
+"url": "https://www.thugclub.net"
+},
+{
+"id": "wooyoungmi",
+"name": "WOOYOUNGMI",
+"url": "https://www.wooyoungmi.com"
+}
+],
+"sites": [
+"https://nowfashion.com",
+"https://www.tag-walk.com",
+"https://www.vogue.com/fashion-shows",
+"https://www.pinterest.com",
+"https://www.cosmos.so",
+"https://www.are.na",
+"https://savee.com",
+"https://tfashion.ai",
+"https://www.vogue.co.kr",
+"https://www.wkorea.com",
+"https://www.businessoffashion.com",
+"https://www.wgsn.com"
+]
+}
