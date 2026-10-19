@@ -1,9 +1,9 @@
 {
- "at": "2026-10-18T21:30:27.174Z",
+ "at": "2026-10-19T21:35:13.992Z",
  "log": [
   "seasons: SS27, FW26, SS26",
   "SS27 women colors 10 patterns 3 fabrics 3 themes 3 items 3 details 26 prev SS26",
-  "SS27 men colors 10 patterns 3 fabrics 3 themes 3 items 3 details 26 prev SS26",
+  "SS27 men colors 10 patterns 3 fabrics 3 themes 3 items 3 details 25 prev SS26",
   "FW26 women colors 10 patterns 3 fabrics 3 themes 0 items 3 details 19 prev FW25",
   "FW26 men colors 10 patterns 3 fabrics 3 themes 0 items 3 details 20 prev FW25",
   "SS26 women colors 10 patterns 3 fabrics 3 themes 0 items 3 details 19 prev SS25",
@@ -14,14 +14,14 @@
   {
    "name": "Floral",
    "url": "https://tfashion.ai/runway/ss27/floral",
-   "share": 14.4,
-   "prev": 11.2,
-   "change": 3.2,
-   "looks": 1656,
-   "designers": 216,
+   "share": 14.2,
+   "prev": 11.4,
+   "change": 2.8,
+   "looks": 1755,
+   "designers": 231,
    "cat": "patterns",
    "ev": {
-    "pressNote": "Floral came up in 186 articles from WWD, Vogue, Marie Claire and 48 more. In the data it was in 14.4% of looks, up from 11.2% in SS26.",
+    "pressNote": "Floral came up in 188 articles from WWD, Vogue, Fashionista and 49 more. In the data it was in 14.2% of looks, up from 11.4% in SS26.",
     "press": [
      {
       "outlet": "WWD",
@@ -46,6 +46,18 @@
       "date": "2026-10-01",
       "title": "Chloé Spring 2027: Broderie Anglaise — and Other Obsessions",
       "url": "https://wwd.com/runway/spring-2027/paris/chloe/review/"
+     },
+     {
+      "outlet": "Fashionista",
+      "date": "2026-10-09",
+      "title": "10 Runway Trends to Know from Paris Fashion Week Spring 2027",
+      "url": "https://fashionista.com/2026/10/paris-fashion-week-spring-2027-trends"
+     },
+     {
+      "outlet": "Who What Wear",
+      "date": "2026-10-07",
+      "title": "6 Trends from Paris Fashion Week Set to Define Spring/Summer 2027",
+      "url": "https://www.whowhatwear.com/fashion/runway/paris-fashion-week-spring-summer-2027-trends"
      },
      {
       "outlet": "Marie Claire",
@@ -82,18 +94,6 @@
       "date": "2026-09-16",
       "title": "11 Things We Saw and Loved at New York Fashion Week Spring 2027",
       "url": "https://www.wmagazine.com/fashion/new-york-fashion-week-spring-2027-recap"
-     },
-     {
-      "outlet": "The Cut",
-      "date": "2026-09-14",
-      "title": "Conner Ives Knows How to Dress the ‘It’ Girls",
-      "url": "https://www.thecut.com/article/cathy-horyn-new-york-fashion-review-conner-ives-khaite.html"
-     },
-     {
-      "outlet": "The Zoe Report",
-      "date": "",
-      "title": "New York Fashion Spring/Summer 2027 Was For Maximalists",
-      "url": "https://www.thezoereport.com/fashion/new-york-fashion-week-spring-summer-2027-trends"
      }
     ],
     "designers": [
@@ -110,26 +110,26 @@
       "looks": 33
      }
     ],
-    "moreDesigners": 213,
+    "moreDesigners": 228,
     "cities": [
      {
       "city": "Paris",
-      "share": 12.1,
+      "share": 11.3,
       "looks": null
      },
      {
       "city": "Milan",
-      "share": 15.3,
+      "share": 15,
       "looks": null
      },
      {
       "city": "New York",
-      "share": 15.9,
+      "share": 16.3,
       "looks": null
      },
      {
       "city": "London",
-      "share": 14.8,
+      "share": 15.1,
       "looks": null
      }
     ],
@@ -142,7 +142,7 @@
      {
       "name": "Skirts",
       "kind": "apparel",
-      "share": 24
+      "share": 25
      },
      {
       "name": "White",
@@ -152,7 +152,7 @@
      {
       "name": "Black",
       "kind": "color",
-      "share": 20
+      "share": 21
      },
      {
       "name": "Lace",
@@ -162,7 +162,7 @@
      {
       "name": "Satin",
       "kind": "fabric",
-      "share": 16
+      "share": 17
      }
     ],
     "otherSeasons": [
@@ -175,20 +175,20 @@
       "share": 12.3
      }
     ],
-    "refreshed": "October 7, 2026"
+    "refreshed": "October 18, 2026"
    }
   },
   {
    "name": "Striped",
    "url": "https://tfashion.ai/runway/ss27/striped",
-   "share": 9,
-   "prev": 7.5,
+   "share": 8.9,
+   "prev": 7.4,
    "change": 1.5,
-   "looks": 1038,
-   "designers": 232,
+   "looks": 1095,
+   "designers": 247,
    "cat": "patterns",
    "ev": {
-    "pressNote": "Striped came up in 82 articles from Vogue, WWD, Grazia UK and 31 more. In the data it was in 9.0% of looks, up from 7.5% in SS26.",
+    "pressNote": "Striped came up in 83 articles from Vogue, WWD, Who What Wear and 31 more. In the data it was in 8.9% of looks, up from 7.4% in SS26.",
     "press": [
      {
       "outlet": "Vogue",
@@ -213,6 +213,12 @@
       "date": "2026-09-26",
       "title": "MSGM Spring 2027: Stars, Stripes — and Zing",
       "url": "https://wwd.com/runway/spring-2027/milan/msgm/review/"
+     },
+     {
+      "outlet": "Who What Wear",
+      "date": "2026-10-07",
+      "title": "6 Trends from Paris Fashion Week Set to Define Spring/Summer 2027",
+      "url": "https://www.whowhatwear.com/fashion/runway/paris-fashion-week-spring-summer-2027-trends"
      },
      {
       "outlet": "Grazia UK",
@@ -255,12 +261,6 @@
       "date": "",
       "title": "The Runways Spoke—We Listened: 7 London Fashion Week Trends Set to Take Over Spring 2027",
       "url": "https://www.whowhatwear.com/fashion/runway/london-fashion-week-trends-spring-summer-2027"
-     },
-     {
-      "outlet": "Vogue Scandinavia",
-      "date": "",
-      "title": "It took a heated group chat to whittle the CPHFW SS27 runway trends down to these 8",
-      "url": "https://www.voguescandinavia.com/articles/copenhagen-fashion-week-runway-trends-spring-summer-2027"
      }
     ],
     "designers": [
@@ -269,24 +269,24 @@
       "looks": 41
      },
      {
-      "name": "Junya Watanabe",
+      "name": "Dries Van Noten",
       "looks": 22
      },
      {
-      "name": "Dries Van Noten",
+      "name": "Junya Watanabe",
       "looks": 22
      }
     ],
-    "moreDesigners": 229,
+    "moreDesigners": 244,
     "cities": [
      {
       "city": "Paris",
-      "share": 9.3,
+      "share": 9.1,
       "looks": null
      },
      {
       "city": "Milan",
-      "share": 8.4,
+      "share": 8.2,
       "looks": null
      },
      {
@@ -296,7 +296,7 @@
      },
      {
       "city": "London",
-      "share": 8.7,
+      "share": 8.5,
       "looks": null
      }
     ],
@@ -314,7 +314,7 @@
      {
       "name": "White",
       "kind": "color",
-      "share": 38
+      "share": 37
      },
      {
       "name": "Black",
@@ -324,7 +324,7 @@
      {
       "name": "Twill",
       "kind": "fabric",
-      "share": 19
+      "share": 20
      },
      {
       "name": "Poplin",
@@ -342,7 +342,7 @@
       "share": 7.4
      }
     ],
-    "refreshed": "October 7, 2026"
+    "refreshed": "October 18, 2026"
    }
   }
  ]
