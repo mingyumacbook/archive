@@ -1,6 +1,6 @@
 {
- "at": "2026-10-19T03:00:22.969Z",
- "stories": 308,
+ "at": "2026-10-19T03:06:27.881Z",
+ "stories": 309,
  "translated": 277,
  "notTranslated": [
   "The Best Victoria’s Secret Angel Hair and Makeup Through the Years",
@@ -25,5 +25,10 @@
   "남성복을 탐내는 여자 여섯, 여성복을 탐내는 남자 둘"
  ],
  "trOK": 0,
- "trFail": 31
+ "trFail": 32,
+ "pictures": {
+  "checked": 281,
+  "landscape": 254,
+  "portrait": 63
+ }
 }
