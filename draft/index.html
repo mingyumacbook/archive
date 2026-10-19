@@ -21,15 +21,15 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 
 
 /* ---------- chat button: translucent speech bubble only ---------- */
-.fab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:44px;height:40px;border:0;background:none;padding:0;transition:transform .2s}
+.fab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:38px;height:34px;border:0;background:none;padding:0;transition:transform .2s}
 .fab:active{transform:scale(.93)}
-.fab>*{position:absolute;left:0;top:0;width:64px;height:58px;transform-origin:0 0;transform:scale(.6875)}
+.fab>*{position:absolute;left:0;top:0;width:64px;height:58px;transform-origin:0 0;transform:scale(.59375)}
 .fab .shd{display:none}
-.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(13,13,13,.6);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(13,13,13,.3);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
 .fab .rim{display:none}
-.fab .ix{left:16px;top:11px;width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
+.fab .ix{left:13.5px;top:9px;width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
 .fab.open .ix{opacity:1;transform:none}
-.fab .bd{left:auto;transform:none;top:-6px;right:-7px;width:auto;height:17px;min-width:17px;padding:0 5px;border-radius:9px;font-size:10.5px!important;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
+.fab .bd{left:auto;transform:none;top:-7px;right:-9px;width:auto;height:17px;min-width:17px;padding:0 5px;border-radius:9px;font-size:10.5px!important;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
 .fab .bd:empty{display:none}
 /* ---------- panel ---------- */
 .panel{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:96px;z-index:44;width:384px;height:min(640px,calc(100vh - 150px));background:#fff;border-radius:22px;overflow:hidden;
@@ -144,12 +144,12 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .av.m{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:19px}
 .av.s.m{font-size:20px}
 .ci.pin .nm:after{content:"모든 회원";font-size:10.5px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}
-.ci.top .nm:after{content:"고정";font-size:10px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}.ci.top{background:#fafaf9}
+.ci.top .nm:after{content:var(--pin,"고정");font-size:10px;font-weight:400;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 6px;margin-left:6px;vertical-align:2px}.ci.top{background:#fafaf9}
 .cnt{min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 6px}
 @media (max-width:640px){.panel.on~.fab{display:none}}
 </style></head><body>
 <div class="draftbar"><b>초안</b><span class="dtxt">문의 채팅 미리보기 · 실제 앱에는 아직 반영 전이에요</span>
- <span class="seg"><button data-role="user" class="on">사용자 화면</button><button data-role="admin">관리자(내) 화면</button></span><button class="rs" id="reset">처음으로</button></div>
+ <span class="seg"><button data-role="user" class="on">사용자 화면</button><button data-role="admin">관리자(내) 화면</button></span><span class="seg"><button data-lang="ko" class="on">한국어</button><button data-lang="en">English</button></span><button class="rs" id="reset">처음으로</button></div>
 <header class="hd"><span class="mark">VISUAL DEPT.</span><small>NEWS · COLLECTIONS · DESIGNERS · ARCHIVE</small></header>
 <section class="hero"><h1>Inquiry <span>— 오른쪽 아래 말풍선을 눌러보세요</span></h1></section>
 <section class="news"><h2>News</h2><div class="sk w8"></div><div class="sk w6"></div><div class="sk w4"></div><div class="sk w8"></div><div class="sk w6"></div></section>
@@ -206,6 +206,7 @@ function seed(){const n=Date.now(),I=(id,uid,cat,title,st,at)=>({id,uid,cat,titl
    M({f:"s",k:"done",q:"i3",t:"‘뉴스 번역이 일부만 돼요’ 문의가 답변 완료 되었어요",at:n-2*D+60e3}),M({f:"u",t:"이제 다 한글로 보여요 👍",at:n-2*D+2*H})]},
   u4:{unA:2,unU:0,msgs:[M({f:"u",t:"안녕하세요!",at:n-36*60e3}),M({f:"u",q:"i5",t:"저장함은 거의 안 써서 빼도 될 것 같아요",at:n-35*60e3})]}}}}
 let S;function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(_){}if(!S||S.v!==3)S=seed()}function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){}}
+let lang="ko";const NM={help:()=>lang==="ko"?"문의하기":"Inquiry",notice:()=>lang==="ko"?"공지":"Notice"};
 let rq=null,rqDraft="";let role="user",open=false,uView="home",uTab="chat",aTab="chats",aConv=null,aF="all",tray=false,tag=null,sel=null,delC=null,editId=null,flash=null,q="",draft="";
 const P=$("#panel"),last=c=>c.msgs[c.msgs.length-1]||{at:0,t:""};
 const nUnread=()=>S.notices.filter(n=>n.at>(S.nRead[S.me]||0)).length;
@@ -244,20 +245,20 @@ const legend=`<div class="qf" style="gap:12px;font-size:11.5px;color:var(--ink-2
 function userView(){const c=S.conv[S.me],nu=nUnread();
  if(uView==="home"){const l=last(c),ln=S.notices[S.notices.length-1];
   return `<div class="sh"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><h2 class="lt">Messages</h2><small>문의와 공지를 한곳에서 받아요</small></div><div class="scroll" style="margin-top:10px">
-  <div class="ci top" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div>
-  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Help</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
+  <div class="ci top" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">${NM.notice()}</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div>
+  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">${NM.help()}</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
   </div>`}
  if(uView==="notice"){if(open)S.nRead[S.me]=Date.now();
-  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 Help에서 보내주세요</div>`}
+  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">${NM.notice()}</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 ${NM.help()}에서 보내주세요</div>`}
  const my=S.inq.filter(x=>x.uid===S.me);if(open&&uTab==="chat")c.unU=0;
- return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Help</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
+ return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">${NM.help()}</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
  <div class="seg2"><button data-utab="chat" class="${uTab==="chat"?"on":""}">채팅</button><button data-utab="list" class="${uTab==="list"?"on":""}">문의 내역</button></div>
  ${uTab==="chat"?bubbles(c.msgs,"u",c,`<div class="intro"><span class="av big brand">${BRAND}</span><p style="margin:10px 0 0">오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.</p></div>`)+composer("user")
   :`${legend}<div class="scroll">${my.length?my.map(x=>qItem(x)).join(""):`<div class="empty">아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요</div>`}</div>`}`}
 
 /* ---------- admin ---------- */
 function chatRows(){const ln=S.notices[S.notices.length-1];
- const pin=!q?`<div class="ci pin${aConv===NB?" on":""}" data-conv="${NB}"><span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"보낸 공지가 없어요"}</div></div></div>`:"";
+ const pin=!q?`<div class="ci pin${aConv===NB?" on":""}" data-conv="${NB}"><span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">${NM.notice()}</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"보낸 공지가 없어요"}</div></div></div>`:"";
  return pin+(Object.keys(S.users).filter(k=>S.users[k].name.includes(q)).sort((a,b)=>last(S.conv[b]).at-last(S.conv[a]).at).map(k=>{const c=S.conv[k],l=last(c),u=S.users[k];
  return `<div class="ci${aConv===k?" on":""}" data-conv="${k}">${c.unA?`<i class="ud"></i>`:""}<span class="av s">${esc(u.name.slice(-2))}</span><div class="cm"><div class="r1"><b class="nm">${esc(u.name)}</b><span class="tm">${l.at?listT(l.at):""}</span></div><div class="pv">${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t||"")}</div></div></div>`}).join("")||`<div class="empty">검색 결과가 없어요</div>`)}
 function adminView(){if(open&&aConv&&aConv!==NB){S.conv[aConv].unA=0;S.inq.filter(x=>x.uid===aConv&&x.st==="new").forEach(x=>stSet(x,"doing"))}const ks=Object.keys(S.users),un=ks.filter(k=>S.conv[k].unA).length,pend=S.inq.filter(x=>x.st==="new").length;
@@ -267,7 +268,7 @@ function adminView(){if(open&&aConv&&aConv!==NB){S.conv[aConv].unA=0;S.inq.filte
   ${aTab==="chats"?`<input class="srch" id="srch" placeholder="이름 검색" value="${esc(q)}"><div class="scroll" id="clist">${chatRows()}</div>`:
   `<div class="qf">${[["all","전체"],...Object.entries(ST)].map(([k,v])=>`<button class="chip${aF===k?" on":""}" data-af="${k}">${k!=="all"?`<i class="dot s-${k}"></i>`:""}${v} ${k==="all"?S.inq.length:S.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>qItem(x,true)).join("")||`<div class="empty">해당 문의가 없어요</div>`}</div>`}</div>`;
  let main;
- if(aConv===NB)main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요</small></div>${bubbles(noticeMsgs(),"n",null)}${composer("notice")}`;
+ if(aConv===NB)main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">${NM.notice()}</b><small>모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요</small></div>${bubbles(noticeMsgs(),"n",null)}${composer("notice")}`;
  else if(aConv){const u=S.users[aConv],qs=S.inq.filter(x=>x.uid===aConv);
   main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av">${esc(u.name.slice(-2))}</span><b class="nm">${esc(u.name)}</b><small>${esc(u.mail)} · 문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건</small></div>${bubbles(S.conv[aConv].msgs,"a",S.conv[aConv])}${composer("admin")}`}
  else main=`<div class="empty"><span class="av big brand">${BRAND}</span><p>왼쪽에서 대화를 고르세요<br>대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요<br>회원 말풍선을 누르면 보류 · 삭제할 수 있어요</p></div>`;
@@ -329,6 +330,7 @@ P.addEventListener("keydown",e=>{if(e.target.id==="rqt"&&e.key==="Enter"&&!e.isC
 P.addEventListener("change",async e=>{if(e.target.id==="file"&&e.target.files[0]){const img=await readImg(e.target.files[0]);tray=false;if(role==="admin"&&aConv===NB)return;push({f:role==="user"?"u":"a",t:"",img,at:Date.now()});render()}});
 $("#fab").onclick=()=>{open=!open;if(open&&role==="user")uView="home";render()};
 document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{role=b.dataset.role;open=true;uView="home";tray=false;tag=null;sel=null;delC=null;editId=null;draft="";render()});
+document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;document.querySelectorAll("[data-lang]").forEach(x=>x.classList.toggle("on",x===b));document.documentElement.style.setProperty("--pin",lang==="ko"?'"고정"':'"Pinned"');render(true)});
 $("#reset").onclick=()=>{try{localStorage.removeItem(KEY)}catch(_){}S=seed();role="user";open=false;uView="home";uTab="chat";aTab="chats";aConv=null;aF="all";tag=null;tray=false;sel=null;delC=null;editId=null;draft="";render()};
 load();render();
 </script></body></html>
