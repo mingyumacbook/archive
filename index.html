@@ -530,6 +530,10 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 .mup{border:1px solid var(--line);padding:12px;margin:10px 0}
 .repmeta{margin:16px 0 0!important}
 .note li label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}.note li input{margin-top:5px}.note li.hidn span{opacity:.4;text-decoration:line-through}.note ul:has(label){list-style:none;padding-left:0}
+#admAlert{position:fixed;right:max(16px,env(safe-area-inset-right,0px));top:112px;z-index:55;display:flex;align-items:center;gap:12px;background:var(--bg);color:var(--ink);border:1px solid var(--ink);padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.12);max-width:min(420px,calc(100vw - 32px));font-size:13px}
+#admAlert .dot{width:8px;height:8px;border-radius:50%;background:var(--alert,#c8102e);flex:none}#admAlert b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+#admAlert button{border:0;background:none;font:inherit;color:inherit;cursor:pointer;padding:2px 4px}#admAlert .aa-go{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+@media (max-width:600px){#admAlert{top:auto;bottom:16px;left:16px;right:16px;max-width:none}}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -1229,7 +1233,15 @@ const ACCESS_SQL="-- VISUAL DEPT. · 가입 승인 기능\n-- Supabase 대시보
 async function checkAccess(){const r=await SB.from("members").select("email,status,role").eq("user_id",UID).maybeSingle();
   if(r.error){const m=(r.error.message||"")+" "+(r.error.code||"");if(/members|42P01|PGRST205|PGRST202|schema cache|does not exist/i.test(m))return {setup:false};return {setup:false,err:r.error}}
   return {setup:true,row:r.data}}
-async function countPending(){if(!ACC.admin)return;const r=await SB.from("members").select("email",{count:"exact",head:true}).eq("status","pending");const r2=await SB.from("members").select("email",{count:"exact",head:true}).eq("pw_status","pending");ACC.pending=(r.count||0)+(r2.error?0:(r2.count||0));$("#acctBtn").classList.toggle("badge",ACC.pending>0)}
+async function countPending(){if(!ACC.admin)return;const r=await SB.from("members").select("email",{count:"exact",head:true}).eq("status","pending");const r2=await SB.from("members").select("email",{count:"exact",head:true}).eq("pw_status","pending");ACC.pSign=r.count||0;ACC.pPw=r2.error?0:(r2.count||0);ACC.pending=ACC.pSign+ACC.pPw;$("#acctBtn").classList.toggle("badge",ACC.pending>0);adminAlert()}
+/* owner-only alert: new sign-up / password requests (checked every minute while the app is open) */
+function adminAlert(){const sig=`${ACC.pSign}|${ACC.pPw}`;let box=$("#admAlert");if(!ACC.admin||!ACC.pending){box&&box.remove();return}
+  let dis=null;try{dis=sessionStorage.getItem("vdAdmDis")}catch(_){}if(dis===sig)return;
+  if(!box){box=document.createElement("div");box.id="admAlert";box.setAttribute("role","alert");document.body.appendChild(box)}
+  const parts=[];if(ACC.pSign)parts.push(t(`${ACC.pSign} sign-up request${ACC.pSign>1?"s":""}`,`가입 요청 ${ACC.pSign}건`));if(ACC.pPw)parts.push(t(`${ACC.pPw} password request${ACC.pPw>1?"s":""}`,`비밀번호 변경 요청 ${ACC.pPw}건`));
+  box.innerHTML=`<span class="dot"></span><div><b>${t("Waiting for you","승인 대기")}</b><span>${parts.join(" · ")}</span></div><button class="aa-go">${t("Review","확인하기")}</button><button class="aa-x" aria-label="${t("Close","닫기")}">✕</button>`;
+  box.querySelector(".aa-go").onclick=()=>{box.remove();membersSheet()};box.querySelector(".aa-x").onclick=()=>{try{sessionStorage.setItem("vdAdmDis",sig)}catch(_){}box.remove()}}
+setInterval(()=>{if(typeof ACC!=="undefined"&&ACC.admin&&started&&document.visibilityState==="visible")countPending().catch(()=>{})},60000);
 function showWaiting(st){$("#app").hidden=true;$("#gate").hidden=false;$("#gateForm").hidden=true;const w=$("#gateWait");w.hidden=false;
   const blocked=st==="blocked";
   w.innerHTML=`<h1 class="mark gmark">VISUAL DEPT.</h1><p class="gw1">${blocked?t("This account doesn't have access.","이 계정은 사용 권한이 없어요."):t("Your request has been sent.","가입 신청이 접수됐어요.")}</p>
@@ -1476,7 +1488,7 @@ async function signedIn(u){if(started)return;started=true;window.__UNAME=(u.user
   clearTimeout(showWaiting.t);$("#gateWait").hidden=true;$("#gateForm").hidden=false;
   $("#gate").hidden=true;$("#app").hidden=false;
   loadPw().catch(()=>{});
-  countPending().then(()=>{if(ACC.pending)toast(t(`${ACC.pending} request(s) waiting for you`,`승인할 요청 ${ACC.pending}건이 기다리고 있어요`))}).catch(()=>{});
+  countPending().catch(()=>{});
   try{await loadAll();if(window.__UNAME&&!PREF.profile.name){PREF.profile.name=window.__UNAME;savePrefs()}}catch(e){console.error(e);toast(t("Couldn't load your data — check your connection","데이터를 불러오지 못했어요 · 연결을 확인해 주세요"))}
   applyLang();render(false);setTimeout(showUpdateBar,700);try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
 $("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#gateEmail").value.trim(),pw=$("#gatePw").value;
