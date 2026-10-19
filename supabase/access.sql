@@ -102,3 +102,8 @@ begin
 end $$;
 update public.members m set name = nullif(u.raw_user_meta_data->>'name', '') from auth.users u
   where m.user_id = u.id and m.name is null and coalesce(u.raw_user_meta_data->>'name', '') <> '';
+
+-- 8) 앱 설정 (업데이트 노트 숨김 항목 등) — 관리자만 저장, 승인된 사람은 읽기
+drop policy if exists "admin app meta" on public.shared_docs;
+create policy "admin app meta" on public.shared_docs for all to authenticated
+  using (collection = 'appmeta' and (select public.vd_admin())) with check (collection = 'appmeta' and (select public.vd_admin()));
