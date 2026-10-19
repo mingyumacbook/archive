@@ -87,6 +87,40 @@ async function translateRow(d) {
   else { d.title_en = d.title; d.summary_en = d.summary || ""; d.title_ko = tt; d.summary_ko = ss; }
   d.tr = 1; trOK++; return true;
 }
+
+// ---- pictures: every candidate the article publishes (og:image, twitter:image, JSON-LD crops, large <img>),
+// measured from the file header, so the app can show a landscape picture on computers and a portrait one on phones.
+function imgCandidates(h, base) {
+  const out = []; const add = u => { if (!u) return; try { u = new URL(decode(decode(String(u))).trim(), base).href; } catch { return; } if (/^https?:/.test(u) && !/\.svg(\?|$)|logo|icon|avatar|sprite|placeholder|1x1|pixel/i.test(u) && !out.includes(u)) out.push(u); };
+  for (const m of h.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:image(?::url|:secure_url)?|twitter:image(?::src)?)["'][^>]*content=["']([^"']+)["']/gi)) add(m[1]);
+  for (const m of h.matchAll(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image(?::url)?|twitter:image)["']/gi)) add(m[1]);
+  for (const m of h.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) { try { const walk = o => { if (!o) return; if (Array.isArray(o)) return o.forEach(walk); if (typeof o === "object") { if (o.image) { const im = o.image; (Array.isArray(im) ? im : [im]).forEach(x => add(typeof x === "string" ? x : x && (x.url || x.contentUrl))); } if (o["@graph"]) walk(o["@graph"]); } }; walk(JSON.parse(m[1])); } catch {} }
+  const art = h.search(/<article[\s>]/i); const body = art >= 0 ? h.slice(art, art + 250000) : ""; let k = 0;
+  for (const m of body.matchAll(/<img[^>]+(?:srcset|data-srcset)=["']([^"']+)["']/gi)) { if (++k > 4) break; const best = m[1].split(/,\s+/).map(x => x.trim().split(/\s+/)).filter(x => x[0]).sort((a, b) => (parseInt(b[1]) || 0) - (parseInt(a[1]) || 0))[0]; if (best) add(best[0]); }
+  return out.slice(0, 12);
+}
+async function imgSize(url) { // width/height from the first bytes of the file (JPEG, PNG, GIF, WebP)
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 9000);
+  try {
+    const r = await fetch(url, { headers: { ...UA, Range: "bytes=0-131071", Accept: "image/*" }, signal: ctl.signal }); if (!r.ok && r.status !== 206) return null;
+    const reader = r.body.getReader(); const parts = []; let n = 0; while (n < 131072) { const { done, value } = await reader.read(); if (done) break; parts.push(value); n += value.length; } try { ctl.abort(); } catch {}
+    const b = Buffer.concat(parts.map(x => Buffer.from(x)));
+    if (b[0] === 0x89 && b[1] === 0x50) return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+    if (b.slice(0, 3).toString() === "GIF") return { w: b.readUInt16LE(6), h: b.readUInt16LE(8) };
+    if (b.slice(0, 4).toString() === "RIFF" && b.slice(8, 12).toString() === "WEBP") { const k = b.slice(12, 16).toString(); if (k === "VP8 ") return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff }; if (k === "VP8L") { const v = b.readUInt32LE(21); return { w: (v & 0x3fff) + 1, h: ((v >> 14) & 0x3fff) + 1 }; } if (k === "VP8X") return { w: 1 + b.readUIntLE(24, 3), h: 1 + b.readUIntLE(27, 3) }; }
+    if (b[0] === 0xff && b[1] === 0xd8) { let i = 2; while (i < b.length - 9) { if (b[i] !== 0xff) { i++; continue; } const mk = b[i + 1]; if (mk >= 0xc0 && mk <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(mk)) return { w: b.readUInt16BE(i + 7), h: b.readUInt16BE(i + 5) }; i += 2 + b.readUInt16BE(i + 2); } }
+  } catch {} finally { clearTimeout(t); }
+  return null;
+}
+async function pictures(url, fallback) {
+  const r = await get(url, 12000); const cands = r ? imgCandidates(r.text.slice(0, 900000), r.url) : []; if (fallback && !cands.includes(fallback)) cands.push(fallback);
+  const sized = []; for (const u of cands.slice(0, 8)) { const s = await imgSize(u); if (s && s.w >= 360 && s.h >= 300) sized.push({ u, ...s, a: s.w / s.h }); }
+  const land = sized.filter(x => x.a >= 1.2).sort((a, b) => b.w * b.h - a.w * a.h)[0] || sized.filter(x => x.a >= 0.95).sort((a, b) => b.w * b.h - a.w * a.h)[0];
+  const port = sized.filter(x => x.a <= 0.85 && x.h >= 700).sort((a, b) => b.w * b.h - a.w * a.h)[0];
+  const any = land || sized.sort((a, b) => b.w * b.h - a.w * a.h)[0];
+  return { img: any ? any.u : (cands[0] || fallback || ""), imgW: any ? any.w : 0, imgH: any ? any.h : 0, imgV: port ? port.u : "", imgVW: port ? port.w : 0, imgVH: port ? port.h : 0 };
+}
+const applyPics = (d, p) => { Object.assign(d, p); d.imgSrc = "v2"; };
 async function pool(items, n, fn) { let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const it = items[i++]; try { await fn(it); } catch {} } })); }
 
 const KW = {
@@ -129,10 +163,10 @@ async function main() {
   // pictures: the article's own large main picture (og:image) first, the feed's small thumbnail only as a fallback.
   // New stories get one now; older stories (last 14 days) that don't have the article picture yet are filled in, up to 300 per run.
   const needImg = fresh;
-  await pool(needImg, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; });
-  const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && !r.data.imgSrc && now - (r.data.fetchedAt || 0) < 14 * 864e5).slice(0, 300);
+  await pool(needImg, 6, async r => { applyPics(r.data, await pictures(r.data.url, r.data.img)); });
+  const backfill = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && r.data.imgSrc !== "v2" && now - (r.data.fetchedAt || 0) < 14 * 864e5).sort((a, b) => (b.data.fetchedAt || 0) - (a.data.fetchedAt || 0)).slice(0, 140);
   const filled = [];
-  await pool(backfill, 8, async r => { const og = await ogImage(r.data.url); if (og) { r.data.img = og; r.data.imgSrc = "og"; } else r.data.imgSrc = r.data.img ? "feed" : "none"; filled.push({ collection: "feed", id: r.id, data: r.data }); });
+  await pool(backfill, 6, async r => { applyPics(r.data, await pictures(r.data.url, r.data.img)); filled.push({ collection: "feed", id: r.id, data: r.data }); });
   // translations: new stories, plus up to 250 older stories that don't have one yet (failed ones are retried every run)
   await pool(fresh, 2, async r => { await translateRow(r.data); });
   const filledIds = new Set(filled.map(r => r.id));
