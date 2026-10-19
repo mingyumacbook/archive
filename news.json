@@ -1,18 +1,13 @@
 {
- "at": "2026-10-19T13:00:29.971Z",
- "stories": 335,
- "translated": 331,
- "notTranslated": [
-  "The Making of Marie Antoinette, Through Sofia Coppola’s Mother’s Loving Lens",
-  "At the Airport, for Date Night and to Work—This Is the Flat Shoe Trend Celebrities Are Wearing Everywhere",
-  "Jeans, Who? These 10 Leather-Pant Outfits Are Far More Interesting for Fall",
-  "Bella Hadid Just Re-Created Britney Spears's Iconic 2001 Outfit at the VS After-Party"
- ],
- "trOK": 0,
- "trFail": 4,
+ "at": "2026-10-19T14:52:29.236Z",
+ "stories": 344,
+ "translated": 344,
+ "notTranslated": [],
+ "trOK": 13,
+ "trFail": 0,
  "pictures": {
-  "checked": 335,
-  "landscape": 302,
+  "checked": 344,
+  "landscape": 311,
   "portrait": 87
  }
 }
