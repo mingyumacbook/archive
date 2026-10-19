@@ -1,24 +1,26 @@
 {
- "at": "2026-10-19T07:07:27.840Z",
- "stories": 319,
+ "at": "2026-10-19T08:56:10.998Z",
+ "stories": 321,
  "translated": 309,
  "notTranslated": [
-  "올가을 검정 대신 입고 싶은 뜻밖의 색",
-  "데님 하나로 3가지 스타일을 연출한 데이지 에드가 존스",
   "이 가을 청바지는 느슨할수록 좋습니다",
   "2026 빅토리아 시크릿 패션쇼 런웨이, 흥미로운 순간들",
-  "생 로랑 시스루 드레스로 아카데미 뮤지엄 갈라 밝힌 로제",
   "화장이 진할수록 더 나이 들어 보이는 이유",
-  "결국 돌아오고야 만 모자, 멋쟁이들은 다 쓰고 있습니다",
-  "Suddenly, Tasteful Dressers in NYC Are All Wearing This Elegant Micro Bag Trend for Party Season",
   "Trust Me: We’ll All Be Wearing Our French Tips In This Shade for Autumn",
-  "Fashion People Everywhere Are Suddenly Swapping Oversized Jackets for This Dressier Alternative, and I'm Sold"
+  "결국 돌아오고야 만 모자, 멋쟁이들은 다 쓰고 있습니다",
+  "생 로랑 시스루 드레스로 아카데미 뮤지엄 갈라 밝힌 로제",
+  "Suddenly, Tasteful Dressers in NYC Are All Wearing This Elegant Micro Bag Trend for Party Season",
+  "Fashion People Everywhere Are Suddenly Swapping Oversized Jackets for This Dressier Alternative, and I'm Sold",
+  "올가을 검정 대신 입고 싶은 뜻밖의 색",
+  "데님 하나로 3가지 스타일을 연출한 데이지 에드가 존스",
+  "검정 바지에는 흰 신발도, 검정 신발도 아닌 이것!",
+  "송강, 더블유 디지털 커버"
  ],
  "trOK": 0,
- "trFail": 10,
+ "trFail": 12,
  "pictures": {
-  "checked": 319,
-  "landscape": 286,
-  "portrait": 80
+  "checked": 321,
+  "landscape": 288,
+  "portrait": 82
  }
 }
