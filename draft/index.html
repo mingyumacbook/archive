@@ -24,9 +24,9 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .fab{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:45;width:44px;height:40px;border:0;background:none;padding:0;transition:transform .2s}
 .fab:active{transform:scale(.93)}
 .fab>*{position:absolute;left:0;top:0;width:64px;height:58px;transform-origin:0 0;transform:scale(.6875)}
-.fab .shd{fill:rgba(0,0,0,.16);filter:blur(6px);transform:scale(.6875) translateY(5px)}
-.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
-.fab .rim path{fill:url(#gl);stroke:rgba(0,0,0,.14);stroke-width:1.2}
+.fab .shd{display:none}
+.fab .glass{clip-path:path("M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z");background:rgba(236,236,234,.62);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8)}
+.fab .rim path{fill:url(#gl);stroke:none}
 .fab .ix{left:16px;top:11px;width:13px;height:13px;fill:none;stroke:var(--ink);stroke-width:2;opacity:0;transform:rotate(-45deg) scale(.6);transition:.25s}
 .fab.open .ix{opacity:1;transform:none}
 .fab .bd{left:auto;transform:none;top:-6px;right:-7px;width:auto;height:17px;min-width:17px;padding:0 5px;border-radius:9px;font-size:10.5px!important;background:var(--alert);color:#fff;font-size:11.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 0 0 2px #fff}
@@ -120,6 +120,13 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .seg2 button{font-size:12.5px}.field textarea{font-size:14px}.chip{font-size:12.5px}.stp button{font-size:11.5px}.srch{font-size:13px}.ro{font-size:11.5px}
 .av.brand{background:#fff;border:.5px solid #d9d9d7;padding:0}.av.brand svg{width:100%;height:100%;display:block}
 .av.s{width:40px;height:40px}
+.b{font-size:13.5px;padding:7px 12px}.b .ql,.b .nt{font-size:10px}.lt{font-size:24px}.r1 .nm{font-size:13.5px}.pv{font-size:12px}.tm{font-size:11px}
+.qi .t{font-size:13.5px}.qi .k{font-size:10px}.ch .nm{font-size:11.5px}.ch small,.sh small{font-size:10px}.sys{font-size:10.5px}.ts{font-size:10px}.intro{font-size:11px}
+.seg2 button{font-size:12px}.field textarea{font-size:13.5px}.chip{font-size:12px}.stp button,.stp span{font-size:11px}.srch{font-size:12.5px}.ro{font-size:11px}.qi .qs{font-size:11px}.ed{font-size:10px}
+.tagrow{font-size:11.5px}.empty{font-size:12px}
+.qa{display:flex;gap:14px;margin-top:8px}.qa button{border:0;background:none;padding:0;font-size:11.5px;text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}.qa .trash{margin:0;color:var(--ink-3)}
+.qrf{margin-top:10px;cursor:default}.qrf .ql2{font-size:11px;color:var(--ink-3);margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.qrf .fl{display:flex;align-items:center;gap:6px;border:1px solid #d6d6d4;border-radius:16px;padding:2px 3px 2px 12px}.qrf input{flex:1;border:0;outline:0;font-size:13px;padding:5px 0;background:none;min-width:0}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex:none;vertical-align:1px}
 .s-new{background:#b3b3b1}.s-doing{background:#ef8a17}.s-done{background:#2e9d58}.s-hold{background:#d8382c}
 .st{display:inline-flex;align-items:center;gap:4px}
@@ -132,7 +139,7 @@ button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .stp .del{color:var(--alert);border-color:rgba(200,16,46,.3)}.stp .del.on{background:var(--alert);color:#fff;border-color:var(--alert)}
 .stp button{display:inline-flex;align-items:center;gap:5px}
 .b[data-m]{cursor:pointer}
-.b ul{margin:4px 0 0;padding-left:17px;white-space:normal}.b li{margin:2px 0}.b .nt{display:block;font-size:11px;letter-spacing:.06em;opacity:.65;margin-bottom:2px}
+.b ul{list-style:none;margin:3px 0 0;padding:0;white-space:normal}.b li{margin:0;padding-left:11px;position:relative;line-height:1.45}.b li:before{content:"–";position:absolute;left:0;opacity:.55}.b .nt{display:block;font-size:11px;letter-spacing:.06em;opacity:.65;margin-bottom:2px}
 .ro{flex:none;text-align:center;font-size:12px;color:var(--ink-3);padding:12px 16px 16px;border-top:.5px solid var(--line)}
 .av.m{background:var(--ink);font-family:var(--f-mark);font-weight:400;font-size:19px}
 .av.s.m{font-size:20px}
@@ -198,7 +205,7 @@ function seed(){const n=Date.now(),I=(id,uid,cat,title,st,at)=>({id,uid,cat,titl
    M({f:"s",k:"done",q:"i3",t:"‘뉴스 번역이 일부만 돼요’ 문의가 답변 완료 되었어요",at:n-2*D+60e3}),M({f:"u",t:"이제 다 한글로 보여요 👍",at:n-2*D+2*H})]},
   u4:{unA:2,unU:0,msgs:[M({f:"u",t:"안녕하세요!",at:n-36*60e3}),M({f:"u",q:"i5",t:"저장함은 거의 안 써서 빼도 될 것 같아요",at:n-35*60e3})]}}}}
 let S;function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(_){}if(!S||S.v!==3)S=seed()}function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){}}
-let role="user",open=false,uView="home",uTab="chat",aTab="chats",aConv=null,aF="all",tray=false,tag=null,sel=null,delC=null,editId=null,flash=null,q="",draft="";
+let rq=null,rqDraft="";let role="user",open=false,uView="home",uTab="chat",aTab="chats",aConv=null,aF="all",tray=false,tag=null,sel=null,delC=null,editId=null,flash=null,q="",draft="";
 const P=$("#panel"),last=c=>c.msgs[c.msgs.length-1]||{at:0,t:""};
 const nUnread=()=>S.notices.filter(n=>n.at>(S.nRead[S.me]||0)).length;
 const curConv=()=>role==="user"?S.conv[S.me]:(aConv&&aConv!==NB?S.conv[aConv]:null);
@@ -229,26 +236,26 @@ function composer(mode){/* mode: user | admin | notice */
  ${editId?`<div class="tagrow"><b>메시지 수정 중</b>보낸 지 5분 안에만 고칠 수 있어요<button data-unedit aria-label="취소">✕</button></div>`:tag?`<div class="tagrow"><b>${CATS[tag]}</b>(으)로 보내요<button data-untag aria-label="취소">✕</button></div>`:""}
  <div class="cmp">${mode==="notice"?"":`<button class="plus${tray?" on":""}" data-tray aria-label="더보기">${IC.plus}</button>`}<div class="field"><textarea id="txt" rows="1" placeholder="${mode==="notice"?"모든 회원에게 공지 보내기":tag?"내용을 적어주세요":"메시지"}">${esc(draft)}</textarea><button class="send${draft.trim()?" on":""}" data-send aria-label="보내기">${IC.up}</button></div></div><input type="file" id="file" accept="image/*" hidden>`}
 
-function qItem(x,admin){return `<div class="qi${flash===x.id?" flash":""}" data-goq="${x.id}"><div class="qm"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${admin?`<button class="trash${delC==="q:"+x.id?" on":""}" data-delq="${x.id}">${delC==="q:"+x.id?"한 번 더 누르면 삭제":"삭제"}</button>`:""}</div><div class="qs"><i class="dot lamp s-${x.st}"></i>${ST[x.st]}</div></div>`}
+function qItem(x,admin){return `<div class="qi${flash===x.id?" flash":""}" data-goq="${x.id}"><div class="qm"><div class="k">${admin?esc(S.users[x.uid].name)+" · ":""}${CATS[x.cat]} · ${listT(x.at)}</div><div class="t">${esc(x.title)}</div>${admin?`<div class="qa"><button data-rq="${x.id}">${rq===x.id?"닫기":"답장"}</button><button class="trash${delC==="q:"+x.id?" on":""}" data-delq="${x.id}">${delC==="q:"+x.id?"한 번 더 누르면 삭제":"삭제"}</button></div>${rq===x.id?(()=>{const l=[...S.conv[x.uid].msgs].reverse().find(m=>m.f!=="s");return `<div class="qrf">${l?`<div class="ql2">최근 · ${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t)}</div>`:""}<div class="fl"><input id="rqt" placeholder="${esc(S.users[x.uid].name)}님에게 답장" value="${esc(rqDraft)}"><button class="send${rqDraft.trim()?" on":""}" data-rqs="${x.id}" aria-label="보내기">${IC.up}</button></div></div>`})():""}`:""}</div><div class="qs"><i class="dot lamp s-${x.st}"></i>${ST[x.st]}</div></div>`}
 const legend=`<div class="qf" style="gap:12px;font-size:11.5px;color:var(--ink-2)">${Object.entries(ST).map(([k,v])=>`<span style="display:inline-flex;gap:5px;align-items:center"><i class="dot s-${k}"></i>${v}</span>`).join("")}</div>`;
 
 /* ---------- user ---------- */
 function userView(){const c=S.conv[S.me],nu=nUnread();
  if(uView==="home"){const l=last(c),ln=S.notices[S.notices.length-1];
   return `<div class="sh"><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><h2 class="lt">Messages</h2><small>문의와 공지를 한곳에서 받아요</small></div><div class="scroll" style="margin-top:10px">
-  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">문의 · Master</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
-  <div class="ci" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">공지 · VISUAL DEPT.</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div></div>`}
+  <div class="ci" data-uview="chat">${c.unU?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Inquiry</b><span class="tm">${listT(l.at)}</span></div><div class="pv">${l.f==="u"?"나: ":""}${l.img?"사진":esc(l.t)}</div></div></div>
+  <div class="ci" data-uview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"아직 공지가 없어요"}</div></div></div></div>`}
  if(uView==="notice"){if(open)S.nRead[S.me]=Date.now();
-  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">VISUAL DEPT. 공지</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 ‘문의’ 메시지함에서 보내주세요</div>`}
+  return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>업데이트 소식이 이곳으로 와요</small></div>${bubbles(noticeMsgs(),"u",null)}<div class="ro">공지에는 답장할 수 없어요 · 문의는 Inquiry에서 보내주세요</div>`}
  const my=S.inq.filter(x=>x.uid===S.me);if(open&&uTab==="chat")c.unU=0;
- return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Master</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
+ return `<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Inquiry</b><small>VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요</small></div>
  <div class="seg2"><button data-utab="chat" class="${uTab==="chat"?"on":""}">채팅</button><button data-utab="list" class="${uTab==="list"?"on":""}">문의 내역</button></div>
  ${uTab==="chat"?bubbles(c.msgs,"u",c,`<div class="intro"><span class="av big brand">${BRAND}</span><p style="margin:10px 0 0">오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.</p></div>`)+composer("user")
   :`${legend}<div class="scroll">${my.length?my.map(x=>qItem(x)).join(""):`<div class="empty">아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요</div>`}</div>`}`}
 
 /* ---------- admin ---------- */
 function chatRows(){const ln=S.notices[S.notices.length-1];
- const pin=!q?`<div class="ci pin${aConv===NB?" on":""}" data-conv="${NB}"><span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">공지</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"보낸 공지가 없어요"}</div></div></div>`:"";
+ const pin=!q?`<div class="ci pin${aConv===NB?" on":""}" data-conv="${NB}"><span class="av s brand">${BRAND}</span><div class="cm"><div class="r1"><b class="nm">Notice</b><span class="tm">${ln?listT(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||("업데이트 · "+(ln.items||[])[0])):"보낸 공지가 없어요"}</div></div></div>`:"";
  return pin+(Object.keys(S.users).filter(k=>S.users[k].name.includes(q)).sort((a,b)=>last(S.conv[b]).at-last(S.conv[a]).at).map(k=>{const c=S.conv[k],l=last(c),u=S.users[k];
  return `<div class="ci${aConv===k?" on":""}" data-conv="${k}">${c.unA?`<i class="ud"></i>`:""}<span class="av s">${esc(u.name.slice(-2))}</span><div class="cm"><div class="r1"><b class="nm">${esc(u.name)}</b><span class="tm">${l.at?listT(l.at):""}</span></div><div class="pv">${l.f==="a"?"나: ":""}${l.img?"사진":esc(l.t||"")}</div></div></div>`}).join("")||`<div class="empty">검색 결과가 없어요</div>`)}
 function adminView(){if(open&&aConv&&aConv!==NB){S.conv[aConv].unA=0;S.inq.filter(x=>x.uid===aConv&&x.st==="new").forEach(x=>stSet(x,"doing"))}const ks=Object.keys(S.users),un=ks.filter(k=>S.conv[k].unA).length,pend=S.inq.filter(x=>x.st==="new").length;
@@ -258,7 +265,7 @@ function adminView(){if(open&&aConv&&aConv!==NB){S.conv[aConv].unA=0;S.inq.filte
   ${aTab==="chats"?`<input class="srch" id="srch" placeholder="이름 검색" value="${esc(q)}"><div class="scroll" id="clist">${chatRows()}</div>`:
   `<div class="qf">${[["all","전체"],...Object.entries(ST)].map(([k,v])=>`<button class="chip${aF===k?" on":""}" data-af="${k}">${k!=="all"?`<i class="dot s-${k}"></i>`:""}${v} ${k==="all"?S.inq.length:S.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>qItem(x,true)).join("")||`<div class="empty">해당 문의가 없어요</div>`}</div>`}</div>`;
  let main;
- if(aConv===NB)main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">VISUAL DEPT. 공지</b><small>모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요</small></div>${bubbles(noticeMsgs(),"n",null)}${composer("notice")}`;
+ if(aConv===NB)main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av brand">${BRAND}</span><b class="nm">Notice</b><small>모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요</small></div>${bubbles(noticeMsgs(),"n",null)}${composer("notice")}`;
  else if(aConv){const u=S.users[aConv],qs=S.inq.filter(x=>x.uid===aConv);
   main=`<div class="ch"><button class="ibtn bk" data-back aria-label="목록">${IC.back}</button><button class="ibtn x" data-close aria-label="닫기">${IC.x}</button><span class="av">${esc(u.name.slice(-2))}</span><b class="nm">${esc(u.name)}</b><small>${esc(u.mail)} · 문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건</small></div>${bubbles(S.conv[aConv].msgs,"a",S.conv[aConv])}${composer("admin")}`}
  else main=`<div class="empty"><span class="av big brand">${BRAND}</span><p>왼쪽에서 대화를 고르세요<br>대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요<br>회원 말풍선을 누르면 보류 · 삭제할 수 있어요</p></div>`;
@@ -286,6 +293,8 @@ function send(){const t=draft.trim();if(!t)return;
  tray=false;push(m);if(m.f==="a")S.inq.filter(x=>x.uid===aConv&&(x.st==="new"||x.st==="doing")).forEach(x=>stSet(x,"done"));draft="";render();focusT()}
 function stSet(x,k){if(!x||x.st===k)return;x.st=k;const c=S.conv[x.uid];c.msgs.push({id:nid(),f:"s",k,q:x.id,t:`‘${x.title}’ 문의가 ${STMSG[k]}`,at:Date.now()});c.unU++}
 function setSt(id,k){stSet(S.inq.find(z=>z.id===id),k);sel=null;render()}
+function rqSend(id){const t=rqDraft.trim(),x=S.inq.find(z=>z.id===id);if(!t||!x)return;const c=S.conv[x.uid];c.msgs.push({id:nid(),f:"a",t,at:Date.now()});c.unU++;
+ S.inq.filter(z=>z.uid===x.uid&&(z.st==="new"||z.st==="doing")).forEach(z=>stSet(z,"done"));rq=null;rqDraft="";flash=x.id;render(true)}
 function delInq(id){const x=S.inq.find(z=>z.id===id);if(!x)return;S.inq=S.inq.filter(z=>z.id!==id);const c=S.conv[x.uid];c.msgs=c.msgs.filter(m=>m.q!==id)}
 function readImg(f){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,700/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);r(cv.toDataURL("image/jpeg",.8))};im.src=fr.result};fr.readAsDataURL(f)})}
 
@@ -293,7 +302,7 @@ P.addEventListener("click",e=>{const g=s=>e.target.closest(s);let b;
  if(g("[data-close]")){open=false;return render()}
  if(b=g("[data-uview]")){uView=b.dataset.uview;uTab="chat";sel=null;editId=null;draft="";return render()}
  if(b=g("[data-utab]")){uTab=b.dataset.utab;tray=false;sel=null;return render()}
- if(b=g("[data-atab]")){aTab=b.dataset.atab;delC=null;return render()}
+ if(b=g("[data-atab]")){aTab=b.dataset.atab;delC=null;rq=null;return render()}
  if(b=g("[data-conv]")){if(aConv!==b.dataset.conv){aConv=b.dataset.conv;sel=null;delC=null;tray=false;draft="";editId=null}return render()}
  if(g("[data-back]")){if(role==="user")uView="home";else aConv=null;sel=null;editId=null;draft="";tray=false;return render()}
  if(g("[data-tray]")){tray=!tray;return render(true)}
@@ -306,12 +315,15 @@ P.addEventListener("click",e=>{const g=s=>e.target.closest(s);let b;
  if(b=g("[data-edit]")){const m=findM(b.dataset.edit);if(m&&Date.now()-m.at<EDIT){editId=m.id;draft=m.t;tag=null;tray=false}sel=null;render(true);return focusT()}
  if(b=g("[data-del]")){const id=b.dataset.del;if(delC!==id){delC=id;return render(true)}const m=findM(id);if(m){if(m.q)delInq(m.q);else{const c=curConv();c.msgs=c.msgs.filter(z=>z.id!==id)}}delC=null;sel=null;return render(true)}
  if(b=g("[data-delq]")){e.stopPropagation();const id=b.dataset.delq;if(delC!=="q:"+id){delC="q:"+id;return render(true)}delInq(id);delC=null;return render(true)}
+ if(b=g("[data-rq]")){e.stopPropagation();const x=S.inq.find(z=>z.id===b.dataset.rq);if(rq===x.id){rq=null}else{rq=x.id;rqDraft="";if(x.st==="new")stSet(x,"doing");S.conv[x.uid].unA=0}render(true);const i=$("#rqt");if(i)i.focus();return}
+ if(b=g("[data-rqs]"))return rqSend(b.dataset.rqs);
+ if(g(".qrf"))return;
  if(b=g("[data-m]")){const id=b.dataset.m;sel=sel===id?null:id;delC=null;return render(true)}
  if(b=g("[data-goq]")){const x=S.inq.find(z=>z.id===b.dataset.goq);if(!x)return;sel=null;if(role==="user"&&uTab==="chat"){uTab="list";flash=x.id;return render()}flash=x.id;if(role==="user")uTab="chat";else{aConv=x.uid;aTab="chats"}return render()}
  if(b=g("[data-af]")){aF=b.dataset.af;return render()}});
-P.addEventListener("input",e=>{if(e.target.id==="txt"){draft=e.target.value;grow(e.target);P.querySelector("[data-send]").classList.toggle("on",!!draft.trim())}
+P.addEventListener("input",e=>{if(e.target.id==="rqt"){rqDraft=e.target.value;const sb=P.querySelector("[data-rqs]");if(sb)sb.classList.toggle("on",!!rqDraft.trim())}if(e.target.id==="txt"){draft=e.target.value;grow(e.target);P.querySelector("[data-send]").classList.toggle("on",!!draft.trim())}
  if(e.target.id==="srch"){q=e.target.value.trim();$("#clist").innerHTML=chatRows()}});
-P.addEventListener("keydown",e=>{if(e.target.id==="txt"&&e.key==="Enter"&&!e.shiftKey&&!e.isComposing&&e.keyCode!==229){e.preventDefault();send()}});
+P.addEventListener("keydown",e=>{if(e.target.id==="rqt"&&e.key==="Enter"&&!e.isComposing&&e.keyCode!==229){e.preventDefault();return rqSend(rq)}if(e.target.id==="txt"&&e.key==="Enter"&&!e.shiftKey&&!e.isComposing&&e.keyCode!==229){e.preventDefault();send()}});
 P.addEventListener("change",async e=>{if(e.target.id==="file"&&e.target.files[0]){const img=await readImg(e.target.files[0]);tray=false;if(role==="admin"&&aConv===NB)return;push({f:role==="user"?"u":"a",t:"",img,at:Date.now()});render()}});
 $("#fab").onclick=()=>{open=!open;if(open&&role==="user")uView="home";render()};
 document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{role=b.dataset.role;open=true;uView="home";tray=false;tag=null;sel=null;delC=null;editId=null;draft="";render()});
