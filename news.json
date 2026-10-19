@@ -1,13 +1,13 @@
 {
- "at": "2026-10-19T14:52:29.236Z",
- "stories": 344,
- "translated": 344,
+ "at": "2026-10-19T16:51:10.574Z",
+ "stories": 354,
+ "translated": 354,
  "notTranslated": [],
- "trOK": 13,
+ "trOK": 10,
  "trFail": 0,
  "pictures": {
-  "checked": 344,
-  "landscape": 311,
-  "portrait": 87
+  "checked": 354,
+  "landscape": 321,
+  "portrait": 91
  }
 }
