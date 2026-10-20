@@ -1,10 +1,10 @@
 {
- "at": "2026-10-20T01:03:09.731Z",
- "links": 33,
- "checkedNow": 0,
- "ok": 0,
- "unreachable": 0,
- "withDescription": 0,
+ "at": "2026-10-20T02:52:25.210Z",
+ "links": 34,
+ "checkedNow": 34,
+ "ok": 28,
+ "unreachable": 6,
+ "withDescription": 16,
  "defaultUnreachable": [
   "juunj.com (0)",
   "minjukim.com (0)",
