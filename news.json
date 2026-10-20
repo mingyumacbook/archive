@@ -1,30 +1,13 @@
 {
- "at": "2026-10-20T10:49:29.807Z",
- "stories": 411,
- "translated": 395,
- "notTranslated": [
-  "5 beauty legends on their favourite moments from Black history",
-  "6 long novels that will cure your brainrot",
-  "레오파드 어려웠다면 밤비로 소원 풀기",
-  "이런 청바지 한 벌만 챙기면 가을이 쉬워집니다",
-  "예쁜 핸드백일수록 바지는 편하게 입으세요",
-  "지금 청바지와 가장 잘 어울리는 재킷은 ‘이것’입니다",
-  "가장 클래식하고 현대적인, 전지현",
-  "벨라 하디드, 브리트니 스피어스 스타일에서 영감 받은 블랙 레이스 룩",
-  "할리우드 기대주, 이완 맥그리거 딸 에스더 맥그리거",
-  "이재-사무엘 킴의 아름다운 결혼식",
-  "슬슬 올해의 코트를 정해야 할 때입니다",
-  "I'm a 54-Year-Old CEO of a Resale Brand—These Are the 7 Outfits I Wore This Week",
-  "How to Wear a Fair Isle Sweater Like a Fashion Person This Winter",
-  "I Wear Zara When I Want to Look Trend-Forward—40 New Items That Are Chic and Relevant for Fall 2026",
-  "If You're a Fashion Person in Paris, You're Wearing Your Jeans With One of These 6 Fall Shoe Trends",
-  "Peep-Toe Pumps Are Trending Again—Here's How They're Different Than 2009"
- ],
- "trOK": 0,
- "trFail": 16,
+ "at": "2026-10-20T13:00:07.155Z",
+ "stories": 427,
+ "translated": 427,
+ "notTranslated": [],
+ "trOK": 32,
+ "trFail": 0,
  "pictures": {
-  "checked": 411,
-  "landscape": 378,
-  "portrait": 124
+  "checked": 427,
+  "landscape": 394,
+  "portrait": 131
  }
 }
