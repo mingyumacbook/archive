@@ -127,7 +127,17 @@ async function coloro() {
 
 async function main() {
   const idx = await get("https://tfashion.ai/runway.md");
-  const codes = idx ? [...new Set([...idx.matchAll(/tfashion\.ai\/runway\/((?:ss|fw)\d{2})\)/gi)].map(m => m[1].toUpperCase()))].slice(0, 3) : ["SS27", "FW26"];
+  // every season T-Fashion lists, plus the next two seasons: a season is added as soon as one show is published
+  const sk = c => +c.slice(2) * 2 + (c.startsWith("FW") ? 1 : 0), fromK = k => (k % 2 ? "FW" : "SS") + String(Math.floor(k / 2)).padStart(2, "0");
+  let codes = idx ? [...new Set([...idx.matchAll(/tfashion\.ai\/runway\/((?:ss|fw)\d{2})\)/gi)].map(m => m[1].toUpperCase()))] : ["SS27", "FW26"];
+  const newest = Math.max(...codes.map(sk));
+  for (const c of [fromK(newest + 1), fromK(newest + 2)]) {
+    const page = await get(`https://tfashion.ai/runway/${c.toLowerCase()}.md`);
+    const looks = page ? num((page.match(/across ([\d,]+) looks/i) || [])[1]) : 0;
+    say(`probe ${c}:`, looks ? `${looks} looks — added` : "nothing yet");
+    if (looks > 0) codes.push(c);
+  }
+  codes = [...new Set(codes)].sort((a, b) => sk(b) - sk(a)).slice(0, 4);
   say("seasons:", codes.join(", "));
   const rows = [];
   for (const c of codes) for (const g of ["women", "men"]) { const r = await season(c, g); if (r && (r.colors.length || r.patterns.length)) rows.push({ collection: "seasonreport", id: `${c}-${g}`, data: r }); }

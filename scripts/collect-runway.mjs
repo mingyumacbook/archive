@@ -1,4 +1,4 @@
-// VISUAL DEPT. runway history collector — runs on GitHub Actions once a week (free).
+// VISUAL DEPT. runway history collector — runs on GitHub Actions every day (free).
 // For every brand in scripts/runway-brands.json it reads the brand's public Vogue Runway designer page
 // and saves the full list of collections (season, link, cover picture). Facts only: nothing is guessed —
 // a brand whose page can't be found is saved as "not found" and the app shows a search link instead.

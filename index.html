@@ -776,6 +776,10 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 .mtnew{color:var(--alert);font-weight:500;letter-spacing:0;text-transform:none}
 .mtdet{margin-top:14px;font-size:12.5px}.mtdet summary{cursor:pointer;color:var(--ink-2)}.mtdet ol{margin:8px 0;padding-left:18px;line-height:1.7;color:var(--ink-2)}
 .mtdet pre{max-height:260px;overflow:auto;background:var(--soft);padding:10px;font-size:11px;line-height:1.5;white-space:pre-wrap;word-break:break-all;margin:8px 0 0}
+#mtBar .mtsw{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:7px 12px;box-shadow:0 4px 14px rgba(0,0,0,.08);cursor:pointer}
+#mtBar.pv button.mtsw{background:var(--bg);color:var(--ink-3);border-color:var(--ink)}#mtBar .mtsw b{letter-spacing:.02em}
+.atabs{position:sticky;top:-1px;z-index:2;background:var(--bg);padding:2px 0 10px;margin:0 0 4px}.atabs .adot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--alert);margin-left:5px;vertical-align:2px}
+.atab[data-at="backup"]>.grp:first-child,.atab[data-at="members"]>.grp:first-child,.atab #mtSql>.grp:first-child{display:none}.atab>.grp:first-child{margin-top:6px}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -1391,7 +1395,7 @@ function bindSites(){let from=null;const ul=$("#sites");
 
 /* ================= DESIGNERS ================= */
 let DES=[],FAV=new Set(),dQ="";
-function buildDES(){const rm=new Set(PREF.removedDes||[]);const ed=PREF.dirEdits||{};DES=DATA.designers.filter(d=>!rm.has(d.id)).concat(PREF.addedDes||[]).map(d=>({...d,director:ed[d.id]!=null?ed[d.id]:d.director}))}
+function buildDES(){const rm=new Set(PREF.removedDes||[]);const ed=PREF.dirEdits||{};const ov=PREF.desEdits||{};DES=DATA.designers.filter(d=>!rm.has(d.id)).concat(PREF.addedDes||[]).map(d=>{const o=ov[d.id]||{};return {...d,...o,director:o.director!=null?o.director:(ed[d.id]!=null?ed[d.id]:d.director)}})}
 let SITECK=null,SITECKL=false;
 const normU=u=>String(u||"").trim().toLowerCase().replace(/^https?:\/\//,"").replace(/^www\./,"").replace(/[?#].*$/,"").replace(/\/+$/,"");
 const UKEY={};async function ukey(u){const n=normU(u);if(UKEY[n])return UKEY[n];const b=await crypto.subtle.digest("SHA-1",new TextEncoder().encode(n));return UKEY[n]=[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("").slice(0,16)}
@@ -1399,7 +1403,8 @@ async function loadSiteck(force){if(SITECKL&&!force)return;SITECKL=true;try{cons
   await Promise.all(DES.map(d=>d.url?ukey(d.url):null));SITECK=m;if(route==="designers")render(false);const dr=$("#drawer");if(dr&&dr._des)openDes(dr._des)}catch(_){SITECK={}}}
 const ckOf=d=>{if(!SITECK||!d.url)return null;const k=UKEY[normU(d.url)];return k?SITECK[k]||null:null};
 const identOf=d=>{const c=ckOf(d);const own=t(d.desc_en,d.desc_ko);if(own)return {text:own,src:"curated"};if(c&&(c.desc_ko||c.desc_en||c.desc))return {text:t(c.desc_en||c.desc,c.desc_ko||c.desc),src:"official"};return null};
-const dirOf=d=>d.director||(DATA.kr_dir[d.id]?t(DATA.kr_dir[d.id][1],DATA.kr_dir[d.id][0]):"");
+const dirOf=d=>d.director||(DATA.kr_dir[d.id]?t(DATA.kr_dir[d.id][1],DATA.kr_dir[d.id][0]):"")||((typeof ckOf==="function"&&ckOf(d)||{}).director||"");
+const dirFound=d=>!d.director&&!DATA.kr_dir[d.id]&&typeof ckOf==="function"&&ckOf(d)&&ckOf(d).director?ckOf(d):null;
 function designersView(){loadSiteck();const q=dQ.trim().toLowerCase();let l=DES.filter(d=>!q||[d.name,d.ko,d.desc_en,d.desc_ko].join(" ").toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name,"en",{sensitivity:"base"}));
   const fav=l.filter(d=>FAV.has(d.id)),rest=l.filter(d=>!FAV.has(d.id));
   const row=d=>`<div class="ditem"><button class="star ${FAV.has(d.id)?"on":""}" data-fav="${d.id}" aria-label="${t("Favourite","즐겨찾기")}">${FAV.has(d.id)?SV.starf:SV.star}</button><button class="nm" data-des="${d.id}">${esc(d.name)}<small>${esc(d.ko)}${dirOf(d)?` · ${t("Director","디렉터")} ${esc(dirOf(d))}`:""}</small></button><span class="ss">${(()=>{const id=identOf(d);return id?esc(shortT(id.text,lang==="ko"?46:78)):`<span style="color:var(--ink-3)">${t("Identity is read from the homepage soon","홈페이지에서 아이덴티티를 불러오는 중")}</span>`})()}</span><a class="ext" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Site","홈페이지")} ${SV.arrow}</a></div>`;
@@ -1411,12 +1416,20 @@ function openDes(id){const d=DES.find(x=>x.id===id);if(!d)return;loadSiteck();co
   $("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Designers · Korea","디자이너 · 국내")}</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
   <div class="db gut"><div><h2>${esc(d.name)}</h2><div style="color:var(--ink-3);margin-top:6px">${esc(d.ko||"")}</div></div>
    <div><span class="lbl">${t("Identity","브랜드 아이덴티티")}</span>${id0?`<p style="margin:10px 0 0;font-size:15px;line-height:1.75">${esc(id0.text)}</p><p class="tip" style="margin-top:6px">${id0.src==="official"?t("From the brand's own homepage description","브랜드 공식 홈페이지 소개 문구 기준"):t("Summarised from the brand's own homepage","브랜드 공식 홈페이지 내용을 요약")}</p>`:`<p class="tip" style="margin-top:10px">${t("The brand's own description is read from its homepage on the next check (within a few hours).","다음 확인 때(몇 시간 안에) 브랜드 홈페이지의 소개 문구를 자동으로 불러와요.")}</p>`}</div>
-   <div><div class="kv"><span>${t("Director","디렉터")}</span><span>${esc(dirOf(d)||t("Not confirmed","확인 중"))} <button class="lnk2" data-diredit="${d.id}">${t("Edit","수정")}</button></span></div>
+   <div><div class="kv"><span>${t("Director","디렉터")}</span><span>${esc(dirOf(d)||t("Not confirmed — looked up from the homepage","확인 중 · 홈페이지에서 찾는 중"))}${dirFound(d)?` <small style="color:var(--ink-3)">· ${dirFound(d).director_how==="wikidata"?t("from Wikidata","위키데이터 기준"):t("from the brand's own site","브랜드 홈페이지 기준")}</small>`:""} <button class="lnk2" data-diredit="${d.id}">${t("Edit","수정")}</button></span></div>
     <div class="kv"><span>${t("Homepage","홈페이지")}</span>${d.url?`<a href="${esc(d.url)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(d.url.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`:"—"}</div>
     <div class="kv"><span>${t("Link check","링크 확인")}</span><span class="okmark" style="color:${c?(c.ok?"var(--ok)":c.status===0?"var(--ink-3)":"var(--alert)"):"var(--ink-3)"}"><i></i>${st}</span></div></div>
-   <div style="display:flex;gap:8px;flex-wrap:wrap">${d.url?`<a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Open homepage","홈페이지 열기")} ${SV.arrow}</a>`:""}<button class="btn ghost" data-deldes="${d.id}">${t("Remove from list","목록에서 삭제")}</button></div></div>`;$("#drawer")._des=id;openDrawer()}
-function addDesSheet(){sheet(t("Add brand","브랜드 추가"),`<form id="desForm" style="display:grid;gap:10px"><label>${t("Brand name (English)","브랜드명 (영문)")}<input class="inp" id="dn" required style="width:100%;margin-top:4px"></label><label>${t("Korean name","한글 이름")}<input class="inp" id="dk" style="width:100%;margin-top:4px"></label><label>${t("Director","디렉터")}<input class="inp" id="ddir" style="width:100%;margin-top:4px"></label><label>${t("Homepage","홈페이지")}<input class="inp" id="du" type="url" placeholder="https://" required style="width:100%;margin-top:4px"></label><button class="btn" style="justify-self:start">${t("Add","추가")}</button></form>`);
-  $("#desForm").onsubmit=e=>{e.preventDefault();const n=$("#dn").value.trim();DES.push({id:n.toLowerCase().replace(/[^a-z0-9]+/g,"-"),name:n,ko:$("#dk").value.trim(),url:$("#du").value.trim(),director:$("#ddir").value.trim(),desc_en:"",desc_ko:"",ok:false});PREF.addedDes=(PREF.addedDes||[]).concat([DES[DES.length-1]]);savePrefs();closeSheet();render(false);toast(t("Added · its identity is read from the homepage within a few hours","추가했어요 · 아이덴티티는 몇 시간 안에 홈페이지에서 불러와요"))}}
+   <div style="display:flex;gap:8px;flex-wrap:wrap">${d.url?`<a class="btn" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Open homepage","홈페이지 열기")} ${SV.arrow}</a>`:""}<button class="btn ghost" data-desedit="${d.id}">${t("Edit details","정보 수정")}</button><button class="btn ghost" data-deldes="${d.id}">${t("Remove from list","목록에서 삭제")}</button></div></div>`;$("#drawer")._des=id;openDrawer()}
+function desEdit(id){const d=DES.find(x=>x.id===id);if(!d)return;
+  sheet(t("Edit brand","브랜드 정보 수정"),`<form id="deF" style="display:grid;gap:10px"><label>${t("Brand name (English)","브랜드명 (영문)")}<input class="inp" id="den" required value="${esc(d.name)}" style="width:100%;margin-top:4px"></label><label>${t("Korean name","한글 이름")}<input class="inp" id="dek" value="${esc(d.ko||"")}" style="width:100%;margin-top:4px"></label><label>${t("Director","디렉터")}<input class="inp" id="ded" value="${esc(dirOf(d))}" style="width:100%;margin-top:4px"></label><label>${t("Homepage","홈페이지")}<input class="inp" id="deu" type="text" inputmode="url" autocapitalize="off" placeholder="https://" value="${esc(d.url||"")}" style="width:100%;margin-top:4px"></label><p class="tip" style="margin:0">${t("Only your list changes. A new homepage is checked (identity and director) within a few hours.","내 목록에만 적용돼요. 홈페이지를 바꾸면 몇 시간 안에 아이덴티티 · 디렉터를 다시 불러와요.")}</p><button class="btn" style="justify-self:start">${t("Save","저장")}</button></form>`);
+  $("#deF").onsubmit=ev=>{ev.preventDefault();let u=$("#deu").value.trim();if(u&&!/^https?:\/\//i.test(u))u="https://"+u;
+    const v={name:$("#den").value.trim()||d.name,ko:$("#dek").value.trim(),director:$("#ded").value.trim(),url:u};
+    const added=(PREF.addedDes||[]).find(x=>x.id===id);
+    if(added)Object.assign(added,v);else{PREF.desEdits=PREF.desEdits||{};PREF.desEdits[id]=v}
+    PREF.dirEdits=PREF.dirEdits||{};PREF.dirEdits[id]=v.director;savePrefs();buildDES();closeSheet();
+    if(typeof loadSiteck==="function")loadSiteck(true);openDes(id);render(false);toast(t("Saved","저장했어요"))}}
+function addDesSheet(){sheet(t("Add brand","브랜드 추가"),`<form id="desForm" style="display:grid;gap:10px"><label>${t("Brand name (English)","브랜드명 (영문)")}<input class="inp" id="dn" required style="width:100%;margin-top:4px"></label><label>${t("Korean name","한글 이름")}<input class="inp" id="dk" style="width:100%;margin-top:4px"></label><label>${t("Director","디렉터")}<input class="inp" id="ddir" style="width:100%;margin-top:4px"></label><label>${t("Homepage","홈페이지")}<input class="inp" id="du" type="text" inputmode="url" autocapitalize="off" placeholder="https://" required style="width:100%;margin-top:4px"></label><button class="btn" style="justify-self:start">${t("Add","추가")}</button></form>`);
+  $("#desForm").onsubmit=e=>{e.preventDefault();const n=$("#dn").value.trim();DES.push({id:n.toLowerCase().replace(/[^a-z0-9]+/g,"-"),name:n,ko:$("#dk").value.trim(),url:(u=>u&&!/^https?:\/\//i.test(u)?"https://"+u:u)($("#du").value.trim()),director:$("#ddir").value.trim(),desc_en:"",desc_ko:"",ok:false});PREF.addedDes=(PREF.addedDes||[]).concat([DES[DES.length-1]]);savePrefs();closeSheet();render(false);toast(t("Added · its identity and director are read from the homepage within a few hours","추가했어요 · 아이덴티티와 디렉터는 몇 시간 안에 홈페이지에서 불러와요"))}}
 
 /* ================= ACCOUNT ================= */
 function sheet(title,body){closeSheet();const d=document.createElement("div");d.className="sheetbg";d.id="sheet";d.innerHTML=`<div class="sheet" role="dialog" aria-label="${esc(title)}"><div class="sh"><b>${esc(title)}</b><button data-sx>${t("Close","닫기")}</button></div><div class="sb">${body}</div></div>`;document.body.appendChild(d);d.addEventListener("click",e=>{if(e.target===d||e.target.closest("[data-sx]"))closeSheet()})}
@@ -1580,7 +1593,7 @@ document.addEventListener("click",e=>{
   const sd=e.target.closest("[data-sdel]");if(sd){const s=SITES[+sd.dataset.sdel];SITES.splice(+sd.dataset.sdel,1);saveSites();render(false);toast(t("Deleted ","삭제했어요 · ")+s.name);return}
   /* designers */
   const ce=e.target.closest("[data-cdedit]");if(ce){const k=ce.dataset.cdedit;const b=RUNWAY.find(x=>x.key===k);sheet(t("Designer name","디렉터 이름"),`<form id="cdF" style="display:flex;gap:8px"><input class="inp" id="cdv" style="flex:1" value="${esc(CDOV[k]||DATA.cd_now[k]||"")}" aria-label="${t("Designer","디렉터")}"><button class="btn">${t("Save","저장")}</button></form><p class="tip">${t("Applies to every season of this brand.","이 브랜드의 모든 시즌에 적용돼요.")}</p>`);$("#cdF").onsubmit=ev=>{ev.preventDefault();const v=$("#cdv").value.trim();PREF.cdov=PREF.cdov||{};if(v)PREF.cdov[k]=v;else delete PREF.cdov[k];savePrefs();closeSheet();drawBrand(b);toast(t("Saved","저장했어요"))};return}
-  const de2=e.target.closest("[data-diredit]");if(de2){const d=DES.find(x=>x.id===de2.dataset.diredit);sheet(t("Director","디렉터"),`<form id="drF" style="display:flex;gap:8px"><input class="inp" id="drv" style="flex:1" value="${esc(dirOf(d))}" aria-label="${t("Director","디렉터")}"><button class="btn">${t("Save","저장")}</button></form>`);$("#drF").onsubmit=ev=>{ev.preventDefault();d.director=$("#drv").value.trim();PREF.dirEdits=PREF.dirEdits||{};PREF.dirEdits[d.id]=d.director;savePrefs();closeSheet();openDes(d.id);render(false);toast(t("Saved","저장했어요"))};return}
+  const de2=e.target.closest("[data-diredit],[data-desedit]");if(de2){desEdit(de2.dataset.diredit||de2.dataset.desedit);return}if(0){const d=DES.find(x=>x.id===de2.dataset.diredit);sheet(t("Director","디렉터"),`<form id="drF" style="display:flex;gap:8px"><input class="inp" id="drv" style="flex:1" value="${esc(dirOf(d))}" aria-label="${t("Director","디렉터")}"><button class="btn">${t("Save","저장")}</button></form>`);$("#drF").onsubmit=ev=>{ev.preventDefault();d.director=$("#drv").value.trim();PREF.dirEdits=PREF.dirEdits||{};PREF.dirEdits[d.id]=d.director;savePrefs();closeSheet();openDes(d.id);render(false);toast(t("Saved","저장했어요"))};return}
   const fv=e.target.closest("[data-fav]");if(fv){const id=fv.dataset.fav;FAV.has(id)?FAV.delete(id):FAV.add(id);PREF.fav=[...FAV];savePrefs();render(false);return}
   const de=e.target.closest("[data-des]");if(de){openDes(de.dataset.des);return}
   const dd=e.target.closest("[data-deldes]");if(dd){{const id=dd.dataset.deldes;if((PREF.addedDes||[]).some(x=>x.id===id))PREF.addedDes=PREF.addedDes.filter(x=>x.id!==id);else PREF.removedDes=[...(PREF.removedDes||[]),id];savePrefs();DES=DES.filter(x=>x.id!==id)}closeDrawer();render(false);toast(t("Removed","삭제했어요"));return}
@@ -1601,7 +1614,7 @@ function coloroHex(code){const m=String(code).match(/(\d{3})-(\d{2})-(\d{2})/);i
   const c=v=>{v=v>0.0031308?1.055*v**(1/2.4)-0.055:12.92*v;return Math.round(Math.min(1,Math.max(0,v))*255).toString(16).padStart(2,"0")};return "#"+c(r)+c(g)+c(bb)}
 function rdataView(){
   if(!REP){loadReport().then(()=>{if(route==="rdata")render(false)});return `<div class="gut max"><div class="empty" style="padding-top:120px"><b>${t("Loading the season report…","시즌 리포트를 불러오는 중…")}</b></div></div>`}
-  const SS=Object.keys(REP.seasons).sort((a,b)=>(+b.slice(2)-+a.slice(2))||(b<a?-1:1));
+  const SS=Object.keys(REP.seasons).sort((a,b)=>(+b.slice(2)*2+(b.startsWith("FW")?1:0))-(+a.slice(2)*2+(a.startsWith("FW")?1:0)));
   if(!SS.length)return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Collections","컬렉션")}</span><h1>${t("Season Report","시즌 리포트")}</h1></div><button class="btn ghost" id="repRef">${SV.refresh||""}${t("Refresh","새로고침")}</button></div><div class="empty"><b>${t("The report hasn't been collected yet","아직 리포트를 받지 못했어요")}</b>${t("It is collected every morning. Try Refresh in a little while.","매일 아침 자동으로 모아요. 잠시 후 새로고침해 보세요.")}</div></div>`;
   if(!REP.seasons[rdSeason])rdSeason=SS[0];
   const cur=REP.seasons[rdSeason],both=rdG==="both",W=cur.women,M=cur.men,D=both?null:cur[rdG];
@@ -1697,6 +1710,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.10.20-3",d:"2026.10.20",ko:["디자이너: 브랜드 안 ‘정보 수정’으로 브랜드명 · 디렉터 · 홈페이지를 고칠 수 있어요","디렉터도 브랜드 홈페이지에서 자동으로 찾아와요","시즌 리포트: 새 시즌(FW27 · SS28 등)은 첫 쇼가 공개되면 자동으로 추가돼요","브랜드 컬렉션은 매일 업데이트돼요","계정(···)을 계정 · 백업 탭으로 나눴어요"],en:["Designers: ‘Edit details’ changes a brand’s name, director and homepage","Directors are also read from each brand’s homepage","Season Report: a new season (FW27, SS28…) is added once its first show is published","Brand collections update every day","Account (···) is split into Account and Backup tabs"]},
  {v:"2026.10.20-2",d:"2026.10.20",ko:["각 화면 제목 옆 ? 를 누르면 그 화면의 사용법을 볼 수 있어요","오른쪽 아래 ‘사용 가이드’에서 모든 사용법을 한곳에서 봐요","비밀번호는 바꿀 때마다 마스터 승인이 필요해요"],en:["Tap ? next to a page title to see how that page works","‘How to use’ at the bottom right gathers every how-to in one place","Every password change needs the master’s approval"]},
  {v:"2026.10.20-1",d:"2026.10.20",ko:["오른쪽 아래 말풍선에서 마스터에게 문의하고 답장을 받을 수 있어요","문의 유형을 고르면 ‘문의 내역’에서 처리 상태를 불빛으로 확인할 수 있어요","업데이트 소식은 이제 위쪽 알림 대신 ‘공지’ 메시지함으로 와요"],en:["Ask the master anything from the speech bubble at the bottom right","Pick an inquiry type to follow its status lights in My inquiries","Update news now arrives in the Notice box instead of a top banner"]},
  {v:"2026.10.19-6",d:"2026.10.19",ko:["디자이너: 시즌 · 컨셉 대신 브랜드 아이덴티티를 보여줘요","브랜드 홈페이지 링크를 매일 자동으로 확인해요","브랜드를 추가하면 홈페이지에서 아이덴티티를 자동으로 불러와요"],en:["Designers show each brand's identity instead of season and concept","Homepage links are checked automatically every day","Added brands get their identity from their homepage automatically"]},
@@ -1956,14 +1970,14 @@ const GUIDE=[
   ["Search","뉴스 검색","Use ‘Search news’ above the list to find stories by keyword. News is collected from free sources every 2 hours.","목록 위 ‘뉴스 검색’으로 키워드를 찾아요. 뉴스는 무료 매체에서 2시간마다 자동으로 모여요."]]},
  {id:"collections",en:"Collections",ko:"컬렉션",items:[
   ["Brands","브랜드","See this season's shows by brand. Filter by city or search a brand name.","이번 시즌 쇼를 브랜드별로 봐요. 도시별로 거르거나 브랜드 이름으로 찾을 수 있어요."],
-  ["Past collections","지난 컬렉션","Tap a brand to see every past show by year and season (ALL shows all). ‘See looks’ opens the full runway.","브랜드를 누르면 지난 쇼를 연도 · 시즌별로 볼 수 있어요(ALL은 전체). ‘룩 보기’로 런웨이 전체를 열어요."],
-  ["Season Report","시즌 리포트","Key words, colours, patterns, materials and items of the season, from official published data only. Arrows show the change against the season named next to them.","시즌의 메인 키워드 · 컬러 · 패턴 · 소재 · 아이템을 공식 발표 자료로만 보여줘요. 화살표 옆에 어느 시즌 대비인지 함께 적혀 있어요."],
+  ["Past collections","지난 컬렉션","Tap a brand to see every show by year and season (ALL shows all), updated every day. ‘See looks’ opens the full runway.","브랜드를 누르면 모든 쇼를 연도 · 시즌별로 볼 수 있어요(ALL은 전체). 매일 업데이트돼요. ‘룩 보기’로 런웨이 전체를 열어요."],
+  ["Season Report","시즌 리포트","Key words, colours, patterns, materials and items of the season, from official published data only. A new season (e.g. FW27, SS28) is added as soon as its first show is published.","시즌의 메인 키워드 · 컬러 · 패턴 · 소재 · 아이템을 공식 발표 자료로만 보여줘요. FW27 · SS28 같은 새 시즌은 첫 쇼가 공개되면 자동으로 추가돼요."],
   ["Evidence","근거 자료","Tap any ranking to see which brands used it and the articles behind it. Updated automatically every day.","순위 항목을 누르면 사용한 브랜드와 관련 기사 같은 근거를 볼 수 있어요. 매일 자동으로 업데이트돼요."],
   ["Calendar","캘린더","Fashion week schedules. Tap a date with shows to see what's on.","패션위크 일정이에요. 쇼가 있는 날짜를 누르면 그날의 쇼가 보여요."]]},
  {id:"designers",en:"Designers",ko:"디자이너",items:[
   ["Korean labels","국내 브랜드","Korean designer brands A – Z. Search by name and star your favourites.","국내 디자이너 브랜드를 A – Z로 모았어요. 이름으로 찾고 즐겨찾기할 수 있어요."],
   ["Brand identity","브랜드 아이덴티티","Tap a brand to read its identity, taken from its official homepage.","브랜드를 누르면 공식 홈페이지 기준의 아이덴티티 소개를 볼 수 있어요."],
-  ["Add · remove","추가 · 삭제","‘Add brand’ adds a label to your own list; its identity is read from the homepage within a few hours. Changes are yours only.","‘브랜드 추가’로 내 목록에 넣을 수 있어요. 아이덴티티는 몇 시간 안에 홈페이지에서 불러와요. 추가 · 삭제는 나에게만 적용돼요."],
+  ["Add · edit · remove","추가 · 수정 · 삭제","‘Add brand’ adds a label to your own list; ‘Edit’ in a brand changes its name, director or homepage. Its identity and director are read from the homepage within a few hours. Changes are yours only.","‘브랜드 추가’로 내 목록에 넣고, 브랜드 안 ‘정보 수정’으로 이름 · 디렉터 · 홈페이지를 고칠 수 있어요. 아이덴티티와 디렉터는 몇 시간 안에 홈페이지에서 불러와요. 추가 · 수정 · 삭제는 나에게만 적용돼요."],
   ["Link check","링크 확인","Homepage links are checked every day. Grey means the site blocks automatic checks — it usually still opens.","홈페이지 링크는 매일 확인해요. 회색은 사이트가 자동 확인을 막는 경우로, 대부분 정상적으로 열려요."]]},
  {id:"archive",en:"Archive",ko:"아카이브",items:[
   ["Images & folders","이미지 · 폴더","Drag images in, paste with ⌘V, or pick files. Sort them into folders.","이미지를 끌어 놓거나 ⌘V로 붙여 넣거나 파일을 골라 올려요. 폴더로 정리할 수 있어요."],
@@ -1977,17 +1991,17 @@ const GUIDE=[
   ["Edit","수정","Tap a message you sent to edit it within 5 minutes. Photos can be attached with +.","보낸 메시지를 누르면 5분 안에 수정할 수 있어요. 사진은 + 에서 첨부해요."]]},
  {id:"account",en:"Account",ko:"계정",items:[
   ["Language · refresh","언어 · 새로고침","Switch EN / KO at the top. The round arrow refreshes the app.","위쪽 EN / KO로 언어를 바꾸고, 둥근 화살표로 새로고침해요."],
-  ["My account","내 계정","‘···’ at the top opens your profile, backup and restore, and sign out.","위쪽 ‘···’에서 개인정보, 백업 · 복원, 로그아웃을 할 수 있어요."],
+  ["My account","내 계정","‘···’ at the top opens your account in tabs: Account (profile, password, sign out) and Backup.","위쪽 ‘···’에서 계정(개인정보 · 비밀번호 · 로그아웃)과 백업을 탭으로 나눠 볼 수 있어요."],
   ["Password","비밀번호","Every password change needs the master's approval. Ask in ‘···’ → Account; once approved you can change it once.","비밀번호는 바꿀 때마다 마스터 승인이 필요해요. ‘···’ → 계정에서 요청하고, 승인되면 한 번 바꿀 수 있어요."],
   ["Sign in","로그인","‘Stay signed in’ and ‘Remember ID’ are on the sign-in screen.","로그인 화면에서 자동 로그인 · 아이디 저장을 고를 수 있어요."],
   ["App icon","앱 아이콘","iPhone: Share → Add to Home Screen. Mac Safari: File → Add to Dock.","아이폰은 공유 → 홈 화면에 추가, 맥 사파리는 파일 → Dock에 추가로 앱처럼 쓸 수 있어요."]]},
  {id:"master",en:"Master",ko:"마스터",admin:true,items:[
-  ["Members","회원 승인","Approve or decline sign-ups and password requests in ‘···’ → Members. New requests also pop up as alerts.","가입 · 비밀번호 변경 요청은 ‘···’ → 회원 관리에서 승인해요. 새 요청은 알림으로도 떠요."],
+  ["Members","회원 승인","Approve or decline sign-ups and password requests in ‘···’ → Members tab. New requests also pop up as alerts.","가입 · 비밀번호 변경 요청은 ‘···’ → 회원 관리 탭에서 승인해요. 새 요청은 알림으로도 떠요."],
   ["Inquiries","문의 관리","Opening a chat marks it ‘Reading’; replying marks it ‘Answered’. Hold and delete are yours to choose. Reply straight from Inquiries.","대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요. 보류 · 삭제는 직접 골라요. 문의 현황에서 바로 답장할 수 있어요."],
   ["Notices","공지 보내기","Write in the Notice room to send to every member. Update notes are sent automatically.","공지방에 쓰면 모든 회원에게 보내져요. 업데이트 노트는 자동으로 보내져요."],
   ["Hide notes","노트 숨기기","In Update notes, tick an item to hide it from everyone else.","업데이트 노트에서 항목을 체크하면 다른 사용자에게 숨겨져요."],
-  ["View as member","사용자 화면 보기","The button at the bottom left switches to exactly what members see, and back.","왼쪽 아래 버튼으로 회원에게 보이는 화면 그대로 바꿔 보고, 다시 마스터 화면으로 돌아와요."],
-  ["Supabase update","Supabase 업데이트","‘···’ → Account always has the latest Supabase update to copy. ‘New’ shows when one hasn’t been run yet.","‘···’ → 계정에 최신 Supabase 업데이트가 항상 있어요. 아직 실행 안 한 업데이트가 있으면 ‘새 업데이트’로 표시돼요."],
+  ["View as member","사용자 화면 보기","The switch at the bottom left flips between the master view and exactly what members see.","왼쪽 아래 마스터 / 사용자 스위치로 회원에게 보이는 화면과 마스터 화면을 오가요."],
+  ["Supabase update","Supabase 업데이트","‘···’ → Supabase tab always has the latest update to copy. ‘New’ shows when one hasn’t been run yet.","‘···’ → Supabase 탭에 최신 업데이트가 항상 있어요. 아직 실행 안 한 업데이트가 있으면 ‘새 업데이트’로 표시돼요."],
   ["This tab","이 탭","Only the master can see this tab.","이 탭은 마스터에게만 보여요."]]}];
 const GUIDE_ROUTE={home:"news",saved:"news",runway:"collections",rdata:"collections",calendar:"collections",designers:"designers",archive:"archive",sites:"archive"};
 let guideTab="news";
@@ -2011,9 +2025,9 @@ const mtSqlNew=()=>{if(!ACC.realAdmin)return false;try{return localStorage.getIt
 const mtSections=()=>String(PW_SQL).split("\n").map(l=>/^--\s*(\d+)\)\s*(.+)$/.exec(l)).filter(Boolean).map(m=>[m[1],m[2]]);
 function mtApply(){if(!ACC.realAdmin){const b=$("#mtBar");b&&b.remove();return}ACC.admin=VIEWAS!=="member";document.documentElement.classList.toggle("vd-preview",VIEWAS==="member");mtBar()}
 function mtBar(){let b=$("#mtBar");if(!ACC.realAdmin){b&&b.remove();return}
-  if(!b){b=document.createElement("div");b.id="mtBar";document.body.appendChild(b);b.addEventListener("click",e=>{const x=e.target.closest("[data-mtview]");if(x)mtSwitch(x.dataset.mtview)})}
+  if(!b){b=document.createElement("div");b.id="mtBar";document.body.appendChild(b);b.addEventListener("click",e=>{if(e.target.closest("[data-mtsw]"))mtSwitch(VIEWAS==="member"?"master":"member")})}
   const pv=VIEWAS==="member";b.classList.toggle("pv",pv);
-  b.innerHTML=`${pv?`<span class="mtl"><i></i>${t("Member view","사용자 화면")}</span>`:""}<button data-mtview="${pv?"master":"member"}">${pv?t("Back to master","마스터 화면으로"):t("View as member","사용자 화면 보기")}</button>`}
+  b.innerHTML=`<button class="lang mtsw" data-mtsw role="switch" aria-checked="${pv}" aria-label="${t("View as member","사용자 화면 보기")}"><b class="${pv?"":"on"}">${t("MASTER","마스터")}</b><span class="sw"></span><b class="${pv?"on":""}">${t("MEMBER","사용자")}</b></button>`}
 function mtSwitch(v){VIEWAS=v==="member"?"member":null;try{VIEWAS?sessionStorage.setItem("vdViewAs","member"):sessionStorage.removeItem("vdViewAs")}catch(_){}
   ACC.admin=!VIEWAS;document.documentElement.classList.toggle("vd-preview",!!VIEWAS);
   try{closeSheet()}catch(_){}try{closeDrawer()}catch(_){}
@@ -2032,8 +2046,20 @@ function mtSqlBox(){if(!ACC.admin)return;const sb=$("#sheet .sb");if(!sb||$("#mt
   <details class="mtdet"><summary>${t(`What's inside (${sec.length})`,`들어있는 내용 (${sec.length})`)}</summary><ol>${sec.map(([n,x])=>`<li>${esc(x)}</li>`).join("")}</ol><pre>${esc(PW_SQL)}</pre></details>`;
   sb.appendChild(d);
   d.addEventListener("click",async e=>{if(e.target.closest("[data-mtcopy]")){try{await navigator.clipboard.writeText(PW_SQL);toast(t("Copied — paste it in the SQL Editor and press Run","복사했어요 · SQL Editor에 붙여넣고 Run을 눌러 주세요"))}catch(_){const ta=document.createElement("textarea");ta.value=PW_SQL;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast(t("Copied","복사했어요"))}catch(__){toast(t("Couldn't copy — open ‘What's inside’ and copy by hand","복사하지 못했어요 · ‘들어있는 내용’을 열어 직접 복사해 주세요"))}ta.remove()}}
-    if(e.target.closest("[data-mtdone]")){try{localStorage.setItem("vdSqlDone",MT_SQLV)}catch(_){}const ab=$("#acctBtn");ab&&ab.classList.toggle("badge",(ACC.pending||0)>0);toast(t("Marked as run","실행 완료로 표시했어요"));d.remove();mtSqlBox()}})}
-{const _acc=account;account=function(){const r=_acc.apply(this,arguments);Promise.resolve(r).then(()=>setTimeout(()=>{try{mtSqlBox()}catch(e){console.error(e)}},0));return r}}
+    if(e.target.closest("[data-mtdone]")){try{localStorage.setItem("vdSqlDone",MT_SQLV)}catch(_){}const ab=$("#acctBtn");ab&&ab.classList.toggle("badge",(ACC.pending||0)>0);toast(t("Marked as run","실행 완료로 표시했어요"));ATAB="sql";account(false)}})}
+let ATAB="me";
+function acctTabs(){const sb=$("#sheet .sb");if(!sb||sb.querySelector(".atabs")||!$("#bk"))return;
+  const kind=g=>{const x=g.textContent.trim();if(/^(Backup|백업)$/.test(x))return "backup";if(/^(Members|회원 관리)$/.test(x))return "members";return "me"};
+  const groups={me:[],backup:[],members:[],sql:[]};let cur="me";
+  [...sb.childNodes].forEach(n=>{if(n.nodeType===1&&n.classList.contains("grp"))cur=kind(n);
+    if(n.id==="mtSql")return groups.sql.push(n);if(n.nodeType===1&&n.querySelector&&n.querySelector("#so"))return groups.me.push(n);groups[cur].push(n)});
+  const tabs=[["me",t("Account","계정")],["backup",t("Backup","백업")],["members",t("Members","회원 관리")],["sql","Supabase"]].filter(([k])=>groups[k].some(n=>n.nodeType===1));
+  if(!tabs.some(x=>x[0]===ATAB))ATAB="me";
+  sb.innerHTML="";const bar=document.createElement("div");bar.className="gtabs atabs";bar.setAttribute("role","tablist");
+  bar.innerHTML=tabs.map(([k,l])=>`<button role="tab" data-atab="${k}" class="${k===ATAB?"on":""}">${l}${k==="sql"&&mtSqlNew()?'<i class="adot"></i>':""}${k==="members"&&ACC.pending?' <i class="adot"></i>':""}</button>`).join("");sb.appendChild(bar);
+  tabs.forEach(([k])=>{const sec=document.createElement("section");sec.className="atab";sec.dataset.at=k;sec.hidden=k!==ATAB;groups[k].forEach(n=>sec.appendChild(n));sb.appendChild(sec)});
+  bar.onclick=e=>{const b=e.target.closest("[data-atab]");if(!b)return;ATAB=b.dataset.atab;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));sb.querySelectorAll(".atab").forEach(x=>x.hidden=x.dataset.at!==ATAB)}}
+{const _acc=account;account=function(){const r=_acc.apply(this,arguments);Promise.resolve(r).then(()=>setTimeout(()=>{try{mtSqlBox()}catch(e){console.error(e)}try{acctTabs()}catch(e){console.error(e)}},0));return r}}
 
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;

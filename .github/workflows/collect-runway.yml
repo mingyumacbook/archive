@@ -2,7 +2,7 @@ name: Collect runway history
 
 on:
   schedule:
-    - cron: "23 20 * * 0"   # every Monday 05:23 Korea time
+    - cron: "23 20 * * *"   # every day 05:23 Korea time
   workflow_dispatch: {}
 permissions: { contents: write }
 jobs:
