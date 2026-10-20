@@ -112,3 +112,10 @@ create policy "chat read marks" on public.chat_read for all to authenticated
 drop policy if exists "admin notices" on public.shared_docs;
 create policy "admin notices" on public.shared_docs for all to authenticated
   using (collection = 'notices' and (select public.vd_admin())) with check (collection = 'notices' and (select public.vd_admin()));
+
+-- 10) 비밀번호 변경은 매번 승인 (승인 1번 = 변경 1번, 바꾸고 나면 다시 요청)
+create or replace function public.vd_pw_used() returns void language plpgsql security definer set search_path = public as $$
+begin
+  update public.members set pw_status = 'none', pw_decided_at = now() where user_id = auth.uid() and pw_status = 'approved';
+end $$;
+grant execute on function public.vd_pw_used() to authenticated;
