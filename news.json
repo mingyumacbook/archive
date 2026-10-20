@@ -1,6 +1,6 @@
 {
- "at": "2026-10-20T04:50:38.924Z",
- "stories": 381,
+ "at": "2026-10-20T07:04:05.301Z",
+ "stories": 387,
  "translated": 356,
  "notTranslated": [
   "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks",
@@ -8,6 +8,7 @@
   "Millennial Side Parts Are Angel-Approved on the Victoria’s Secret Runway",
   "It's Here: The Winter Accessory Trend It Girls Will Use to Elevate Their Outfits",
   "My 54-Year-Old Mom and I Struggle With Dry Skin—7 Derm-Approved Moisturizers We Both Swear By",
+  "아우터를 새로 구입한다면, 지금 ‘이것’부터 확인하세요",
   "Not Every Ballet-Flats Color Works With Light-Wash Jeans—This One Does",
   "다시 태어난 클래식, 겔랑 ‘뢰르 블루’",
   "이 티셔츠,더 추워지기 전에 부지런히 입고 다녀야 합니다",
@@ -21,14 +22,13 @@
   "가을 부츠에는 긴바지보다 반바지가 어울립니다",
   "런던의 기묘한 낭만을 이어가는 이름 3-프란체스카 레이크",
   "런던의 기묘한 낭만을 이어가는 이름 3-아그로 스튜디오",
-  "런던의 기묘한 낭만을 이어가는 이름 3-수잔 팡",
-  "‘보그’에서 최다 조회 수 기록한 2027 봄/여름 쇼 톱 10"
+  "런던의 기묘한 낭만을 이어가는 이름 3-수잔 팡"
  ],
  "trOK": 0,
- "trFail": 25,
+ "trFail": 31,
  "pictures": {
-  "checked": 381,
-  "landscape": 348,
-  "portrait": 109
+  "checked": 387,
+  "landscape": 354,
+  "portrait": 111
  }
 }
