@@ -5,15 +5,28 @@
 // Already-translated text is never sent again.
 const HANGUL = /[가-힣]/;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+// three free endpoints, tried in turn (the first one sometimes refuses bursts from shared runners)
+const ENDPOINTS = [
+  (q, tl) => [`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(q)}`, j => (j?.[0] || []).map(x => x?.[0] || "").join("")],
+  (q, tl) => [`https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=${tl}&q=${encodeURIComponent(q)}`, j => Array.isArray(j) ? (Array.isArray(j[0]) ? j[0][0] : j[0]) : (j?.sentences || []).map(x => x.trans || "").join("")],
+  (q, tl) => [`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q.slice(0, 480))}&langpair=${/[\uac00-\ud7a3]/.test(q) ? "ko" : "en"}|${tl}`, j => j?.responseStatus == 200 ? j?.responseData?.translatedText || "" : ""]
+];
+let dead = new Set();
 export async function tr(text, tl) {
-  text = String(text || "").trim(); if (!text) return "";
-  for (let i = 0; i < 4; i++) {
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 12000);
-    try {
-      const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(text.slice(0, 1800))}`, { headers: { "User-Agent": "Mozilla/5.0" }, signal: ctl.signal });
-      if (r.ok) { const j = await r.json(); const out = (j?.[0] || []).map(x => x?.[0] || "").join("").trim(); if (out) { await sleep(120); return out; } }
-    } catch {} finally { clearTimeout(t); }
-    await sleep(1500 * (i + 1));
+  text = String(text || "").trim().slice(0, 1800); if (!text) return "";
+  for (let e = 0; e < ENDPOINTS.length; e++) {
+    if (dead.has(e)) continue;
+    for (let i = 0; i < 2; i++) {
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 10000);
+      try {
+        const [url, pick] = ENDPOINTS[e](text, tl);
+        const r = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/126 Safari/537.36" }, signal: ctl.signal });
+        if (r.status === 429 || r.status === 403) { await sleep(800); continue; }
+        if (r.ok) { const out = String(pick(await r.json()) || "").trim(); if (out && !/MYMEMORY WARNING|QUERY LENGTH/i.test(out)) { await sleep(120); return out; } }
+      } catch {} finally { clearTimeout(t); }
+      await sleep(700 * (i + 1));
+    }
+    tr.fails = (tr.fails || {}); tr.fails[e] = (tr.fails[e] || 0) + 1; if (tr.fails[e] >= 6) dead.add(e); // stop using an endpoint that keeps refusing
   }
   return "";
 }
