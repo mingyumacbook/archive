@@ -1,6 +1,6 @@
 {
- "at": "2026-10-20T03:01:48.279Z",
- "stories": 379,
+ "at": "2026-10-20T03:24:41.461Z",
+ "stories": 380,
  "translated": 356,
  "notTranslated": [
   "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks",
@@ -25,10 +25,10 @@
   "새로운 길을 찾아서: 2027 봄/여름 파리 패션 위크"
  ],
  "trOK": 0,
- "trFail": 23,
+ "trFail": 24,
  "pictures": {
-  "checked": 379,
-  "landscape": 346,
-  "portrait": 107
+  "checked": 380,
+  "landscape": 347,
+  "portrait": 108
  }
 }
