@@ -1090,17 +1090,18 @@ function home(){
     <ul class="news" id="newsList">${newsRows()}</ul></section>`;
 }
 const HAN=/[\uac00-\ud7a3]/;
-const tTitle=x=>lang==="ko"?(x.title_ko||x.title||x.title_en||""):(x.title_en&&!HAN.test(x.title_en)?x.title_en:(x.title_en||x.title||""));
-const tSum=x=>lang==="ko"?(x.summary_ko||x.summary||x.text||""):(x.summary_en||x.text_en||x.summary||x.text||"");
+const tTitle0=x=>lang==="ko"?(x.title_ko||x.title||x.title_en||""):(x.title_en&&!HAN.test(x.title_en)?x.title_en:(x.title_en||x.title||""));
+const tSum0=x=>lang==="ko"?(x.summary_ko||x.summary||x.text||""):(x.summary_en||x.text_en||x.summary||x.text||"");
+const tTitle=x=>tx(tTitle0(x)),tSum=x=>tx(tSum0(x));
 const TAGKO={sheer:"시어",skirt:"스커트",lingerie:"란제리 레이어링",check:"체크",tailoring:"테일러링",leather:"레더",denim:"데님",knit:"니트",purple:"퍼플·라일락",orange:"오렌지",metallic:"메탈릭",leopard:"레오파드",boho:"보호",belt:"벨트","creative director":"디렉터 이동",retail:"리테일·실적",korea:"국내 시장",sustainability:"지속가능성",accessories:"액세서리",layering:"레이어링",jewelry:"주얼리",collaboration:"협업",outerwear:"아우터",luxury:"럭셔리",market:"시장",materials:"소재",trench:"트렌치","trench coat":"트렌치코트",oversize:"오버사이즈",oversized:"오버사이즈",wool:"울",cotton:"코튼",expansion:"확장",sourcing:"소싱",imagery:"이미지",consumer:"소비자"};
-const tagName=g=>lang==="ko"?(TAGKO[String(g).toLowerCase()]||DATA.ko[g]||g):g;
+const tagName=g=>lang==="ko"?(TAGKO[String(g).toLowerCase()]||DATA.ko[g]||tx(g)):tx(g);
 function newsRows(){const q=newsQ.trim().toLowerCase();const list=NEWS.filter(x=>!q||[x.title,x.title_en,x.title_ko,x.summary,x.summary_ko,x.summary_en,x.source,(x.tags||[]).join(" ")].join(" ").toLowerCase().includes(q));
   if(!list.length)return `<li class="empty"><b>${t("No matching news","찾는 뉴스가 없어요")}</b>${t("Try another keyword.","다른 키워드로 찾아 보세요.")}</li>`;
   return list.slice(0,newsN).map(x=>newsRow(x)).join("")+(list.length>newsN?`<li><button class="more" data-more>${t("More","더 보기")} (${list.length-newsN})</button></li>`:"")}
-function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(x.source)}</b></div>
+function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(tx(x.source))}</b></div>
   <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(tTitle(x))}</a></h3>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?140:240))}</p>`:""}
   <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(tagName(g))).join("  ")}</div></div>
-  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(x.source||"")}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(x.source||"")}</span></a>`}
+  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(tx(x.source||""))}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(tx(x.source||""))}</span></a>`}
   <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
 function startSlider(){clearInterval(slideTimer);const sl=$("#slider");if(!sl)return;const D=6500;
   const tick=()=>{const p=$("#prog");if(!p)return;p.style.transition="none";p.style.width="0";requestAnimationFrame(()=>{p.style.transition=`width ${D}ms linear`;p.style.width="100%"})};
@@ -1165,9 +1166,9 @@ function drawBrand(b){
    <div class="db gut"><h2>${esc(b.name)}</h2>
     ${b.cols.length?`<div style="display:grid;gap:10px"><span class="seg">${[["all","All","전체"],["SS","SS","SS"],["FW","FW","FW"]].map(([k,en,ko])=>`<button data-bs="${k}" class="${bSeason===k?"on":""}">${t(en,ko)}</button>`).join("")}</span>
     <div class="chipline"><button class="chip ${!bYear?"on":""}" data-by="">${t("All years","전체 연도")}</button>${years.map(y=>`<button class="chip ${bYear===y?"on":""}" data-by="${y}">${y}</button>`).join("")}</div></div>`:""}
-    <div>${cols.map(c=>`<div class="srow"><span class="s">${c.season}${String(c.year).slice(2)}</span><span class="m">${t(...(TYPE[c.type]||TYPE["ready-to-wear"]))}${c.city?" · "+esc(t(c.city,CITY_KO[c.city]||c.city)):""}<small>${(()=>{const dn=designerFor(b.name,c);return dn?`<span class="dz">${t("by","디렉터")} ${esc(dn)}</span>`:`<span class="dz none">${t("Designer not confirmed","디렉터 확인 중")}</span>`})()}${c.date?` · ${fmtMD(c.date)}`:` · ${c.season==="SS"?t("Spring–Summer","봄·여름"):t("Fall–Winter","가을·겨울")} ${c.year}`}</small></span>
+    <div>${cols.map(c=>`<div class="srow"><span class="s">${c.season}${String(c.year).slice(2)}</span><span class="m">${t(...(TYPE[c.type]||TYPE["ready-to-wear"]))}${c.city?" · "+esc(cityName(c.city)):""}<small>${(()=>{const dn=designerFor(b.name,c);return dn?`<span class="dz">${t("by","디렉터")} ${esc(dn)}</span>`:`<span class="dz none">${t("Designer not confirmed","디렉터 확인 중")}</span>`})()}${c.date?` · ${fmtMD(c.date)}`:` · ${c.season==="SS"?t("Spring–Summer","봄·여름"):t("Fall–Winter","가을·겨울")} ${c.year}`}</small></span>
       <a class="ext" href="https://nowfashion.com/${esc(c.slug)}" target="_blank" rel="noopener">${t("Looks","룩 보기")} ${SV.arrow}</a></div>`).join("")}
-     ${noPhotos.map(s=>`<div class="srow"><span class="s">SS27</span><span class="m">${esc(t(s.city,CITY_KO[s.city]||s.city))}<small>${DATA.cd_now[bk(b.name)]?`<span class="dz">${t("by","디렉터")} ${esc(DATA.cd_now[bk(b.name)])}</span> · `:""}${fmtMD(s.date)}</small></span><span class="lbl">${t("Photos soon","사진 준비 중")}</span></div>`).join("")}
+     ${noPhotos.map(s=>`<div class="srow"><span class="s">SS27</span><span class="m">${esc(cityName(s.city))}<small>${DATA.cd_now[bk(b.name)]?`<span class="dz">${t("by","디렉터")} ${esc(DATA.cd_now[bk(b.name)])}</span> · `:""}${fmtMD(s.date)}</small></span><span class="lbl">${t("Photos soon","사진 준비 중")}</span></div>`).join("")}
      ${!cols.length&&!noPhotos.length?`<div class="empty"><b>${t("No shows for this filter","이 조건의 쇼가 없어요")}</b></div>`:""}</div>
     <button class="btn sm ghost" data-cdedit="${esc(b.key)}" style="justify-self:start">${t("Edit designer name","디렉터 이름 수정")}</button>
     <span class="okmark"><i></i>${t("Links come from NOWFASHION's own schedule and brand pages · each opens straight to the look gallery","NOWFASHION 공식 일정·브랜드 페이지에 걸린 링크만 써요 · 누르면 바로 룩 사진이 열려요")}</span></div>`;
@@ -1224,7 +1225,7 @@ function calendarView(){
    <aside class="dayp"><span class="lbl">${lang==="ko"?`${selD.getMonth()+1}월 ${selD.getDate()}일`:selD.toLocaleString("en",{weekday:"long",month:"long",day:"numeric"})}</span>
     <h3>${selShows.length?`${selShows.length} ${t(selShows.length>1?"shows":"show","개 쇼")}`:selEv.length?esc(t(selEv[0].name,selEv[0].name_ko)):t("No shows","쇼 없음")}</h3>
     ${selShows.length?Object.entries(byCity).map(([c,l])=>`<div class="cityh">${esc(t(c,CITY_KO[c]||c))}</div>${l.slice().sort((a,b)=>String(a.gmt).localeCompare(String(b.gmt))).map(s=>`<div class="shrow"><div><span class="bn">${esc(s.brand)}</span><small>${showTime(s)}${s.type&&s.type!=="Runway"?` · ${t(s.type,{Presentation:"프레젠테이션",Digital:"디지털"}[s.type])}`:""}${DATA.cd_now[bk(s.brand)]?`<br>${esc(DATA.cd_now[bk(s.brand)])}`:""}</small></div><span class="lk">${vidLink(s)}${s.slug?`<a class="ext" href="https://nowfashion.com/${esc(s.slug)}" target="_blank" rel="noopener">${t("Looks","룩")} ${SV.arrow}</a>`:`<small>${t("photos soon","사진 준비 중")}</small>`}</span></div>`).join("")}`).join(""):selEv.length?`<p class="tip">${t("The brand-by-brand schedule is added automatically as soon as the organisers publish it, usually about two weeks before the week starts.","브랜드별 쇼 일정은 주최 측이 공식 일정을 발표하면(보통 시작 2주 전) 자동으로 채워져요.")}</p>`:`<p class="tip">${t("Pick a day with shows on the calendar.","쇼가 있는 날짜를 눌러 보세요.")}</p>`}
-    <div class="cityh" style="margin-top:26px">${t("Coming up","다가오는 일정")}</div>${up.map(e=>{const live=e.s<=TODAY;return `<div class="up"><span class="dt"><b>${e.s.getDate()}</b>${lang==="ko"?(e.s.getMonth()+1)+"월":e.s.toLocaleString("en",{month:"short"})}</span><div><div class="nm">${esc(t(e.name,e.name_ko||e.name))}</div><div class="mt">${esc(e.city)}${e.season?" · "+e.season:""} · ${fmtMD(e.start)}–${fmtMD(e.end)}</div>${live?`<div class="live">● ${t("On now","진행 중")}</div>`:""}</div></div>`}).join("")}</aside></div></div>`;
+    <div class="cityh" style="margin-top:26px">${t("Coming up","다가오는 일정")}</div>${up.map(e=>{const live=e.s<=TODAY;return `<div class="up"><span class="dt"><b>${e.s.getDate()}</b>${lang==="ko"?(e.s.getMonth()+1)+"월":e.s.toLocaleString("en",{month:"short"})}</span><div><div class="nm">${esc(t(e.name,e.name_ko||e.name))}</div><div class="mt">${esc(cityName(e.city))}${e.season?" · "+e.season:""} · ${fmtMD(e.start)}–${fmtMD(e.end)}</div>${live?`<div class="live">● ${t("On now","진행 중")}</div>`:""}</div></div>`}).join("")}</aside></div></div>`;
 }
 function renderAlert(){
   if(LS.get("alertOff","")===dayKey(TODAY)){$("#alert").innerHTML="";return}
@@ -1402,19 +1403,20 @@ const UKEY={};async function ukey(u){const n=normU(u);if(UKEY[n])return UKEY[n];
 async function loadSiteck(force){if(SITECKL&&!force)return;SITECKL=true;try{const {data}=await SB.from("shared_docs").select("id,data").eq("collection","sitecheck");const m={};(data||[]).forEach(r=>m[r.id]=r.data);
   await Promise.all(DES.map(d=>d.url?ukey(d.url):null));SITECK=m;if(route==="designers")render(false);const dr=$("#drawer");if(dr&&dr._des)openDes(dr._des)}catch(_){SITECK={}}}
 const ckOf=d=>{if(!SITECK||!d.url)return null;const k=UKEY[normU(d.url)];return k?SITECK[k]||null:null};
-const identOf=d=>{const c=ckOf(d);const own=t(d.desc_en,d.desc_ko);if(own)return {text:own,src:"curated"};if(c&&(c.desc_ko||c.desc_en||c.desc))return {text:t(c.desc_en||c.desc,c.desc_ko||c.desc),src:"official"};return null};
-const dirOf=d=>d.director||(DATA.kr_dir[d.id]?t(DATA.kr_dir[d.id][1],DATA.kr_dir[d.id][0]):"")||((typeof ckOf==="function"&&ckOf(d)||{}).director||"");
+const identOf=d=>{const c=ckOf(d);const own=tx(t(d.desc_en,d.desc_ko));if(own)return {text:own,src:"curated"};if(c&&(c.desc_ko||c.desc_en||c.desc))return {text:tx(t(c.desc_en||c.desc,c.desc_ko||c.desc)),src:"official"};return null};
+const dirOf0=d=>d.director||(DATA.kr_dir[d.id]?t(DATA.kr_dir[d.id][1],DATA.kr_dir[d.id][0]):"")||((typeof ckOf==="function"&&ckOf(d)||{}).director||"");
+const dirOf=d=>{const c=typeof ckOf==="function"&&ckOf(d)||{};if(!d.director&&!DATA.kr_dir[d.id]&&c.director)return t(c.director_en||tx(c.director),c.director_ko||tx(c.director));return tx(dirOf0(d))};
 const dirFound=d=>!d.director&&!DATA.kr_dir[d.id]&&typeof ckOf==="function"&&ckOf(d)&&ckOf(d).director?ckOf(d):null;
 function designersView(){loadSiteck();const q=dQ.trim().toLowerCase();let l=DES.filter(d=>!q||[d.name,d.ko,d.desc_en,d.desc_ko].join(" ").toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name,"en",{sensitivity:"base"}));
   const fav=l.filter(d=>FAV.has(d.id)),rest=l.filter(d=>!FAV.has(d.id));
-  const row=d=>`<div class="ditem"><button class="star ${FAV.has(d.id)?"on":""}" data-fav="${d.id}" aria-label="${t("Favourite","즐겨찾기")}">${FAV.has(d.id)?SV.starf:SV.star}</button><button class="nm" data-des="${d.id}">${esc(d.name)}<small>${esc(d.ko)}${dirOf(d)?` · ${t("Director","디렉터")} ${esc(dirOf(d))}`:""}</small></button><span class="ss">${(()=>{const id=identOf(d);return id?esc(shortT(id.text,lang==="ko"?46:78)):`<span style="color:var(--ink-3)">${t("Identity is read from the homepage soon","홈페이지에서 아이덴티티를 불러오는 중")}</span>`})()}</span><a class="ext" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Site","홈페이지")} ${SV.arrow}</a></div>`;
+  const row=d=>`<div class="ditem"><button class="star ${FAV.has(d.id)?"on":""}" data-fav="${d.id}" aria-label="${t("Favourite","즐겨찾기")}">${FAV.has(d.id)?SV.starf:SV.star}</button><button class="nm" data-des="${d.id}">${esc(d.name)}<small>${[lang==="ko"?esc(d.ko||""):"",dirOf(d)?`${t("Director","디렉터")} ${esc(dirOf(d))}`:""].filter(Boolean).join(" · ")}</small></button><span class="ss">${(()=>{const id=identOf(d);return id?esc(shortT(id.text,lang==="ko"?46:78)):`<span style="color:var(--ink-3)">${t("Identity is read from the homepage soon","홈페이지에서 아이덴티티를 불러오는 중")}</span>`})()}</span><a class="ext" href="${esc(d.url)}" target="_blank" rel="noopener">${t("Site","홈페이지")} ${SV.arrow}</a></div>`;
   return `<div class="gut max"><div class="ph"><div><span class="lbl">${t("Korean labels","국내 브랜드")}</span><h1>${t("Designers","디자이너")}</h1></div><div class="tools"><label class="vh" for="dq">${t("Search","검색")}</label><input class="inp" id="dq" type="search" placeholder="${t("Find a brand","브랜드 찾기")}" value="${esc(dQ)}"><button class="btn ghost" id="addDes">${SV.plus}${t("Add brand","브랜드 추가")}</button></div></div>
   <div class="dlist">${fav.length?`<div class="favhd">${t("Favourites","즐겨찾기")}</div>${fav.map(row).join("")}<div class="favhd">A – Z</div>`:""}${rest.map(row).join("")||(!fav.length?`<div class="empty"><b>${t("No brand found","브랜드가 없어요")}</b></div>`:"")}</div>
   <p class="srcl">${t("Identity notes come from each brand's own homepage. Every homepage link is checked once a day.","아이덴티티 문구는 각 브랜드 공식 홈페이지 기준이에요. 홈페이지 링크는 매일 한 번 확인해요.")}</p></div>`}
 function openDes(id){const d=DES.find(x=>x.id===id);if(!d)return;loadSiteck();const c=ckOf(d);const id0=identOf(d);
   const st=!d.url?t("No homepage","홈페이지 없음"):!c?t("Will be checked within a few hours","몇 시간 안에 확인돼요"):c.ok?t("Opens normally","정상 접속")+` · ${fmtMD(c.at)}`:c.status===0?t("Can't be checked automatically (the site blocks outside checks)","자동 확인 불가 (사이트가 외부 확인을 막아요)")+` · ${fmtMD(c.at)}`:t("Couldn't open","접속 안 됨")+` (${c.status}) · ${fmtMD(c.at)}`;
   $("#drawer").innerHTML=`<div class="dh gut"><span class="lbl">${t("Designers · Korea","디자이너 · 국내")}</span><span class="sp"></span><button class="hbtn" data-close>${SV.x}</button></div>
-  <div class="db gut"><div><h2>${esc(d.name)}</h2><div style="color:var(--ink-3);margin-top:6px">${esc(d.ko||"")}</div></div>
+  <div class="db gut"><div><h2>${esc(d.name)}</h2><div style="color:var(--ink-3);margin-top:6px">${lang==="ko"?esc(d.ko||""):""}</div></div>
    <div><span class="lbl">${t("Identity","브랜드 아이덴티티")}</span>${id0?`<p style="margin:10px 0 0;font-size:15px;line-height:1.75">${esc(id0.text)}</p><p class="tip" style="margin-top:6px">${id0.src==="official"?t("From the brand's own homepage description","브랜드 공식 홈페이지 소개 문구 기준"):t("Summarised from the brand's own homepage","브랜드 공식 홈페이지 내용을 요약")}</p>`:`<p class="tip" style="margin-top:10px">${t("The brand's own description is read from its homepage on the next check (within a few hours).","다음 확인 때(몇 시간 안에) 브랜드 홈페이지의 소개 문구를 자동으로 불러와요.")}</p>`}</div>
    <div><div class="kv"><span>${t("Director","디렉터")}</span><span>${esc(dirOf(d)||t("Not confirmed — looked up from the homepage","확인 중 · 홈페이지에서 찾는 중"))}${dirFound(d)?` <small style="color:var(--ink-3)">· ${dirFound(d).director_how==="wikidata"?t("from Wikidata","위키데이터 기준"):t("from the brand's own site","브랜드 홈페이지 기준")}</small>`:""} <button class="lnk2" data-diredit="${d.id}">${t("Edit","수정")}</button></span></div>
     <div class="kv"><span>${t("Homepage","홈페이지")}</span>${d.url?`<a href="${esc(d.url)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(d.url.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`:"—"}</div>
@@ -1605,7 +1607,7 @@ async function loadReport(force){if(REP&&!force)return REP;if(REPLOAD&&!force)re
   REPLOAD=(async()=>{try{const {data,error}=await SB.from("shared_docs").select("id,data,updated_at").eq("collection","seasonreport");if(error)throw error;
       const o={seasons:{},wgsn:null,meta:null};(data||[]).forEach(r=>{if(r.id==="wgsn")o.wgsn=r.data;else if(r.id==="_meta")o.meta={...r.data,updated_at:r.updated_at};else{const [s,g]=r.id.split("-");(o.seasons[s]??={})[g]=r.data}});
       REP=o;REPERR="";if(!o.meta)REPERR="empty"}catch(e){REPERR=e.message||"error";REP=REP||{seasons:{},wgsn:null,meta:null}}REPLOAD=null;return REP})();return REPLOAD}
-const repName=n=>t(n,DATA.ko[n]||DATA.ko[String(n).replace(/s$/,"")]||n);
+const repName=n=>t(n,DATA.ko[n]||DATA.ko[String(n).replace(/s$/,"")]||tx(n));
 const fmtDay=ms=>ms?new Date(ms).toLocaleDateString(lang==="ko"?"ko-KR":"en-GB",{year:"numeric",month:"short",day:"numeric"}):"";
 function chg(v,base){if(v==="new")return `<span class="dl">${t("new","신규")}</span>`;if(v==null)return "";const s=v>0?"+":v<0?"−":"±";return `<span class="dl ${v>0?"pos":v<0?"neg":""}">${s}${Math.abs(v).toFixed(1)}%p${base?` <em>${t("vs "+base,base+" 대비")}</em>`:""}</span>`}
 function coloroHex(code){const m=String(code).match(/(\d{3})-(\d{2})-(\d{2})/);if(!m)return "#ccc";const L=+m[2],C=+m[3],h=((+m[1]-1)*2.25+18)*Math.PI/180;
@@ -1639,7 +1641,7 @@ function rdataView(){
      <div class="rf"><div><span class="lbl">${t("Rising","상승")}</span>${(kw.rising||[]).map(x=>`<p><button class="evb lk" data-ev="rising|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl pos">${x.prev}% → ${x.share}%</span></p>`).join("")}</div><div><span class="lbl">${t("Fading","하락")}</span>${(kw.fading||[]).map(x=>`<p><button class="evb lk" data-ev="fading|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl neg">${x.prev}% → ${x.share}%</span></p>`).join("")}</div></div></section>`
     :`<p class="legend">${t("Items that appear in both the women's and men's published lists. The big figure is the average of the two official shares; each share is shown under it.","여성복·남성복 공개 목록에 함께 나온 항목이에요. 큰 숫자는 두 공식 비중의 평균이고, 아래에 여성·남성 비중을 그대로 적었어요.")}</p>`}
    ${wg?`<section class="wgsn"><div><span class="lbl">${t(`WGSN × Coloro key colours · ${rdSeason}`,`WGSN × Coloro 키 컬러 · ${rdSeason}`)}</span><p class="tip">${t("Announced by WGSN as the season's key colours (an official announcement, not a runway count). On-screen colour is approximate — use the Coloro code.","WGSN이 이 시즌의 키 컬러로 공식 발표한 색이에요(런웨이 집계가 아닌 발표 자료). 화면 색은 근사치라 정확한 색은 Coloro 코드로 확인하세요.")}</p></div>
-     <div class="wgl">${wg.map(c=>`<div><i style="background:${coloroHex(c.code)}"></i><b>${esc(c.name)}</b><small>Coloro ${esc(c.code)}${c.coty?` · ${t("Colour of the Year","올해의 컬러")} ${esc(c.coty)}`:""}</small></div>`).join("")}</div>
+     <div class="wgl">${wg.map(c=>`<div><i style="background:${coloroHex(c.code)}"></i><b>${esc(tx(c.name))}</b><small>Coloro ${esc(c.code)}${c.coty?` · ${t("Colour of the Year","올해의 컬러")} ${esc(tx(c.coty))}`:""}</small></div>`).join("")}</div>
      <a class="ext" href="${esc(REP.wgsn.src)}" target="_blank" rel="noopener">Coloro ${SV.arrow}</a></section>`:""}
    <div class="repgrid">
     <section><h2>${t("Colour","컬러")}</h2>${bars("colors",true)}</section>
@@ -1653,15 +1655,15 @@ function rdataView(){
 }
 function findTrend(cat,name){const cur=REP.seasons[rdSeason]||{};const gs=rdG==="both"?["women","men"]:[rdG];const hits=[];
   gs.forEach(g=>{const D=cur[g];if(!D)return;const L=[...(D[cat]||[]),...(D.rising||[]),...(D.fading||[]),...["colors","patterns","fabrics","themes","items"].flatMap(k=>D[k]||[])];const x=L.find(y=>y.name===name&&y.ev)||L.find(y=>y.name===name);if(x)hits.push({g,x,D})});return hits}
-function evidence(cat,name){const hits=findTrend(cat,name);if(!hits.length)return;
+function evidence(cat,name){window.__evArgs=[cat,name];const hits=findTrend(cat,name);if(!hits.length)return;
   const sec=(title,body)=>body?`<div class="grp">${title}</div>${body}`:"";
   const one=({g,x,D})=>{const e=x.ev||{};const base=D.prevLabel||"";
     return `${rdG==="both"?`<div class="grp" style="font-size:13px">${g==="men"?t("Menswear","남성복"):t("Womenswear","여성복")}</div>`:""}
      <div class="evnums"><div><b>${x.share}%</b><span>${t("of all looks","전체 룩 중 비중")}</span></div>${x.prev!=null?`<div><b>${x.prev}%</b><span>${esc(base||t("year before","1년 전"))}</span></div>`:""}${x.change!=null?`<div><b>${x.change==="new"?t("new","신규"):(x.change>0?"+":"")+x.change+"%p"}</b><span>${t("change","증감")}${base?` · ${t("vs "+base,base+" 대비")}`:""}</span></div>`:""}${x.looks?`<div><b>${x.looks.toLocaleString()}</b><span>${t("looks","룩")}</span></div>`:""}${x.designers?`<div><b>${x.designers}</b><span>${t("brands","브랜드")}</span></div>`:""}</div>
      ${sec(t("Brands using it most (looks)","가장 많이 쓴 브랜드 (룩 수)"),(e.designers||[]).length?`<div class="evl">${e.designers.map(d=>`<div><span>${esc(d.name)}</span><b>${d.looks}</b></div>`).join("")}${e.moreDesigners?`<p class="tip">${t(`+ ${e.moreDesigners} more brands (full list is in T-Fashion's paid service)`,`그 외 ${e.moreDesigners}개 브랜드 (전체 목록은 T-Fashion 유료 서비스)`)}</p>`:""}</div>`:"")}
-     ${sec(t("By fashion week","패션위크별 비중"),(e.cities||[]).length?`<div class="evl">${e.cities.map(c=>`<div><span>${esc(t(c.city,CITY_KO[c.city]||c.city))}</span><b>${c.share}%${c.looks?` <small>${c.looks}${t(" looks","룩")}</small>`:""}</b></div>`).join("")}</div>`:"")}
+     ${sec(t("By fashion week","패션위크별 비중"),(e.cities||[]).length?`<div class="evl">${e.cities.map(c=>`<div><span>${esc(cityName(c.city))}</span><b>${c.share}%${c.looks?` <small>${c.looks}${t(" looks","룩")}</small>`:""}</b></div>`).join("")}</div>`:"")}
      ${sec(t("Worn with","함께 쓰인 요소"),(e.wornWith||[]).length?`<div class="evl">${e.wornWith.map(c=>`<div><span>${esc(repName(c.name))}</span><b>${c.share}%</b></div>`).join("")}</div>`:"")}
-     ${sec(t("In the press","언론 보도 (근거 기사)"),(e.press||[]).length?`${e.pressNote?`<p class="tip">${esc(e.pressNote)}</p>`:""}<div class="evp">${e.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><b>${esc(p.title)}</b><small>${esc(p.outlet)}${p.date?` · ${esc(p.date)}`:""}</small></a>`).join("")}</div>`:"")}
+     ${sec(t("In the press","언론 보도 (근거 기사)"),(e.press||[]).length?`${e.pressNote?`<p class="tip">${esc(tx(e.pressNote))}</p>`:""}<div class="evp">${e.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><b>${esc(tx(p.title))}</b><small>${esc(p.outlet)}${p.date?` · ${esc(p.date)}`:""}</small></a>`).join("")}</div>`:"")}
      ${!x.ev?`<p class="tip">${t("No detail page was published for this item.","이 항목은 공개된 상세 자료가 없어요.")}</p>`:""}
      ${x.url?`<a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Source: T-Fashion","출처: T-Fashion")} ${SV.arrow}</a>`:""}`};
   sheet(`${repName(name)} · ${rdSeason}`,hits.map(one).join(`<hr class="evhr">`))}
@@ -1694,8 +1696,8 @@ function drawHist(b){const box=$("#rhist");if(!box||$("#drawer")._brand!==b)retu
   const years=[...new Set(rows.map(r=>r.year))].sort((a,c)=>c-a);if(histY&&!years.includes(histY))histY=null;
   const L=rows.filter(r=>(histF==="all"||r.kind===histF)&&(!histY||r.year===histY));
   const byY={};L.forEach(r=>(byY[r.year]??=[]).push(r));
-  box.innerHTML=`<div class="hfil"><span class="lbl">${t("Line","라인")}</span><div class="chipline">${kinds.map(k=>`<button class="chip ${histF===k?"on":""}" data-hf="${k}">${k==="all"?"ALL":t(...KIND[k])}</button>`).join("")}</div>
-     <span class="lbl">${t("Year","연도")}</span><div class="chipline yrs"><button class="chip ${!histY?"on":""}" data-hy="">ALL · ${rows.length}</button>${years.map(y=>`<button class="chip ${histY===y?"on":""}" data-hy="${y}">${y}</button>`).join("")}</div></div>
+  box.innerHTML=`<div class="hfil"><span class="lbl">${t("Line","라인")}</span><div class="chipline">${kinds.map(k=>`<button class="chip ${histF===k?"on":""}" data-hf="${k}">${k==="all"?t("ALL","전체"):t(...KIND[k])}</button>`).join("")}</div>
+     <span class="lbl">${t("Year","연도")}</span><div class="chipline yrs"><button class="chip ${!histY?"on":""}" data-hy="">${t("ALL","전체")} · ${rows.length}</button>${years.map(y=>`<button class="chip ${histY===y?"on":""}" data-hy="${y}">${y}</button>`).join("")}</div></div>
    ${Object.keys(byY).sort((a,c)=>c-a).map(y=>`<div class="hyear"><h3>${y}</h3>${byY[y].map(r=>{const dn=designerFor(b.name,{year:r.year,season:r.season==="FW"||r.season==="PF"?"FW":"SS",type:r.kind==="men"?"menswear":"ready-to-wear"});
        return `<div class="hrow">${r.img?`<a class="hth" href="https://www.vogue.com/fashion-shows/${esc(r.s)}/${esc(h.vogue)}" target="_blank" rel="noopener"><img src="${esc(r.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></a>`:`<span class="hth"></span>`}
         <div class="hm"><b>${r.code}</b><span>${t(...SNAME[r.season])} ${r.year} · ${t(...KIND[r.kind])}${r.city?` · ${esc(t(r.city,CITY_KO[r.city]||r.city))}`:""}${r.date?` · ${fmtMD(r.date)}`:""}</span>${dn?`<small>${t("by","디렉터")} ${esc(dn)}</small>`:""}</div>
@@ -1710,6 +1712,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.10.20-4",d:"2026.10.20",ko:["한국어로 보면 뉴스 · 태그 · 시즌 리포트 · 근거 기사 · 컬러 이름 · 도시 · 디렉터까지 모두 한국어로 보여요","영어로 보면 모든 문구가 영어로 보여요"],en:["In English, everything shows in English — news, tags, season report, press, colour names, cities and directors","In Korean, everything shows in Korean"]},
  {v:"2026.10.20-3",d:"2026.10.20",ko:["디자이너: 브랜드 안 ‘정보 수정’으로 브랜드명 · 디렉터 · 홈페이지를 고칠 수 있어요","디렉터도 브랜드 홈페이지에서 자동으로 찾아와요","시즌 리포트: 새 시즌(FW27 · SS28 등)은 첫 쇼가 공개되면 자동으로 추가돼요","브랜드 컬렉션은 매일 업데이트돼요","계정(···)을 계정 · 백업 탭으로 나눴어요"],en:["Designers: ‘Edit details’ changes a brand’s name, director and homepage","Directors are also read from each brand’s homepage","Season Report: a new season (FW27, SS28…) is added once its first show is published","Brand collections update every day","Account (···) is split into Account and Backup tabs"]},
  {v:"2026.10.20-2",d:"2026.10.20",ko:["각 화면 제목 옆 ? 를 누르면 그 화면의 사용법을 볼 수 있어요","오른쪽 아래 ‘사용 가이드’에서 모든 사용법을 한곳에서 봐요","비밀번호는 바꿀 때마다 마스터 승인이 필요해요"],en:["Tap ? next to a page title to see how that page works","‘How to use’ at the bottom right gathers every how-to in one place","Every password change needs the master’s approval"]},
  {v:"2026.10.20-1",d:"2026.10.20",ko:["오른쪽 아래 말풍선에서 마스터에게 문의하고 답장을 받을 수 있어요","문의 유형을 고르면 ‘문의 내역’에서 처리 상태를 불빛으로 확인할 수 있어요","업데이트 소식은 이제 위쪽 알림 대신 ‘공지’ 메시지함으로 와요"],en:["Ask the master anything from the speech bubble at the bottom right","Pick an inquiry type to follow its status lights in My inquiries","Update news now arrives in the Notice box instead of a top banner"]},
@@ -1808,7 +1811,7 @@ function vcBubbles(ms,mine,readOther,intro){let h="",prev=null,lm=-1;ms.forEach(
     if(m.f==="s"){h+=`<div class="sys">${m.k?`<i class="dot s-${m.k}"></i>`:""}${esc(vcSysText(m))}</div>`;prev=m;return}
     const nx=ms[i+1],tail=!nx||nx.f!==m.f||nx.at-m.at>VC_H,gap=!prev||prev.f!==m.f||m.at-prev.at>VC_H,me=m.f===mine,x=m.q&&VC.inq.find(z=>z.id===m.q);
     const can=!m.n&&(me||ACC.admin);
-    const inner=m.n?(m.n.guide?`<span class="nt">${t("Welcome","안내")}</span>${esc(t("New here? Each page has a short how-to — tap ? next to a page title, or open the guide here.","처음 오셨나요? 각 화면 제목 옆 ? 를 누르면 그 화면의 사용법을 볼 수 있어요. 전체 가이드는 여기서 바로 열 수 있어요."))}<button class="gbtn" data-vguide="news">${t("Open the guide","사용 가이드 보기")}</button>`:m.n.items?`<span class="nt">${t("Update","업데이트")} · ${vcMd(m.at)}</span><ul>${m.n.items.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`:`<span class="nt">${t("Notice","공지")} · ${vcMd(m.at)}</span>${esc(m.n.t)}`):
+    const inner=m.n?(m.n.guide?`<span class="nt">${t("Welcome","안내")}</span>${esc(t("New here? Each page has a short how-to — tap ? next to a page title, or open the guide here.","처음 오셨나요? 각 화면 제목 옆 ? 를 누르면 그 화면의 사용법을 볼 수 있어요. 전체 가이드는 여기서 바로 열 수 있어요."))}<button class="gbtn" data-vguide="news">${t("Open the guide","사용 가이드 보기")}</button>`:m.n.items?`<span class="nt">${t("Update","업데이트")} · ${vcMd(m.at)}</span><ul>${m.n.items.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`:`<span class="nt">${t("Notice","공지")} · ${vcMd(m.at)}</span>${esc(tx(m.n.t))}`):
       `${x?`<span class="ql">${C[x.cat]||""} <em class="st"><i class="dot s-${x.st}"></i>${S[x.st]}</em></span>`:""}${esc(m.t)}${m.ed?`<span class="ed">${t("Edited","수정됨")}</span>`:""}`;
     const body=m.img?`<div class="b img"${can?` data-vm="${m.id}"`:""}><img src="${esc(m.img)}" alt="" loading="lazy"></div>`:`<div class="b${tail?" tl":""}${x?" card":""}"${can?` data-vm="${m.id}"`:""}>${inner}</div>`;
     h+=`<div class="row${me?" me":""}${gap?" gap":""}${x&&VC.flash===x.id?" flash":""}">${body}${VC.sel===m.id?vcTools(m,me,x):""}${i===lm&&i===ms.length-1&&readOther!=null?`<div class="rc">${readOther?t("Read","읽음"):t("Sent","전송됨")}</div>`:""}</div>`;prev=m});
@@ -1823,17 +1826,17 @@ function vcQItem(x,admin){const S=VCS(),C=VCC();
   ${admin?`<div class="qa"><button data-vrq="${x.id}">${VC.rq===x.id?t("Close","닫기"):t("Reply","답장하기")}</button><button class="trash${VC.delC==="q:"+x.id?" on":""}" data-vdelq="${x.id}">${VC.delC==="q:"+x.id?t("Tap again to delete","한 번 더 누르면 삭제"):t("Delete","삭제")}</button></div>${VC.rq===x.id?(()=>{const l=[...vcConv(x.uid)].reverse().find(m=>m.f!=="s");return `<div class="qrf">${l?`<div class="ql2">${t("Latest","최근")} · ${l.f==="a"?t("Me: ","나: "):""}${l.img?t("Photo","사진"):esc(l.t)}</div>`:""}<div class="fl"><input id="vcRq" placeholder="${esc(t(`Reply to ${vcName(x.uid)}`,`${vcName(x.uid)}님에게 답장`))}" value="${esc(VC.rqDraft)}"><button class="send${VC.rqDraft.trim()?" on":""}" data-vrqs="${x.id}" aria-label="${t("Send","보내기")}">${VCI.up}</button></div></div>`})():""}`:""}</div>
   <div class="qs"><i class="dot lamp s-${x.st}"></i>${S[x.st]}</div></div>`}
 const vcLegend=()=>`<div class="qf" style="gap:12px;font-size:11px;color:var(--ink-2)">${Object.entries(VCS()).map(([k,v])=>`<span style="display:inline-flex;gap:5px;align-items:center"><i class="dot s-${k}"></i>${v}</span>`).join("")}</div>`;
-const vcX=`<button class="ibtn x" data-vclose aria-label="${"닫기"}">${VCI.x}</button>`;
+const vcXf=()=>`<button class="ibtn x" data-vclose aria-label="${t("Close","닫기")}">${VCI.x}</button>`;const vcX=`<button class="ibtn x" data-vclose aria-label="${"닫기"}">${VCI.x}</button>`;
 
 /* ---------- member view ---------- */
 function vcUser(){const c=vcConv(UID),nu=vcUnN(),uu=vcUnU(),ns=vcNotices();
   if(VC.view==="home"){const l=c[c.length-1],ln=ns[ns.length-1];
-    return `<div class="sh">${vcX}<h2 class="lt">Messages</h2><small>${t("Inquiries and notices in one place","문의와 공지를 한곳에서 받아요")}</small></div><div class="scroll" style="margin-top:10px">
+    return `<div class="sh">${vcXf()}<h2 class="lt">${t("Messages","메시지")}</h2><small>${t("Inquiries and notices in one place","문의와 공지를 한곳에서 받아요")}</small></div><div class="scroll" style="margin-top:10px">
     <div class="ci top" data-vview="notice">${nu?`<i class="ud"></i>`:""}<span class="av s brand">${VCB}</span><div class="cm"><div class="r1"><b class="nm">${VCN.notice()}<span class="pinl">${t("Pinned","고정")}</span></b><span class="tm">${ln?vcLt(ln.at):""}</span></div><div class="pv">${ln?esc(ln.t||(t("Update","업데이트")+" · "+ln.items[0])):t("No notices yet","아직 공지가 없어요")}</div></div></div>
     <div class="ci" data-vview="chat">${uu?`<i class="ud"></i>`:""}<span class="av s brand">${VCB}</span><div class="cm"><div class="r1"><b class="nm">${VCN.help()}</b><span class="tm">${l?vcLt(l.at):""}</span></div><div class="pv">${l?(l.f==="u"?t("Me: ","나: "):"")+(l.img?t("Photo","사진"):l.f==="s"?esc(vcSysText(l)):esc(l.t)):t("Bugs, ideas, features to drop — ask anything","오류, 바라는 기능, 빼도 될 기능 — 편하게 보내주세요")}</div></div></div></div>`}
-  if(VC.view==="notice")return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Update news arrives here","업데이트 소식이 이곳으로 와요")}</small></div>${vcBubbles(vcNoticeMsgs(),"u",null)}<div class="ro">${t(`Notices can't be replied to · send questions in ${VCN.help()}`,`공지에는 답장할 수 없어요 · 문의는 ${VCN.help()}에서 보내주세요`)}</div>`;
+  if(VC.view==="notice")return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcXf()}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Update news arrives here","업데이트 소식이 이곳으로 와요")}</small></div>${vcBubbles(vcNoticeMsgs(),"u",null)}<div class="ro">${t(`Notices can't be replied to · send questions in ${VCN.help()}`,`공지에는 답장할 수 없어요 · 문의는 ${VCN.help()}에서 보내주세요`)}</div>`;
   const my=VC.inq.filter(x=>x.uid===UID);
-  return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.help()}</b><small>${t("VISUAL DEPT. master · usually replies within a day","VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요")}</small></div>
+  return `<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcXf()}<span class="av brand">${VCB}</span><b class="nm">${VCN.help()}</b><small>${t("VISUAL DEPT. master · usually replies within a day","VISUAL DEPT. 운영자 · 보통 하루 안에 답장해요")}</small></div>
   <div class="seg2"><button data-vtab="chat" class="${VC.tab==="chat"?"on":""}">${t("Chat","채팅")}</button><button data-vtab="list" class="${VC.tab==="list"?"on":""}">${t("My inquiries","문의 내역")}</button></div>
   ${VC.tab==="chat"?vcBubbles(c,"u",null,`<div class="intro"><span class="av brand big">${VCB}</span><p style="margin:10px 0 0">${t("Bugs, ideas, features to drop —<br>send anything.<br>Pick a type with <b>+</b> to follow its progress in <b>My inquiries</b>.","오류, 바라는 기능, 빼도 될 기능 —<br>무엇이든 편하게 보내주세요.<br><b>+</b> 에서 문의 유형을 고르면 <b>문의 내역</b>에서 처리 결과를 볼 수 있어요.")}</p></div>`)+vcComposer("user")
    :`${vcLegend()}<div class="scroll">${my.length?my.map(x=>vcQItem(x)).join(""):`<div class="empty">${t("No inquiries yet<br>Pick a type with + in the chat and send — it shows up here","아직 문의가 없어요<br>채팅에서 + 를 눌러 유형을 고르고 보내면 여기에 기록돼요")}</div>`}</div>`}`}
@@ -1846,17 +1849,17 @@ function vcRows(){const ns=vcNotices(),ln=ns[ns.length-1],q=VC.q.toLowerCase();
   return pin+(vcMembers().filter(k=>(vcName(k)+" "+(VC.mem[k]?.email||"")).toLowerCase().includes(q)).sort((a,b)=>((last(b)||{}).at||0)-((last(a)||{}).at||0)).map(k=>{const l=last(k),un=vcUnA(k);
     return `<div class="ci${VC.aConv===k?" on":""}" data-vconv="${k}">${un?`<i class="ud"></i>`:""}<span class="av s">${esc(vcIni(vcName(k)))}</span><div class="cm"><div class="r1"><b class="nm">${esc(vcName(k))}</b><span class="tm">${l?vcLt(l.at):""}</span></div><div class="pv">${l?(l.f==="a"?t("Me: ","나: "):"")+(l.img?t("Photo","사진"):l.f==="s"?esc(vcSysText(l)):esc(l.t)):`<span style="color:var(--ink-3)">${t("No messages yet","아직 대화가 없어요")}</span>`}</div></div></div>`}).join("")||`<div class="empty">${t("No results","검색 결과가 없어요")}</div>`)}
 function vcAdmin(){const S=VCS(),ks=vcMembers(),un=ks.filter(k=>vcUnA(k)).length,pend=VC.inq.filter(x=>x.st==="new").length,ql=VC.inq.filter(x=>VC.aF==="all"||x.st===VC.aF);
-  const side=`<div class="side"><div class="sh">${vcX}<h2 class="lt">Messages</h2><small>${t(`${ks.length} members · ${un} unread`,`회원 ${ks.length}명 · 안 읽은 대화 ${un}`)}</small></div>
+  const side=`<div class="side"><div class="sh">${vcXf()}<h2 class="lt">${t("Messages","메시지")}</h2><small>${t(`${ks.length} members · ${un} unread`,`회원 ${ks.length}명 · 안 읽은 대화 ${un}`)}</small></div>
    <div class="seg2"><button data-vatab="chats" class="${VC.aTab==="chats"?"on":""}">${t("Chats","대화")}</button><button data-vatab="inq" class="${VC.aTab==="inq"?"on":""}">${t("Inquiries","문의 현황")}${pend?`<i>${pend}</i>`:""}</button></div>
    ${VC.aTab==="chats"?`<input class="srch" id="vcSrch" placeholder="${t("Search names","이름 검색")}" value="${esc(VC.q)}"><div class="scroll" id="vcList">${vcRows()}</div>`:
    `<div class="qf">${[["all",t("All","전체")],...Object.entries(S)].map(([k,v])=>`<button class="chip${VC.aF===k?" on":""}" data-vaf="${k}">${k!=="all"?`<i class="dot s-${k}"></i>`:""}${v} ${k==="all"?VC.inq.length:VC.inq.filter(x=>x.st===k).length}</button>`).join("")}</div><div class="scroll">${ql.map(x=>vcQItem(x,true)).join("")||`<div class="empty">${t("Nothing here","해당 문의가 없어요")}</div>`}</div>`}</div>`;
   let main;
-  if(VC.aConv===VC_NB)main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Goes to every member's notice box · update notes are sent automatically","모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요")}</small></div>${vcBubbles(vcNoticeMsgs(),"n",null)}${vcComposer("notice")}`;
+  if(VC.aConv===VC_NB)main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcXf()}<span class="av brand">${VCB}</span><b class="nm">${VCN.notice()}</b><small>${t("Goes to every member's notice box · update notes are sent automatically","모든 회원의 공지 메시지함으로 보내져요 · 업데이트 노트도 자동으로 보내져요")}</small></div>${vcBubbles(vcNoticeMsgs(),"n",null)}${vcComposer("notice")}`;
   else if(VC.aConv){const k=VC.aConv,qs=VC.inq.filter(x=>x.uid===k);
-    main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcX}<span class="av">${esc(vcIni(vcName(k)))}</span><b class="nm">${esc(vcName(k))}</b><small>${esc(VC.mem[k]?.email||"")} · ${t(`${qs.length} inquiries · ${qs.filter(x=>x.st==="new").length} not read`,`문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건`)}</small></div>${vcBubbles(vcConv(k),"a",null)}${vcComposer("admin")}`}
+    main=`<div class="ch"><button class="ibtn bk" data-vback aria-label="${t("Back","목록")}">${VCI.back}</button>${vcXf()}<span class="av">${esc(vcIni(vcName(k)))}</span><b class="nm">${esc(vcName(k))}</b><small>${esc(VC.mem[k]?.email||"")} · ${t(`${qs.length} inquiries · ${qs.filter(x=>x.st==="new").length} not read`,`문의 ${qs.length}건 · 확인 전 ${qs.filter(x=>x.st==="new").length}건`)}</small></div>${vcBubbles(vcConv(k),"a",null)}${vcComposer("admin")}`}
   else main=`<div class="empty"><span class="av brand big">${VCB}</span><p>${t("Pick a chat on the left<br>Opening a chat marks its inquiries ‘Reading’; replying marks them ‘Answered’<br>Tap a member's bubble to hold or delete","왼쪽에서 대화를 고르세요<br>대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요<br>회원 말풍선을 누르면 보류 · 삭제할 수 있어요")}</p></div>`;
   return `<div class="split">${side}<div class="main">${main}</div></div>`}
-function vcSetup(){return `<div class="sh">${vcX}<h2 class="lt">Messages</h2></div><div class="setup">${t("To turn on inquiries and notices, run the Supabase update once: copy it, paste it in Supabase → SQL Editor and press Run. Then refresh the app.","문의 · 공지 메시지를 켜려면 Supabase 업데이트를 한 번 실행해 주세요. 복사해서 Supabase → SQL Editor에 붙여넣고 Run을 누른 뒤 앱을 새로고침하면 돼요.")}<br><button class="btn2" data-vsql>${t("Copy update","업데이트 복사")}</button></div>`}
+function vcSetup(){return `<div class="sh">${vcXf()}<h2 class="lt">${t("Messages","메시지")}</h2></div><div class="setup">${t("To turn on inquiries and notices, run the Supabase update once: copy it, paste it in Supabase → SQL Editor and press Run. Then refresh the app.","문의 · 공지 메시지를 켜려면 Supabase 업데이트를 한 번 실행해 주세요. 복사해서 Supabase → SQL Editor에 붙여넣고 Run을 누른 뒤 앱을 새로고침하면 돼요.")}<br><button class="btn2" data-vsql>${t("Copy update","업데이트 복사")}</button></div>`}
 
 /* ---------- render ---------- */
 function vcRender(keep,soft){const P=$("#vdc");if(!P)return;
@@ -1965,7 +1968,7 @@ function chatInit(){if(vcStarted)return;vcStarted=true;
 const GUIDE=[
  {id:"news",en:"News",ko:"뉴스",items:[
   ["Today's issues","오늘의 이슈","The banner at the top shows the day's main stories. Swipe or tap the numbers to move between them.","맨 위 배너에 오늘의 주요 이슈가 모여요. 넘기거나 아래 숫자를 눌러 이동해요."],
-  ["Read the original","원문 보기","Every story links to its source. ‘Read’ / ‘원문’ opens the original article in a new window.","모든 뉴스는 출처가 있어요. ‘원문’을 누르면 기사 원문이 새 창으로 열려요."],
+  ["Read the original","원문 보기","Every story links to its source. ‘Read’ opens the original article in a new window.","모든 뉴스는 출처가 있어요. ‘원문’을 누르면 기사 원문이 새 창으로 열려요."],
   ["Save","저장","Tap the bookmark to keep a story. Saved stories collect in News → Saved, where you can search and sort them.","책갈피를 누르면 저장돼요. 저장한 뉴스는 뉴스 → 저장함에 모이고, 검색 · 정렬할 수 있어요."],
   ["Search","뉴스 검색","Use ‘Search news’ above the list to find stories by keyword. News is collected from free sources every 2 hours.","목록 위 ‘뉴스 검색’으로 키워드를 찾아요. 뉴스는 무료 매체에서 2시간마다 자동으로 모여요."]]},
  {id:"collections",en:"Collections",ko:"컬렉션",items:[
@@ -2022,6 +2025,7 @@ let VIEWAS=null;try{VIEWAS=sessionStorage.getItem("vdViewAs")}catch(_){}
 const mtHash=s=>{let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return (h>>>0).toString(36)};
 const MT_SQLV=mtHash(String(typeof PW_SQL!=="undefined"?PW_SQL:""));
 const mtSqlNew=()=>{if(!ACC.realAdmin)return false;try{return localStorage.getItem("vdSqlDone")!==MT_SQLV}catch(_){return true}};
+const MT_SEC_EN={1:"Member list",2:"Approval checks",3:"New sign-ups wait for approval",4:"Who can see the member list",5:"Only approved people use data and images",6:"Password change approval",7:"Member names",8:"App settings (hidden update notes)",9:"Inquiry chat and notice box",10:"Every password change needs approval"};
 const mtSections=()=>String(PW_SQL).split("\n").map(l=>/^--\s*(\d+)\)\s*(.+)$/.exec(l)).filter(Boolean).map(m=>[m[1],m[2]]);
 function mtApply(){if(!ACC.realAdmin){const b=$("#mtBar");b&&b.remove();return}ACC.admin=VIEWAS!=="member";document.documentElement.classList.toggle("vd-preview",VIEWAS==="member");mtBar()}
 function mtBar(){let b=$("#mtBar");if(!ACC.realAdmin){b&&b.remove();return}
@@ -2040,10 +2044,10 @@ function mtSqlBox(){if(!ACC.admin)return;const sb=$("#sheet .sb");if(!sb||$("#mt
   const d=document.createElement("div");d.id="mtSql";
   d.innerHTML=`<div class="grp">${t("Supabase update","Supabase 업데이트")}${isNew?` <b class="mtnew">${t("New","새 업데이트")}</b>`:""}</div>
   <p class="tip" style="margin-top:8px">${t("Whenever the app needs a Supabase change, the latest update appears here. Copy it, paste it in Supabase → SQL Editor and press Run. Safe to run again.","앱을 고치면서 Supabase 설정이 바뀌면 여기 내용이 자동으로 최신이 돼요. 복사해서 Supabase → SQL Editor에 붙여넣고 Run을 눌러 주세요. 여러 번 실행해도 안전해요.")}</p>
-  <div class="kv"><span>${t("Latest","최근 추가")}</span><span>${last?esc(last[0]+") "+last[1]):"—"}</span></div>
+  <div class="kv"><span>${t("Latest","최근 추가")}</span><span>${last?esc(last[0]+") "+(lang==="ko"?last[1]:(MT_SEC_EN[last[0]]||last[1]))):"—"}</span></div>
   <div class="kv"><span>${t("Status","상태")}</span><span>${isNew?`<b class="mtnew">${t("Not run yet","아직 실행 전")}</b>`:t("Run ✓","실행 완료 ✓")} <span style="color:var(--ink-3)">· v${MT_SQLV}</span></span></div>
   <div class="acts"><button class="btn" data-mtcopy>${t("Copy update","업데이트 복사")}</button><a class="btn ghost" target="_blank" rel="noopener" href="${esc(sqlEditorUrl())}">${t("Open Supabase","Supabase 열기")}</a>${isNew?`<button class="btn ghost" data-mtdone>${t("I ran it","실행했어요")}</button>`:""}</div>
-  <details class="mtdet"><summary>${t(`What's inside (${sec.length})`,`들어있는 내용 (${sec.length})`)}</summary><ol>${sec.map(([n,x])=>`<li>${esc(x)}</li>`).join("")}</ol><pre>${esc(PW_SQL)}</pre></details>`;
+  <details class="mtdet"><summary>${t(`What's inside (${sec.length})`,`들어있는 내용 (${sec.length})`)}</summary><ol>${sec.map(([n,x])=>`<li>${esc(lang==="ko"?x:(MT_SEC_EN[n]||x))}</li>`).join("")}</ol><pre>${esc(PW_SQL)}</pre></details>`;
   sb.appendChild(d);
   d.addEventListener("click",async e=>{if(e.target.closest("[data-mtcopy]")){try{await navigator.clipboard.writeText(PW_SQL);toast(t("Copied — paste it in the SQL Editor and press Run","복사했어요 · SQL Editor에 붙여넣고 Run을 눌러 주세요"))}catch(_){const ta=document.createElement("textarea");ta.value=PW_SQL;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast(t("Copied","복사했어요"))}catch(__){toast(t("Couldn't copy — open ‘What's inside’ and copy by hand","복사하지 못했어요 · ‘들어있는 내용’을 열어 직접 복사해 주세요"))}ta.remove()}}
     if(e.target.closest("[data-mtdone]")){try{localStorage.setItem("vdSqlDone",MT_SQLV)}catch(_){}const ab=$("#acctBtn");ab&&ab.classList.toggle("badge",(ACC.pending||0)>0);toast(t("Marked as run","실행 완료로 표시했어요"));ATAB="sql";account(false)}})}
@@ -2061,6 +2065,40 @@ function acctTabs(){const sb=$("#sheet .sb");if(!sb||sb.querySelector(".atabs")|
   bar.onclick=e=>{const b=e.target.closest("[data-atab]");if(!b)return;ATAB=b.dataset.atab;bar.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));sb.querySelectorAll(".atab").forEach(x=>x.hidden=x.dataset.at!==ATAB)}}
 {const _acc=account;account=function(){const r=_acc.apply(this,arguments);Promise.resolve(r).then(()=>setTimeout(()=>{try{mtSqlBox()}catch(e){console.error(e)}try{acctTabs()}catch(e){console.error(e)}},0));return r}}
 
+/* ================= TRANSLATION LAYER =================
+   English mode shows English only, Korean mode shows Korean only.
+   1) The collectors translate everything they save into a shared dictionary (shared_docs "i18n").
+   2) Anything still missing is translated here once (free Google Translate web endpoint) and kept in this browser.
+   Brand names and what people write themselves (chat messages, names, folder titles) stay as written. */
+let I18N={ko:{},en:{}};
+const TXH=/[가-힣]/;
+const TXC=(()=>{try{return JSON.parse(localStorage.getItem("vd.tx")||"{}")}catch(_){return {}}})();
+const TXQ=new Map();let TXT=null,TXBUSY=false,TXFAIL=0,TXRR=null;
+const CITY_EXTRA={Riyadh:"리야드",Lagos:"라고스",Florence:"피렌체",Copenhagen:"코펜하겐",Tokyo:"도쿄",Seoul:"서울",Shanghai:"상하이",Berlin:"베를린",Madrid:"마드리드",Stockholm:"스톡홀름",Tbilisi:"트빌리시","São Paulo":"상파울루",Lisbon:"리스본",Kyiv:"키이우",Sydney:"시드니",Mumbai:"뭄바이",Amsterdam:"암스테르담",Oslo:"오슬로",Helsinki:"헬싱키",Istanbul:"이스탄불",Moscow:"모스크바","Mexico City":"멕시코시티",Dubai:"두바이",Doha:"도하",Antwerp:"안트베르펜",Barcelona:"바르셀로나",Rome:"로마",Kiev:"키이우","Los Angeles":"로스앤젤레스",Toronto:"토론토",Johannesburg:"요하네스버그",Bangkok:"방콕",Jakarta:"자카르타",Singapore:"싱가포르","Hong Kong":"홍콩",Taipei:"타이베이",Beijing:"베이징",Warsaw:"바르샤바",Prague:"프라하",Vienna:"빈",Budapest:"부다페스트",Athens:"아테네",Reykjavik:"레이캬비크",Lyon:"리옹"};
+try{Object.assign(CITY_KO,CITY_EXTRA);(DATA.events||[]).forEach(e=>{if(e.city&&e.short_en===e.city&&e.short_ko&&!CITY_KO[e.city])CITY_KO[e.city]=e.short_ko})}catch(_){}
+const cityName=c=>lang==="ko"?(CITY_KO[c]||tx(c)):c;
+function needTx(s){s=String(s||"").trim();if(!s)return false;return lang==="ko"?(!TXH.test(s)&&/[A-Za-z]{2,}/.test(s)&&!/^[A-Z0-9&.'’\-\s·/]+$/.test(s)&&!/^https?:|@|^www\./i.test(s)):TXH.test(s)}
+function tx(s){s=String(s??"");if(!needTx(s))return s;const k=s.trim();const d=lang==="ko"?I18N.ko[k]:I18N.en[k];if(d)return d;const c=TXC[lang+"|"+k];if(c)return c;
+  if(TXFAIL<4&&!TXQ.has(lang+"|"+k)){TXQ.set(lang+"|"+k,{s:k,tl:lang});clearTimeout(TXT);TXT=setTimeout(txRun,80)}return s}
+async function txRun(){if(TXBUSY)return;TXBUSY=true;let done=0;
+  try{while(TXQ.size&&TXFAIL<4){const [k,v]=TXQ.entries().next().value;TXQ.delete(k);if(TXC[k])continue;
+    try{const ctl=new AbortController();const tm=setTimeout(()=>ctl.abort(),9000);const r=await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${v.tl}&dt=t&q=${encodeURIComponent(v.s.slice(0,1500))}`,{signal:ctl.signal});clearTimeout(tm);
+      if(!r.ok)throw 0;const j=await r.json();const out=(j&&j[0]||[]).map(x=>x&&x[0]||"").join("").trim();if(out){TXC[k]=out;done++;TXFAIL=0}}catch(_){TXFAIL++}}}
+  finally{TXBUSY=false}
+  if(done){try{const ks=Object.keys(TXC);if(ks.length>1500)ks.slice(0,ks.length-1500).forEach(x=>delete TXC[x]);localStorage.setItem("vd.tx",JSON.stringify(TXC))}catch(_){}txRerender()}}
+function txRerender(){clearTimeout(TXRR);TXRR=setTimeout(()=>{const a=document.activeElement;if(a&&a.matches&&a.matches("input,textarea,select"))return;
+  try{render(false)}catch(_){}const dr=$("#drawer");try{if(dr&&dr.classList.contains("on")){if(dr.querySelector("#rhist")&&dr._brand)drawBrand(dr._brand);else if(dr._des)openDes(dr._des)}}catch(_){}
+  try{if($("#sheet")&&window.__evArgs&&$("#sheet .evp, #sheet .evl"))evidence(...window.__evArgs)}catch(_){}
+  try{if(typeof vcStarted!=="undefined"&&vcStarted&&VC.open)vcRender(true)}catch(_){}},250)}
+async function loadI18n(){try{const {data}=await SB.from("shared_docs").select("id,data").eq("collection","i18n");(data||[]).forEach(r=>{Object.assign(I18N.ko,(r.data||{}).ko||{});Object.assign(I18N.en,(r.data||{}).en||{})});if((data||[]).length)txRerender()}catch(_){}}
+/* labels screen readers and tooltips read */
+const A11Y={"Refresh":"새로고침","Account":"계정","Menu":"메뉴","Close":"닫기","Previous month":"이전 달","Next month":"다음 달","Previous":"이전","Next":"다음","Email":"이메일","Password":"비밀번호","URL":"주소","Search":"검색","Favourite":"즐겨찾기","Messages":"메시지"};
+const A11YR=Object.fromEntries(Object.entries(A11Y).map(([a,b])=>[b,a]));
+function a11yLang(root){(root||document).querySelectorAll("[aria-label],[title],label.vh").forEach(el=>{for(const at of ["aria-label","title"]){const v=el.getAttribute(at);if(!v)continue;const en=A11Y[v]?v:A11YR[v];if(en)el.setAttribute(at,lang==="ko"?A11Y[en]:en)}
+  if(el.matches("label.vh")){const v=el.textContent.trim();const en=A11Y[v]?v:A11YR[v];if(en)el.textContent=lang==="ko"?A11Y[en]:en}})}
+
+{const _a16=applyLang;applyLang=function(){const r=_a16.apply(this,arguments);try{a11yLang()}catch(_){}return r}}
+{const _s16=sheet;sheet=function(){const r=_s16.apply(this,arguments);try{a11yLang($("#sheet"))}catch(_){}return r}}
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;
 const gMsg=(m,err)=>{$("#gateErr").textContent=err?m:"";$("#gateMsg").textContent=err?"":m};
@@ -2074,7 +2112,7 @@ async function signedIn(u){if(started)return;started=true;window.__UCREATED=Date
   loadPw().catch(()=>{});
   countPending().catch(()=>{});
   try{await loadAll();if(window.__UNAME&&!PREF.profile.name){PREF.profile.name=window.__UNAME;savePrefs()}}catch(e){console.error(e);toast(t("Couldn't load your data — check your connection","데이터를 불러오지 못했어요 · 연결을 확인해 주세요"))}
-  applyLang();render(false);chatInit();try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
+  applyLang();render(false);chatInit();loadI18n();try{const y=sessionStorage.getItem("vdY");if(y){sessionStorage.removeItem("vdY");setTimeout(()=>scrollTo(0,+y),60)}}catch(_){}handleQuickSave()}
 $("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const email=$("#gateEmail").value.trim(),pw=$("#gatePw").value;
   if(recovering){const {data,error}=await SB.auth.updateUser({password:pw});if(error)return gMsg(error.message,1);recovering=false;gMsg(t("Password changed","비밀번호를 바꿨어요"));if(data?.user)signedIn(data.user);return}
   try{localStorage.setItem("vdAuto",$("#gateAuto").checked?"1":"0");if($("#gateSave").checked)localStorage.setItem("vdEmail",email);else localStorage.removeItem("vdEmail")}catch(_){}

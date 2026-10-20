@@ -6,6 +6,7 @@
 //   • WGSN × Coloro Key Colours (coloro.com/key-colors): the colour names and Coloro codes as WGSN announced them.
 // Every value keeps its source link. If a page can't be read, the previous saved data stays as it was.
 import fs from "node:fs";
+import { buildDict } from "./i18n-dict.mjs";
 
 const URL_ = process.env.SUPABASE_URL?.trim().replace(/\/(rest|auth|storage)\/v1\/?.*$/, "").replace(/\/+$/, "");
 const KEY = process.env.SUPABASE_SERVICE_KEY;
@@ -144,6 +145,15 @@ async function main() {
   const w = await coloro(); if (w && Object.keys(w.seasons).length) rows.push({ collection: "seasonreport", id: "wgsn", data: w });
   rows.push({ collection: "seasonreport", id: "_meta", data: { seasons: codes, updatedAt: Date.now(), log: log.slice(-20) } });
   for (const r of rows) await upsert([r]);
+  // translations for everything the report shows (names, types, cities, press notes, article titles, colour names)
+  try {
+    const strs = []; const add = x => { if (x && typeof x === "string") strs.push(x); };
+    for (const r of rows) { const d = r.data; if (r.id === "_meta") continue;
+      if (r.id === "wgsn") { Object.values(d.seasons || {}).flat().forEach(c => { add(c.name); add(c.coty); }); continue; }
+      for (const v of Object.values(d)) if (Array.isArray(v)) v.forEach(x => { if (!x || typeof x !== "object") return; add(x.name); add(x.type);
+        const e = x.ev; if (!e) return; add(e.pressNote); (e.press || []).forEach(p => add(p.title)); (e.cities || []).forEach(c => add(c.city)); (e.wornWith || []).forEach(w => { add(w.name); add(w.kind); }); }); }
+    await buildDict({ URL_, H, id: "report", strings: strs, say });
+  } catch (e) { say("i18n report:", e.message); }
   fs.mkdirSync("status", { recursive: true });
   fs.writeFileSync("status/report.json", JSON.stringify({ at: new Date().toISOString(), log, sample: rows.find(r => r.id.endsWith("-women"))?.data?.patterns?.slice(0, 2) }, null, 1));
 }

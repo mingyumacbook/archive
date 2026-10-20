@@ -99,7 +99,7 @@ async function main() {
   const prefs = (await rest("docs?collection=eq.prefs&id=eq.vd&select=data&limit=5000")) || [];
   for (const p of prefs) { const d = p.data || {}; (d.addedDes || []).forEach(x => x && x.url && want.set(key(x.url), { url: x.url, designer: true, name: x.name })); Object.values(d.desEdits || {}).forEach(x => x && x.url && want.set(key(x.url), { url: x.url, designer: true, name: x.name })); (d.sites || []).forEach(x => x && x.url && !want.has(key(x.url)) && want.set(key(x.url), { url: x.url, designer: false })); }
   const have = new Map(((await rest("shared_docs?collection=eq.sitecheck&select=id,data&limit=5000")) || []).map(r => [r.id, r.data]));
-  const now = Date.now(); const todo = [...want.entries()].filter(([k, v]) => { const h = have.get(k); return !h || now - (h.at || 0) > 20 * 3600e3 || (v.designer && !h.desc && now - (h.at || 0) > 6 * 3600e3) || (v.designer && h.ok && h.dirTried == null); });
+  const now = Date.now(); const todo = [...want.entries()].filter(([k, v]) => { const h = have.get(k); return !h || now - (h.at || 0) > 20 * 3600e3 || (v.designer && !h.desc && now - (h.at || 0) > 6 * 3600e3) || (v.designer && h.ok && h.dirTried == null) || (v.designer && h.director && !h.director_en); });
   const rows = []; let ok = 0, bad = 0;
   let i = 0; await Promise.all(Array.from({ length: 4 }, async () => { while (i < todo.length) { const [k, v] = todo[i++]; const r = await open(v.url);
     const alive = r.status > 0 && r.status < 400 || [401, 403, 429].includes(r.status); alive ? ok++ : bad++;
@@ -108,9 +108,10 @@ async function main() {
       if (a.desc) { data.desc = a.desc; data.title = a.title; if (a.desc !== prev.desc) { const ko = HANGUL.test(a.desc); data.desc_ko = ko ? a.desc : await tr(a.desc, "ko"); data.desc_en = ko ? await tr(a.desc, "en") : a.desc; } else { data.desc_ko = prev.desc_ko; data.desc_en = prev.desc_en; } }
       else if (prev.desc) Object.assign(data, { desc: prev.desc, title: prev.title, desc_ko: prev.desc_ko, desc_en: prev.desc_en });
       // director: searched when missing (at most once a week), kept once found
-      if (prev.director) Object.assign(data, { director: prev.director, director_how: prev.director_how, director_src: prev.director_src, dirTried: prev.dirTried || Date.now() });
+      if (prev.director) Object.assign(data, { director: prev.director, director_how: prev.director_how, director_src: prev.director_src, director_ko: prev.director_ko, director_en: prev.director_en, dirTried: prev.dirTried || Date.now() });
       else if (alive && (!prev.dirTried || Date.now() - prev.dirTried > 7 * 864e5)) { const f = await findDirector(v.url, r.text, v.name); data.dirTried = Date.now(); if (f) Object.assign(data, { director: f.name, director_how: f.how, director_src: f.src }); }
-      else data.dirTried = prev.dirTried || null; }
+      else data.dirTried = prev.dirTried || null;
+      if (data.director && (!data.director_ko || !data.director_en)) { const ko = HANGUL.test(data.director); data.director_ko = ko ? data.director : (await tr(data.director, "ko")) || data.director; data.director_en = ko ? (await tr(data.director, "en")) || data.director : data.director; } }
     rows.push({ collection: "sitecheck", id: k, data }); } }));
   for (let j = 0; j < rows.length; j += 100) await upsert(rows.slice(j, j + 100));
   fs.mkdirSync("status", { recursive: true });

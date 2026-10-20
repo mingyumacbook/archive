@@ -3,6 +3,7 @@
 // marks "bloomed" issues (same keyword in 3+ outlets this week) and refreshes
 // the monthly keyword board. No AI, no paid services.
 import crypto from "node:crypto";
+import { buildDict } from "./i18n-dict.mjs";
 
 const URL_ = process.env.SUPABASE_URL?.trim().replace(/\/(rest|auth|storage)\/v1\/?.*$/, "").replace(/\/+$/, "");
 const KEY = process.env.SUPABASE_SERVICE_KEY;
@@ -204,6 +205,8 @@ async function main() {
   const cur = ((await list("trends")) || []).find(r => r.id === "now")?.data || {};
   if (central.length >= 3) await upsert([{ collection: "trends", id: "now", data: { ...cur, central, month: new Date().toISOString().slice(0, 7), updatedAt: now, source: "keywords" } }]);
 
+  // translations for tags and outlet names shown in the app (English ↔ Korean)
+  try { const strs = []; all.forEach(x => { (x.tags || []).forEach(t => strs.push(t)); if (x.source && x.source !== "ARCHIVE") strs.push(x.source); }); await buildDict({ URL_, H, id: "news", strings: strs }); } catch (e) { console.log("i18n news:", e.message); }
   await upsert([{ collection: "meta", id: "updater", data: { lastRun: now, added: fresh.length, status: "ok", everyHours: 2 } }]);
 
   // keep the newest 600 stories
