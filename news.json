@@ -1,34 +1,13 @@
 {
- "at": "2026-10-20T07:04:05.301Z",
- "stories": 387,
- "translated": 356,
- "notTranslated": [
-  "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks",
-  "패션 위크를 휩쓰는 신흥 강자 ‘태국 셀럽 12인’",
-  "Millennial Side Parts Are Angel-Approved on the Victoria’s Secret Runway",
-  "It's Here: The Winter Accessory Trend It Girls Will Use to Elevate Their Outfits",
-  "My 54-Year-Old Mom and I Struggle With Dry Skin—7 Derm-Approved Moisturizers We Both Swear By",
-  "아우터를 새로 구입한다면, 지금 ‘이것’부터 확인하세요",
-  "Not Every Ballet-Flats Color Works With Light-Wash Jeans—This One Does",
-  "다시 태어난 클래식, 겔랑 ‘뢰르 블루’",
-  "이 티셔츠,더 추워지기 전에 부지런히 입고 다녀야 합니다",
-  "Y2K Makeup Is So Back, According to Megan Thee Stallion",
-  "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party",
-  "독서의 계절, 가을에 함께하는 보그 살롱",
-  "패션쇼만큼 중요해진 ‘리시’, 대체 뭐길래?",
-  "되찾은 런던의 위상, 2027 봄/여름 런던 패션 위크",
-  "백스테이지 보는 재미, 2027 봄/여름 컬렉션",
-  "랄프 로렌이라는 인물을 바라보는 방법",
-  "가을 부츠에는 긴바지보다 반바지가 어울립니다",
-  "런던의 기묘한 낭만을 이어가는 이름 3-프란체스카 레이크",
-  "런던의 기묘한 낭만을 이어가는 이름 3-아그로 스튜디오",
-  "런던의 기묘한 낭만을 이어가는 이름 3-수잔 팡"
- ],
- "trOK": 0,
- "trFail": 31,
+ "at": "2026-10-20T08:51:16.185Z",
+ "stories": 395,
+ "translated": 395,
+ "notTranslated": [],
+ "trOK": 39,
+ "trFail": 0,
  "pictures": {
-  "checked": 387,
-  "landscape": 354,
-  "portrait": 111
+  "checked": 395,
+  "landscape": 362,
+  "portrait": 115
  }
 }
