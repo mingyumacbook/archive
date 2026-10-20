@@ -1,21 +1,27 @@
 {
- "at": "2026-10-19T22:46:03.330Z",
- "stories": 363,
+ "at": "2026-10-20T01:03:06.869Z",
+ "stories": 369,
  "translated": 356,
  "notTranslated": [
   "An Inside Look at Miley Cyrus’s Noir Hollywood Bowl Looks",
-  "Y2K Makeup Is So Back, According to Megan Thee Stallion",
-  "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party",
   "Millennial Side Parts Are Angel-Approved on the Victoria’s Secret Runway",
   "It's Here: The Winter Accessory Trend It Girls Will Use to Elevate Their Outfits",
   "My 54-Year-Old Mom and I Struggle With Dry Skin—7 Derm-Approved Moisturizers We Both Swear By",
-  "Not Every Ballet-Flats Color Works With Light-Wash Jeans—This One Does"
+  "Not Every Ballet-Flats Color Works With Light-Wash Jeans—This One Does",
+  "Y2K Makeup Is So Back, According to Megan Thee Stallion",
+  "Irina Shayk Changes Into Sheer Red Pants for the Victoria’s Secret Fashion Show After-Party",
+  "되찾은 런던의 위상, 2027 봄/여름 런던 패션 위크",
+  "백스테이지 보는 재미, 2027 봄/여름 컬렉션",
+  "독서의 계절, 가을에 함께하는 보그 살롱",
+  "패션쇼만큼 중요해진 ‘리시’, 대체 뭐길래?",
+  "다시 태어난 클래식, 겔랑 ‘뢰르 블루’",
+  "랄프 로렌이라는 인물을 바라보는 방법"
  ],
  "trOK": 0,
- "trFail": 7,
+ "trFail": 13,
  "pictures": {
-  "checked": 363,
-  "landscape": 330,
-  "portrait": 93
+  "checked": 369,
+  "landscape": 336,
+  "portrait": 98
  }
 }
