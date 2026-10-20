@@ -1098,10 +1098,10 @@ const tagName=g=>lang==="ko"?(TAGKO[String(g).toLowerCase()]||DATA.ko[g]||tx(g))
 function newsRows(){const q=newsQ.trim().toLowerCase();const list=NEWS.filter(x=>!q||[x.title,x.title_en,x.title_ko,x.summary,x.summary_ko,x.summary_en,x.source,(x.tags||[]).join(" ")].join(" ").toLowerCase().includes(q));
   if(!list.length)return `<li class="empty"><b>${t("No matching news","찾는 뉴스가 없어요")}</b>${t("Try another keyword.","다른 키워드로 찾아 보세요.")}</li>`;
   return list.slice(0,newsN).map(x=>newsRow(x)).join("")+(list.length>newsN?`<li><button class="more" data-more>${t("More","더 보기")} (${list.length-newsN})</button></li>`:"")}
-function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(tx(x.source))}</b></div>
+function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedAt||x.savedAt)}<b>${esc(srcN(x.source))}</b></div>
   <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(tTitle(x))}</a></h3>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?140:240))}</p>`:""}
   <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(tagName(g))).join("  ")}</div></div>
-  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(tx(x.source||""))}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(tx(x.source||""))}</span></a>`}
+  ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(srcN(x.source||""))}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(srcN(x.source||""))}</span></a>`}
   <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
 function startSlider(){clearInterval(slideTimer);const sl=$("#slider");if(!sl)return;const D=6500;
   const tick=()=>{const p=$("#prog");if(!p)return;p.style.transition="none";p.style.width="0";requestAnimationFrame(()=>{p.style.transition=`width ${D}ms linear`;p.style.width="100%"})};
@@ -1641,7 +1641,7 @@ function rdataView(){
      <div class="rf"><div><span class="lbl">${t("Rising","상승")}</span>${(kw.rising||[]).map(x=>`<p><button class="evb lk" data-ev="rising|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl pos">${x.prev}% → ${x.share}%</span></p>`).join("")}</div><div><span class="lbl">${t("Fading","하락")}</span>${(kw.fading||[]).map(x=>`<p><button class="evb lk" data-ev="fading|${esc(x.name)}">${esc(repName(x.name))}</button> <span class="dl neg">${x.prev}% → ${x.share}%</span></p>`).join("")}</div></div></section>`
     :`<p class="legend">${t("Items that appear in both the women's and men's published lists. The big figure is the average of the two official shares; each share is shown under it.","여성복·남성복 공개 목록에 함께 나온 항목이에요. 큰 숫자는 두 공식 비중의 평균이고, 아래에 여성·남성 비중을 그대로 적었어요.")}</p>`}
    ${wg?`<section class="wgsn"><div><span class="lbl">${t(`WGSN × Coloro key colours · ${rdSeason}`,`WGSN × Coloro 키 컬러 · ${rdSeason}`)}</span><p class="tip">${t("Announced by WGSN as the season's key colours (an official announcement, not a runway count). On-screen colour is approximate — use the Coloro code.","WGSN이 이 시즌의 키 컬러로 공식 발표한 색이에요(런웨이 집계가 아닌 발표 자료). 화면 색은 근사치라 정확한 색은 Coloro 코드로 확인하세요.")}</p></div>
-     <div class="wgl">${wg.map(c=>`<div><i style="background:${coloroHex(c.code)}"></i><b>${esc(tx(c.name))}</b><small>Coloro ${esc(c.code)}${c.coty?` · ${t("Colour of the Year","올해의 컬러")} ${esc(tx(c.coty))}`:""}</small></div>`).join("")}</div>
+     <div class="wgl">${wg.map(c=>`<div><i style="background:${coloroHex(c.code)}"></i><b>${esc(c.name)}</b><small>Coloro ${esc(c.code)}${c.coty?` · ${t("Colour of the Year","올해의 컬러")} ${esc(c.coty)}`:""}</small></div>`).join("")}</div>
      <a class="ext" href="${esc(REP.wgsn.src)}" target="_blank" rel="noopener">Coloro ${SV.arrow}</a></section>`:""}
    <div class="repgrid">
     <section><h2>${t("Colour","컬러")}</h2>${bars("colors",true)}</section>
@@ -2031,7 +2031,7 @@ function mtApply(){if(!ACC.realAdmin){const b=$("#mtBar");b&&b.remove();return}A
 function mtBar(){let b=$("#mtBar");if(!ACC.realAdmin){b&&b.remove();return}
   if(!b){b=document.createElement("div");b.id="mtBar";document.body.appendChild(b);b.addEventListener("click",e=>{if(e.target.closest("[data-mtsw]"))mtSwitch(VIEWAS==="member"?"master":"member")})}
   const pv=VIEWAS==="member";b.classList.toggle("pv",pv);
-  b.innerHTML=`<button class="lang mtsw" data-mtsw role="switch" aria-checked="${pv}" aria-label="${t("View as member","사용자 화면 보기")}"><b class="${pv?"":"on"}">${t("MASTER","마스터")}</b><span class="sw"></span><b class="${pv?"on":""}">${t("MEMBER","사용자")}</b></button>`}
+  b.innerHTML=`<button class="lang mtsw" data-mtsw role="switch" aria-checked="${!pv}" aria-label="${t("Master view","마스터 화면")}"><b class="${pv?"on":""}">${t("MEMBER","사용자")}</b><span class="sw"></span><b class="${pv?"":"on"}">${t("MASTER","마스터")}</b></button>`}
 function mtSwitch(v){VIEWAS=v==="member"?"member":null;try{VIEWAS?sessionStorage.setItem("vdViewAs","member"):sessionStorage.removeItem("vdViewAs")}catch(_){}
   ACC.admin=!VIEWAS;document.documentElement.classList.toggle("vd-preview",!!VIEWAS);
   try{closeSheet()}catch(_){}try{closeDrawer()}catch(_){}
@@ -2076,6 +2076,7 @@ const TXC=(()=>{try{return JSON.parse(localStorage.getItem("vd.tx")||"{}")}catch
 const TXQ=new Map();let TXT=null,TXBUSY=false,TXFAIL=0,TXRR=null;
 const CITY_EXTRA={Riyadh:"리야드",Lagos:"라고스",Florence:"피렌체",Copenhagen:"코펜하겐",Tokyo:"도쿄",Seoul:"서울",Shanghai:"상하이",Berlin:"베를린",Madrid:"마드리드",Stockholm:"스톡홀름",Tbilisi:"트빌리시","São Paulo":"상파울루",Lisbon:"리스본",Kyiv:"키이우",Sydney:"시드니",Mumbai:"뭄바이",Amsterdam:"암스테르담",Oslo:"오슬로",Helsinki:"헬싱키",Istanbul:"이스탄불",Moscow:"모스크바","Mexico City":"멕시코시티",Dubai:"두바이",Doha:"도하",Antwerp:"안트베르펜",Barcelona:"바르셀로나",Rome:"로마",Kiev:"키이우","Los Angeles":"로스앤젤레스",Toronto:"토론토",Johannesburg:"요하네스버그",Bangkok:"방콕",Jakarta:"자카르타",Singapore:"싱가포르","Hong Kong":"홍콩",Taipei:"타이베이",Beijing:"베이징",Warsaw:"바르샤바",Prague:"프라하",Vienna:"빈",Budapest:"부다페스트",Athens:"아테네",Reykjavik:"레이캬비크",Lyon:"리옹"};
 try{Object.assign(CITY_KO,CITY_EXTRA);(DATA.events||[]).forEach(e=>{if(e.city&&e.short_en===e.city&&e.short_ko&&!CITY_KO[e.city])CITY_KO[e.city]=e.short_ko})}catch(_){}
+const srcN=s=>lang==="en"?tx(s):s; // outlet names are proper nouns: kept as they are (Korean outlets get their English name in English)
 const cityName=c=>lang==="ko"?(CITY_KO[c]||tx(c)):c;
 function needTx(s){s=String(s||"").trim();if(!s)return false;return lang==="ko"?(!TXH.test(s)&&/[A-Za-z]{2,}/.test(s)&&!/^[A-Z0-9&.'’\-\s·/]+$/.test(s)&&!/^https?:|@|^www\./i.test(s)):TXH.test(s)}
 function tx(s){s=String(s??"");if(!needTx(s))return s;const k=s.trim();const d=lang==="ko"?I18N.ko[k]:I18N.en[k];if(d)return d;const c=TXC[lang+"|"+k];if(c)return c;
