@@ -1,5 +1,5 @@
 {
- "at": "2026-10-20T02:59:43.955Z",
+ "at": "2026-10-20T03:51:01.993Z",
  "log": [
   "probe FW27: nothing yet",
   "probe SS28: nothing yet",
@@ -10,7 +10,8 @@
   "FW26 men colors 10 patterns 3 fabrics 3 themes 0 items 3 details 20 prev FW25",
   "SS26 women colors 10 patterns 3 fabrics 3 themes 0 items 3 details 19 prev SS25",
   "SS26 men colors 10 patterns 3 fabrics 3 themes 0 items 3 details 21 prev SS25",
-  "coloro seasons: FW28(Bloodstone, Elemental Verdigris, Healing Turmeric, Smoky Amethyst, Liminal Yellow) SS28(Radiant Earth, Serene Green, Positively Yellow, Flourish Pink, Offline Blue) FW27(Luminous Blue, Russet, Peaceful Lilac, Maize, Deep Green) SS27(Luminous Blue, Energy Orange, Pop Pink, Meadowland Green, Clay)"
+  "coloro seasons: FW28(Bloodstone, Elemental Verdigris, Healing Turmeric, Smoky Amethyst, Liminal Yellow) SS28(Radiant Earth, Serene Green, Positively Yellow, Flourish Pink, Offline Blue) FW27(Luminous Blue, Russet, Peaceful Lilac, Maize, Deep Green) SS27(Luminous Blue, Energy Orange, Pop Pink, Meadowland Green, Clay)",
+  "i18n/report: 814 texts (stopped at 90, rest next run) · 0 newly translated · 90 failed · 0 ko / 0 en kept"
  ],
  "sample": [
   {
