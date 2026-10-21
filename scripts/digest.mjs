@@ -35,7 +35,9 @@ export function articleText(html) {
 export function sentences(text) {
   const ko = HANGUL.test(text);
   const parts = text.split(/\n+/).flatMap(p => ko ? p.split(/(?<=[.!?]|다\.|요\.)\s+/) : p.split(/(?<=[.!?]["”’)]?)\s+(?=["“‘(]?[A-Z0-9])/));
-  return parts.map(s => s.trim()).filter(s => s.length >= (ko ? 18 : 40) && s.length <= 320 && !JUNK.test(s) && !NOISE.test(s) && /[.!?다요"”]$/.test(s));
+  const seen = new Set();
+  return parts.map(s => s.trim()).filter(s => s.length >= (ko ? 18 : 40) && s.length <= 320 && !JUNK.test(s) && !NOISE.test(s) && /[.!다요"”]$/.test(s) && !/\?["”]?$/.test(s))
+    .filter(s => { const k = s.toLowerCase().replace(/[^a-z0-9\uac00-\ud7a3]+/g, ""); if (seen.has(k)) return false; seen.add(k); return true; }); // no questions (interview prompts), no repeats
 }
 const STOP = new Set("the a an and or but of to in on at for with from by as is are was were be been it its this that these those his her their our your they he she we you i not no so if than then also has have had will would can could just more most into over about after before which who whom what when where while new said says say one two".split(" "));
 const words = s => (s.toLowerCase().match(/[a-z][a-z'’-]{2,}|[가-힣]{2,}|\d[\d.,%]*/g) || []).filter(w => !STOP.has(w));
