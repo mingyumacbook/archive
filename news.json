@@ -1,18 +1,26 @@
 {
- "at": "2026-10-21T14:51:19.399Z",
- "stories": 516,
+ "at": "2026-10-21T16:50:33.527Z",
+ "stories": 523,
  "translated": 516,
- "summaries": 331,
+ "summaries": 336,
  "summaryRun": {
-  "dgOK": 35,
-  "dgNo": 71
+  "dgOK": 5,
+  "dgNo": 39
  },
- "notTranslated": [],
- "trOK": 11,
- "trFail": 0,
+ "notTranslated": [
+  "Inside a night with Dazed Club and Audemars Piguet at the Southbank Centre",
+  "What went down at the Dazed Club private view of Corbin Shaw's new show",
+  "Ann Caruso Is Seeking A Fashion & Social Media Intern In New York, NY",
+  "Must Read: EBay Cuts 9% of Workforce, Why Chanel Is Backing Ebel",
+  "Why Fall Is the Best Time to Go to Greece",
+  "A New Documentary Captures the Full Scope of Richard Avedon’s Life in Fashion and Photography",
+  "If You Own These Staples, You'll Never Have a \"Nothing to Wear\" Day Again"
+ ],
+ "trOK": 0,
+ "trFail": 7,
  "pictures": {
-  "checked": 516,
-  "landscape": 483,
-  "portrait": 167
+  "checked": 523,
+  "landscape": 490,
+  "portrait": 170
  }
 }
