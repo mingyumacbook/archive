@@ -8,7 +8,9 @@ const HANGUL = /[가-힣]/;
 const UA = { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", "Accept-Language": "en,ko;q=0.8", Accept: "text/html,*/*;q=0.8" };
 const decode = s => String(s || "").replace(/&nbsp;|&#160;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#0?39;|&apos;|&#x27;|&rsquo;|&lsquo;/g, "'").replace(/&ldquo;|&rdquo;/g, '"').replace(/&mdash;/g, "—").replace(/&ndash;/g, "–").replace(/&hellip;/g, "…").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
 const strip = h => decode(h.replace(/<(script|style|noscript|svg|figure|figcaption|aside|nav|footer|form|button)[\s\S]*?<\/\1>/gi, " ").replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
-const JUNK = /^(advertisement|sign up|subscribe|read more|related|photo|image|credit|getty|courtesy|follow us|share|click|newsletter|©|all rights|기자|저작권|무단|구독|사진=|사진 ?제공|ⓒ)/i;
+const JUNK = /^(advertisement|sign up|subscribe|read more|related|photo|image|credit|getty|courtesy|follow us|share|click|newsletter|©|all rights|by [A-Z][a-z]+ [A-Z]|updated|published|기자|저작권|무단|구독|사진=|사진 ?제공|ⓒ)/i;
+// boilerplate that can sit anywhere in a sentence: affiliate notes, share bars, author bios, sign-up prompts
+const NOISE = /(affiliate commission|we may earn|earn a commission|commission if you buy|share this (article|story)|join the conversation|follow us|sign up for|newsletter|all rights reserved|facebook|whatsapp|pinterest|instagram\.com|getty images|photo(graph)? (by|courtesy)|preferred source|(is|was) (a|the) (senior |deputy |associate |contributing )?(fashion |beauty |news )?(editor|writer|director) (at|of)|began (her|his) career|started (her|his|their) career|lives in (new york|london|los angeles)|무단 ?전재|재배포 ?금지|기자 ?=|구독하기)/i;
 
 export async function fetchArticle(url, ms = 15000) {
   const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
@@ -24,16 +26,16 @@ export function articleText(html) {
   }
   // 2) paragraphs inside <article> (or the main content block), skipping short captions and boilerplate
   const scope = (html.match(/<article[\s\S]*?<\/article>/i) || html.match(/<main[\s\S]*?<\/main>/i) || html.match(/<div[^>]+(?:id|class)=["'][^"']*(?:article[-_]?body|articleBody|article_txt|article-content|news_body|post-content|entry-content|story-body|view_con|news_view|article_view)[^"']*["'][\s\S]{0,200000}/i) || [html])[0];
-  const paras = [...scope.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map(m => strip(m[1])).filter(p => p.length > 40 && !JUNK.test(p));
-  if (paras.join(" ").length > 300) return paras.join(" ");
+  const paras = [...scope.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map(m => strip(m[1])).filter(p => p.length > 40 && !JUNK.test(p) && !NOISE.test(p));
+  if (paras.join(" ").length > 300) return paras.join("\n");
   // 3) Korean news pages often put the text in a div with <br> line breaks
   const k = scope.match(/<div[^>]+(?:id|class)=["'][^"']*(?:article|news|view|content)[^"']*["'][^>]*>([\s\S]{400,60000}?)<\/div>/i);
   return k ? strip(k[1]) : "";
 }
 export function sentences(text) {
   const ko = HANGUL.test(text);
-  const parts = ko ? text.split(/(?<=[.!?]|다\.|요\.)\s+/) : text.split(/(?<=[.!?]["”’)]?)\s+(?=["“‘(]?[A-Z0-9])/);
-  return parts.map(s => s.trim()).filter(s => s.length >= (ko ? 18 : 40) && s.length <= 420 && !JUNK.test(s));
+  const parts = text.split(/\n+/).flatMap(p => ko ? p.split(/(?<=[.!?]|다\.|요\.)\s+/) : p.split(/(?<=[.!?]["”’)]?)\s+(?=["“‘(]?[A-Z0-9])/));
+  return parts.map(s => s.trim()).filter(s => s.length >= (ko ? 18 : 40) && s.length <= 320 && !JUNK.test(s) && !NOISE.test(s) && /[.!?다요"”]$/.test(s));
 }
 const STOP = new Set("the a an and or but of to in on at for with from by as is are was were be been it its this that these those his her their our your they he she we you i not no so if than then also has have had will would can could just more most into over about after before which who whom what when where while new said says say one two".split(" "));
 const words = s => (s.toLowerCase().match(/[a-z][a-z'’-]{2,}|[가-힣]{2,}|\d[\d.,%]*/g) || []).filter(w => !STOP.has(w));
@@ -48,6 +50,7 @@ export function pick(text, title = "") {
     v += (s.match(/\d/g) || []).length ? 0.8 : 0;                  // numbers, dates, prices
     v += (s.match(/\b[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)*/g) || []).length * 0.15; // names
     v += i === 0 ? 1.4 : i < 3 ? 0.6 : 0;                           // the lead
+    if (i > ss.length * 0.9 && ss.length > 12) v -= 1;              // endings are often bios and sign-offs
     if (/^["“]/.test(s) && s.length < 80) v -= 0.6;                 // short quotes alone say little
     return { s, i, v }; });
   const n = Math.max(4, Math.min(ss.length > 40 ? 12 : 10, Math.round(ss.length * 0.22)));
