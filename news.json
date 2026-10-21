@@ -1,21 +1,21 @@
 {
- "at": "2026-10-21T18:57:00.356Z",
- "stories": 535,
- "translated": 533,
- "summaries": 339,
+ "at": "2026-10-21T20:49:41.834Z",
+ "stories": 541,
+ "translated": 539,
+ "summaries": 343,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 4,
   "dgNo": 11
  },
  "notTranslated": [
-  "Prince Harry Has Complicated Feelings About His Final Conversation With Mom Princess Diana",
-  "A Sculptural Garden Where Fashion Takes Shape"
+  "Doja Cat is fashion’s ultimate chameleon",
+  "Alexander Skarsgård on His First Reaction to Wicker"
  ],
- "trOK": 17,
+ "trOK": 6,
  "trFail": 2,
  "pictures": {
-  "checked": 535,
-  "landscape": 502,
-  "portrait": 172
+  "checked": 541,
+  "landscape": 508,
+  "portrait": 174
  }
 }
