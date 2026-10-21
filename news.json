@@ -1,21 +1,21 @@
 {
- "at": "2026-10-21T20:49:41.834Z",
- "stories": 541,
- "translated": 539,
- "summaries": 343,
+ "at": "2026-10-21T22:47:43.021Z",
+ "stories": 546,
+ "translated": 544,
+ "summaries": 347,
  "summaryRun": {
   "dgOK": 4,
-  "dgNo": 11
+  "dgNo": 3
  },
  "notTranslated": [
-  "Doja Cat is fashion’s ultimate chameleon",
-  "Alexander Skarsgård on His First Reaction to Wicker"
+  "The 18 Sexiest Scents of All Time, According to Perfume Experts",
+  "Gigi Hadid Proves Angels Have Each Other’s Backs as She Defends Elsa Hosk’s Victoria’s Secret Walk"
  ],
- "trOK": 6,
+ "trOK": 5,
  "trFail": 2,
  "pictures": {
-  "checked": 541,
-  "landscape": 508,
-  "portrait": 174
+  "checked": 546,
+  "landscape": 513,
+  "portrait": 176
  }
 }
