@@ -1,34 +1,13 @@
 {
- "at": "2026-10-21T04:54:08.707Z",
- "stories": 472,
- "translated": 427,
- "notTranslated": [
-  "We’ve never been more connected, so why do we feel so alone?",
-  "The housing crisis is killing our sex lives",
-  "Must Read: Mikayla Nogueira's POV Beauty Raises Series A, Vinted Pulls Listings Tied to Looting in France",
-  "5 Modern Haircuts That Make Gray Hair Look Thicker, From a Sharp Bob to Choppy Texture",
-  "Princess Kate Dipped Into the Most Elegant Curtsy While Greeting the Sultan of Oman Today",
-  "Use These Three Tools to Get Kendall Jenner’s Modern French Twist Updo",
-  "Why Are All the New Dry Shampoos Wet?",
-  "Gap and Victoria Beckham Reunite for a Second Collection",
-  "Kristina Blahnik on Preserving and Expanding Manolo Blahnik's Legacy",
-  "My Aunt Only Shops Affordable Fashion—I Sent Her These 30 Chic, Expensive-Looking Pieces",
-  "Add a Pop of Color to Your Fall Wardrobe With These Eye-Catching Bags",
-  "Why Do So Many Romance Readers Love Monsters?",
-  "The 33 Best Beauty Advent Calendars You Can Already Shop This Holiday Season",
-  "Jenna Ortega Looks Amazing at the Klara and the Sun Premiere in a Colorful Dress Made From Steel Boning and Crystal Beads",
-  "Barbara Palvin’s Victoria’s Secret Show Appearance Kicked Off an Unexpected Debate About Maternity Leave",
-  "The T by Tiffany Gold Pendant Necklace That the Jewelry Lover in Your Life Will Adore",
-  "The Biggest Trends of Fall 2026 Are All About Subverting Expectations",
-  "The 6 Best Clarifying Shampoos for Gray Hair",
-  "Princess Kate Pairs This Meaningful Tiara With a Lemon-Yellow Cape Dress from Elie Saab",
-  "The Prettiest Satin Pieces in Every Category, From Shirts to Shoes"
- ],
- "trOK": 0,
- "trFail": 45,
+ "at": "2026-10-21T07:02:36.872Z",
+ "stories": 481,
+ "translated": 481,
+ "notTranslated": [],
+ "trOK": 54,
+ "trFail": 0,
  "pictures": {
-  "checked": 472,
-  "landscape": 439,
-  "portrait": 146
+  "checked": 481,
+  "landscape": 448,
+  "portrait": 152
  }
 }
