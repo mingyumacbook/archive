@@ -1,20 +1,20 @@
 {
- "at": "2026-10-21T06:04:23.235Z",
+ "at": "2026-10-21T06:06:34.773Z",
  "log": [
-  "Vogue Korea: 10/45 lines, 429 words (4693ms)",
-  "W Korea: no text (1184ms)",
-  "Who What Wear: no text (100ms)",
-  "Harper's BAZAAR: 6/28 lines, 763 words (1060ms)",
-  "Dazed: 9/43 lines, 831 words (3532ms)",
-  "Fashionista: no text (47ms)",
-  "METAL Magazine: no text (80ms)",
-  "The Zoe Report: no text (143ms)",
-  "The Korea Herald: no text (1481ms)",
-  "WWD: 12/236 lines, 4171 words (1905ms)",
-  "Marie Claire: 9/41 lines, 814 words (1458ms)",
-  "The Impression: no text (48ms)",
-  "Inside Retail Asia: 5/23 lines, 552 words (2362ms)",
-  "Aza Fashions: no text (141ms)"
+  "Vogue Korea: 10/45 lines, 429 words (10926ms)",
+  "W Korea: no text (1071ms)",
+  "Who What Wear: no text (164ms)",
+  "Harper's BAZAAR: 6/27 lines, 763 words (6636ms)",
+  "Dazed: 9/40 lines, 831 words (8009ms)",
+  "Fashionista: no text (151ms)",
+  "METAL Magazine: no text (847ms)",
+  "The Zoe Report: no text (114ms)",
+  "The Korea Herald: no text (1393ms)",
+  "WWD: 12/202 lines, 4171 words (11307ms)",
+  "Marie Claire: 9/41 lines, 814 words (10834ms)",
+  "The Impression: no text (236ms)",
+  "Inside Retail Asia: 5/23 lines, 552 words (6723ms)",
+  "Aza Fashions: no text (225ms)"
  ],
  "items": [
   {
@@ -40,7 +40,7 @@
     "lines": 10,
     "of": 45,
     "words": 429,
-    "at": 1792562646544,
+    "at": 1792562737308,
     "ko": [
      "아무렇게나 입어도 멋있는, ‘얄미운’ 옷이 있습니다.",
      "별다른 노력 없이도 멋을 내는 스웨이드 재킷 처럼요.",
@@ -90,9 +90,9 @@
    "publishedAt": "2026-10-20T21:31:54.000Z",
    "digest": {
     "lines": 6,
-    "of": 28,
+    "of": 27,
     "words": 763,
-    "at": 1792562651118,
+    "at": 1792562748476,
     "en": [
      "The best trends from the fall 2026 shows were all about disrupting expectations.",
      "From Miuccia Prada’s satin dresses worn with scarves to Chloé’s chiffon skirts in folksy plaid, so-wrong-it’s-right statement dressing ruled the runways.Even the more subtle styling tricks and silhouettes felt a little bit tweaked.",
@@ -106,7 +106,7 @@
      "스카프와 함께 착용한 미우치아 프라다(Miuccia Prada)의 새틴 드레스부터 끌로에(Chloé)의 서민적인 체크 무늬 쉬폰 스커트까지, 너무나 옳고 그름을 강조하는 드레싱이 런웨이를 지배했습니다. 심지어 더 미묘한 스타일링 트릭과 실루엣도 약간 변형된 느낌이었습니다.",
      "그리고 Julian Klausner는 가을의 영웅 액세서리인 스테이트먼트 커머밴드로 Dries Van Noten의 일반적인 허리 이론을 부활시켰습니다. 그럼에도 불구하고 클래식에 끌리든 실험적인 접근 방식을 취하든 2026년 가을 컬렉션은 모두를 위한 무언가를 가지고 있었습니다.",
      "런웨이 전체에 커머번드가 있었고 일부는 매우 전통적인 느낌을 받았지만 다른 일부는 예상치 못한 색상으로 나오거나 놀라운 장식으로 장식되었습니다. 룩에 쉽게 트위스트를 적용하려면 허리에 부드러운 오페라 스카프를 고정하여 검은색 바지와 파란색 버튼 다운 의상에 흥미를 더해보세요.",
-     "니하이 부츠와 뉴트럴 블레이저와 함께 격자 무늬 스커트를 사무실에 입거나 칵테일 파티를 위해 격자 무늬 드레스를 선택하든 이러한 트렌드는 옷장에 새로운 생명을 불어 넣을 수 있습니다. Undone Lady이번 ​​시즌 런웨이는 일상 생활의 지저분함을 반영하는 스타일의 여성스러운 작품을 선보였습니다.",
+     "니하이 부츠와 뉴트럴 블레이저와 함께 체크 무늬 스커트를 사무실에 입거나 칵테일 파티를 위해 체크 무늬 드레스를 선택하든 이러한 트렌드는 옷장에 새로운 생명을 불어넣을 수 있습니다. Undone Lady이번 ​​시즌 런웨이는 일상 생활의 지저분함을 반영하는 스타일의 여성스러운 아이템을 선보였습니다.",
      "스웨터와 청키한 니트 스카프와 함께 입는 새틴 드레스부터 차려입은 하의에 꽃무늬 자수 스웨터까지 저녁 시간에 스웨터를 입는 방법은 다양했습니다. 주간 턱시도 복장 이번 시즌 가장 멋진 테일러링 트렌드 중 하나는 디자이너들이 평상복에 맞게 턱시도 복장을 해석하는 방식이었습니다."
     ]
    }
@@ -132,30 +132,30 @@
    "publishedAt": "2026-10-20T16:04:00.000Z",
    "digest": {
     "lines": 9,
-    "of": 43,
+    "of": 40,
     "words": 831,
-    "at": 1792562652199,
+    "at": 1792562755220,
     "en": [
+     "Still, the conference took place in New York, a city whose mayor met his wife on Hinge – clearly not all is lost.",
      "On a panel titled The Attention We Owe Ourselves & Each Other, Perel joined Jantos and poet-podcaster Saeed Jones, with gen Z historian Kahlil Greene moderating, to ask where all our attention has gone and what it would take to give more of it to each other.",
+     "So he bought three hourglasses, timed at 15, 30, and 45 minutes, and started small, reading until the sand ran out without letting himself take notes or look up words.",
      "But Perel suggests a little more friction might do us some good, starting with choosing to meet people in person.",
      "“If you do not come into contact with people, you have no sense of what you are doing to them when you’re hurting them, because they slowly become less people,” she said.",
      "When Jones moved to Cambridge, assuming he’d only be there for a year, a friend of his made a standing announcement: Every Tuesday at 2pm between classes, she’d be at a particular cafe, whether anyone joined her or not.",
      "Jones thinks more of us should do the same, and suggested picking a bench where people know they can find you every Friday at lunchtime.",
      "“The burdens of the self have never been heavier,” Perel said, and in guarding it so closely, some people establish so many boundaries that they shut themselves out of living altogether.",
-     "Drawing on the sociologist Eva Illouz, Perel calls this “emotional capitalism,” and it can leave people feeling like products.",
-     "“If you’re going to do an activity, just invite the person to join you, bring them in, and then people around you will have lots of data points,” Perel said.",
-     "Perel added that it’s worth telling the other person, with something as simple as “Last night was so wonderful… I’m still laughing about that thing you said.”"
+     "“If you’re going to do an activity, just invite the person to join you, bring them in, and then people around you will have lots of data points,” Perel said."
     ],
     "ko": [
+     "그럼에도 불구하고 회의는 시장이 힌지(Hinge)에서 그의 아내를 만난 도시인 뉴욕에서 열렸습니다. 분명히 모든 것이 손실된 것은 아닙니다.",
      "The Attention We Owe Ourselves & Each Other라는 제목의 패널에서 Perel은 Jantos와 시인 겸 팟캐스터인 Saeed Jones와 함께 Z세대 역사학자 Kahlil Greene이 진행하는 가운데 우리의 모든 관심이 어디로 갔는지, 서로에게 더 많은 관심을 쏟으려면 무엇이 필요한지 물었습니다.",
+     "그래서 그는 15분, 30분, 45분 시간이 표시된 모래시계 세 개를 사서 작게 시작하여 메모를 하거나 단어를 찾아보지도 않고 모래가 다 떨어질 때까지 읽기 시작했습니다.",
      "그러나 Perel은 사람들을 직접 만나는 것을 선택하는 것부터 시작하여 조금 더 마찰이 우리에게 도움이 될 수 있다고 제안합니다.",
      "“사람들과 접촉하지 않으면, 당신이 그들에게 상처를 주고 있을 때 당신이 그들에게 무슨 짓을 하고 있는지 전혀 알 수 없습니다. 왜냐하면 그들은 천천히 덜 사람이 되기 때문입니다.”라고 그녀는 말했습니다.",
      "Jones가 캠브리지로 이사했을 때, 그곳에 1년만 있을 것이라고 가정하고 친구 한 명이 다음과 같이 확고한 발표를 했습니다. 매주 화요일 오후 2시에 수업 사이에 누군가가 그녀와 함께하든 안 하든 그녀는 특정 카페에 있을 것이라는 것이었습니다.",
      "Jones는 우리 중 더 많은 사람들이 똑같이 해야 한다고 생각하고 사람들이 매주 금요일 점심 시간에 당신을 찾을 수 있다는 것을 알 수 있는 벤치를 선택할 것을 제안했습니다.",
      "페렐은 “자기의 짐이 이보다 더 무거웠던 적은 없었다”고 말했고, 그것을 너무도 철저하게 지키면서 어떤 사람들은 너무 많은 경계를 세워서 삶 자체를 아예 차단하기도 했습니다.",
-     "사회학자 Eva Illouz를 인용하여 Perel은 이것을 \"감정적 자본주의\"라고 부르며 사람들이 상품처럼 느끼게 만들 수 있습니다.",
-     "Perel은 \"어떤 활동을 할 예정이라면, 그 사람을 초대하고 데려오세요. 그러면 주변 사람들이 많은 데이터 포인트를 갖게 될 것입니다.\"라고 Perel은 말했습니다.",
-     "Perel은 \"어젯밤은 정말 멋졌어… 당신이 한 말 때문에 아직도 웃고 있어요.\"와 같은 간단한 말로 상대방에게 말할 가치가 있다고 덧붙였습니다."
+     "Perel은 \"어떤 활동을 할 예정이라면, 그 사람을 초대하고 데려오세요. 그러면 주변 사람들이 많은 데이터 포인트를 갖게 될 것입니다.\"라고 Perel은 말했습니다."
     ]
    }
   },
@@ -187,36 +187,36 @@
    "publishedAt": "",
    "digest": {
     "lines": 12,
-    "of": 236,
+    "of": 202,
     "words": 4171,
-    "at": 1792562657398,
+    "at": 1792562765623,
     "en": [
      "PARIS — Perhaps Prada called it back in Milan — but this season was all about the skirt in Paris too.",
      "Dresses remain important, but skirts increasingly look like the season’s key vehicle for the return of femininity.",
      "Tiffany Hsu, chief buying and group fashion venture officer at Mytheresa, saw the season mark a “return of emotion and personality,” with customers moving away from quiet luxury to more expressive, personal looks.",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?",
-     "Did you feel any “vibe shift” this season?"
+     "Investments are shifting toward skirts, feminine ready-to-wear, occasionwear and accessories, particularly jewelry, belts, scarves and other smaller pieces that add personality without requiring a full closet reset.",
+     "We’re increasing investment in novelty fashion and emotional pieces that give clients a reason to buy now but have longevity beyond the season.",
+     "There was an incredible return to glamour in Paris, with gowns, feathers, embellishment, beautiful color and silhouettes with presence.",
+     "Skirts and skirt suits were everywhere, alongside a strong emphasis on the waist through peplum tops, belts and ties.",
+     "Romantic femininity, including bustiers, skirts, bra tops, vintage-inspired florals, ditsy prints and a softer pastel palette.",
+     "Feminine ready-to-wear, particularly bustiers, skirts, romantic tops, dresses and floral stories, as well as statement evening and occasion pieces.",
+     "Eclectic maximalism: unexpected color combinations at Valentino and Givenchy, metallics at Saint Laurent and bold mixed prints at Dries Van Noten and Miu Miu.",
+     "Paris offered so much that retailers simply wanted to buy: easy trenches, skirts and polos at Dries Van Noten and summer suiting at Dior.",
+     "Femininity: lace, transparency, softer and more fluid silhouettes, and skirts."
     ],
     "ko": [
-     "파리 — 아마도 프라다가 밀라노에서 다시 불렀을 것입니다. 하지만 이번 시즌은 파리에서도 스커트에 관한 것이었습니다.",
+     "파리 - 아마도 프라다가 밀라노에서 다시 불렀을 것입니다. 하지만 이번 시즌은 파리에서도 스커트에 관한 것이었습니다.",
      "드레스는 여전히 중요하지만 스커트는 점점 여성성을 되찾는 이번 시즌의 핵심 수단으로 여겨지고 있습니다.",
-     "Mytheresa의 최고 구매 겸 그룹 패션 벤처 책임자인 Tiffany Hsu는 이번 시즌이 고객들이 조용한 럭셔리에서 벗어나 보다 표현적이고 개인적인 룩으로 이동하는 가운데 \"감정과 개성의 복귀\"라고 보았습니다.",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
-     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?"
+     "Mytheresa의 최고 구매 겸 그룹 패션 벤처 책임자인 Tiffany Hsu는 이번 시즌이 고객이 조용한 럭셔리에서 벗어나 더욱 표현적이고 개인적인 룩으로 이동하는 '감정과 개성의 복귀'라고 보았습니다.",
+     "투자는 스커트, 여성스러운 기성복, 행사용 의류 및 액세서리, 특히 보석, 벨트, 스카프 및 옷장 전체를 재설정하지 않고도 개성을 더할 수 있는 기타 작은 품목으로 이동하고 있습니다.",
+     "우리는 고객에게 지금 구매할 이유를 제공하지만 시즌이 지나도 오래 지속될 수 있는 참신한 패션과 감성적인 제품에 대한 투자를 늘리고 있습니다.",
+     "가운, 깃털, 장식, 아름다운 색상, 존재감 있는 실루엣을 갖춘 파리에서는 놀라운 화려함으로의 복귀가 있었습니다.",
+     "페플럼 탑, 벨트, 타이를 통해 허리를 강조하는 스커트와 스커트 수트가 어디에나 있었습니다.",
+     "뷔스티에, 스커트, 브라탑, 빈티지에서 영감을 받은 꽃무늬, 희미한 프린트, 부드러운 파스텔 톤을 포함한 로맨틱한 여성미.",
+     "여성스러운 기성복, 특히 뷔스티에, 스커트, 로맨틱한 탑, 드레스, 꽃무늬 스토리는 물론 특별한 이브닝 룩과 행사용 피스도 만나보세요.",
+     "절충주의적 맥시멀리즘: Valentino와 지방시의 예상치 못한 색상 조합, Saint Laurent의 메탈릭, Dries Van Noten과 Miu Miu의 대담한 혼합 프린트.",
+     "파리에서는 Dries Van Noten의 간편한 트렌치, 스커트, 폴로 셔츠, Dior의 여름 수트 등 소매업체가 구매하고 싶어할 정도로 많은 제품이 제공되었습니다.",
+     "여성다움: 레이스, 투명함, 더욱 부드럽고 유동적인 실루엣, 스커트."
     ]
    }
   },
@@ -251,7 +251,7 @@
     "lines": 9,
     "of": 41,
     "words": 814,
-    "at": 1792562659305,
+    "at": 1792562776928,
     "en": [
      "The collection felt like a hall of fame for a garment Prada has spent decades perfecting.",
      "Prada's Spring 2027 runway made the skirt the foundation of nearly every look.",
@@ -267,10 +267,10 @@
      "이 컬렉션은 프라다가 수십 년에 걸쳐 완성해 온 의류에 대한 명예의 전당처럼 느껴졌습니다.",
      "프라다의 2027년 봄 런웨이는 스커트를 거의 모든 룩의 기초로 만들었습니다.",
      "80년대에는 과장된 어깨와 갑옷처럼 재단된 스커트 슈트로 권위가 나타났다.",
-     "뉴욕 패션 위크의 가장 쉬운 의상 공식은 스테이트먼트 스커트로 시작됩니다. 이번 패션 먼스 트렌드가 내 머리를 돌렸다는 것에 놀랐습니다. 지금 구매하고 싶은 3가지 스타일 저는 Dior의 몽환적인 2027 봄 옷장을 다시 만들고 있습니다. 여기서는 싱글 스커트가 파워 스커트가 아니었습니다.",
+     "뉴욕 패션 위크의 가장 쉬운 의상 공식은 스테이트먼트 스커트로 시작됩니다 이번 패션 먼스 트렌드가 내 머리를 돌렸다는 것에 놀랐습니다. 지금 구매하고 싶은 3가지 스타일 저는 Dior의 몽환적인 2027 봄 옷장을 다시 만들고 있습니다. 여기서는 싱글 스커트가 파워 스커트가 아니었습니다.",
      "2027년 봄에는 이러한 아이디어를 모아 카테고리를 트렌드라기보다는 끝없이 재배치할 수 있는 종이인형 옷장으로 취급했습니다.",
      "프라다는 2027년 봄 컬렉션을 위해 볼륨감 있는 마젠타색 스커트와 셔츠 및 란제리에서 영감을 받은 레이어의 예상치 못한 조합을 선보였습니다.",
-     "컬렉션의 부채꼴 스커트 중 하나를 입은 미우치아 프라다(Miuccia Prada)가 프라다의 2027 봄 패션쇼에 이어 라프 시몬스와 나란히 인사를 하고 있습니다.",
+     "컬렉션의 부채꼴 스커트 중 하나를 입은 미우치아 프라다(Miuccia Prada)가 프라다의 2027 봄 패션쇼에 이어 라프 시몬스와 함께 인사를 하고 있습니다.",
      "프라다가 패션의 선두주자라면, 2027년 봄의 메시지는 간단합니다. 스커트를 바지처럼 입으세요.",
      "미우치아 프라다(Miuccia Prada)는 이를 훨씬 더 분명하게 표현한 적이 있습니다: \"나에게 스커트는 티셔츠와 같습니다."
     ]
@@ -307,7 +307,7 @@
     "lines": 5,
     "of": 23,
     "words": 552,
-    "at": 1792562662324,
+    "at": 1792562789160,
     "en": [
      "Luxury bellwether LVMH on Monday reported weaker-than-expected third-quarter sales as a sharp deterioration in Chinese consumer mood hit demand for its flagship brands Louis Vuitton and Dior.",
      "The trading update from the world’s largest luxury group, and the first major sector player to report third-quarter results, is likely to heighten concerns that the US$350 billion luxury industry, mired in a three-year slowdown, will struggle to regain momentum.",
@@ -316,8 +316,8 @@
      "Sales in Asia, dominated by China, fell 5 per cent from a year earlier, while sales in the US rose 5 per cent."
     ],
     "ko": [
-     "럭셔리 브랜드 LVMH는 중국 소비자 심리의 급격한 악화로 주력 브랜드인 루이비통과 디올에 대한 수요가 타격을 입으면서 월요일 3분기 매출이 예상보다 부진했다고 발표했습니다.",
-     "세계 최대 럭셔리 그룹이자 주요 부문 최초로 3분기 실적을 보고한 이번 거래 업데이트는 3년 간의 경기 둔화에 휩싸인 미화 3,500억 달러 규모의 럭셔리 산업이 탄력을 되찾기 위해 고군분투할 것이라는 우려를 증폭시킬 가능성이 높습니다.",
+     "명품 브랜드 LVMH는 월요일 중국 소비자 심리의 급격한 악화로 자사 주력 브랜드인 루이비통과 디올에 대한 수요가 타격을 입으면서 3분기 매출이 예상보다 부진했다고 발표했습니다.",
+     "세계 최대 럭셔리 그룹이자 업계 최초로 3분기 실적을 보고한 럭셔리 그룹의 이번 거래 업데이트는 3년 간의 경기 둔화에 휩싸인 미화 3,500억 달러 규모의 럭셔리 산업이 탄력을 되찾기 위해 고군분투할 것이라는 우려를 증폭시킬 가능성이 높습니다.",
      "유럽의 주요 럭셔리 그룹은 올해 초부터 약 3,300억 유로의 시장 가치를 잃었으며, LVMH만 약 40%의 손실을 입었습니다.",
      "Visible Alpha 컨센서스에 따르면 통화 변동을 제거한 유기적 매출은 전년 대비 1% 증가한 185억 유로(207억 달러)로 분석가들의 1.3% 성장 기대치를 하회했습니다.",
      "중국이 대부분인 아시아 지역 매출은 전년 동기 대비 5% 감소한 반면, 미국 매출은 5% 증가했다."
