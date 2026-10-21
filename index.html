@@ -780,6 +780,44 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 #mtBar.pv button.mtsw{background:var(--bg);color:var(--ink-3);border-color:var(--ink)}#mtBar .mtsw b{letter-spacing:.02em}
 .atabs{position:sticky;top:-1px;z-index:2;background:var(--bg);padding:2px 0 10px;margin:0 0 4px}.atabs .adot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--alert);margin-left:5px;vertical-align:2px}
 .atab[data-at="backup"]>.grp:first-child,.atab[data-at="members"]>.grp:first-child,.atab #mtSql>.grp:first-child{display:none}.atab>.grp:first-child{margin-top:6px}
+.sheet.gsheet{width:min(880px,100%)}.gsheet .sb{gap:0}
+.gstart{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 16px}
+.gstart span{display:flex;align-items:center;gap:9px;background:var(--soft);padding:10px 12px;font-size:12.5px;line-height:1.35}
+.gstart b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:500 11px var(--f-ui)}
+.gsheet .gtabs{margin:0 0 14px}
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.gcard{border:1px solid var(--line);display:flex;flex-direction:column}
+.gvis{height:112px;background:var(--soft);display:flex;align-items:center;justify-content:flex-start;gap:8px;padding:12px 14px;overflow:hidden;font:12px var(--f-ui);color:var(--ink)}
+.gtx{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}.gtx b{font-size:14.5px;font-weight:500}.gtx p{margin:0;font-size:12.5px;line-height:1.55;color:var(--ink-2);flex:1}
+.gwhere{align-self:flex-start;margin-top:6px;font-size:10.5px;letter-spacing:.04em;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.gwhere:before{content:"⌖ ";}
+.gi{display:inline-grid;width:16px;height:16px;vertical-align:-3px}.gi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.gdt{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none}.gdt.s-new{background:#b3b3b1}.gdt.s-doing{background:#ef8a17}.gdt.s-done{background:#2e9d58}.gdt.s-hold{background:#d8382c}
+.gm-to{color:var(--ink-3)}
+.gm-btn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--ink);padding:6px 11px;background:var(--bg);white-space:nowrap}.gm-btn.dark{background:var(--ink);color:var(--bg)}.gm-btn.sm{padding:3px 8px;font-size:11px}
+.gm-icon{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);background:var(--bg);border-radius:50%}.gm-icon.on .gi svg{fill:currentColor}
+.gm-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--bg);white-space:nowrap}.gm-chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gm-input{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--bg);padding:7px 12px;color:var(--ink-3);min-width:150px}
+.gm-seg{display:inline-flex;border:1px solid var(--line);background:var(--bg)}.gm-seg>*{padding:5px 10px;font-weight:400}.gm-seg b{background:var(--ink);color:var(--bg)}
+.gm-col{display:flex;flex-direction:column;gap:6px;align-items:flex-start}.gm-col.end{align-items:flex-start}.gm-col.sm{font-size:11.5px}
+.gm-row{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);padding:5px 9px;white-space:nowrap}.gm-row.wide{gap:10px}.gm-row small{color:var(--ink-3)}
+.gm-banner{width:100%;height:100%;background:#111;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 12px;gap:6px;font-size:11px}.gm-banner b{font:400 15px var(--f-mark)}.gm-banner span{letter-spacing:.12em;opacity:.8}
+.gm-bars{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;font-size:11px}.gm-bars span{position:relative;padding:3px 6px;z-index:0;width:100%}.gm-bars span:before{content:"";position:absolute;inset:0;width:var(--w);background:color-mix(in srgb,var(--ink) 12%,transparent);z-index:-1}.gm-bars em{font-style:normal;color:#2e9d58}
+.gm-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:10.5px}.gm-cal span{width:24px;height:20px;display:grid;place-items:center;background:var(--bg)}.gm-cal span.on{background:var(--ink);color:var(--bg);position:relative}
+.gm-card{background:var(--bg);border:1px solid var(--line);padding:10px 12px;display:flex;flex-direction:column;gap:3px}.gm-card b{font:400 15px var(--f-mark)}.gm-card small{color:var(--ink-3)}
+.gm-drop{border:1.5px dashed var(--ink-3);padding:16px 14px;display:inline-flex;gap:7px;align-items:center;color:var(--ink-2)}
+.gm-bar{background:var(--bg);border:1px solid var(--line);padding:6px 10px;color:var(--ink-3);display:inline-flex;gap:10px}.gm-bar b{color:var(--ink);font-weight:500}
+.gm-sw{display:inline-flex;gap:4px}.gm-sw i{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
+.gm-fab{width:34px;height:31px;display:inline-block}.gm-fab svg{width:100%;height:100%;fill:rgba(13,13,13,.2)}
+.gm-pin{font-style:normal;font-size:10px;color:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:0 5px}
+.gm-step{width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:10px;flex:none}
+.gm-send{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center}
+.gm-lights{display:grid;grid-template-columns:1fr 1fr;gap:7px 14px;font-size:11.5px}.gm-lights>span{display:inline-flex;align-items:center;gap:6px}span.gm-lights{display:inline-flex;align-items:center;gap:7px}.gm-lights em{font-style:normal;color:var(--ink-3);font-size:10.5px}
+.gm-bub{background:var(--ink);color:var(--bg);border-radius:16px;padding:7px 12px}
+.gm-lang{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.05em}.gm-lang i{width:30px;height:17px;border-radius:9px;background:var(--ink);position:relative}.gm-lang i:after{content:"";position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;background:var(--bg)}
+.gm-cb{width:14px;height:14px;border:1px solid var(--ink);display:inline-block}.gm-cb.on{background:var(--ink);box-shadow:inset 0 0 0 2px var(--bg)}
+.gm-app{width:56px;height:56px;border-radius:13px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font:400 7.5px var(--f-mark);color:#111;letter-spacing:.02em}
+@media (max-width:600px){.gstart{grid-template-columns:1fr}.gcards{grid-template-columns:1fr}.gvis{height:100px}}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -1712,6 +1750,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.10.21-1",d:"2026.10.21",ko:["사용 가이드를 그림 카드로 바꿨어요 · 버튼 모양과 위치를 한눈에 볼 수 있어요"],en:["The how-to guide is now picture cards — see each button and where it is at a glance"]},
  {v:"2026.10.20-4",d:"2026.10.20",ko:["한국어로 보면 뉴스 · 태그 · 시즌 리포트 · 근거 기사 · 컬러 이름 · 도시 · 디렉터까지 모두 한국어로 보여요","영어로 보면 모든 문구가 영어로 보여요"],en:["In English, everything shows in English — news, tags, season report, press, colour names, cities and directors","In Korean, everything shows in Korean"]},
  {v:"2026.10.20-3",d:"2026.10.20",ko:["디자이너: 브랜드 안 ‘정보 수정’으로 브랜드명 · 디렉터 · 홈페이지를 고칠 수 있어요","디렉터도 브랜드 홈페이지에서 자동으로 찾아와요","시즌 리포트: 새 시즌(FW27 · SS28 등)은 첫 쇼가 공개되면 자동으로 추가돼요","브랜드 컬렉션은 매일 업데이트돼요","계정(···)을 계정 · 백업 탭으로 나눴어요"],en:["Designers: ‘Edit details’ changes a brand’s name, director and homepage","Directors are also read from each brand’s homepage","Season Report: a new season (FW27, SS28…) is added once its first show is published","Brand collections update every day","Account (···) is split into Account and Backup tabs"]},
  {v:"2026.10.20-2",d:"2026.10.20",ko:["각 화면 제목 옆 ? 를 누르면 그 화면의 사용법을 볼 수 있어요","오른쪽 아래 ‘사용 가이드’에서 모든 사용법을 한곳에서 봐요","비밀번호는 바꿀 때마다 마스터 승인이 필요해요"],en:["Tap ? next to a page title to see how that page works","‘How to use’ at the bottom right gathers every how-to in one place","Every password change needs the master’s approval"]},
@@ -1962,58 +2001,108 @@ function chatInit(){if(vcStarted)return;vcStarted=true;
   document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")vcLoad()})}
 
 {const _vcAL=applyLang;applyLang=function(){const r=_vcAL.apply(this,arguments);try{if(vcStarted)vcRender(true)}catch(_){}return r}}
-/* ================= HOW-TO GUIDE =================
-   One guide, two ways in: the "?" next to each page title opens that category,
-   "사용 가이드" in the footer opens the whole guide. The master tab shows only to the master. */
+/* ================= HOW-TO GUIDE (visual) =================
+   Each feature is a card: a small picture of the real control, a short title, one line, and where to find it.
+   "?" next to a page title opens that category; "사용 가이드" in the footer opens the whole guide. */
+const GI={ /* tiny stroke icons, same line weight as the app */
+ bm:'<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
+ arrow:'<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>',
+ search:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>',
+ star:'<svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.8z"/></svg>',
+ plus:'<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+ bubble:'<svg viewBox="0 0 64 58"><path d="M32 2C15 2 2 12.6 2 25.6c0 7.6 4.3 14.2 11 18.6-.6 4.4-2.8 8.2-6.4 10.8 6.8 0 12.6-2.4 16.6-6 2.8.5 5.7.8 8.8.8 17 0 30-10.8 30-24S49 2 32 2z"/></svg>',
+ refresh:'<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v4.5h-4.5"/></svg>',
+ dots:'<svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>',
+ drag:'<svg viewBox="0 0 24 24"><path d="M8 6h.01M8 12h.01M8 18h.01M16 6h.01M16 12h.01M16 18h.01"/></svg>',
+ tap:'<svg viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V12m0-1a1.5 1.5 0 0 1 3 0v4.5A5.5 5.5 0 0 1 12.5 21h-1A5.5 5.5 0 0 1 6 15.5V13a1.5 1.5 0 0 1 3 0"/></svg>',
+ img:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>',
+ lock:'<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+ copy:'<svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg>'};
+const gi=k=>`<i class="gi">${GI[k]}</i>`;
+const gdot=k=>`<i class="gdt s-${k}"></i>`;
+/* mini pictures of the real controls */
+const GV={
+ banner:()=>`<div class="gm-banner"><b>${t("Today's issue","오늘의 이슈")}</b><span><u>01</u> 02 03 04</span></div>`,
+ read:()=>`<span class="gm-btn">${t("Read","원문")} ${gi("arrow")}</span>`,
+ save:()=>`<span class="gm-icon on">${gi("bm")}</span><span class="gm-to">→</span><span class="gm-chip">${t("Saved","저장함")}</span>`,
+ search:()=>`<span class="gm-input">${gi("search")} ${t("Search news","뉴스 검색")}</span>`,
+ cities:()=>`<span class="gm-seg"><b>${t("All","전체")}</b><span>${t("Paris","파리")}</span><span>${t("Milan","밀라노")}</span></span>`,
+ years:()=>`<div class="gm-col"><span class="gm-seg"><b>${t("ALL","전체")}</b><span>2026</span><span>2025</span></span><span class="gm-row"><b>SS26</b> ${t("Ready-to-wear","레디투웨어")}</span></div>`,
+ bars:()=>`<div class="gm-bars"><span style="--w:92%">${t("Floral","플로럴")}</span><span style="--w:64%">${t("Stripe","스트라이프")}</span><em>+3.2%p · ${t("vs SS26","SS26 대비")}</em></div>`,
+ evidence:()=>`<span class="gm-icon">${gi("tap")}</span><span class="gm-to">→</span><div class="gm-col sm"><span class="gm-row">${t("Brands","브랜드")} · 216</span><span class="gm-row">${t("Articles","기사")} · 186</span></div>`,
+ cal:()=>`<div class="gm-cal">${Array.from({length:14},(_,i)=>`<span class="${i===9?"on":""}">${i+11}</span>`).join("")}</div>`,
+ desList:()=>`<span class="gm-row wide">${gi("star")}<b>LOW CLASSIC</b><small>${t("Director","디렉터")} …</small></span>`,
+ identity:()=>`<div class="gm-card"><b>LOW CLASSIC</b><small>${t("Identity from the official site","공식 홈페이지 기준 아이덴티티")}</small></div>`,
+ desEdit:()=>`<span class="gm-btn dark">${gi("plus")} ${t("Add brand","브랜드 추가")}</span><span class="gm-btn">${t("Edit details","정보 수정")}</span>`,
+ link:()=>`<div class="gm-col sm"><span class="gm-row">${gdot("done")} ${t("Opens normally","정상 접속")}</span><span class="gm-row">${gdot("new")} ${t("Can't check automatically","자동 확인 불가")}</span></div>`,
+ drop:()=>`<span class="gm-drop">${gi("img")} ${t("Drop · ⌘V · Choose file","끌어 놓기 · ⌘V · 파일 선택")}</span>`,
+ bookmarklet:()=>`<span class="gm-bar">★ ★ <b>+ VISUAL DEPT.</b></span>`,
+ find:()=>`<span class="gm-input">${gi("search")} ${t("Title · tag · colour","제목 · 태그 · 색")}</span><span class="gm-sw"><i style="background:#c44"></i><i style="background:#36a"></i><i style="background:#ddd"></i></span>`,
+ sites:()=>`<div class="gm-col sm"><span class="gm-row">${gi("drag")} Vogue Runway</span><span class="gm-row">${gi("drag")} Tagwalk</span></div>`,
+ notice:()=>`<span class="gm-fab">${GI.bubble}</span><span class="gm-to">→</span><div class="gm-col sm"><span class="gm-row"><b>${t("Notice","공지")}</b><em class="gm-pin">${t("Pinned","고정")}</em></span><span class="gm-row">${t("Inquiry","문의하기")}</span></div>`,
+ ask:()=>`<span class="gm-step">1</span><span class="gm-icon">${gi("plus")}</span><span class="gm-step">2</span><span class="gm-chip on">${t("Idea","기능 제안")}</span><span class="gm-step">3</span><span class="gm-send">↑</span>`,
+ lights:()=>`<div class="gm-lights"><span>${gdot("new")}${t("Not read","확인 전")}</span><span>${gdot("doing")}${t("Reading","확인 중")}</span><span>${gdot("done")}${t("Answered","답변 완료")}</span><span>${gdot("hold")}${t("On hold","보류")}</span></div>`,
+ edit:()=>`<div class="gm-col sm end"><span class="gm-bub">${t("Message","메시지")}</span><span class="gm-row"><u>${t("Edit","수정")}</u> · ${t("within 5 min","5분 안에")}</span></div>`,
+ lang:()=>`<span class="gm-lang"><b>EN</b><i></i><b>KO</b></span><span class="gm-icon">${gi("refresh")}</span>`,
+ account:()=>`<span class="gm-icon">${gi("dots")}</span><span class="gm-to">→</span><span class="gm-seg"><b>${t("Account","계정")}</b><span>${t("Backup","백업")}</span></span>`,
+ pw:()=>`<span class="gm-chip">${t("Ask","요청")}</span><span class="gm-to">→</span><span class="gm-chip">${t("Approved","승인")}</span><span class="gm-to">→</span><span class="gm-chip on">${t("Change once","1회 변경")}</span>`,
+ login:()=>`<div class="gm-col sm"><span class="gm-row"><i class="gm-cb on"></i>${t("Stay signed in","자동 로그인")}</span><span class="gm-row"><i class="gm-cb on"></i>${t("Remember ID","아이디 저장")}</span></div>`,
+ icon:()=>`<span class="gm-app">VISUAL DEPT.</span><span class="gm-to">→</span><span class="gm-chip">${t("Add to Home Screen","홈 화면에 추가")}</span>`,
+ members:()=>`<span class="gm-row wide">${t("Sign-up · waiting 2","가입 대기 2")}<span class="gm-btn dark sm">${t("Approve","승인")}</span></span>`,
+ inbox:()=>`<span class="gm-lights">${gdot("new")}<span class="gm-to">→</span>${gdot("doing")}<em>${t("open","열기")}</em><span class="gm-to">→</span>${gdot("done")}<em>${t("reply","답장")}</em></span>`,
+ send:()=>`<div class="gm-col sm end"><span class="gm-bub">${t("To every member","모든 회원에게")}</span></div>`,
+ hide:()=>`<span class="gm-row"><i class="gm-cb on"></i><s>${t("Update item","업데이트 항목")}</s></span>`,
+ switch:()=>`<span class="gm-lang"><b>${t("MEMBER","사용자")}</b><i class="on"></i><b>${t("MASTER","마스터")}</b></span>`,
+ sql:()=>`<span class="gm-chip"><i class="gdt s-hold"></i> ${t("New update","새 업데이트")}</span><span class="gm-btn dark">${gi("copy")} ${t("Copy","복사")}</span>`};
+/* [title en, ko], [one line en, ko], [where en, ko], picture */
 const GUIDE=[
  {id:"news",en:"News",ko:"뉴스",items:[
-  ["Today's issues","오늘의 이슈","The banner at the top shows the day's main stories. Swipe or tap the numbers to move between them.","맨 위 배너에 오늘의 주요 이슈가 모여요. 넘기거나 아래 숫자를 눌러 이동해요."],
-  ["Read the original","원문 보기","Every story links to its source. ‘Read’ opens the original article in a new window.","모든 뉴스는 출처가 있어요. ‘원문’을 누르면 기사 원문이 새 창으로 열려요."],
-  ["Save","저장","Tap the bookmark to keep a story. Saved stories collect in News → Saved, where you can search and sort them.","책갈피를 누르면 저장돼요. 저장한 뉴스는 뉴스 → 저장함에 모이고, 검색 · 정렬할 수 있어요."],
-  ["Search","뉴스 검색","Use ‘Search news’ above the list to find stories by keyword. News is collected from free sources every 2 hours.","목록 위 ‘뉴스 검색’으로 키워드를 찾아요. 뉴스는 무료 매체에서 2시간마다 자동으로 모여요."]]},
+  [["Today's issues","오늘의 이슈"],["Swipe the top banner or tap a number.","맨 위 배너를 넘기거나 숫자를 눌러요."],["News","뉴스"],"banner"],
+  [["Read the original","원문 보기"],["Opens the article in a new window.","기사 원문이 새 창으로 열려요."],["Each story","각 뉴스"],"read"],
+  [["Save","저장"],["Tap the bookmark — it goes to Saved.","책갈피를 누르면 저장함에 모여요."],["News › Saved","뉴스 › 저장함"],"save"],
+  [["Search","검색"],["Find stories by keyword. New news every 2 hours.","키워드로 찾아요. 새 뉴스는 2시간마다 와요."],["Above the list","목록 위"],"search"]]},
  {id:"collections",en:"Collections",ko:"컬렉션",items:[
-  ["Brands","브랜드","See this season's shows by brand. Filter by city or search a brand name.","이번 시즌 쇼를 브랜드별로 봐요. 도시별로 거르거나 브랜드 이름으로 찾을 수 있어요."],
-  ["Past collections","지난 컬렉션","Tap a brand to see every show by year and season (ALL shows all), updated every day. ‘See looks’ opens the full runway.","브랜드를 누르면 모든 쇼를 연도 · 시즌별로 볼 수 있어요(ALL은 전체). 매일 업데이트돼요. ‘룩 보기’로 런웨이 전체를 열어요."],
-  ["Season Report","시즌 리포트","Key words, colours, patterns, materials and items of the season, from official published data only. A new season (e.g. FW27, SS28) is added as soon as its first show is published.","시즌의 메인 키워드 · 컬러 · 패턴 · 소재 · 아이템을 공식 발표 자료로만 보여줘요. FW27 · SS28 같은 새 시즌은 첫 쇼가 공개되면 자동으로 추가돼요."],
-  ["Evidence","근거 자료","Tap any ranking to see which brands used it and the articles behind it. Updated automatically every day.","순위 항목을 누르면 사용한 브랜드와 관련 기사 같은 근거를 볼 수 있어요. 매일 자동으로 업데이트돼요."],
-  ["Calendar","캘린더","Fashion week schedules. Tap a date with shows to see what's on.","패션위크 일정이에요. 쇼가 있는 날짜를 누르면 그날의 쇼가 보여요."]]},
+  [["Brands","브랜드"],["Filter shows by city or search a brand.","도시로 거르거나 브랜드를 찾아요."],["Collections › Brands","컬렉션 › 브랜드"],"cities"],
+  [["Past collections","지난 컬렉션"],["Tap a brand: every show by year, updated daily.","브랜드를 누르면 연도별 모든 쇼가 보여요. 매일 업데이트."],["Inside a brand","브랜드 안"],"years"],
+  [["Season Report","시즌 리포트"],["Official data only. New seasons appear by themselves.","공식 자료만 보여줘요. 새 시즌은 자동으로 추가돼요."],["Collections › Season Report","컬렉션 › 시즌 리포트"],"bars"],
+  [["Evidence","근거 자료"],["Tap any ranking to see brands and articles behind it.","순위를 누르면 근거 브랜드 · 기사가 보여요."],["Season Report","시즌 리포트"],"evidence"],
+  [["Calendar","캘린더"],["Tap a dotted date to see that day's shows.","점이 있는 날짜를 누르면 그날의 쇼가 보여요."],["Collections › Calendar","컬렉션 › 캘린더"],"cal"]]},
  {id:"designers",en:"Designers",ko:"디자이너",items:[
-  ["Korean labels","국내 브랜드","Korean designer brands A – Z. Search by name and star your favourites.","국내 디자이너 브랜드를 A – Z로 모았어요. 이름으로 찾고 즐겨찾기할 수 있어요."],
-  ["Brand identity","브랜드 아이덴티티","Tap a brand to read its identity, taken from its official homepage.","브랜드를 누르면 공식 홈페이지 기준의 아이덴티티 소개를 볼 수 있어요."],
-  ["Add · edit · remove","추가 · 수정 · 삭제","‘Add brand’ adds a label to your own list; ‘Edit’ in a brand changes its name, director or homepage. Its identity and director are read from the homepage within a few hours. Changes are yours only.","‘브랜드 추가’로 내 목록에 넣고, 브랜드 안 ‘정보 수정’으로 이름 · 디렉터 · 홈페이지를 고칠 수 있어요. 아이덴티티와 디렉터는 몇 시간 안에 홈페이지에서 불러와요. 추가 · 수정 · 삭제는 나에게만 적용돼요."],
-  ["Link check","링크 확인","Homepage links are checked every day. Grey means the site blocks automatic checks — it usually still opens.","홈페이지 링크는 매일 확인해요. 회색은 사이트가 자동 확인을 막는 경우로, 대부분 정상적으로 열려요."]]},
+  [["Korean labels","국내 브랜드"],["A – Z list. Star your favourites.","A – Z 목록이에요. 별로 즐겨찾기해요."],["Designers","디자이너"],"desList"],
+  [["Identity","아이덴티티"],["Tap a brand to read who they are.","브랜드를 누르면 소개를 볼 수 있어요."],["Inside a brand","브랜드 안"],"identity"],
+  [["Add · edit · remove","추가 · 수정 · 삭제"],["Only your own list changes.","내 목록에만 적용돼요."],["Designers","디자이너"],"desEdit"],
+  [["Link check","링크 확인"],["Homepages are checked every day.","홈페이지를 매일 확인해요."],["Inside a brand","브랜드 안"],"link"]]},
  {id:"archive",en:"Archive",ko:"아카이브",items:[
-  ["Images & folders","이미지 · 폴더","Drag images in, paste with ⌘V, or pick files. Sort them into folders.","이미지를 끌어 놓거나 ⌘V로 붙여 넣거나 파일을 골라 올려요. 폴더로 정리할 수 있어요."],
-  ["Save from Pinterest","핀터레스트에서 저장","Add the save button to your bookmarks bar once (‘How to’ shows the steps), then save images straight from other sites.","북마크 바에 저장 버튼을 한 번만 추가하면(‘방법 보기’) 다른 사이트에서 바로 저장할 수 있어요."],
-  ["Find","찾기","Search by title, tag, folder or colour, and change the sort order.","제목 · 태그 · 폴더 · 색으로 찾고 정렬을 바꿀 수 있어요."],
-  ["Reference sites","레퍼런스 사이트","Keep the sites you use. Drag to reorder; links are checked automatically.","자주 보는 사이트를 모아둬요. 끌어서 순서를 바꾸고, 접속 여부는 자동으로 확인해요."]]},
+  [["Add images","이미지 올리기"],["Drag in, paste, or choose files. Sort into folders.","끌어 놓기 · 붙여넣기 · 파일 선택. 폴더로 정리해요."],["Archive › Images","아카이브 › 이미지"],"drop"],
+  [["Save from other sites","다른 사이트에서 저장"],["Add the button to your bookmarks bar once.","북마크 바에 버튼을 한 번만 추가하면 돼요."],["Archive › How to","아카이브 › 방법 보기"],"bookmarklet"],
+  [["Find","찾기"],["By title, tag, folder or colour.","제목 · 태그 · 폴더 · 색으로 찾아요."],["Archive","아카이브"],"find"],
+  [["Reference sites","레퍼런스 사이트"],["Your sites, drag to reorder.","자주 보는 사이트를 끌어서 정리해요."],["Archive › Sites","아카이브 › 사이트"],"sites"]]},
  {id:"messages",en:"Messages",ko:"메시지",items:[
-  ["Notice","공지","The speech bubble at the bottom right holds a pinned Notice box. Update news arrives here.","오른쪽 아래 말풍선을 누르면 맨 위에 공지가 고정돼 있어요. 업데이트 소식이 이곳으로 와요."],
-  ["Inquiry","문의하기","Chat with the master about bugs, ideas or features to drop. Pick a type with + to keep it in My inquiries.","오류 · 바라는 기능 · 빼도 될 기능을 마스터에게 보내요. + 에서 유형을 고르면 ‘문의 내역’에 기록돼요."],
-  ["Status lights","상태 불빛","Grey: not read · Orange: being read · Green: answered · Red: on hold.","회색 확인 전 · 주황 확인 중 · 초록 답변 완료 · 빨강 보류."],
-  ["Edit","수정","Tap a message you sent to edit it within 5 minutes. Photos can be attached with +.","보낸 메시지를 누르면 5분 안에 수정할 수 있어요. 사진은 + 에서 첨부해요."]]},
+  [["Notice","공지"],["Update news arrives here, pinned on top.","업데이트 소식이 맨 위 고정으로 와요."],["Bubble, bottom right","오른쪽 아래 말풍선"],"notice"],
+  [["Ask the master","문의하기"],["+ → pick a type → send.","+ → 유형 고르기 → 보내기."],["Inquiry","문의하기"],"ask"],
+  [["Status lights","상태 불빛"],["See where your inquiry is.","내 문의가 어디까지 처리됐는지 봐요."],["Inquiry › My inquiries","문의하기 › 문의 내역"],"lights"],
+  [["Edit","수정"],["Tap your message to fix it within 5 minutes.","보낸 메시지를 눌러 5분 안에 고쳐요."],["Inquiry","문의하기"],"edit"]]},
  {id:"account",en:"Account",ko:"계정",items:[
-  ["Language · refresh","언어 · 새로고침","Switch EN / KO at the top. The round arrow refreshes the app.","위쪽 EN / KO로 언어를 바꾸고, 둥근 화살표로 새로고침해요."],
-  ["My account","내 계정","‘···’ at the top opens your account in tabs: Account (profile, password, sign out) and Backup.","위쪽 ‘···’에서 계정(개인정보 · 비밀번호 · 로그아웃)과 백업을 탭으로 나눠 볼 수 있어요."],
-  ["Password","비밀번호","Every password change needs the master's approval. Ask in ‘···’ → Account; once approved you can change it once.","비밀번호는 바꿀 때마다 마스터 승인이 필요해요. ‘···’ → 계정에서 요청하고, 승인되면 한 번 바꿀 수 있어요."],
-  ["Sign in","로그인","‘Stay signed in’ and ‘Remember ID’ are on the sign-in screen.","로그인 화면에서 자동 로그인 · 아이디 저장을 고를 수 있어요."],
-  ["App icon","앱 아이콘","iPhone: Share → Add to Home Screen. Mac Safari: File → Add to Dock.","아이폰은 공유 → 홈 화면에 추가, 맥 사파리는 파일 → Dock에 추가로 앱처럼 쓸 수 있어요."]]},
+  [["Language · refresh","언어 · 새로고침"],["Switch EN / KO; the arrow reloads.","EN / KO 전환, 화살표로 새로고침."],["Top right","오른쪽 위"],"lang"],
+  [["My account","내 계정"],["Profile, password, backup and sign out.","개인정보 · 비밀번호 · 백업 · 로그아웃."],["Top right ···","오른쪽 위 ···"],"account"],
+  [["Password","비밀번호"],["Every change needs the master's approval.","바꿀 때마다 마스터 승인이 필요해요."],["··· › Account","··· › 계정"],"pw"],
+  [["Sign in","로그인"],["Stay signed in and remember your ID.","자동 로그인 · 아이디 저장을 골라요."],["Sign-in screen","로그인 화면"],"login"],
+  [["Use it like an app","앱처럼 쓰기"],["iPhone: Share → Add to Home Screen.","아이폰: 공유 → 홈 화면에 추가."],["Browser","브라우저"],"icon"]]},
  {id:"master",en:"Master",ko:"마스터",admin:true,items:[
-  ["Members","회원 승인","Approve or decline sign-ups and password requests in ‘···’ → Members tab. New requests also pop up as alerts.","가입 · 비밀번호 변경 요청은 ‘···’ → 회원 관리 탭에서 승인해요. 새 요청은 알림으로도 떠요."],
-  ["Inquiries","문의 관리","Opening a chat marks it ‘Reading’; replying marks it ‘Answered’. Hold and delete are yours to choose. Reply straight from Inquiries.","대화를 열면 ‘확인 중’, 답장하면 ‘답변 완료’로 바뀌어요. 보류 · 삭제는 직접 골라요. 문의 현황에서 바로 답장할 수 있어요."],
-  ["Notices","공지 보내기","Write in the Notice room to send to every member. Update notes are sent automatically.","공지방에 쓰면 모든 회원에게 보내져요. 업데이트 노트는 자동으로 보내져요."],
-  ["Hide notes","노트 숨기기","In Update notes, tick an item to hide it from everyone else.","업데이트 노트에서 항목을 체크하면 다른 사용자에게 숨겨져요."],
-  ["View as member","사용자 화면 보기","The switch at the bottom left flips between the master view and exactly what members see.","왼쪽 아래 마스터 / 사용자 스위치로 회원에게 보이는 화면과 마스터 화면을 오가요."],
-  ["Supabase update","Supabase 업데이트","‘···’ → Supabase tab always has the latest update to copy. ‘New’ shows when one hasn’t been run yet.","‘···’ → Supabase 탭에 최신 업데이트가 항상 있어요. 아직 실행 안 한 업데이트가 있으면 ‘새 업데이트’로 표시돼요."],
-  ["This tab","이 탭","Only the master can see this tab.","이 탭은 마스터에게만 보여요."]]}];
+  [["Approve members","회원 승인"],["Sign-ups and password requests.","가입 · 비밀번호 요청을 승인해요."],["··· › Members","··· › 회원 관리"],"members"],
+  [["Manage inquiries","문의 관리"],["Open = reading, reply = answered. Hold and delete are yours.","열면 확인 중, 답장하면 답변 완료. 보류 · 삭제는 직접."],["Bubble › Inquiries","말풍선 › 문의 현황"],"inbox"],
+  [["Send a notice","공지 보내기"],["Goes to every member's Notice box.","모든 회원의 공지함으로 가요."],["Bubble › Notice","말풍선 › 공지"],"send"],
+  [["Hide notes","노트 숨기기"],["Ticked items are hidden from everyone else.","체크한 항목은 다른 사람에게 안 보여요."],["Update notes","업데이트 노트"],"hide"],
+  [["View as member","사용자 화면 보기"],["See exactly what members see.","회원에게 보이는 그대로 봐요."],["Bottom left switch","왼쪽 아래 스위치"],"switch"],
+  [["Supabase update","Supabase 업데이트"],["Copy, run in Supabase, tap ‘I ran it’.","복사 → Supabase에서 실행 → ‘실행했어요’."],["··· › Supabase","··· › Supabase"],"sql"]]}];
 const GUIDE_ROUTE={home:"news",saved:"news",runway:"collections",rdata:"collections",calendar:"collections",designers:"designers",archive:"archive",sites:"archive"};
 let guideTab="news";
 function guideTabs(){return GUIDE.filter(g=>!g.admin||(typeof ACC!=="undefined"&&ACC.admin))}
 function guideBody(){const g=guideTabs().find(x=>x.id===guideTab)||GUIDE[0];
   return `<div class="gtabs" role="tablist">${guideTabs().map(x=>`<button role="tab" class="${x.id===g.id?"on":""}" data-gtab="${x.id}">${t(x.en,x.ko)}</button>`).join("")}</div>
-  <ol class="glist">${g.items.map(([en,ko,te,tk],i)=>`<li><span class="gn">${String(i+1).padStart(2,"0")}</span><div><b>${t(en,ko)}</b><p>${t(te,tk)}</p></div></li>`).join("")}</ol>`}
-function guideSheet(tab){if(tab)guideTab=tab;sheet(t("How to use","사용 가이드"),`<div id="gbody">${guideBody()}</div>`);
-  $("#sheet").addEventListener("click",e=>{const b=e.target.closest("[data-gtab]");if(!b)return;guideTab=b.dataset.gtab;$("#gbody").innerHTML=guideBody();const s=$("#sheet .sb");if(s)s.scrollTop=0})}
+  <div class="gcards">${g.items.map(([ti,de,wh,v])=>`<article class="gcard"><div class="gvis">${(GV[v]||(()=>""))()}</div><div class="gtx"><b>${t(...ti)}</b><p>${t(...de)}</p><span class="gwhere">${t(...wh)}</span></div></article>`).join("")}</div>`}
+function guideSheet(tab){if(tab)guideTab=tab;sheet(t("How to use","사용 가이드"),`<div id="gbody">${guideBody()}</div>`);const sh=$("#sheet .sheet");if(sh)sh.classList.add("gsheet");
+  $("#sheet").addEventListener("click",e=>{const b=e.target.closest("[data-gtab]");if(!b)return;guideTab=b.dataset.gtab;$("#gbody").innerHTML=guideBody();const s=$("#sheet .sheet");if(s)s.scrollTop=0})}
 function guideMark(){const tab=GUIDE_ROUTE[route];if(!tab)return;const h=$("#view .ph h1")||[...document.querySelectorAll("#view h2")].find(x=>/^(News|뉴스)/.test(x.textContent.trim()));
   if(!h||h.querySelector(".ghelp"))return;const b=document.createElement("button");b.className="ghelp";b.dataset.guide=tab;b.textContent="?";b.setAttribute("aria-label",t("How to use this page","이 화면 사용법"));h.appendChild(b)}
 document.addEventListener("click",e=>{const b=e.target.closest(".ghelp,#guideBtn,[data-vguide]");if(!b)return;e.preventDefault();guideSheet(b.dataset.guide||GUIDE_ROUTE[route]||"news")});
