@@ -10,7 +10,7 @@ const news = rows.map(r => r.data).filter(d => d && d.kind !== "issue" && d.url 
 const bySrc = new Map(); for (const d of news) { if (!bySrc.has(d.source)) bySrc.set(d.source, d); if (bySrc.size >= 14) break; }
 const out = []; const log = [];
 for (const d of bySrc.values()) {
-  const t0 = Date.now(); const g = await digest(d.url, d.title_en || d.title);
+  const t0 = Date.now(); const g = await digest(d.url, d.title_en || d.title, undefined, d.summary_en || d.summary || "");
   log.push(`${d.source}: ${g ? `${g.lines}/${g.of} lines, ${g.words} words` : "no text"} (${Date.now() - t0}ms)`);
   if (g) out.push({ ...d, digest: g });
   if (out.length >= 10) break;

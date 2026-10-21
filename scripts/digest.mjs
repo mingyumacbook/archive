@@ -10,7 +10,7 @@ const decode = s => String(s || "").replace(/&nbsp;|&#160;/g, " ").replace(/&amp
 const strip = h => decode(h.replace(/<(script|style|noscript|svg|figure|figcaption|aside|nav|footer|form|button)[\s\S]*?<\/\1>/gi, " ").replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
 const JUNK = /^(advertisement|sign up|subscribe|read more|related|photo|image|credit|getty|courtesy|follow us|share|click|newsletter|©|all rights|by [A-Z][a-z]+ [A-Z]|updated|published|기자|저작권|무단|구독|사진=|사진 ?제공|ⓒ)/i;
 // boilerplate that can sit anywhere in a sentence: affiliate notes, share bars, author bios, sign-up prompts
-const NOISE = /(affiliate commission|we may earn|earn a commission|commission if you buy|share this (article|story)|join the conversation|follow us|sign up for|newsletter|all rights reserved|facebook|whatsapp|pinterest|instagram\.com|getty images|photo(graph)? (by|courtesy)|preferred source|(is|was) (a|the) (senior |deputy |associate |contributing )?(fashion |beauty |news )?(editor|writer|director) (at|of)|began (her|his) career|started (her|his|their) career|lives in (new york|london|los angeles)|무단 ?전재|재배포 ?금지|기자 ?=|구독하기)/i;
+const NOISE = /(affiliate commission|we may earn|earn a commission|commission if you buy|share this (article|story)|join the conversation|follow us|sign up for|newsletter|all rights reserved|facebook|whatsapp|pinterest|instagram\.com|getty images|photo(graph)? (by|courtesy)|preferred source|(is|was) (a|the) (senior |deputy |associate |contributing )?(fashion |beauty |news )?(editor|writer|director) (at|of)|began (her|his) career|started (her|his|their) career|lives in (new york|london|los angeles)|무단 ?전재|재배포 ?금지|기자 ?=|구독하기|^text [A-Z][a-z]+|\b(life|culture|fashion|beauty|art)\s*\/\s*(lists?|news|features?)\b)/i;
 
 export async function fetchArticle(url, ms = 15000) {
   const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
@@ -40,13 +40,13 @@ export function sentences(text) {
 const STOP = new Set("the a an and or but of to in on at for with from by as is are was were be been it its this that these those his her their our your they he she we you i not no so if than then also has have had will would can could just more most into over about after before which who whom what when where while new said says say one two".split(" "));
 const words = s => (s.toLowerCase().match(/[a-z][a-z'’-]{2,}|[가-힣]{2,}|\d[\d.,%]*/g) || []).filter(w => !STOP.has(w));
 // pick the informative sentences: a summary roughly a fifth of the article, at least 4 and usually up to 10 lines
-export function pick(text, title = "") {
+export function pick(text, title = "", hint = "") {
   const ss = sentences(text); if (ss.length < 3) return { lines: ss, total: ss.length };
   const tf = {}; ss.forEach(s => new Set(words(s)).forEach(w => tf[w] = (tf[w] || 0) + 1));
-  const tw = new Set(words(title));
+  const tw = new Set(words(title)), hw = new Set(words(hint));
   const scored = ss.map((s, i) => { const ws = words(s); if (!ws.length) return { s, i, v: 0 };
     let v = ws.reduce((a, w) => a + Math.log(1 + (tf[w] || 0)), 0) / Math.sqrt(ws.length);
-    v += ws.filter(w => tw.has(w)).length * 0.6;                 // about what the headline says
+    v += ws.filter(w => tw.has(w)).length * 0.6 + ws.filter(w => hw.has(w)).length * 0.3; // about what the headline and the outlet's own blurb say
     v += (s.match(/\d/g) || []).length ? 0.8 : 0;                  // numbers, dates, prices
     v += (s.match(/\b[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)*/g) || []).length * 0.15; // names
     v += i === 0 ? 1.4 : i < 3 ? 0.6 : 0;                           // the lead
@@ -58,10 +58,12 @@ export function pick(text, title = "") {
   return { lines, total: ss.length };
 }
 // full summary for one story: lines in the article's language and both translations
-export async function digest(url, title = "", html) {
+export async function digest(url, title = "", html, hint = "") {
   const page = html ?? await fetchArticle(url);
-  const text = articleText(page); if (!text || text.length < 300) return null;
-  const { lines, total } = pick(text, title); if (lines.length < 3) return null;
+  const text = articleText(page); if (!text || (text.match(/\S+/g) || []).length < 220) return null;
+  const { lines, total } = pick(text, title, hint); if (lines.length < 3) return null;
+  // the text must really be this story: most picked lines share words with the headline or the outlet's blurb
+  const key = new Set([...words(title), ...words(hint)]); if (key.size >= 3) { const hit = lines.filter(l => words(l).some(w => key.has(w))).length; if (hit / lines.length < 0.4) return null; }
   const ko = HANGUL.test(lines.join(" "));
   const out = { lines: lines.length, of: total, words: (text.match(/\S+/g) || []).length, at: Date.now() };
   const other = [];
