@@ -869,15 +869,14 @@ button.bar:hover .nm{text-decoration:underline;text-underline-offset:3px}
 .gm-cb{width:14px;height:14px;border:1px solid var(--ink);display:inline-block}.gm-cb.on{background:var(--ink);box-shadow:inset 0 0 0 2px var(--bg)}
 .gm-app{width:56px;height:56px;border-radius:13px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font:400 7.5px var(--f-mark);color:#111;letter-spacing:.02em}
 @media (max-width:600px){.gstart{grid-template-columns:1fr}.gcards{grid-template-columns:1fr}.gvis{height:100px}}
-button.sumb{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;letter-spacing:inherit;text-transform:inherit}
-.sumi{display:inline-block;width:13px;height:13px;vertical-align:-2px}.sumi svg{width:100%;height:100%}
+button.sumb{background:none;border:0;border-bottom:1px solid currentColor;border-radius:0;padding:0 0 1px;margin:0;font-family:inherit;color:inherit;cursor:pointer;-webkit-appearance:none;appearance:none;line-height:inherit}
 .nrow .side{gap:8px}
 .sheet.dgsheet{width:min(640px,100%)}.dgsheet .sb{gap:0}
 .dg .dgm{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}.dg .dgm b{color:var(--ink-2);font-weight:500}
 .dg .dgt{font:400 clamp(20px,2.6vw,26px)/1.3 var(--f-mark);margin:8px 0 14px}
 .dgs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--ink-2);padding:9px 12px;background:var(--soft);margin-bottom:6px}.dgs b{color:var(--ink);font-weight:500}.dga{color:var(--ink-3)}
-.dgl{list-style:none;counter-reset:dg;margin:0;padding:0}.dgl li{counter-increment:dg;display:grid;grid-template-columns:26px 1fr;gap:6px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.65}
-.dgl li:before{content:counter(dg,decimal-leading-zero);font:400 12px var(--f-mark);color:var(--ink-3);padding-top:3px}.dgl li:first-child{font-weight:500}
+.dgl{border-top:1px solid var(--line);padding-top:4px}.dgl p{margin:12px 0 0;font-size:14.5px;line-height:1.75}.dgl p.lead{font-weight:500}
+.dgl b{font-weight:600}.dgf{font-size:14.5px;line-height:1.7;margin:0}
 .dgl b{font-weight:600}.dgf{font-size:14.5px;line-height:1.7;margin:0}
 .dgn{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin:12px 0 0}.dgb{display:flex;gap:8px;margin-top:16px}
 </style>
@@ -1182,7 +1181,7 @@ function home(){
   return `<section class="slider" id="slider" aria-roledescription="carousel" aria-label="${t("Today's issues","오늘의 이슈")}">
    ${s.map((x,i)=>`<div class="slide ${i===slideI?"on":""}" role="group" aria-label="${i+1} / ${s.length}" data-img><img class="fgi" src="${esc(slideSrc(x))}" alt="" ${IMGATTR} ${i>1?'loading="lazy"':""} onload="fitSlide(this)" ${slideFail}>
      <div class="cap gut"><h2>${esc(shortT(tTitle(x),lang==="ko"?42:78))}</h2>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?90:150))}</p>`:""}
-     <div class="acts"><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문 보기")} ${SV.arrow}</a><button class="ext sumb" data-sum="s:${i}">${t("Summary","요약 보기")} <i class="sumi">${SVSUM}</i></button><button class="save" data-save="s:${i}">${isSaved(x.id)?SV.bookf:SV.book}<span>${isSaved(x.id)?t("Saved","저장됨"):t("Save","저장")}</span></button></div></div></div>`).join("")}
+     <div class="acts"><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문 보기")} ${SV.arrow}</a><button class="ext sumb" data-sum="s:${i}">${t("Summary","요약 보기")} ${SVSUM}</button><button class="save" data-save="s:${i}">${isSaved(x.id)?SV.bookf:SV.book}<span>${isSaved(x.id)?t("Saved","저장됨"):t("Save","저장")}</span></button></div></div></div>`).join("")}
    <div class="pager gut"><div class="nums">${s.map((_,i)=>`<button data-sl="${i}" class="${i===slideI?"on":""}" aria-label="${i+1}">${String(i+1).padStart(2,"0")}</button>`).join("")}</div><span class="sp"></span><button class="arr" data-sl="prev" aria-label="Previous">${SV.l}</button><button class="arr" data-sl="next" aria-label="Next">${SV.r}</button></div>
    <span class="prog" id="prog"></span></section>
   <section class="gut max"><div class="newshead"><div><span class="lbl">${t("Collected every 2 hours from free sources","무료 매체에서 2시간마다 자동 수집")}</span><h2 style="margin-top:10px">${t("News","뉴스")}</h2></div>
@@ -1202,7 +1201,7 @@ function newsRow(x){return `<li class="nrow"><div class="d">${fmtMD(x.publishedA
   <div><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(tTitle(x))}</a></h3>${tSum(x)?`<p>${esc(shortT(tSum(x),lang==="ko"?140:240))}</p>`:""}
   <div class="tg">${(x.tags||[]).slice(0,4).map(g=>"#"+esc(tagName(g))).join("  ")}</div></div>
   ${x.img?`<a class="th" href="${esc(x.url)}" target="_blank" rel="noopener" data-src="${esc(srcN(x.source||""))}"><img src="${esc(x.img)}" alt="" loading="lazy" ${IMGATTR} ${thumbFail}></a>`:`<a class="th ph" href="${esc(x.url)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span>${esc(srcN(x.source||""))}</span></a>`}
-  <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><button class="ext sumb" data-sum="n:${esc(x.id)}">${t("Summary","요약")} <i class="sumi">${SVSUM}</i></button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
+  <div class="side"><button class="save" data-save="n:${esc(x.id)}" aria-label="${t("Save","저장")}">${isSaved(x.id)?SV.bookf:SV.book}</button><button class="ext sumb" data-sum="n:${esc(x.id)}">${t("Summary","요약")} ${SVSUM}</button><a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read","원문")} ${SV.arrow}</a></div></li>`}
 function startSlider(){clearInterval(slideTimer);const sl=$("#slider");if(!sl)return;const D=6500;
   const tick=()=>{const p=$("#prog");if(!p)return;p.style.transition="none";p.style.width="0";requestAnimationFrame(()=>{p.style.transition=`width ${D}ms linear`;p.style.width="100%"})};
   tick();slideTimer=setInterval(()=>{if(sl.matches(":hover"))return;go2(slideI+1)},D);
@@ -2253,17 +2252,23 @@ function a11yLang(root){(root||document).querySelectorAll("[aria-label],[title],
 {const _s16=sheet;sheet=function(){const r=_s16.apply(this,arguments);try{a11yLang($("#sheet"))}catch(_){}return r}}
 /* ================= NEWS SUMMARY ("요약 보기") =================
    Key sentences picked from the article itself by the collector (no AI, nothing added), shown in the app's language. */
-const SVSUM='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M5 6h14M5 10h14M5 14h9M5 18h6"/></svg>';
+const SVSUM='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2 3.5h8M2 6h8M2 8.5h5"/></svg>';
 const dgHl=s=>s.replace(/(\d[\d,.]*\s?(?:%p|%|퍼센트|bn|billion|million|m\b|k\b|달러|유로|파운드|원|억|만|천|년|월|일|개|명|곳|시즌|years?|months?|days?|stores?|looks?)?)/g,"<b>$1</b>");
+/* tidy the picked sentences: split lines that hold two sentences, drop stray headings glued to them, then group into short paragraphs */
+function dgTidy(L){const out=[];const ko=L.some(l=>/[가-힣]/.test(l));
+  L.forEach(l=>{String(l).replace(/\s+/g," ").trim().split(ko?/(?<=[.!?]|다\.|요\.)\s+/:/(?<=[.!?]["”’)]?)\s+(?=["“‘(]?[A-Z0-9가-힣])/).forEach(s=>{s=s.trim();
+    s=s.replace(/^[A-Z][A-Za-z’'&\- ]{2,40}(?=[A-Z가-힣][a-z가-힣])/,m=>/[a-z]/.test(m)&&!/\s(the|a|an|of|and)\s/i.test(" "+m+" ")&&m.split(" ").length<=4?"":m); // "Undone Lady" + "This season…"
+    if(s.length>=(ko?12:25)&&/[.!?다요"”’)]$/.test(s)&&!out.includes(s))out.push(s)})});return out}
+function dgParas(L){const S=dgTidy(L);const ps=[];let cur=[];S.forEach((s,i)=>{cur.push(s);const len=cur.join(" ").length;if((i===0)||cur.length>=3||len>260){ps.push(cur.join(" "));cur=[]}});if(cur.length)ps.push(cur.join(" "));return ps}
 function dgItem(key){const [k,v]=String(key).split(":");if(k==="s")return SLIDES[+v];return FEED.find(x=>x.id===v)||NEWS.find(x=>x.id===v)||(typeof saved!=="undefined"&&Object.values(saved).find(x=>x.id===v))}
 function digestSheet(key){const x=dgItem(key);if(!x)return;clearInterval(slideTimer);
   const g=x.digest;let L=g?(lang==="ko"?g.ko:g.en):null;if(L)L=L.map(l=>tx(l));
-  const nW=g?(L.join(" ").match(/\S+/g)||[]).length:0;const mins=Math.max(1,Math.round((lang==="ko"?L&&L.join("").length/500:nW/220)||1));
+  if(L)L=dgTidy(L);const nW=g?(L.join(" ").match(/\S+/g)||[]).length:0;const mins=Math.max(1,Math.round((lang==="ko"?L&&L.join("").length/500:nW/220)||1));
   sheet(t("Summary","요약"),`<div class="dg">
    <div class="dgm"><b>${esc(srcN(x.source||""))}</b>${x.publishedAt||x.fetchedAt?` · ${fmtMD(x.publishedAt||x.fetchedAt)}`:""}</div>
    <h3 class="dgt">${esc(tTitle(x))}</h3>
-   ${L&&L.length?`<div class="dgs"><span>${t(`Original ${g.words.toLocaleString("en")} words`,`원문 ${g.words.toLocaleString("ko")}단어`)}</span><span class="dga">→</span><span><b>${t(`${L.length} lines`,`${L.length}줄 요약`)}</b></span><span>· ${t(`about ${mins} min`,`약 ${mins}분`)}</span></div>
-    <ol class="dgl">${L.map(l=>`<li>${dgHl(esc(l))}</li>`).join("")}</ol>
+   ${L&&L.length?`<div class="dgs"><span>${t(`Original ${g.words.toLocaleString("en")} words`,`원문 ${g.words.toLocaleString("ko")}단어`)}</span><span class="dga">→</span><span><b>${t(`${L.length} key sentences`,`핵심 ${L.length}문장`)}</b></span><span>· ${t(`about ${mins} min`,`약 ${mins}분`)}</span></div>
+    <div class="dgl">${dgParas(L).map((p,i)=>`<p class="${i===0?"lead":""}">${dgHl(esc(p))}</p>`).join("")}</div>
     <p class="dgn">${t("Key sentences taken from the article itself, in its order, translated automatically — nothing is added. Check the original for the full story.","기사 본문에서 핵심 문장만 골라 순서대로 옮기고 자동 번역했어요 · 새로 지어낸 내용은 없어요. 전체 내용은 원문에서 확인하세요.")}</p>`
    :`<p class="dgf">${esc(tSum(x)||"")}</p><p class="dgn">${t("This outlet doesn't let us read the full article, so this is its own short description.","이 매체는 본문을 가져올 수 없어서, 매체가 제공한 짧은 소개를 보여드려요.")}</p>`}
    <div class="dgb"><a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read the original","원문 보기")} ${SV.arrow}</a></div></div>`);
