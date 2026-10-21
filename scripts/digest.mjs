@@ -1,0 +1,68 @@
+// VISUAL DEPT. article summary ("요약 보기") — no AI, nothing invented.
+// Reads the article page, takes its body text, and picks the sentences that carry the most information
+// (names, numbers, words the article keeps repeating, the lead). Those sentences are kept in the article's order,
+// so the summary is the article's own words, shortened — then translated so it reads in English and in Korean.
+import { tr } from "./i18n-dict.mjs";
+
+const HANGUL = /[가-힣]/;
+const UA = { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36", "Accept-Language": "en,ko;q=0.8", Accept: "text/html,*/*;q=0.8" };
+const decode = s => String(s || "").replace(/&nbsp;|&#160;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#0?39;|&apos;|&#x27;|&rsquo;|&lsquo;/g, "'").replace(/&ldquo;|&rdquo;/g, '"').replace(/&mdash;/g, "—").replace(/&ndash;/g, "–").replace(/&hellip;/g, "…").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
+const strip = h => decode(h.replace(/<(script|style|noscript|svg|figure|figcaption|aside|nav|footer|form|button)[\s\S]*?<\/\1>/gi, " ").replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+const JUNK = /^(advertisement|sign up|subscribe|read more|related|photo|image|credit|getty|courtesy|follow us|share|click|newsletter|©|all rights|기자|저작권|무단|구독|사진=|사진 ?제공|ⓒ)/i;
+
+export async function fetchArticle(url, ms = 15000) {
+  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), ms);
+  try { const r = await fetch(url, { headers: UA, redirect: "follow", signal: ctl.signal }); if (!r.ok) return ""; return (await r.text()).slice(0, 1500000); }
+  catch { return ""; } finally { clearTimeout(t); }
+}
+export function articleText(html) {
+  if (!html) return "";
+  // 1) the body the publisher declares in its structured data
+  for (const m of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try { const walk = o => { if (!o) return ""; if (Array.isArray(o)) { for (const x of o) { const r = walk(x); if (r) return r; } return ""; } if (typeof o === "object") { if (typeof o.articleBody === "string" && o.articleBody.length > 400) return o.articleBody; for (const v of Object.values(o)) { const r = walk(v); if (r) return r; } } return ""; };
+      const b = walk(JSON.parse(m[1].trim())); if (b) return decode(b).replace(/\s+/g, " ").trim(); } catch {}
+  }
+  // 2) paragraphs inside <article> (or the main content block), skipping short captions and boilerplate
+  const scope = (html.match(/<article[\s\S]*?<\/article>/i) || html.match(/<main[\s\S]*?<\/main>/i) || html.match(/<div[^>]+(?:id|class)=["'][^"']*(?:article[-_]?body|articleBody|article_txt|article-content|news_body|post-content|entry-content|story-body|view_con|news_view|article_view)[^"']*["'][\s\S]{0,200000}/i) || [html])[0];
+  const paras = [...scope.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map(m => strip(m[1])).filter(p => p.length > 40 && !JUNK.test(p));
+  if (paras.join(" ").length > 300) return paras.join(" ");
+  // 3) Korean news pages often put the text in a div with <br> line breaks
+  const k = scope.match(/<div[^>]+(?:id|class)=["'][^"']*(?:article|news|view|content)[^"']*["'][^>]*>([\s\S]{400,60000}?)<\/div>/i);
+  return k ? strip(k[1]) : "";
+}
+export function sentences(text) {
+  const ko = HANGUL.test(text);
+  const parts = ko ? text.split(/(?<=[.!?]|다\.|요\.)\s+/) : text.split(/(?<=[.!?]["”’)]?)\s+(?=["“‘(]?[A-Z0-9])/);
+  return parts.map(s => s.trim()).filter(s => s.length >= (ko ? 18 : 40) && s.length <= 420 && !JUNK.test(s));
+}
+const STOP = new Set("the a an and or but of to in on at for with from by as is are was were be been it its this that these those his her their our your they he she we you i not no so if than then also has have had will would can could just more most into over about after before which who whom what when where while new said says say one two".split(" "));
+const words = s => (s.toLowerCase().match(/[a-z][a-z'’-]{2,}|[가-힣]{2,}|\d[\d.,%]*/g) || []).filter(w => !STOP.has(w));
+// pick the informative sentences: a summary roughly a fifth of the article, at least 4 and usually up to 10 lines
+export function pick(text, title = "") {
+  const ss = sentences(text); if (ss.length < 3) return { lines: ss, total: ss.length };
+  const tf = {}; ss.forEach(s => new Set(words(s)).forEach(w => tf[w] = (tf[w] || 0) + 1));
+  const tw = new Set(words(title));
+  const scored = ss.map((s, i) => { const ws = words(s); if (!ws.length) return { s, i, v: 0 };
+    let v = ws.reduce((a, w) => a + Math.log(1 + (tf[w] || 0)), 0) / Math.sqrt(ws.length);
+    v += ws.filter(w => tw.has(w)).length * 0.6;                 // about what the headline says
+    v += (s.match(/\d/g) || []).length ? 0.8 : 0;                  // numbers, dates, prices
+    v += (s.match(/\b[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)*/g) || []).length * 0.15; // names
+    v += i === 0 ? 1.4 : i < 3 ? 0.6 : 0;                           // the lead
+    if (/^["“]/.test(s) && s.length < 80) v -= 0.6;                 // short quotes alone say little
+    return { s, i, v }; });
+  const n = Math.max(4, Math.min(ss.length > 40 ? 12 : 10, Math.round(ss.length * 0.22)));
+  const lines = scored.slice().sort((a, b) => b.v - a.v).slice(0, n).sort((a, b) => a.i - b.i).map(x => x.s);
+  return { lines, total: ss.length };
+}
+// full summary for one story: lines in the article's language and both translations
+export async function digest(url, title = "", html) {
+  const page = html ?? await fetchArticle(url);
+  const text = articleText(page); if (!text || text.length < 300) return null;
+  const { lines, total } = pick(text, title); if (lines.length < 3) return null;
+  const ko = HANGUL.test(lines.join(" "));
+  const out = { lines: lines.length, of: total, words: (text.match(/\S+/g) || []).length, at: Date.now() };
+  const other = [];
+  for (const l of lines) { const x = await tr(l, ko ? "en" : "ko"); if (!x) return null; other.push(x); }
+  if (ko) { out.ko = lines; out.en = other; } else { out.en = lines; out.ko = other; }
+  return out;
+}
