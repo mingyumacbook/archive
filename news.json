@@ -1,6 +1,6 @@
 {
- "at": "2026-10-21T02:53:09.980Z",
- "stories": 468,
+ "at": "2026-10-21T04:54:08.707Z",
+ "stories": 472,
  "translated": 427,
  "notTranslated": [
   "We’ve never been more connected, so why do we feel so alone?",
@@ -25,10 +25,10 @@
   "The Prettiest Satin Pieces in Every Category, From Shirts to Shoes"
  ],
  "trOK": 0,
- "trFail": 41,
+ "trFail": 45,
  "pictures": {
-  "checked": 468,
-  "landscape": 435,
-  "portrait": 143
+  "checked": 472,
+  "landscape": 439,
+  "portrait": 146
  }
 }
