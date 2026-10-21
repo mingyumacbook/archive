@@ -1,20 +1,30 @@
 {
- "at": "2026-10-21T08:54:55.992Z",
- "stories": 485,
+ "at": "2026-10-21T10:53:38.944Z",
+ "stories": 495,
  "translated": 484,
- "summaries": 166,
+ "summaries": 235,
  "summaryRun": {
-  "dgOK": 64,
-  "dgNo": 86
+  "dgOK": 69,
+  "dgNo": 81
  },
  "notTranslated": [
-  "가방은 블랙이 남는 장사인 줄 알았죠"
+  "가방은 블랙이 남는 장사인 줄 알았죠",
+  "In pictures: Two of Europe’s horniest parties collide in Berlin",
+  "피스마이너스원, 와일드사이드 요지 야마모토와 협업 컬렉션 공개",
+  "로미오 베컴, 테니스 로맨스 영화로 배우 데뷔",
+  "딸 노스 웨스트로 변신한 킴 카다시안",
+  "올해는 국사 선생님의 브이넥 니트가 유행이에요!",
+  "조용한 럭셔리는 끝, 이제는 ‘절제된 맥시멀리즘’입니다",
+  "제니의 유니크한 투피스 룩, 회사에 입고 갈 수 있을까?",
+  "4천개의 다이아몬드로 만든 브라를 착용한, 천사 카일리 제너",
+  "디자인은 사랑의 표현, 올해 서울디자인위크에서 만난 삼성",
+  "37 Zara and Ref Items That Are Giving \"I'm the Chicest Person in the Room\""
  ],
- "trOK": 2,
- "trFail": 1,
+ "trOK": 0,
+ "trFail": 11,
  "pictures": {
-  "checked": 485,
-  "landscape": 452,
-  "portrait": 154
+  "checked": 495,
+  "landscape": 462,
+  "portrait": 162
  }
 }
