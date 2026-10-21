@@ -1,21 +1,20 @@
 {
- "at": "2026-10-21T08:29:14.686Z",
- "stories": 484,
- "translated": 482,
- "summaries": 102,
+ "at": "2026-10-21T08:54:55.992Z",
+ "stories": 485,
+ "translated": 484,
+ "summaries": 166,
  "summaryRun": {
-  "dgOK": 102,
-  "dgNo": 48
+  "dgOK": 64,
+  "dgNo": 86
  },
  "notTranslated": [
-  "가을에 하고 싶은 브라운 헤어는 따로 있습니다",
-  "This Lake Como Hotel Is Less Than a Year Old and Already a Fashion Girl Favorite"
+  "가방은 블랙이 남는 장사인 줄 알았죠"
  ],
- "trOK": 1,
- "trFail": 2,
+ "trOK": 2,
+ "trFail": 1,
  "pictures": {
-  "checked": 484,
-  "landscape": 451,
-  "portrait": 153
+  "checked": 485,
+  "landscape": 452,
+  "portrait": 154
  }
 }
