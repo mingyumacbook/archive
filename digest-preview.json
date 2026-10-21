@@ -1,20 +1,20 @@
 {
- "at": "2026-10-21T06:00:16.285Z",
+ "at": "2026-10-21T06:03:15.388Z",
  "log": [
-  "Vogue Korea: 10/45 lines, 422 words (31867ms)",
-  "W Korea: no text (1024ms)",
-  "Who What Wear: 5/24 lines, 456 words (4822ms)",
-  "Harper's BAZAAR: 6/28 lines, 763 words (8731ms)",
-  "Dazed: 12/54 lines, 1118 words (15373ms)",
-  "Fashionista: no text (88ms)",
-  "METAL Magazine: 4/6 lines, 144 words (5571ms)",
-  "The Zoe Report: 12/78 lines, 1638 words (14909ms)",
-  "The Korea Herald: no text (1206ms)",
-  "WWD: 12/254 lines, 4171 words (12225ms)",
-  "Marie Claire: 10/45 lines, 943 words (10719ms)",
-  "The Impression: no text (301ms)",
-  "Inside Retail Asia: 5/23 lines, 552 words (10419ms)",
-  "Aza Fashions: 12/93 lines, 1450 words (15881ms)"
+  "Vogue Korea: 10/45 lines, 429 words (26461ms)",
+  "W Korea: no text (1160ms)",
+  "Who What Wear: 4/13 lines, 204 words (5363ms)",
+  "Harper's BAZAAR: 6/28 lines, 763 words (11673ms)",
+  "Dazed: 11/48 lines, 981 words (12652ms)",
+  "Fashionista: no text (60ms)",
+  "METAL Magazine: 4/6 lines, 144 words (5511ms)",
+  "The Zoe Report: 12/78 lines, 1638 words (15724ms)",
+  "The Korea Herald: no text (1405ms)",
+  "WWD: 12/236 lines, 4171 words (6712ms)",
+  "Marie Claire: 9/41 lines, 814 words (11491ms)",
+  "The Impression: no text (107ms)",
+  "Inside Retail Asia: 5/23 lines, 552 words (8050ms)",
+  "Aza Fashions: 12/93 lines, 1450 words (13748ms)"
  ],
  "items": [
   {
@@ -39,8 +39,8 @@
    "digest": {
     "lines": 10,
     "of": 45,
-    "words": 422,
-    "at": 1792562286439,
+    "words": 429,
+    "at": 1792562476593,
     "ko": [
      "아무렇게나 입어도 멋있는, ‘얄미운’ 옷이 있습니다.",
      "별다른 노력 없이도 멋을 내는 스웨이드 재킷 처럼요.",
@@ -49,21 +49,21 @@
      "1970년대와 1980년대 멋쟁이들도 스웨이드 재킷을 즐겨 입었으니까요.",
      "레더 재킷 이 시대를 막론하고 시크한 멋을 낸다면, 스웨이드는 한결 부드러운 멋을 풍깁니다.",
      "연한 브라운 재킷에는 화이트 진과 비슷한 톤의 브라운 로퍼를 신어보세요.",
+     "상의부터 바지까지 올 블랙으로 맞춰 입고 초콜릿 브라운 스웨이드 재킷을 걸쳐보세요.",
      "짧은 재킷 아래로 스커트가 길게 흘러내리니 비율도 한결 좋아 보이고요.",
-     "허리선을 잡아주는 단정한 스웨이드 재킷 아래로 헐렁한 반바지가 내려오니 흥미로운 조합이 완성되죠.",
-     "아직 레드 재킷까지 입을 자신은 없다면 가지고 있는 브라운 스웨이드 재킷에 컬러 청바지 를 조합해도 충분합니다."
+     "허리선을 잡아주는 단정한 스웨이드 재킷 아래로 헐렁한 반바지가 내려오니 흥미로운 조합이 완성되죠."
     ],
     "en": [
      "There are ‘ugly’ clothes that look cool no matter how you wear them.",
      "Like a suede jacket that looks stylish without much effort.",
-     "Cortis Geonho also wore a suede jacket while attending the 2027 Spring/Summer Chanel show and shooting a <Vogue Korea> pictorial.",
+     "Cortis Geonho also attended the 2027 Spring/Summer Chanel show and wore a suede jacket while shooting a <Vogue Korea> pictorial.",
      "Hailey Bieber and Kendall Jenner, who become a hot topic no matter what they wear, also enjoy wearing suede jackets.",
      "Stylish people in the 1970s and 1980s also enjoyed suede jackets.",
      "While leather jackets give off a chic look regardless of the era, suede has a much softer look.",
-     "Wear white jeans and brown loafers of a similar tone with a light brown jacket.",
+     "Wear a light brown jacket with white jeans and brown loafers of a similar tone.",
+     "Wear all black from top to pants and top with a chocolate brown suede jacket.",
      "The long skirt flows underneath the short jacket, making the proportions look much better.",
-     "An interesting combination is completed with baggy shorts falling under a neat suede jacket that holds the waistline.",
-     "If you don't have the confidence to wear a red jacket yet, it's enough to combine the brown suede jacket you have with colored jeans."
+     "An interesting combination is completed with baggy shorts falling under a neat suede jacket that holds the waistline."
     ]
    }
   },
@@ -87,23 +87,21 @@
    "fetchedAt": 1792542060000,
    "publishedAt": "2026-10-21T00:21:00.000Z",
    "digest": {
-    "lines": 5,
-    "of": 24,
-    "words": 456,
-    "at": 1792562316247,
+    "lines": 4,
+    "of": 13,
+    "words": 204,
+    "at": 1792562503046,
     "en": [
-     "By Erin Fitzpatrick Published 21 October 2026 In News When you purchase through links on our site, we may earn an affiliate commission.",
-     "Facebook X Whatsapp Pinterest Share this article Join the conversation Follow us Add us as a preferred source on Google It's not every day I get to party with L.A.'s best dressed people , so you can bet I made the most of the opportunity at Who What Wear's 20th anniversary celebration, mentally taking notes on what everyone was wearing and methodically dissecting their outfit formulas.",
-     "Who What Wear fashion editor Sierra Mayhew wore head-to-toe Longchamp, including a dress in the color of the season.",
-     "Erin Fitzpatrick Associate Director, Fashion News Erin got her start as a Who What Wear intern in 2011—back when the site only published a single story per day.",
-     "After nearly three years at R29, she came back to WWW in 2015, where she is now the Associate Director of Fashion News."
+     "Melanie Moreno, for instance, grabbed an espresso martini from our Movado bar cart wearing an impossibly chic black dress with a keyhole cutout.",
+     "Meanwhile, Ashley Tisdale French and Yellowjackets star Sammi Hanratty were both on the same page when it came to one specific outerwear trend.",
+     "Wearing a keyhole-cutout black dress, Melanie Moreno grabbed an espresso martini from our Movado bar cart.",
+     "Who What Wear fashion editor Sierra Mayhew wore head-to-toe Longchamp, including a dress in the color of the season."
     ],
     "ko": [
-     "Erin Fitzpatrick 작성 2026년 10월 21일 뉴스 뉴스 당사 사이트의 링크를 통해 구매하시면 제휴 커미션을 받을 수 있습니다.",
-     "Facebook X Whatsapp Pinterest 이 기사 공유하기 대화에 참여하기 팔로우하기 Google에서 선호하는 소스로 추가하기 제가 L.A. 최고의 옷을 입은 사람들과 파티에 가는 것이 매일 있는 것은 아니기 때문에 Who What Wear의 20주년 축하 행사에서 모든 사람이 무엇을 입고 있었는지 정신적으로 기록하고 그들의 의상 공식을 체계적으로 분석하면서 기회를 최대한 활용했다고 장담할 수 있습니다.",
-     "Who What Wear 패션 에디터 시에라 메이휴(Sierra Mayhew)는 시즌 컬러의 드레스를 포함해 머리부터 발끝까지 롱샴을 착용했습니다.",
-     "Erin Fitzpatrick 패션 뉴스 부책임자 Erin은 2011년에 Who What Wear 인턴으로 일을 시작했습니다. 당시 이 사이트는 하루에 한 편의 기사만 게시했습니다.",
-     "R29에서 거의 3년을 보낸 후, 그녀는 2015년에 WWW로 돌아와 현재 Fashion News의 부국장으로 재직하고 있습니다."
+     "예를 들어, Melanie Moreno는 열쇠 구멍 컷아웃이 있는 엄청나게 시크한 검은색 드레스를 입고 Movado 바 카트에서 에스프레소 마티니를 집었습니다.",
+     "한편, Ashley Tisdale French와 Yellowjackets 스타 Sammi Hanratty는 특정 아우터웨어 트렌드에 관해 둘 다 같은 페이지에 있었습니다.",
+     "키홀 컷아웃 블랙 드레스를 입은 Melanie Moreno는 Movado 바 카트에서 에스프레소 마티니를 꺼냈습니다.",
+     "Who What Wear 패션 에디터 시에라 메이휴(Sierra Mayhew)는 시즌 컬러의 드레스를 포함해 머리부터 발끝까지 롱샴을 착용했습니다."
     ]
    }
   },
@@ -132,7 +130,7 @@
     "lines": 6,
     "of": 28,
     "words": 763,
-    "at": 1792562321127,
+    "at": 1792562512877,
     "en": [
      "The best trends from the fall 2026 shows were all about disrupting expectations.",
      "From Miuccia Prada’s satin dresses worn with scarves to Chloé’s chiffon skirts in folksy plaid, so-wrong-it’s-right statement dressing ruled the runways.Even the more subtle styling tricks and silhouettes felt a little bit tweaked.",
@@ -143,11 +141,11 @@
     ],
     "ko": [
      "2026년 가을 쇼의 최고의 트렌드는 모두 기대를 뒤흔드는 것이었습니다.",
-     "스카프와 함께 착용한 미우치아 프라다(Miuccia Prada)의 새틴 드레스부터 끌로에(Chloé)의 서민적인 체크 무늬 시폰 스커트까지, 너무나 옳고 그름을 강조하는 드레싱이 런웨이를 지배했습니다. 심지어 더 미묘한 스타일링 트릭과 실루엣도 약간 변형된 느낌이었습니다.",
+     "스카프와 함께 착용한 미우치아 프라다(Miuccia Prada)의 새틴 드레스부터 끌로에(Chloé)의 서민적인 체크 무늬 쉬폰 스커트까지, 너무나 옳고 그름을 강조하는 드레싱이 런웨이를 지배했습니다. 심지어 더 미묘한 스타일링 트릭과 실루엣도 약간 변형된 느낌이었습니다.",
      "그리고 Julian Klausner는 가을의 영웅 액세서리인 스테이트먼트 커머밴드로 Dries Van Noten의 일반적인 허리 이론을 부활시켰습니다. 그럼에도 불구하고 클래식에 끌리든 실험적인 접근 방식을 취하든 2026년 가을 컬렉션은 모두를 위한 무언가를 가지고 있었습니다.",
      "런웨이 전체에 커머번드가 있었고 일부는 매우 전통적인 느낌을 받았지만 다른 일부는 예상치 못한 색상으로 나오거나 놀라운 장식으로 장식되었습니다. 룩에 쉽게 트위스트를 적용하려면 허리에 부드러운 오페라 스카프를 고정하여 검은색 바지와 파란색 버튼 다운 의상에 흥미를 더해보세요.",
-     "니하이 부츠와 뉴트럴 블레이저와 함께 체크 무늬 스커트를 사무실에 입거나 칵테일 파티를 위해 체크 무늬 드레스를 선택하든 이러한 트렌드는 옷장에 새로운 생명을 불어넣을 수 있습니다. Undone Lady이번 ​​시즌 런웨이는 일상 생활의 지저분함을 반영하는 스타일의 여성스러운 아이템을 선보였습니다.",
-     "스웨터와 청키한 니트 스카프와 함께 입는 새틴 드레스부터 차려입은 하의에 꽃무늬 자수 스웨터까지 저녁 시간에 스웨터를 입는 방법은 다양했습니다. 주간 턱시도 복장 이번 시즌 가장 멋진 테일러링 트렌드 중 하나는 디자이너들이 평상복에 턱시도 복장을 해석하는 방식이었습니다."
+     "니하이 부츠와 뉴트럴 블레이저와 함께 격자 무늬 스커트를 사무실에 입거나 칵테일 파티를 위해 격자 무늬 드레스를 선택하든 이러한 트렌드는 옷장에 새로운 생명을 불어 넣을 수 있습니다. Undone Lady이번 ​​시즌 런웨이는 일상 생활의 지저분함을 반영하는 스타일의 여성스러운 작품을 선보였습니다.",
+     "스웨터와 청키한 니트 스카프와 함께 입는 새틴 드레스부터 차려입은 하의에 꽃무늬 자수 스웨터까지 저녁 시간에 스웨터를 입는 방법은 다양했습니다. 주간 턱시도 복장 이번 시즌 가장 멋진 테일러링 트렌드 중 하나는 디자이너들이 평상복에 맞게 턱시도 복장을 해석하는 방식이었습니다."
     ]
    }
   },
@@ -171,37 +169,35 @@
    "fetchedAt": 1792512240000,
    "publishedAt": "2026-10-20T16:04:00.000Z",
    "digest": {
-    "lines": 12,
-    "of": 54,
-    "words": 1118,
-    "at": 1792562329866,
+    "lines": 11,
+    "of": 48,
+    "words": 981,
+    "at": 1792562520161,
     "en": [
      "Life & Culture / Lists Life & Culture / Lists We’ve never been more connected, so why do we feel so alone?",
      "Lessons to reclaim closeness in a disconnected world from Esther Perel, Saeed Jones, Kahlil Greene and others at Hinge’s Heads Up conference October 20, 2026 October 20, 2026 Text Maya Abuali Decades of research tell us that humans are social animals, happier and healthier when we’re connected to each other.",
      "So, as psychotherapist and relationship expert Esther Perel asked at Hinge’s Heads Up conference this month, “What the hell is going on that we find ourselves increasingly sleepwalking into isolation?”",
      "On a panel titled The Attention We Owe Ourselves & Each Other, Perel joined Jantos and poet-podcaster Saeed Jones, with gen Z historian Kahlil Greene moderating, to ask where all our attention has gone and what it would take to give more of it to each other.",
-     "But Perel suggests a little more friction might do us some good, starting with choosing to meet people in person.",
+     "So he bought three hourglasses, timed at 15, 30, and 45 minutes, and started small, reading until the sand ran out without letting himself take notes or look up words.",
      "“If you do not come into contact with people, you have no sense of what you are doing to them when you’re hurting them, because they slowly become less people,” she said.",
      "When Jones moved to Cambridge, assuming he’d only be there for a year, a friend of his made a standing announcement: Every Tuesday at 2pm between classes, she’d be at a particular cafe, whether anyone joined her or not.",
      "Jones thinks more of us should do the same, and suggested picking a bench where people know they can find you every Friday at lunchtime.",
      "“The burdens of the self have never been heavier,” Perel said, and in guarding it so closely, some people establish so many boundaries that they shut themselves out of living altogether.",
      "“If you’re going to do an activity, just invite the person to join you, bring them in, and then people around you will have lots of data points,” Perel said.",
-     "Perel added that it’s worth telling the other person, with something as simple as “Last night was so wonderful… I’m still laughing about that thing you said.”",
-     "From early Andy Warhol films to vagina photography and scenes from Google Street View, the art form has a long history of infiltrating our most intimate moments Get must-see stories direct to your inbox every weekday."
+     "Perel added that it’s worth telling the other person, with something as simple as “Last night was so wonderful… I’m still laughing about that thing you said.”"
     ],
     "ko": [
      "생활 및 문화 / 목록 생활 및 문화 / 목록 우리는 이전보다 더 많이 연결되어 있었는데 왜 이렇게 외로움을 느끼는 걸까요?",
      "단절된 세상에서 친밀감을 되찾는 방법에 대한 교훈 Hinge's Heads Up 컨퍼런스에서 Esther Perel, Saeed Jones, Kahlil Greene 등이 2026년 10월 20일 2026년 10월 20일 Text Maya Abuali 수십 년간의 연구를 통해 인간은 사회적 동물이며, 서로 연결되어 있을 때 더 행복하고 건강하다는 사실을 알 수 있습니다.",
      "따라서 심리 치료사이자 관계 전문가인 Esther Perel은 이번 달 Hinge의 Heads Up 컨퍼런스에서 \"도대체 무슨 일이 일어나고 있는 걸까요? 우리는 점점 더 고립되어 몽유병에 빠져 있는 우리 자신을 발견하게 되었나요?\"라고 물었습니다.",
      "The Attention We Owe Ourselves & Each Other라는 제목의 패널에서 Perel은 Jantos와 시인 겸 팟캐스터인 Saeed Jones와 함께 Z세대 역사학자 Kahlil Greene이 진행하는 가운데 우리의 모든 관심이 어디로 갔는지, 서로에게 더 많은 관심을 쏟으려면 무엇이 필요한지 물었습니다.",
-     "그러나 Perel은 사람들을 직접 만나는 것을 선택하는 것부터 시작하여 조금 더 마찰이 우리에게 도움이 될 수 있다고 제안합니다.",
+     "그래서 그는 15분, 30분, 45분 시간이 표시된 모래시계 세 개를 사서 작게 시작하여 메모를 하거나 단어를 찾아보지도 않고 모래가 다 떨어질 때까지 읽기 시작했습니다.",
      "“사람들과 접촉하지 않으면, 당신이 그들에게 상처를 주고 있을 때 당신이 그들에게 무슨 짓을 하고 있는지 전혀 알 수 없습니다. 왜냐하면 그들은 천천히 덜 사람이 되기 때문입니다.”라고 그녀는 말했습니다.",
      "Jones가 캠브리지로 이사했을 때, 그곳에 1년만 있을 것이라고 가정하고 친구 한 명이 다음과 같이 확고한 발표를 했습니다. 매주 화요일 오후 2시에 수업 사이에 누군가가 그녀와 함께하든 안 하든 그녀는 특정 카페에 있을 것이라는 것이었습니다.",
      "Jones는 우리 중 더 많은 사람들이 똑같이 해야 한다고 생각하고 사람들이 매주 금요일 점심 시간에 당신을 찾을 수 있다는 것을 알 수 있는 벤치를 선택할 것을 제안했습니다.",
-     "페렐은 “자기의 짐이 이보다 더 무거웠던 적은 없었다”고 말했다. 그리고 그것을 너무도 철저히 지키면서 어떤 사람들은 너무 많은 경계를 세워서 삶 자체를 아예 차단하기도 한다.",
+     "페렐은 “자기의 짐이 이보다 더 무거웠던 적은 없었다”고 말했고, 그것을 너무도 철저하게 지키면서 어떤 사람들은 너무 많은 경계를 세워서 삶 자체를 아예 차단하기도 했습니다.",
      "Perel은 \"어떤 활동을 할 예정이라면, 그 사람을 초대하고 데려오세요. 그러면 주변 사람들이 많은 데이터 포인트를 갖게 될 것입니다.\"라고 Perel은 말했습니다.",
-     "Perel은 \"어젯밤은 정말 멋졌어… 당신이 한 말 때문에 아직도 웃고 있어요.\"와 같은 간단한 말로 상대방에게 말할 가치가 있다고 덧붙였습니다.",
-     "초기 앤디 워홀(Andy Warhol) 영화부터 성기 사진과 Google 스트리트 뷰 장면에 이르기까지 예술 형식은 우리의 가장 친밀한 순간에 스며드는 오랜 역사를 가지고 있습니다. 꼭 봐야 할 이야기를 매주 받은 편지함으로 직접 받아보세요."
+     "Perel은 \"어젯밤은 정말 멋졌어… 당신이 한 말 때문에 아직도 웃고 있어요.\"와 같은 간단한 말로 상대방에게 말할 가치가 있다고 덧붙였습니다."
     ]
    }
   },
@@ -236,7 +232,7 @@
     "lines": 4,
     "of": 6,
     "words": 144,
-    "at": 1792562345886,
+    "at": 1792562533283,
     "en": [
      "Everyday objects, larger male bodies and Hollywood beauty ideals shape five award-winning collections and the support that will help their designers grow.",
      "Designers and brands are stepping up their game by joining forces: JW Anderson and Ugg, Jacquemus and Timberland, Celine and Reebok, or MM6 and Havaianas are bringing the heat to your feet.",
@@ -281,7 +277,7 @@
     "lines": 12,
     "of": 78,
     "words": 1638,
-    "at": 1792562350771,
+    "at": 1792562538226,
     "en": [
      "Meanwhile, Frame and Ritz Paris unveiled the latest installment of their ongoing collaboration with a new campaign, 24 Hours in Paris, starring Charlotte Lawrence .",
      "For Cruise 2027, Fendi’s Creative Director Maria Grazia Chiuri reinterpreted the Italian fashion label’s iconic Croissant bag, which first debuted on the Fall/Winter 1999 runway.",
@@ -304,9 +300,9 @@
      "데님, 저지, 백을 아우르는 이 컬렉션은 Acne Studios의 시그니처 데님과 가죽을 Chalayan의 초창기 디자인 코드와 결합하여 Ventriloquy(2001), Medea(2002) 및 Manifest Destiny(2003)와 같은 컬렉션에서 영감을 얻었습니다.",
      "Reformation이 또 다른 주목할만한 콜라보레이션으로 돌아왔습니다. 이번에는 OG 패션 소녀 Alexa Chung과 팀을 이루어 30피스 컬렉션을 선보였습니다.",
      "이번 달 파리 패션 위크 기간 동안 디자이너는 자신의 이름을 딴 새로운 브랜드 BROCK을 공개했습니다.",
-     "앞서 언급했듯이, 아티스트는 파리의 24시간이라는 새 캠페인의 얼굴입니다. 이 캠페인은 그녀의 하루를 따라온 컬렉션에서 빛의 도시와 완벽하게 어울립니다.",
+     "앞서 언급했듯이, 아티스트는 파리의 24시간이라는 새로운 캠페인의 얼굴입니다. 이 캠페인은 그녀의 하루를 함께한 컬렉션에서 선보이며, 모두 빛의 도시에 완벽하게 어울립니다.",
      "출시를 축하하기 위해 프레임 앤 리츠 파리는 파리 방돔 광장 15번지에 위치한 호텔 갤러리의 리츠 파리 부티크에서 팝업을 개최할 예정입니다. 이 팝업 행사에서는 전체 컬렉션, 리츠 파리 르 콩투아의 디저트, 구매 시 사은품(수량 소진 시까지)을 제공합니다.",
-     "이번 달, 럭셔리 브랜드 지미추(Jimmy Choo)는 브랜드의 시그니처 장식 중 하나를 기념하는 새로운 \"Pearls of Wisdom\" 캡슐 컬렉션으로 창립 30주년을 기념합니다.",
+     "이번 달, 럭셔리 브랜드 지미 추(Jimmy Choo)는 브랜드의 시그니처 장식 중 하나를 기념하는 새로운 \"지혜의 진주\" 캡슐 컬렉션으로 창립 30주년을 기념합니다.",
      "이번 컬렉션에서는 골드 웨지 위에 진주를 장식한 이타카(Ithaca) 슈즈, 발 전체에 크리스털과 진주를 장식한 이리나(Irina) 샌들 등 눈에 띄는 스타일이 특징이다.",
      "한편, 보도 자료에 따르면 매장의 디자인 세부 사항 중 상당수는 엄선된 가구와 장식품을 포함하여 파리 31 Rue Cambon에 위치한 Gabrielle \"Coco\" Chanel의 아파트에 경의를 표하는 것입니다."
     ]
@@ -340,36 +336,36 @@
    "publishedAt": "",
    "digest": {
     "lines": 12,
-    "of": 254,
+    "of": 236,
     "words": 4171,
-    "at": 1792562368003,
+    "at": 1792562555360,
     "en": [
-     "Favorite collections: Chanel, Schiaparelli, Dior, Balenciaga, Dries Van Noten Trend that will matter in six months?",
-     "Favorite collections: Chanel, Dior, Saint Laurent, Celine, The Row Trend that will matter in six months?",
-     "Favorite collections: Dior, Chanel, Dries Van Noten, Celine, The Row Trend that will matter in six months?",
-     "Favorite collections: Saint Laurent, Chanel, Miu Miu, Loewe, Chloé Trend that will matter in six months?",
-     "Favorite collections: Saint Laurent, Valentino, The Row, Celine, Dries Van Noten Trend that will matter in six months?",
-     "Favorite collections: Saint Laurent, The Row, Dries Van Noten, Celine, Valentino Trend that will matter in six months?",
-     "Favorite collections: Saint Laurent, Chanel, Loewe, Dries Van Noten, Celine Trend that will matter in six months?",
-     "Favorite collections: Dries Van Noten, Valentino, The Row, Saint Laurent, Rick Owens Trend that will matter in six months?",
-     "Favorite collections: Dries Van Noten, Celine, Loewe, Chanel, The Row Trend that will matter in six months?",
-     "Favorite collections: Chanel, Dior, Dries Van Noten, Chloé, Celine Trend that will matter in six months?",
-     "Favorite collections: Celine, Chanel, Dries Van Noten, Saint Laurent, Jean Paul Gaultier Trend that will matter in six months?",
-     "Favorite collections: Saint Laurent, Chanel, Dries Van Noten, Tom Ford, Chloé Trend that will matter in six months?"
+     "PARIS — Perhaps Prada called it back in Milan — but this season was all about the skirt in Paris too.",
+     "Dresses remain important, but skirts increasingly look like the season’s key vehicle for the return of femininity.",
+     "Tiffany Hsu, chief buying and group fashion venture officer at Mytheresa, saw the season mark a “return of emotion and personality,” with customers moving away from quiet luxury to more expressive, personal looks.",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?",
+     "Did you feel any “vibe shift” this season?"
     ],
     "ko": [
-     "좋아하는 컬렉션: 샤넬, 스키아파렐리, 디올, 발렌시아가, 드리스 반 노튼 6개월 후에 중요한 트렌드는 무엇일까요?",
-     "좋아하는 컬렉션: 샤넬, 디올, 생 로랑, 셀린, 6개월 후에 중요해질 The Row Trend?",
-     "좋아하는 컬렉션: Dior, Chanel, Dries Van Noten, Celine, The Row Trend가 6개월 후에 중요할까요?",
-     "좋아하는 컬렉션: 생로랑, 샤넬, 미우미우, 로에베, 끌로에 6개월 후에 중요한 트렌드는 무엇일까요?",
-     "좋아하는 컬렉션: Saint Laurent, Valentino, The Row, Celine, Dries Van Noten 6개월 후에 중요한 트렌드는 무엇일까요?",
-     "좋아하는 컬렉션: Saint Laurent, The Row, Dries Van Noten, Celine, Valentino 6개월 후에 중요한 트렌드는 무엇인가요?",
-     "좋아하는 컬렉션: Saint Laurent, Chanel, Loewe, Dries Van Noten, Celine Trend가 6개월 후에 중요해질까요?",
-     "좋아하는 컬렉션: Dries Van Noten, Valentino, The Row, Saint Laurent, Rick Owens 6개월 후에 중요한 트렌드는 무엇인가요?",
-     "좋아하는 컬렉션: Dries Van Noten, Celine, Loewe, Chanel, The Row Trend가 6개월 후에 중요할까요?",
-     "좋아하는 컬렉션: Chanel, Dior, Dries Van Noten, Chloé, Celine 6개월 후에 중요한 트렌드는 무엇인가요?",
-     "좋아하는 컬렉션: Celine, Chanel, Dries Van Noten, Saint Laurent, Jean Paul Gaultier 6개월 후에 중요한 트렌드는 무엇일까요?",
-     "좋아하는 컬렉션: Saint Laurent, Chanel, Dries Van Noten, Tom Ford, Chloé 6개월 후에 중요한 트렌드는 무엇일까요?"
+     "파리 — 아마도 프라다가 밀라노에서 다시 불렀을 것입니다. 하지만 이번 시즌은 파리에서도 스커트에 관한 것이었습니다.",
+     "드레스는 여전히 중요하지만 스커트는 점점 여성성을 되찾는 이번 시즌의 핵심 수단으로 여겨지고 있습니다.",
+     "Mytheresa의 최고 구매 겸 그룹 패션 벤처 책임자인 Tiffany Hsu는 이번 시즌이 고객들이 조용한 럭셔리에서 벗어나 보다 표현적이고 개인적인 룩으로 이동하는 가운데 \"감정과 개성의 복귀\"라고 보았습니다.",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?",
+     "이번 시즌에 어떤 \"분위기 변화\"를 느꼈나요?"
     ]
    }
   },
@@ -401,15 +397,14 @@
    "summary_ko": "플리츠·풀 스커트부터 무릎 길이 A라인까지 거의 모든 룩의 기반이 스커트였다. 바이커 재킷과 니트, 체크 테일러링에 매치해 일상복으로 제안했다.",
    "publishedAt": "2026-09-22",
    "digest": {
-    "lines": 10,
-    "of": 45,
-    "words": 943,
-    "at": 1792562379129,
+    "lines": 9,
+    "of": 41,
+    "words": 814,
+    "at": 1792562562080,
     "en": [
-     "Miuccia Prada and Raf Simons want you to give your trousers a season off.",
-     "Facebook X Pinterest Share this article Join the conversation Follow us Add us as a preferred source on Google Subscribe to our newsletter Stripping down is nothing new for fashion, literally in abbreviated clothes and pared-back aesthetics, and figuratively in its endless promises to return to the essentials.",
-     "At Prada's Spring 2027 show, Miuccia Prada and Raf Simons distilled the bottom half of the wardrobe down to one thing: skirts .",
+     "The collection felt like a hall of fame for a garment Prada has spent decades perfecting.",
      "Prada's Spring 2027 runway made the skirt the foundation of nearly every look.",
+     "In the '80s, authority came with exaggerated shoulders and skirt suits cut like armor .",
      "New York Fashion Week's Easiest Outfit Formula Starts With a Statement Skirt I'm Surprised This Fashion Month Trend Turned My Head—3 Styles I'd Buy Now I'm Re-Creating Dior's Dreamy Spring 2027 Wardrobe No single skirt was the power skirt here.",
      "Spring 2027 gathered those ideas together, treating the category less like a trend than a paper-doll wardrobe whose pieces could be endlessly rearranged.",
      "Prada paired a voluminous magenta skirt with an unexpected mix of shirting and lingerie-inspired layers for Spring 2027.",
@@ -418,13 +413,12 @@
      "Miuccia Prada once put it even more plainly: \"For me, the skirt is like a T-shirt."
     ],
     "ko": [
-     "미우치아 프라다(Miuccia Prada)와 라프 시몬스(Raf Simons)는 바지에 한 시즌을 더해 주기를 원합니다.",
-     "Facebook X Pinterest 이 기사 공유하기 대화에 참여하기 팔로우하기 Google에서 선호하는 소스로 추가하기 뉴스레터 구독하기 말 그대로 옷을 간략하게 표현하고 미학을 절제하는 것, 그리고 비유적으로 본질로 돌아가겠다는 끝없는 약속을 통해 옷을 벗는 것은 패션에 새로운 것이 아닙니다.",
-     "프라다의 2027년 봄 패션쇼에서 미우치아 프라다(Miuccia Prada)와 라프 시몬스(Raf Simons)는 옷장의 아래쪽 절반을 스커트로 정리했습니다.",
+     "이 컬렉션은 프라다가 수십 년에 걸쳐 완성해 온 의류에 대한 명예의 전당처럼 느껴졌습니다.",
      "프라다의 2027년 봄 런웨이는 스커트를 거의 모든 룩의 기초로 만들었습니다.",
-     "뉴욕 패션 위크의 가장 쉬운 의상 공식은 스테이트먼트 스커트로 시작됩니다 이번 패션 먼스 트렌드가 내 머리를 돌렸다는 것에 놀랐습니다. 지금 구매하고 싶은 3가지 스타일 저는 Dior의 몽환적인 2027 봄 옷장을 다시 만들고 있습니다. 여기서는 싱글 스커트가 파워 스커트가 아니었습니다.",
+     "80년대에는 과장된 어깨와 갑옷처럼 재단된 스커트 슈트로 권위가 나타났다.",
+     "뉴욕 패션 위크의 가장 쉬운 의상 공식은 스테이트먼트 스커트로 시작됩니다. 이번 패션 먼스 트렌드가 내 머리를 돌렸다는 것에 놀랐습니다. 지금 구매하고 싶은 3가지 스타일 저는 Dior의 몽환적인 2027 봄 옷장을 다시 만들고 있습니다. 여기서는 싱글 스커트가 파워 스커트가 아니었습니다.",
      "2027년 봄에는 이러한 아이디어를 모아 카테고리를 트렌드라기보다는 끝없이 재배치할 수 있는 종이인형 옷장으로 취급했습니다.",
-     "프라다(Prada)는 2027년 봄 컬렉션을 위해 볼륨감 있는 마젠타색 스커트와 셔츠 및 란제리에서 영감을 받은 레이어의 예상치 못한 조합을 선보였습니다.",
+     "프라다는 2027년 봄 컬렉션을 위해 볼륨감 있는 마젠타색 스커트와 셔츠 및 란제리에서 영감을 받은 레이어의 예상치 못한 조합을 선보였습니다.",
      "컬렉션의 부채꼴 스커트 중 하나를 입은 미우치아 프라다(Miuccia Prada)가 프라다의 2027 봄 패션쇼에 이어 라프 시몬스와 나란히 인사를 하고 있습니다.",
      "프라다가 패션의 선두주자라면, 2027년 봄의 메시지는 간단합니다. 스커트를 바지처럼 입으세요.",
      "미우치아 프라다(Miuccia Prada)는 이를 훨씬 더 분명하게 표현한 적이 있습니다: \"나에게 스커트는 티셔츠와 같습니다."
@@ -462,7 +456,7 @@
     "lines": 5,
     "of": 23,
     "words": 552,
-    "at": 1792562394591,
+    "at": 1792562575054,
     "en": [
      "Luxury bellwether LVMH on Monday reported weaker-than-expected third-quarter sales as a sharp deterioration in Chinese consumer mood hit demand for its flagship brands Louis Vuitton and Dior.",
      "The trading update from the world’s largest luxury group, and the first major sector player to report third-quarter results, is likely to heighten concerns that the US$350 billion luxury industry, mired in a three-year slowdown, will struggle to regain momentum.",
@@ -471,8 +465,8 @@
      "Sales in Asia, dominated by China, fell 5 per cent from a year earlier, while sales in the US rose 5 per cent."
     ],
     "ko": [
-     "명품 브랜드 LVMH는 월요일 중국 소비자 심리의 급격한 악화로 자사 주력 브랜드인 루이비통과 디올에 대한 수요가 타격을 입으면서 3분기 매출이 예상보다 부진했다고 발표했습니다.",
-     "세계 최대 럭셔리 그룹이자 업계 최초로 3분기 실적을 보고한 럭셔리 그룹의 이번 거래 업데이트는 3년 간의 경기 둔화에 휩싸인 미화 3,500억 달러 규모의 럭셔리 산업이 탄력을 되찾기 위해 고군분투할 것이라는 우려를 증폭시킬 가능성이 높습니다.",
+     "럭셔리 브랜드 LVMH는 중국 소비자 심리의 급격한 악화로 주력 브랜드인 루이비통과 디올에 대한 수요가 타격을 입으면서 월요일 3분기 매출이 예상보다 부진했다고 발표했습니다.",
+     "세계 최대 럭셔리 그룹이자 주요 부문 최초로 3분기 실적을 보고한 이번 거래 업데이트는 3년 간의 경기 둔화에 휩싸인 미화 3,500억 달러 규모의 럭셔리 산업이 탄력을 되찾기 위해 고군분투할 것이라는 우려를 증폭시킬 가능성이 높습니다.",
      "유럽의 주요 럭셔리 그룹은 올해 초부터 약 3,300억 유로의 시장 가치를 잃었으며, LVMH만 약 40%의 손실을 입었습니다.",
      "Visible Alpha 컨센서스에 따르면 통화 변동을 제거한 유기적 매출은 전년 대비 1% 증가한 185억 유로(207억 달러)로 분석가들의 1.3% 성장 기대치를 하회했습니다.",
      "중국이 대부분인 아시아 지역 매출은 전년 동기 대비 5% 감소한 반면, 미국 매출은 5% 증가했다."
@@ -510,7 +504,7 @@
     "lines": 12,
     "of": 93,
     "words": 1450,
-    "at": 1792562400579,
+    "at": 1792562581753,
     "en": [
      "It did something harder: it looked back at its own archives and figured out how to make them feel current again.",
      "Across the Spring/Summer 27 shows, the biggest houses weren't chasing shock value.",
@@ -530,8 +524,8 @@
      "Spring/Summer 27 쇼 전체에서 가장 큰 주택은 충격적인 가치를 쫓지 않았습니다.",
      "2027년 봄/여름 파리 패션 위크에서 눈에 띄는 아이템을 집별로 살펴보세요.",
      "조나단 앤더슨(Jonathan Anderson)은 크리스찬 디올(Christian Dior)의 1947년 뉴 룩(New Look)에서 디올의 가장 눈에 띄는 실루엣인 바 재킷과 풀 스커트를 가져와 거의 80년 동안 정의해 온 강직함을 제거했습니다.",
-     "이는 Yves Saint Laurent 자신의 골드와 이브닝 글래머에 대한 매혹에 대한 직접적인 콜백이며 컬렉션은 하우스의 1991년 가을 Rive Gauche 쇼의 골드 피날레를 뒤집은 일련의 블랙 룩으로 마무리되기도 했습니다.",
-     "하우스에 대한 그의 비전을 소개한 연극 데뷔 컬렉션 이후 글렌 마르텐스는 이번 시즌 브랜드를 정의하는 전통과 파괴 사이의 긴장을 잃지 않으면서 Maison Margiela의 일상적인 의상으로 물러났습니다.",
+     "이는 Yves Saint Laurent 자신의 금색과 이브닝 글래머에 대한 직접적인 콜백이며 컬렉션은 하우스의 1991년 가을 Rive Gauche 쇼의 골드 피날레를 뒤집은 일련의 블랙 룩으로 마무리되었습니다.",
+     "하우스에 대한 자신의 비전을 소개한 연극 데뷔 컬렉션 이후, 글렌 마르텐스는 이번 시즌 브랜드를 정의하는 전통과 파괴 사이의 긴장을 잃지 않은 채 Maison Margiela의 일상적인 의상으로 물러났습니다.",
      "Chemena Kamali는 Chloé의 가장 오래 지속되는 시그니처 중 하나인 Broderie Anglaise, Gaby Aghion이 1950년대에 사용했던 아일렛 레이스로 돌아갔습니다.",
      "이는 일상적인 의상에 등장하는 꾸뛰르 장인정신이며, Spring/Summer 27이 어디로 향하고 있는지 가장 분명하게 보여주는 신호 중 하나입니다. 바로 평범한 작품에 특별한 기술을 적용하는 것입니다.",
      "체크 재킷, 골지 니트, 스트라이프 셔츠, 폴로넥 스웨터는 번지 코드로 고정된 스페인의 옛 거장 그림에 나오는 옷주름에서 영감을 받은 미니스커트처럼 예상치 못한 디자인과 짝을 이루었습니다.",
