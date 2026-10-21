@@ -1,26 +1,21 @@
 {
- "at": "2026-10-21T16:50:33.527Z",
- "stories": 523,
- "translated": 516,
- "summaries": 336,
+ "at": "2026-10-21T18:57:00.356Z",
+ "stories": 535,
+ "translated": 533,
+ "summaries": 339,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 39
+  "dgOK": 3,
+  "dgNo": 11
  },
  "notTranslated": [
-  "Inside a night with Dazed Club and Audemars Piguet at the Southbank Centre",
-  "What went down at the Dazed Club private view of Corbin Shaw's new show",
-  "Ann Caruso Is Seeking A Fashion & Social Media Intern In New York, NY",
-  "Must Read: EBay Cuts 9% of Workforce, Why Chanel Is Backing Ebel",
-  "Why Fall Is the Best Time to Go to Greece",
-  "A New Documentary Captures the Full Scope of Richard Avedon’s Life in Fashion and Photography",
-  "If You Own These Staples, You'll Never Have a \"Nothing to Wear\" Day Again"
+  "Prince Harry Has Complicated Feelings About His Final Conversation With Mom Princess Diana",
+  "A Sculptural Garden Where Fashion Takes Shape"
  ],
- "trOK": 0,
- "trFail": 7,
+ "trOK": 17,
+ "trFail": 2,
  "pictures": {
-  "checked": 523,
-  "landscape": 490,
-  "portrait": 170
+  "checked": 535,
+  "landscape": 502,
+  "portrait": 172
  }
 }
