@@ -877,7 +877,6 @@ button.sumb{background:none;border:0;border-bottom:1px solid currentColor;border
 .dgs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--ink-2);padding:9px 12px;background:var(--soft);margin-bottom:6px}.dgs b{color:var(--ink);font-weight:500}.dga{color:var(--ink-3)}
 .dgl{border-top:1px solid var(--line);padding-top:4px}.dgl p{margin:12px 0 0;font-size:14.5px;line-height:1.75}.dgl p.lead{font-weight:500}
 .dgl b{font-weight:600}.dgl mark.dghl{display:inline;background:linear-gradient(transparent 55%,var(--hl,rgba(255,221,0,.5)) 55%);color:inherit;padding:0 1px}
-.dgk{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 2px}.dgk span{font-size:11.5px;padding:2px 8px;background:linear-gradient(transparent 50%,rgba(255,221,0,.55) 50%)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dg{--hl:rgba(255,221,0,.3)}}:root[data-theme="dark"] .dg{--hl:rgba(255,221,0,.3)}
 .dgl b{font-weight:600}.dgf{font-size:14.5px;line-height:1.7;margin:0}
 .dgn{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin:12px 0 0}.dgb{display:flex;gap:8px;margin-top:16px}
@@ -2262,22 +2261,27 @@ function dgTidy(L){const out=[];const ko=L.some(l=>/[가-힣]/.test(l));
     s=s.replace(/^[A-Z][A-Za-z’'&\- ]{2,40}(?=[A-Z가-힣][a-z가-힣])/,m=>/[a-z]/.test(m)&&!/\s(the|a|an|of|and)\s/i.test(" "+m+" ")&&m.split(" ").length<=4?"":m); // "Undone Lady" + "This season…"
     if(s.length>=(ko?12:25)&&/[.!?다요"”’)]$/.test(s)&&!out.includes(s))out.push(s)})});return out}
 function dgParas(L){const S=dgTidy(L);const ps=[];let cur=[];S.forEach((s,i)=>{cur.push(s);const len=cur.join(" ").length;if((i===0)||cur.length>=3||len>260){ps.push(cur.join(" "));cur=[]}});if(cur.length)ps.push(cur.join(" "));return ps}
-/* keywords to highlight: words the summary keeps coming back to, plus names and words from the headline */
-const DG_STOP=new Set("season seasons collection collections fashion brand brands said says also like more which their there this that with from have been were what when where into about after over than they them other many much most some time year years week weeks look looks show shows new just even still such only very well your will would could should these those being make made says while because however according".split(" "));
-const DG_KSTOP=new Set("이번 시즌 패션 브랜드 컬렉션 그리고 하지만 그러나 또한 위해 통해 대한 있는 있습니다 있었습니다 했습니다 합니다 것입니다 것이 것을 것은 이는 그는 그녀는 우리는 같은 모든 가장 다른 많은 함께 따르면 이후 이전 지금 올해 이상 이하 정도 경우 때문에 아니라 바로 더욱 매우".split(" "));
-const kroot=w=>w.replace(/(에서는|에게서|으로는|이라는|라는|에서|에게|으로|부터|까지|처럼|보다|이다|입니다|했다|한다|하는|하고|하며|했고|였다|였던|이며|이고|와|과|은|는|이|가|을|를|의|에|로|도|만|들)$/,"");
-function dgKeys(L,title){const txt=L.join(" ");const ko=/[가-힣]/.test(txt);const cnt={};
-  if(ko){(txt.match(/[가-힣A-Za-z]{2,}/g)||[]).forEach(w=>{const r=/[가-힣]/.test(w)?kroot(w):w;if(r.length<2||DG_KSTOP.has(r))return;cnt[r]=(cnt[r]||0)+1})}
-  else{(txt.match(/[A-Z][a-zA-Z’'&.-]+(?:\s+[A-Z][a-zA-Z’'&.-]+)*/g)||[]).forEach(n=>{if(/^[A-Z]{4,}$/.test(n))n=n[0]+n.slice(1).toLowerCase();if(n.length>3&&!DG_STOP.has(n.toLowerCase()))cnt[n]=(cnt[n]||0)+1.5});
-    (txt.toLowerCase().match(/[a-z][a-z’'-]{3,}/g)||[]).forEach(w=>{if(!DG_STOP.has(w))cnt[w]=(cnt[w]||0)+1})}
-  if(!ko)Object.keys(cnt).forEach(k=>{if(k===k.toLowerCase()){const cap=(txt.match(new RegExp("\\b"+k[0].toUpperCase()+k.slice(1)+"\\b","g"))||[]).length,low=(txt.match(new RegExp("\\b"+k+"\\b","g"))||[]).length;const C=Object.keys(cnt).find(x=>x.toLowerCase()===k&&x!==k);if(C){cnt[C]+=cnt[k];delete cnt[k]}else if(cap>low){cnt[k[0].toUpperCase()+k.slice(1)]=cnt[k];delete cnt[k]}}});
-  const tl=String(title||"").toLowerCase();Object.keys(cnt).forEach(k=>{if(tl.includes(k.toLowerCase()))cnt[k]+=1.5});
-  const keys=Object.entries(cnt).filter(([k,v])=>v>=2.5).sort((a,b)=>b[1]-a[1]||b[0].length-a[0].length).map(x=>x[0]);
-  const out=[];keys.forEach(k=>{if(out.length<5&&!out.some(o=>o.toLowerCase().includes(k.toLowerCase())||k.toLowerCase().includes(o.toLowerCase())))out.push(k)});return out}
-const dgKo=s=>/[가-힣]/.test(s);
-const dgMark=(h,keys)=>{if(!keys.length)return h;const seen=new Set();const norm=w=>dgKo(w)?w:w.toLowerCase().replace(/(es|s)$/,"");
-  const re=new RegExp("("+keys.map(k=>{const e=esc(k).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");return dgKo(k)?e:"\\b"+e.replace(/s$/i,"")+"(?:s|es)?\\b"}).join("|")+")",dgKo(h)?"g":"gi");
-  return h.replace(re,m=>{const k=norm(m);if(seen.has(k))return m;seen.add(k);return `<mark class="dghl">${m}</mark>`})}; /* once per paragraph, so it stays a guide, not a wall of yellow */
+/* highlighter: only the figures a fashion-business reader would underline in the article —
+   sales, profit, market value, deal sizes and prices, growth or decline in %, store openings/closures, job cuts.
+   Years, dates, season codes, ages and look counts are left alone. At most 4 per summary, the weightiest first. */
+const DG_BIZ=/(sales|revenue|turnover|profit|earnings|margin|market value|valuation|market share|deal|acquisition|acquire|stake|invest|funding|price|priced|retail|demand|growth|results|quarter|매출|이익|영업|실적|시가|시장 가치|가치|점유율|인수|지분|투자|가격|판매|수요|성장|분기|거래액|규모)/i;
+const DG_PERF=/(sales|revenue|turnover|profit|earnings|margin|매출|이익|영업|실적|거래액)/i;
+const DG_CHG=/(rose|rise|grew|growth|increase|fell|fall|drop|declin|jump|slid|slump|climb|surg|plung|shed|lost|up|down|증가|감소|성장|하락|상승|급증|급감|늘|줄|잃|손실|하회|상회)/i;
+const DG_FIG=[
+  [/(?:US|HK|C|A)?[$€£¥₩]\s?\d[\d,.]*(?:\s?(?:billion|million|bn|m|trillion))?|\d[\d,.]*\s?(?:billion|million|trillion)\s(?:dollars|euros|pounds|yen|yuan|won)|\d[\d,.]*\s?(?:조|억|만)?\s?(?:원|달러|유로|파운드|엔|위안)|\d[\d,.]*\s?(?:조|억)(?:\s?\d[\d,.]*\s?(?:억|만))?/g,"money"],
+  [/(?:(?:rose|rising|fell|falling|grew|dropped|declined|jumped|slid|climbed|shedding|shed|up|down|increase of|decline of|growth of|drop of)\s(?:by\s)?(?:about\s|around\s|roughly\s|some\s)?)?\d[\d.,]*\s?(?:%p|%|percent|per cent|퍼센트)(?:\s?(?:포인트|증가|감소|성장|하락|상승|급증|급감|늘어|줄어|올라|떨어|의 손실|의 성장)\S{0,3})?/g,"pct"],
+  [/\d[\d,]*\s?(?:new\s)?(?:stores|boutiques|shops|jobs|employees|staff|roles|개\s?매장|매장|개 점포|점포|명(?=을|이|의)? ?(?:감원|해고|채용))/g,"count"]];
+function dgFacts(P){const c=[];P.forEach((p,pi)=>{const sens=p.split(/(?<=[.!?다])\s+/);
+  DG_FIG.forEach(([re,kind])=>{re.lastIndex=0;let m;while((m=re.exec(p))){const t=m[0].trim().replace(/\s?(을|를|이|가|은|는|에)$/,"");if(!/\d/.test(t))continue;
+    if(p[m.index-1]==="("||/^(19|20)\d\d$/.test(t.replace(/\D/g,"")))continue;           // repeated currency in brackets, bare years
+    const sen=sens.find(x=>x.includes(t))||p;let v=0;
+    const sn=sen.slice(Math.max(0,sen.indexOf(t)-90),sen.indexOf(t)+t.length+40); // the words right around the figure
+    if(kind==="money")v=3+(DG_BIZ.test(sn)?1:0)+(DG_PERF.test(sn)?1:0);
+    else if(kind==="pct")v=(DG_BIZ.test(sn)?3:0)+(DG_PERF.test(sn)?1:0)+(DG_CHG.test(t)||DG_CHG.test(sn)?1:0);
+    else v=DG_CHG.test(sen)||/open|clos|cut|개점|폐점|감원|해고/.test(sen)?2:0;
+    if(v>=2)c.push({pi,t,v,o:pi*1e4+m.index})}});});
+  const pick=[];c.sort((a,b)=>b.v-a.v||a.o-b.o).forEach(x=>{if(pick.length<4&&!pick.some(y=>y.pi===x.pi&&(y.t.includes(x.t)||x.t.includes(y.t))))pick.push(x)});return pick}
+function dgMarkFacts(h,pi,F){F.filter(f=>f.pi===pi).forEach(f=>{const e=esc(f.t);const k=h.indexOf(e);if(k>=0)h=h.slice(0,k)+`<mark class="dghl">${e}</mark>`+h.slice(k+e.length)});return h}
 function dgItem(key){const [k,v]=String(key).split(":");if(k==="s")return SLIDES[+v];return FEED.find(x=>x.id===v)||NEWS.find(x=>x.id===v)||(typeof saved!=="undefined"&&Object.values(saved).find(x=>x.id===v))}
 function digestSheet(key){const x=dgItem(key);if(!x)return;clearInterval(slideTimer);
   const g=x.digest;let L=g?(lang==="ko"?g.ko:g.en):null;if(L)L=L.map(l=>tx(l));
@@ -2286,7 +2290,7 @@ function digestSheet(key){const x=dgItem(key);if(!x)return;clearInterval(slideTi
    <div class="dgm"><b>${esc(srcN(x.source||""))}</b>${x.publishedAt||x.fetchedAt?` · ${fmtMD(x.publishedAt||x.fetchedAt)}`:""}</div>
    <h3 class="dgt">${esc(tTitle(x))}</h3>
    ${L&&L.length?`<div class="dgs"><span>${t(`Original ${g.words.toLocaleString("en")} words`,`원문 ${g.words.toLocaleString("ko")}단어`)}</span><span class="dga">→</span><span><b>${t(`${L.length} key sentences`,`핵심 ${L.length}문장`)}</b></span><span>· ${t(`about ${mins} min`,`약 ${mins}분`)}</span></div>
-    ${(()=>{const K=dgKeys(L,tTitle(x));return `${K.length?`<div class="dgk" aria-label="${t("Key words","핵심 키워드")}">${K.map(k=>`<span>${esc(k)}</span>`).join("")}</div>`:""}<div class="dgl">${dgParas(L).map((p,i)=>`<p class="${i===0?"lead":""}">${dgHl(dgMark(esc(p),K))}</p>`).join("")}</div>`})()}
+    ${(()=>{const P=dgParas(L),F=dgFacts(P);return `<div class="dgl">${P.map((p,i)=>`<p class="${i===0?"lead":""}">${dgHl(dgMarkFacts(esc(p),i,F))}</p>`).join("")}</div>`})()}
     <p class="dgn">${t("Key sentences taken from the article itself, in its order, translated automatically — nothing is added. Check the original for the full story.","기사 본문에서 핵심 문장만 골라 순서대로 옮기고 자동 번역했어요 · 새로 지어낸 내용은 없어요. 전체 내용은 원문에서 확인하세요.")}</p>`
    :`<p class="dgf">${esc(tSum(x)||"")}</p><p class="dgn">${t("This outlet doesn't let us read the full article, so this is its own short description.","이 매체는 본문을 가져올 수 없어서, 매체가 제공한 짧은 소개를 보여드려요.")}</p>`}
    <div class="dgb"><a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">${t("Read the original","원문 보기")} ${SV.arrow}</a></div></div>`);
