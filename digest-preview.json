@@ -1,20 +1,20 @@
 {
- "at": "2026-10-21T06:03:15.388Z",
+ "at": "2026-10-21T06:04:23.235Z",
  "log": [
-  "Vogue Korea: 10/45 lines, 429 words (26461ms)",
-  "W Korea: no text (1160ms)",
-  "Who What Wear: 4/13 lines, 204 words (5363ms)",
-  "Harper's BAZAAR: 6/28 lines, 763 words (11673ms)",
-  "Dazed: 11/48 lines, 981 words (12652ms)",
-  "Fashionista: no text (60ms)",
-  "METAL Magazine: 4/6 lines, 144 words (5511ms)",
-  "The Zoe Report: 12/78 lines, 1638 words (15724ms)",
-  "The Korea Herald: no text (1405ms)",
-  "WWD: 12/236 lines, 4171 words (6712ms)",
-  "Marie Claire: 9/41 lines, 814 words (11491ms)",
-  "The Impression: no text (107ms)",
-  "Inside Retail Asia: 5/23 lines, 552 words (8050ms)",
-  "Aza Fashions: 12/93 lines, 1450 words (13748ms)"
+  "Vogue Korea: 10/45 lines, 429 words (4693ms)",
+  "W Korea: no text (1184ms)",
+  "Who What Wear: no text (100ms)",
+  "Harper's BAZAAR: 6/28 lines, 763 words (1060ms)",
+  "Dazed: 9/43 lines, 831 words (3532ms)",
+  "Fashionista: no text (47ms)",
+  "METAL Magazine: no text (80ms)",
+  "The Zoe Report: no text (143ms)",
+  "The Korea Herald: no text (1481ms)",
+  "WWD: 12/236 lines, 4171 words (1905ms)",
+  "Marie Claire: 9/41 lines, 814 words (1458ms)",
+  "The Impression: no text (48ms)",
+  "Inside Retail Asia: 5/23 lines, 552 words (2362ms)",
+  "Aza Fashions: no text (141ms)"
  ],
  "items": [
   {
@@ -40,68 +40,30 @@
     "lines": 10,
     "of": 45,
     "words": 429,
-    "at": 1792562476593,
+    "at": 1792562646544,
     "ko": [
      "아무렇게나 입어도 멋있는, ‘얄미운’ 옷이 있습니다.",
      "별다른 노력 없이도 멋을 내는 스웨이드 재킷 처럼요.",
      "코르티스 건호도 2027 봄/여름 샤넬 쇼 에 참석하고 <보그 코리아> 화보 를 촬영하면서 스웨이드 재킷을 입었더군요.",
+     "여기에 화이트 티셔츠, 화이트 팬츠를 조합했습니다.",
+     "스웨이드 특유의 보드라운 질감 덕분에 티셔츠와 바지처럼 단순한 조합도 한결 근사해 보입니다.",
      "뭐만 입었다 하면 화제가 되는 헤일리 비버 와 켄달 제너 도 스웨이드 재킷을 즐겨 입습니다.",
      "1970년대와 1980년대 멋쟁이들도 스웨이드 재킷을 즐겨 입었으니까요.",
      "레더 재킷 이 시대를 막론하고 시크한 멋을 낸다면, 스웨이드는 한결 부드러운 멋을 풍깁니다.",
-     "연한 브라운 재킷에는 화이트 진과 비슷한 톤의 브라운 로퍼를 신어보세요.",
-     "상의부터 바지까지 올 블랙으로 맞춰 입고 초콜릿 브라운 스웨이드 재킷을 걸쳐보세요.",
-     "짧은 재킷 아래로 스커트가 길게 흘러내리니 비율도 한결 좋아 보이고요.",
+     "면 티셔츠 위에 후드 집업을 겹쳐 입어도 좋고, 스웨이드 셔츠를 입어 소재를 통일해도 근사합니다.",
      "허리선을 잡아주는 단정한 스웨이드 재킷 아래로 헐렁한 반바지가 내려오니 흥미로운 조합이 완성되죠."
     ],
     "en": [
      "There are ‘ugly’ clothes that look cool no matter how you wear them.",
      "Like a suede jacket that looks stylish without much effort.",
      "Cortis Geonho also attended the 2027 Spring/Summer Chanel show and wore a suede jacket while shooting a <Vogue Korea> pictorial.",
+     "Here, I combined it with a white T-shirt and white pants.",
+     "Thanks to suede’s unique soft texture, even simple combinations like a t-shirt and pants look much more stylish.",
      "Hailey Bieber and Kendall Jenner, who become a hot topic no matter what they wear, also enjoy wearing suede jackets.",
      "Stylish people in the 1970s and 1980s also enjoyed suede jackets.",
      "While leather jackets give off a chic look regardless of the era, suede has a much softer look.",
-     "Wear a light brown jacket with white jeans and brown loafers of a similar tone.",
-     "Wear all black from top to pants and top with a chocolate brown suede jacket.",
-     "The long skirt flows underneath the short jacket, making the proportions look much better.",
+     "You can wear a hooded zip-up layered over a cotton t-shirt, or you can wear a suede shirt to unify the materials.",
      "An interesting combination is completed with baggy shorts falling under a neat suede jacket that holds the waistline."
-    ]
-   }
-  },
-  {
-   "img": "https://cdn.mos.cms.futurecdn.net/GzkTbPdJbHnftPu7QUcbTK-2100-80.jpg",
-   "url": "https://www.whowhatwear.com/fashion/who-what-wear-20-anniversary-party-outfits",
-   "heat": 1,
-   "imgH": 1181,
-   "imgV": "",
-   "imgW": 2100,
-   "kind": "news",
-   "tags": [],
-   "imgVH": 0,
-   "imgVW": 0,
-   "title": "So *This* Is What L.A.’s Best Dressed People Wear to a Fashion Party",
-   "imgSrc": "v2",
-   "source": "Who What Wear",
-   "channel": "Who What Wear",
-   "summary": "Including Ashley Tisdale French.",
-   "title_en": "So *This* Is What L.A.’s Best Dressed People Wear to a Fashion Party",
-   "fetchedAt": 1792542060000,
-   "publishedAt": "2026-10-21T00:21:00.000Z",
-   "digest": {
-    "lines": 4,
-    "of": 13,
-    "words": 204,
-    "at": 1792562503046,
-    "en": [
-     "Melanie Moreno, for instance, grabbed an espresso martini from our Movado bar cart wearing an impossibly chic black dress with a keyhole cutout.",
-     "Meanwhile, Ashley Tisdale French and Yellowjackets star Sammi Hanratty were both on the same page when it came to one specific outerwear trend.",
-     "Wearing a keyhole-cutout black dress, Melanie Moreno grabbed an espresso martini from our Movado bar cart.",
-     "Who What Wear fashion editor Sierra Mayhew wore head-to-toe Longchamp, including a dress in the color of the season."
-    ],
-    "ko": [
-     "예를 들어, Melanie Moreno는 열쇠 구멍 컷아웃이 있는 엄청나게 시크한 검은색 드레스를 입고 Movado 바 카트에서 에스프레소 마티니를 집었습니다.",
-     "한편, Ashley Tisdale French와 Yellowjackets 스타 Sammi Hanratty는 특정 아우터웨어 트렌드에 관해 둘 다 같은 페이지에 있었습니다.",
-     "키홀 컷아웃 블랙 드레스를 입은 Melanie Moreno는 Movado 바 카트에서 에스프레소 마티니를 꺼냈습니다.",
-     "Who What Wear 패션 에디터 시에라 메이휴(Sierra Mayhew)는 시즌 컬러의 드레스를 포함해 머리부터 발끝까지 롱샴을 착용했습니다."
     ]
    }
   },
@@ -130,7 +92,7 @@
     "lines": 6,
     "of": 28,
     "words": 763,
-    "at": 1792562512877,
+    "at": 1792562651118,
     "en": [
      "The best trends from the fall 2026 shows were all about disrupting expectations.",
      "From Miuccia Prada’s satin dresses worn with scarves to Chloé’s chiffon skirts in folksy plaid, so-wrong-it’s-right statement dressing ruled the runways.Even the more subtle styling tricks and silhouettes felt a little bit tweaked.",
@@ -169,142 +131,31 @@
    "fetchedAt": 1792512240000,
    "publishedAt": "2026-10-20T16:04:00.000Z",
    "digest": {
-    "lines": 11,
-    "of": 48,
-    "words": 981,
-    "at": 1792562520161,
+    "lines": 9,
+    "of": 43,
+    "words": 831,
+    "at": 1792562652199,
     "en": [
-     "Life & Culture / Lists Life & Culture / Lists We’ve never been more connected, so why do we feel so alone?",
-     "Lessons to reclaim closeness in a disconnected world from Esther Perel, Saeed Jones, Kahlil Greene and others at Hinge’s Heads Up conference October 20, 2026 October 20, 2026 Text Maya Abuali Decades of research tell us that humans are social animals, happier and healthier when we’re connected to each other.",
-     "So, as psychotherapist and relationship expert Esther Perel asked at Hinge’s Heads Up conference this month, “What the hell is going on that we find ourselves increasingly sleepwalking into isolation?”",
      "On a panel titled The Attention We Owe Ourselves & Each Other, Perel joined Jantos and poet-podcaster Saeed Jones, with gen Z historian Kahlil Greene moderating, to ask where all our attention has gone and what it would take to give more of it to each other.",
-     "So he bought three hourglasses, timed at 15, 30, and 45 minutes, and started small, reading until the sand ran out without letting himself take notes or look up words.",
+     "But Perel suggests a little more friction might do us some good, starting with choosing to meet people in person.",
      "“If you do not come into contact with people, you have no sense of what you are doing to them when you’re hurting them, because they slowly become less people,” she said.",
      "When Jones moved to Cambridge, assuming he’d only be there for a year, a friend of his made a standing announcement: Every Tuesday at 2pm between classes, she’d be at a particular cafe, whether anyone joined her or not.",
      "Jones thinks more of us should do the same, and suggested picking a bench where people know they can find you every Friday at lunchtime.",
      "“The burdens of the self have never been heavier,” Perel said, and in guarding it so closely, some people establish so many boundaries that they shut themselves out of living altogether.",
+     "Drawing on the sociologist Eva Illouz, Perel calls this “emotional capitalism,” and it can leave people feeling like products.",
      "“If you’re going to do an activity, just invite the person to join you, bring them in, and then people around you will have lots of data points,” Perel said.",
      "Perel added that it’s worth telling the other person, with something as simple as “Last night was so wonderful… I’m still laughing about that thing you said.”"
     ],
     "ko": [
-     "생활 및 문화 / 목록 생활 및 문화 / 목록 우리는 이전보다 더 많이 연결되어 있었는데 왜 이렇게 외로움을 느끼는 걸까요?",
-     "단절된 세상에서 친밀감을 되찾는 방법에 대한 교훈 Hinge's Heads Up 컨퍼런스에서 Esther Perel, Saeed Jones, Kahlil Greene 등이 2026년 10월 20일 2026년 10월 20일 Text Maya Abuali 수십 년간의 연구를 통해 인간은 사회적 동물이며, 서로 연결되어 있을 때 더 행복하고 건강하다는 사실을 알 수 있습니다.",
-     "따라서 심리 치료사이자 관계 전문가인 Esther Perel은 이번 달 Hinge의 Heads Up 컨퍼런스에서 \"도대체 무슨 일이 일어나고 있는 걸까요? 우리는 점점 더 고립되어 몽유병에 빠져 있는 우리 자신을 발견하게 되었나요?\"라고 물었습니다.",
      "The Attention We Owe Ourselves & Each Other라는 제목의 패널에서 Perel은 Jantos와 시인 겸 팟캐스터인 Saeed Jones와 함께 Z세대 역사학자 Kahlil Greene이 진행하는 가운데 우리의 모든 관심이 어디로 갔는지, 서로에게 더 많은 관심을 쏟으려면 무엇이 필요한지 물었습니다.",
-     "그래서 그는 15분, 30분, 45분 시간이 표시된 모래시계 세 개를 사서 작게 시작하여 메모를 하거나 단어를 찾아보지도 않고 모래가 다 떨어질 때까지 읽기 시작했습니다.",
+     "그러나 Perel은 사람들을 직접 만나는 것을 선택하는 것부터 시작하여 조금 더 마찰이 우리에게 도움이 될 수 있다고 제안합니다.",
      "“사람들과 접촉하지 않으면, 당신이 그들에게 상처를 주고 있을 때 당신이 그들에게 무슨 짓을 하고 있는지 전혀 알 수 없습니다. 왜냐하면 그들은 천천히 덜 사람이 되기 때문입니다.”라고 그녀는 말했습니다.",
      "Jones가 캠브리지로 이사했을 때, 그곳에 1년만 있을 것이라고 가정하고 친구 한 명이 다음과 같이 확고한 발표를 했습니다. 매주 화요일 오후 2시에 수업 사이에 누군가가 그녀와 함께하든 안 하든 그녀는 특정 카페에 있을 것이라는 것이었습니다.",
      "Jones는 우리 중 더 많은 사람들이 똑같이 해야 한다고 생각하고 사람들이 매주 금요일 점심 시간에 당신을 찾을 수 있다는 것을 알 수 있는 벤치를 선택할 것을 제안했습니다.",
      "페렐은 “자기의 짐이 이보다 더 무거웠던 적은 없었다”고 말했고, 그것을 너무도 철저하게 지키면서 어떤 사람들은 너무 많은 경계를 세워서 삶 자체를 아예 차단하기도 했습니다.",
+     "사회학자 Eva Illouz를 인용하여 Perel은 이것을 \"감정적 자본주의\"라고 부르며 사람들이 상품처럼 느끼게 만들 수 있습니다.",
      "Perel은 \"어떤 활동을 할 예정이라면, 그 사람을 초대하고 데려오세요. 그러면 주변 사람들이 많은 데이터 포인트를 갖게 될 것입니다.\"라고 Perel은 말했습니다.",
      "Perel은 \"어젯밤은 정말 멋졌어… 당신이 한 말 때문에 아직도 웃고 있어요.\"와 같은 간단한 말로 상대방에게 말할 가치가 있다고 덧붙였습니다."
-    ]
-   }
-  },
-  {
-   "tr": 1,
-   "img": "https://assets.metalmagazine.eu/derived/5bec42b2-9541-4e57-b021-6d141737bd26.webp/metal-seoul-fashion-week-ss27-02-og.jpg",
-   "url": "https://metalmagazine.eu/en/post/seoul-fashion-week-ss-2027-our-favourite-collections",
-   "heat": 7,
-   "imgH": 523,
-   "imgV": "https://assets.metalmagazine.eu/c66c3734-d5fc-42da-93f1-80dca615e4bc.webp",
-   "imgW": 899,
-   "kind": "runway",
-   "tags": [
-    "korea",
-    "tailoring",
-    "heritage"
-   ],
-   "imgVH": 1350,
-   "imgVW": 899,
-   "title": "서울패션위크 SS27, 쾌자와 테일러링의 만남",
-   "imgSrc": "v2",
-   "source": "METAL Magazine",
-   "channel": "",
-   "summary": "리리는 전통 쾌자에 70년대 테일러링을 결합했고, 빅박은 보태니컬 프린트와 비비드 컬러로 수트를 확장했다. 데일리미러는 아웃도어 디테일을 수트에 입혔다.",
-   "title_en": "Seoul Fashion Week SS27, meeting of kwaeja and tailoring",
-   "title_ko": "서울패션위크 SS27, 쾌자와 테일러링의 만남",
-   "fetchedAt": 1791875843366,
-   "summary_en": "Riri combined traditional kwaeja with 70's tailoring, while Big Park expanded the suit with botanical prints and vivid colors. Daily Mirror added outdoor details to the suit.",
-   "summary_ko": "리리는 전통 쾌자에 70년대 테일러링을 결합했고, 빅박은 보태니컬 프린트와 비비드 컬러로 수트를 확장했다. 데일리미러는 아웃도어 디테일을 수트에 입혔다.",
-   "publishedAt": "2026-09-15",
-   "digest": {
-    "lines": 4,
-    "of": 6,
-    "words": 144,
-    "at": 1792562533283,
-    "en": [
-     "Everyday objects, larger male bodies and Hollywood beauty ideals shape five award-winning collections and the support that will help their designers grow.",
-     "Designers and brands are stepping up their game by joining forces: JW Anderson and Ugg, Jacquemus and Timberland, Celine and Reebok, or MM6 and Havaianas are bringing the heat to your feet.",
-     "“Hartt and Soul” revisits familiar workwear in eight pieces, launching worldwide on 23 October with collegiate graphics and oversized rivets.",
-     "Under Demna’s direction, the Italian house revisits the codes of its iconic GG Marmont, bringing together archival symbols, a new design detail and the magnetic presence of Vittoria Ceretti."
-    ],
-    "ko": [
-     "일상적인 물건, 더 큰 남성 신체, 헐리우드의 아름다움 이상은 수상 경력에 빛나는 5개의 컬렉션과 디자이너의 성장을 지원하는 지원을 형성합니다.",
-     "디자이너와 브랜드는 JW Anderson과 Ugg, Jacquemus와 Timberland, Celine과 Reebok 또는 MM6와 Havaianas가 힘을 합쳐 게임을 강화하고 있습니다.",
-     "\"Hartt and Soul\"은 친숙한 작업복을 8가지 작품으로 재해석하여 10월 23일 대학 그래픽과 오버사이즈 리벳으로 전 세계에 출시됩니다.",
-     "Demna의 지휘 하에 이탈리아 하우스는 아이코닉한 GG Marmont의 코드를 재검토하여 아카이브 상징, 새로운 디자인 디테일, Vittoria Ceretti의 강렬한 존재감을 결합했습니다."
-    ]
-   }
-  },
-  {
-   "tr": 1,
-   "img": "https://imgix.bustle.com/uploads/image/2026/10/15/19296c53/7931_0007.jpg?w=1200&h=900&fit=crop&crop=focalpoint&fm=jpg&fp-x=0.551&fp-y=0.2709",
-   "url": "https://www.thezoereport.com/fashion/october-2026-fashion-news",
-   "heat": 1,
-   "imgH": 900,
-   "imgV": "",
-   "imgW": 1200,
-   "kind": "news",
-   "tags": [
-    "new label",
-    "designer"
-   ],
-   "imgVH": 0,
-   "imgVW": 0,
-   "title": "크리스 브록, 새 레이블 BROCK으로 복귀",
-   "imgSrc": "v2",
-   "source": "The Zoe Report",
-   "channel": "",
-   "summary": "브록 컬렉션 공동 창립자가 5년 공백 끝에 파리에서 80피스 규모의 SS27 데뷔 컬렉션을 공개했다. 리조트 라인도 이어질 예정이다.",
-   "title_en": "Chris Brock returns with new label BROCK",
-   "title_ko": "크리스 브록, 새 레이블 BROCK으로 복귀",
-   "fetchedAt": 1791875843365,
-   "summary_en": "",
-   "summary_ko": "브록 컬렉션 공동 창립자가 5년 공백 끝에 파리에서 80피스 규모의 SS27 데뷔 컬렉션을 공개했다. 리조트 라인도 이어질 예정이다.",
-   "publishedAt": "",
-   "digest": {
-    "lines": 12,
-    "of": 78,
-    "words": 1638,
-    "at": 1792562538226,
-    "en": [
-     "Meanwhile, Frame and Ritz Paris unveiled the latest installment of their ongoing collaboration with a new campaign, 24 Hours in Paris, starring Charlotte Lawrence .",
-     "For Cruise 2027, Fendi’s Creative Director Maria Grazia Chiuri reinterpreted the Italian fashion label’s iconic Croissant bag, which first debuted on the Fall/Winter 1999 runway.",
-     "Fans of Lucky Brand’s early 2000s silhouettes, listen up: The denim label teamed up with streetwear brand Madhappy on a nostalgia-inducing collection.",
-     "15, the LA-based denim brand unveiled its holiday collection, Off The Record, in collaboration with Berkeley-founded record retailer Amoeba Music.",
-     "Spanning denim, jersey, and bags, the collection merges Acne Studios’ signature denim and leather with Chalayan’s design codes from the early aughts, drawing inspiration from collections like Ventriloquy (2001), Medea (2002), and Manifest Destiny (2003).",
-     "Reformation is back with another buzzworthy collaboration, this time teaming up with OG fashion girl Alexa Chung on a 30-piece collection .",
-     "This month, during Paris Fashion Week, the designer unveiled his new namesake label, BROCK .",
-     "As mentioned, the artist is the face of the new campaign, 24 Hours in Paris, which follows her day in the accompanying collection , all perfectly suited for the City of Lights.",
-     "To celebrate the launch, Frame and Ritz Paris will host a pop-up at the Ritz Paris Boutique in the hotel’s galerie at 15 Place Vendômein Paris, featuring the full collection, sweets from Ritz Paris Le Comptoir, and a gift with purchase (while supplies last).",
-     "This month, luxury label Jimmy Choo is celebrating its 30th anniversary with its new “Pearls of Wisdom” capsule collection, honoring one of the brand’s signature embellishments.",
-     "6, the collection features standout styles like the Ithaca shoes, adorned with pearls atop a gold wedge, and the Irina sandal, which boasts crystals and pearls festooned across the foot.",
-     "Meanwhile, according to a press release, many of the store’s design details pay homage to Gabrielle “Coco” Chanel’s apartment at 31 Rue Cambon in Paris, including its carefully selected furnishings and decorative objects."
-    ],
-    "ko": [
-     "한편, 프레임과 리츠 파리는 샬롯 로렌스가 주연을 맡은 새로운 캠페인인 24 Hours in Paris를 통해 현재 진행 중인 협업의 최신 작품을 공개했습니다.",
-     "2027 크루즈 컬렉션을 위해 펜디의 크리에이티브 디렉터 마리아 그라치아 치우리(Maria Grazia Chiuri)는 1999년 가을/겨울 런웨이에서 처음 선보인 이탈리아 패션 브랜드의 아이코닉한 크로아상 백을 재해석했습니다.",
-     "Lucky Brand의 2000년대 초반 실루엣 팬이라면 들어보세요. 데님 레이블이 스트리트웨어 브랜드 Madhappy와 협력하여 향수를 불러일으키는 컬렉션을 선보였습니다.",
-     "LA 기반 데님 브랜드가 버클리 소재 음반 소매업체 아메바 뮤직(Amoeba Music)과 협업해 홀리데이 컬렉션 '오프 더 레코드(Off The Record)'를 15일 공개했다.",
-     "데님, 저지, 백을 아우르는 이 컬렉션은 Acne Studios의 시그니처 데님과 가죽을 Chalayan의 초창기 디자인 코드와 결합하여 Ventriloquy(2001), Medea(2002) 및 Manifest Destiny(2003)와 같은 컬렉션에서 영감을 얻었습니다.",
-     "Reformation이 또 다른 주목할만한 콜라보레이션으로 돌아왔습니다. 이번에는 OG 패션 소녀 Alexa Chung과 팀을 이루어 30피스 컬렉션을 선보였습니다.",
-     "이번 달 파리 패션 위크 기간 동안 디자이너는 자신의 이름을 딴 새로운 브랜드 BROCK을 공개했습니다.",
-     "앞서 언급했듯이, 아티스트는 파리의 24시간이라는 새로운 캠페인의 얼굴입니다. 이 캠페인은 그녀의 하루를 함께한 컬렉션에서 선보이며, 모두 빛의 도시에 완벽하게 어울립니다.",
-     "출시를 축하하기 위해 프레임 앤 리츠 파리는 파리 방돔 광장 15번지에 위치한 호텔 갤러리의 리츠 파리 부티크에서 팝업을 개최할 예정입니다. 이 팝업 행사에서는 전체 컬렉션, 리츠 파리 르 콩투아의 디저트, 구매 시 사은품(수량 소진 시까지)을 제공합니다.",
-     "이번 달, 럭셔리 브랜드 지미 추(Jimmy Choo)는 브랜드의 시그니처 장식 중 하나를 기념하는 새로운 \"지혜의 진주\" 캡슐 컬렉션으로 창립 30주년을 기념합니다.",
-     "이번 컬렉션에서는 골드 웨지 위에 진주를 장식한 이타카(Ithaca) 슈즈, 발 전체에 크리스털과 진주를 장식한 이리나(Irina) 샌들 등 눈에 띄는 스타일이 특징이다.",
-     "한편, 보도 자료에 따르면 매장의 디자인 세부 사항 중 상당수는 엄선된 가구와 장식품을 포함하여 파리 31 Rue Cambon에 위치한 Gabrielle \"Coco\" Chanel의 아파트에 경의를 표하는 것입니다."
     ]
    }
   },
@@ -338,7 +189,7 @@
     "lines": 12,
     "of": 236,
     "words": 4171,
-    "at": 1792562555360,
+    "at": 1792562657398,
     "en": [
      "PARIS — Perhaps Prada called it back in Milan — but this season was all about the skirt in Paris too.",
      "Dresses remain important, but skirts increasingly look like the season’s key vehicle for the return of femininity.",
@@ -400,7 +251,7 @@
     "lines": 9,
     "of": 41,
     "words": 814,
-    "at": 1792562562080,
+    "at": 1792562659305,
     "en": [
      "The collection felt like a hall of fame for a garment Prada has spent decades perfecting.",
      "Prada's Spring 2027 runway made the skirt the foundation of nearly every look.",
@@ -456,7 +307,7 @@
     "lines": 5,
     "of": 23,
     "words": 552,
-    "at": 1792562575054,
+    "at": 1792562662324,
     "en": [
      "Luxury bellwether LVMH on Monday reported weaker-than-expected third-quarter sales as a sharp deterioration in Chinese consumer mood hit demand for its flagship brands Louis Vuitton and Dior.",
      "The trading update from the world’s largest luxury group, and the first major sector player to report third-quarter results, is likely to heighten concerns that the US$350 billion luxury industry, mired in a three-year slowdown, will struggle to regain momentum.",
@@ -470,68 +321,6 @@
      "유럽의 주요 럭셔리 그룹은 올해 초부터 약 3,300억 유로의 시장 가치를 잃었으며, LVMH만 약 40%의 손실을 입었습니다.",
      "Visible Alpha 컨센서스에 따르면 통화 변동을 제거한 유기적 매출은 전년 대비 1% 증가한 185억 유로(207억 달러)로 분석가들의 1.3% 성장 기대치를 하회했습니다.",
      "중국이 대부분인 아시아 지역 매출은 전년 동기 대비 5% 감소한 반면, 미국 매출은 5% 증가했다."
-    ]
-   }
-  },
-  {
-   "tr": 1,
-   "img": "https://www.azafashions.com/blog/wp-content/uploads/2026/10/featured.jpg",
-   "url": "https://www.azafashions.com/blog/paris-fashion-week-spring-summer-27/",
-   "heat": 8,
-   "imgH": 940,
-   "imgV": "",
-   "imgW": 1680,
-   "kind": "runway",
-   "tags": [
-    "heritage",
-    "sheer",
-    "lingerie"
-   ],
-   "imgVH": 0,
-   "imgVW": 0,
-   "title": "파리 하우스들, 아카이브를 가볍게 재해석",
-   "imgSrc": "v2",
-   "source": "Aza Fashions",
-   "channel": "",
-   "summary": "디올의 바 재킷, 로에베의 비즈 스웨트셔츠처럼 하우스 코드를 편집·경량화. 스타일링이 시즌을 규정.",
-   "title_en": "Parisian houses, lightly reinterpreting archives",
-   "title_ko": "파리 하우스들, 아카이브를 가볍게 재해석",
-   "fetchedAt": 1791874693473,
-   "summary_en": "",
-   "summary_ko": "디올의 바 재킷, 로에베의 비즈 스웨트셔츠처럼 하우스 코드를 편집·경량화. 스타일링이 시즌을 규정.",
-   "publishedAt": "",
-   "digest": {
-    "lines": 12,
-    "of": 93,
-    "words": 1450,
-    "at": 1792562581753,
-    "en": [
-     "It did something harder: it looked back at its own archives and figured out how to make them feel current again.",
-     "Across the Spring/Summer 27 shows, the biggest houses weren't chasing shock value.",
-     "Here's what stood out from Paris Fashion Week Spring/Summer 2027, house by house.",
-     "Jonathan Anderson took Dior's most recognizable silhouette, the Bar jacket and full skirt from Christian Dior's 1947 New Look and stripped out the rigidity that's defined it for nearly 80 years.",
-     "It's a direct callback to Yves Saint Laurent's own fascination with gold and evening glamour, and the collection even closed with a sequence of black looks that reversed the gold finale from the house's Fall 1991 Rive Gauche show.",
-     "After the theatrical debut collections that introduced his vision for the house, Glenn Martens pulled back toward Maison Margiela's everyday wardrobe this season, without losing the tension between conventional and disrupted that defines the brand.",
-     "Chemena Kamali went back to one of Chloé's most enduring signatures: Broderie Anglaise, the eyelet lace Gaby Aghion used back in the 1950s.",
-     "It's couture craftsmanship entering everyday dressing, and it's one of the clearest signals of where Spring/Summer 27 is headed: extraordinary technique applied to ordinary pieces.",
-     "Checked jackets, ribbed knits, striped shirts and polo-neck sweaters got paired with more unexpected builds, like miniskirts inspired by drapery in Spanish Old Master paintings, held together with bungee cords.",
-     "The craftsmanship hid in plain sight: a grey sweatshirt entirely embroidered with seed beads, striped jackets that looked like cotton but were actually finely worked leather.",
-     "Elsewhere: rumpled satin coats, clean leather outerwear, patchwork silk balloon pants and a silver pleated tunic, all pulled together through styling rather than a single aesthetic.",
-     "Put it all together and a clear mood emerges from Paris Fashion Week Spring/Summer 27."
-    ],
-    "ko": [
-     "더 어려운 일을 했습니다. 자체 아카이브를 되돌아보고 이를 다시 최신 상태로 만드는 방법을 알아냈습니다.",
-     "Spring/Summer 27 쇼 전체에서 가장 큰 주택은 충격적인 가치를 쫓지 않았습니다.",
-     "2027년 봄/여름 파리 패션 위크에서 눈에 띄는 아이템을 집별로 살펴보세요.",
-     "조나단 앤더슨(Jonathan Anderson)은 크리스찬 디올(Christian Dior)의 1947년 뉴 룩(New Look)에서 디올의 가장 눈에 띄는 실루엣인 바 재킷과 풀 스커트를 가져와 거의 80년 동안 정의해 온 강직함을 제거했습니다.",
-     "이는 Yves Saint Laurent 자신의 금색과 이브닝 글래머에 대한 직접적인 콜백이며 컬렉션은 하우스의 1991년 가을 Rive Gauche 쇼의 골드 피날레를 뒤집은 일련의 블랙 룩으로 마무리되었습니다.",
-     "하우스에 대한 자신의 비전을 소개한 연극 데뷔 컬렉션 이후, 글렌 마르텐스는 이번 시즌 브랜드를 정의하는 전통과 파괴 사이의 긴장을 잃지 않은 채 Maison Margiela의 일상적인 의상으로 물러났습니다.",
-     "Chemena Kamali는 Chloé의 가장 오래 지속되는 시그니처 중 하나인 Broderie Anglaise, Gaby Aghion이 1950년대에 사용했던 아일렛 레이스로 돌아갔습니다.",
-     "이는 일상적인 의상에 등장하는 꾸뛰르 장인정신이며, Spring/Summer 27이 어디로 향하고 있는지 가장 분명하게 보여주는 신호 중 하나입니다. 바로 평범한 작품에 특별한 기술을 적용하는 것입니다.",
-     "체크 재킷, 골지 니트, 스트라이프 셔츠, 폴로넥 스웨터는 번지 코드로 고정된 스페인의 옛 거장 그림에 나오는 옷주름에서 영감을 받은 미니스커트처럼 예상치 못한 디자인과 짝을 이루었습니다.",
-     "시드 비즈로 전체를 수놓은 회색 스웨트셔츠, 면처럼 보이지만 실제로는 정교하게 가공된 가죽으로 만든 스트라이프 재킷 등 눈에 잘 띄지 않는 장인정신이 숨겨져 있었습니다.",
-     "다른 곳: 구겨진 새틴 코트, 깔끔한 가죽 아우터웨어, 패치워크 실크 벌룬 팬츠, 실버 플리츠 튜닉 등 모든 것이 단일한 미학이 아닌 스타일링을 통해 하나로 합쳐졌습니다.",
-     "이 모든 것을 종합하면 27년 봄/여름 파리 패션 위크에서 뚜렷한 분위기가 드러납니다."
     ]
    }
   }
