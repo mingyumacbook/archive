@@ -174,8 +174,20 @@ async function main() {
   const needTr = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.title && !r.data.tr).sort((a, b) => (b.data.fetchedAt || 0) - (a.data.fetchedAt || 0)).slice(0, 250);
   await pool(needTr, 2, async r => { if (await translateRow(r.data) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); } });
   console.log(`translations: ${trOK} done, ${trFail} failed`);
+  // summaries ("요약 보기"): key sentences picked from the article itself (no AI), in English and Korean.
+  // New stories first, then older ones (last 30 days, newest first) that don't have one yet; each story is tried at most twice. Time-boxed to 6 minutes.
+  const { digest } = await import("./digest.mjs");
+  const dgStart = Date.now(); let dgOK = 0, dgNo = 0;
+  const dgOld = feedRows.filter(r => r.data && r.data.kind !== "issue" && r.data.url && !r.data.digest && (r.data.dgTry || 0) < 2 && now - (r.data.fetchedAt || 0) < 30 * 864e5).sort((a, b) => (b.data.fetchedAt || 0) - (a.data.fetchedAt || 0));
+  await pool([...fresh, ...dgOld].slice(0, 150), 3, async r => {
+    if (Date.now() - dgStart > 6 * 60e3) return;
+    let g = null; try { g = await digest(r.data.url, r.data.title, undefined, r.data.summary || ""); } catch {}
+    if (g) { r.data.digest = g; delete r.data.dgTry; dgOK++; } else { r.data.dgTry = (r.data.dgTry || 0) + 1; dgNo++; }
+    if (!fresh.includes(r) && !filledIds.has(r.id)) { filled.push({ collection: "feed", id: r.id, data: r.data }); filledIds.add(r.id); }
+  });
+  console.log(`summaries: ${dgOK} made, ${dgNo} not possible (outlet blocks the article or it is too short)`);
   try { const fs = await import("node:fs"); fs.mkdirSync("status", { recursive: true }); const rowsAll = [...feedRows.map(r => r.data), ...fresh.map(r => r.data)].filter(d => d && d.kind !== "issue");
-    fs.writeFileSync("status/news.json", JSON.stringify({ at: new Date().toISOString(), stories: rowsAll.length, translated: rowsAll.filter(d => d.tr).length, notTranslated: rowsAll.filter(d => !d.tr).map(d => d.title).slice(0, 20), trOK, trFail, pictures: { checked: rowsAll.filter(d => d.imgSrc === "v2").length, landscape: rowsAll.filter(d => d.imgW && d.imgW / d.imgH >= 1.2).length, portrait: rowsAll.filter(d => d.imgV).length } }, null, 1)); } catch {}
+    fs.writeFileSync("status/news.json", JSON.stringify({ at: new Date().toISOString(), stories: rowsAll.length, translated: rowsAll.filter(d => d.tr).length, summaries: rowsAll.filter(d => d.digest).length, summaryRun: { dgOK, dgNo }, notTranslated: rowsAll.filter(d => !d.tr).map(d => d.title).slice(0, 20), trOK, trFail, pictures: { checked: rowsAll.filter(d => d.imgSrc === "v2").length, landscape: rowsAll.filter(d => d.imgW && d.imgW / d.imgH >= 1.2).length, portrait: rowsAll.filter(d => d.imgV).length } }, null, 1)); } catch {}
   if (filled.length) await upsert(filled);
   console.log(`pictures: ${needImg.filter(r => r.data.img).length}/${needImg.length} new, ${filled.filter(r => r.data.img).length}/${filled.length} older`);
   for (let i = 0; i < fresh.length; i += 200) await upsert(fresh.slice(i, i + 200));
