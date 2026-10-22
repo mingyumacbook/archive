@@ -1,18 +1,21 @@
 {
- "at": "2026-10-22T13:00:45.537Z",
- "stories": 595,
- "translated": 595,
- "summaries": 376,
+ "at": "2026-10-22T14:50:45.176Z",
+ "stories": 604,
+ "translated": 602,
+ "summaries": 381,
  "summaryRun": {
-  "dgOK": 7,
+  "dgOK": 5,
   "dgNo": 7
  },
- "notTranslated": [],
- "trOK": 10,
- "trFail": 0,
+ "notTranslated": [
+  "Francesca Simons Consulting Is Hiring A PR Coordinator In New York, NY",
+  "Don't Call J. Mendel's Spring 2027 Collection 'Jonathan Cohen 2.0'"
+ ],
+ "trOK": 7,
+ "trFail": 2,
  "pictures": {
-  "checked": 595,
-  "landscape": 562,
-  "portrait": 204
+  "checked": 604,
+  "landscape": 571,
+  "portrait": 207
  }
 }
