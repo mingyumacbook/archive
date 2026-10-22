@@ -1,21 +1,21 @@
 {
- "at": "2026-10-22T14:50:45.176Z",
- "stories": 604,
- "translated": 602,
- "summaries": 381,
+ "at": "2026-10-22T16:50:19.508Z",
+ "stories": 610,
+ "translated": 608,
+ "summaries": 388,
  "summaryRun": {
-  "dgOK": 5,
+  "dgOK": 7,
   "dgNo": 7
  },
  "notTranslated": [
-  "Francesca Simons Consulting Is Hiring A PR Coordinator In New York, NY",
-  "Don't Call J. Mendel's Spring 2027 Collection 'Jonathan Cohen 2.0'"
+  "MUBI FEST London presents a BTS glimpse at the making of Marie Antoinette",
+  "Cabinet Couture: The Instagram account exposing Indonesia’s political elite"
  ],
- "trOK": 7,
+ "trOK": 10,
  "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 571,
-  "portrait": 207
+  "checked": 610,
+  "landscape": 577,
+  "portrait": 205
  }
 }
