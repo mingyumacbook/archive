@@ -1,21 +1,21 @@
 {
- "at": "2026-10-21T22:47:43.021Z",
- "stories": 546,
- "translated": 544,
- "summaries": 347,
+ "at": "2026-10-22T01:00:10.909Z",
+ "stories": 548,
+ "translated": 546,
+ "summaries": 349,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 3
+  "dgOK": 2,
+  "dgNo": 1
  },
  "notTranslated": [
-  "The 18 Sexiest Scents of All Time, According to Perfume Experts",
-  "Gigi Hadid Proves Angels Have Each Other’s Backs as She Defends Elsa Hosk’s Victoria’s Secret Walk"
+  "29세에야 받은 ADHD 진단, 상사도 친구도 이 병을 믿지 않는다",
+  "Dry Skin Hates to See Your Foundation Coming (Unless You're Using These IYKYK Hydrating Formulas)"
  ],
- "trOK": 5,
+ "trOK": 2,
  "trFail": 2,
  "pictures": {
-  "checked": 546,
-  "landscape": 513,
-  "portrait": 176
+  "checked": 548,
+  "landscape": 515,
+  "portrait": 177
  }
 }
