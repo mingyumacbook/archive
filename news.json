@@ -1,24 +1,21 @@
 {
- "at": "2026-10-22T18:57:40.791Z",
- "stories": 603,
- "translated": 598,
- "summaries": 390,
+ "at": "2026-10-22T20:47:10.484Z",
+ "stories": 606,
+ "translated": 604,
+ "summaries": 393,
  "summaryRun": {
   "dgOK": 3,
   "dgNo": 3
  },
  "notTranslated": [
-  "MUBI FEST London presents a BTS glimpse at the making of Marie Antoinette",
-  "Cabinet Couture: The Instagram account exposing Indonesia’s political elite",
-  "Who Is Carrie Coon’s Husband? Meet Actor and Playwright Tracy Letts",
-  "Who Is Alexander Skarsgård’s Girlfriend, Tuva Novotny?",
-  "Duchess Meghan Kicks Off the Holiday Season in a Cream Puff-Sleeve Dress"
+  "Weekly Drop Watch: Madewell x The New York Public Library, Jil Sander x Puma, Merit and More",
+  "How to Style Low-Profile Sneakers With 8 Simple Outfits"
  ],
- "trOK": 0,
- "trFail": 5,
+ "trOK": 9,
+ "trFail": 2,
  "pictures": {
-  "checked": 603,
-  "landscape": 573,
+  "checked": 606,
+  "landscape": 576,
   "portrait": 204
  }
 }
