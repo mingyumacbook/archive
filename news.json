@@ -1,18 +1,27 @@
 {
- "at": "2026-10-22T07:03:23.444Z",
- "stories": 565,
+ "at": "2026-10-22T08:55:39.680Z",
+ "stories": 573,
  "translated": 565,
- "summaries": 354,
+ "summaries": 361,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 10
+  "dgOK": 7,
+  "dgNo": 8
  },
- "notTranslated": [],
- "trOK": 9,
- "trFail": 0,
+ "notTranslated": [
+  "요즘 일본에서 주목받는 헤어브러시, 뭐가 다를까?",
+  "플랭크를 5시간이나 버틴 61세 여성의 특별한 습관",
+  "올겨울 청바지에 입어도 우아해 보이는 ‘이 니트’",
+  "요즘 아우터는 딱 이만큼 오는 게 예뻐요",
+  "Not All Boots and Skirts Work Together, But These 6 Combinations Sure Do",
+  "John Lewis X Rixo Might Be the Chicest High-Street Collab of the Year—5 Pieces Selling Out Fast",
+  "FYI, Your Favorite Summer Skirt Has a Very Chic Fall Replacement",
+  "From Brocade Coats to Tassel Belts, These Under-$500 Fall Buys Are the Key to a Refined Wardrobe"
+ ],
+ "trOK": 0,
+ "trFail": 8,
  "pictures": {
-  "checked": 565,
-  "landscape": 532,
-  "portrait": 190
+  "checked": 573,
+  "landscape": 540,
+  "portrait": 194
  }
 }
