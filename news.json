@@ -1,21 +1,20 @@
 {
- "at": "2026-10-22T01:00:10.909Z",
- "stories": 548,
- "translated": 546,
- "summaries": 349,
+ "at": "2026-10-22T02:48:46.335Z",
+ "stories": 552,
+ "translated": 551,
+ "summaries": 351,
  "summaryRun": {
   "dgOK": 2,
-  "dgNo": 1
+  "dgNo": 2
  },
  "notTranslated": [
-  "29세에야 받은 ADHD 진단, 상사도 친구도 이 병을 믿지 않는다",
-  "Dry Skin Hates to See Your Foundation Coming (Unless You're Using These IYKYK Hydrating Formulas)"
+  "피아제의 초록빛 광채"
  ],
- "trOK": 2,
- "trFail": 2,
+ "trOK": 5,
+ "trFail": 1,
  "pictures": {
-  "checked": 548,
-  "landscape": 515,
-  "portrait": 177
+  "checked": 552,
+  "landscape": 519,
+  "portrait": 180
  }
 }
