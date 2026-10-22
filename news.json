@@ -1,20 +1,18 @@
 {
- "at": "2026-10-22T02:48:46.335Z",
- "stories": 552,
- "translated": 551,
+ "at": "2026-10-22T04:48:06.306Z",
+ "stories": 556,
+ "translated": 556,
  "summaries": 351,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 2
+  "dgOK": 0,
+  "dgNo": 6
  },
- "notTranslated": [
-  "피아제의 초록빛 광채"
- ],
+ "notTranslated": [],
  "trOK": 5,
- "trFail": 1,
+ "trFail": 0,
  "pictures": {
-  "checked": 552,
-  "landscape": 519,
-  "portrait": 180
+  "checked": 556,
+  "landscape": 523,
+  "portrait": 183
  }
 }
