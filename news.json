@@ -1,21 +1,24 @@
 {
- "at": "2026-10-22T16:50:19.508Z",
- "stories": 610,
- "translated": 608,
- "summaries": 388,
+ "at": "2026-10-22T18:57:40.791Z",
+ "stories": 603,
+ "translated": 598,
+ "summaries": 390,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 7
+  "dgOK": 3,
+  "dgNo": 3
  },
  "notTranslated": [
   "MUBI FEST London presents a BTS glimpse at the making of Marie Antoinette",
-  "Cabinet Couture: The Instagram account exposing Indonesia’s political elite"
+  "Cabinet Couture: The Instagram account exposing Indonesia’s political elite",
+  "Who Is Carrie Coon’s Husband? Meet Actor and Playwright Tracy Letts",
+  "Who Is Alexander Skarsgård’s Girlfriend, Tuva Novotny?",
+  "Duchess Meghan Kicks Off the Holiday Season in a Cream Puff-Sleeve Dress"
  ],
- "trOK": 10,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 5,
  "pictures": {
-  "checked": 610,
-  "landscape": 577,
-  "portrait": 205
+  "checked": 603,
+  "landscape": 573,
+  "portrait": 204
  }
 }
