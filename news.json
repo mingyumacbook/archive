@@ -1,21 +1,20 @@
 {
- "at": "2026-10-22T20:47:10.484Z",
- "stories": 606,
- "translated": 604,
- "summaries": 393,
+ "at": "2026-10-22T22:45:38.432Z",
+ "stories": 601,
+ "translated": 600,
+ "summaries": 394,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 1,
   "dgNo": 3
  },
  "notTranslated": [
-  "Weekly Drop Watch: Madewell x The New York Public Library, Jil Sander x Puma, Merit and More",
-  "How to Style Low-Profile Sneakers With 8 Simple Outfits"
+  "The 13 Best Eyeliners for Mature Eyes, According to Experts"
  ],
- "trOK": 9,
- "trFail": 2,
+ "trOK": 2,
+ "trFail": 1,
  "pictures": {
-  "checked": 606,
-  "landscape": 576,
-  "portrait": 204
+  "checked": 601,
+  "landscape": 574,
+  "portrait": 203
  }
 }
