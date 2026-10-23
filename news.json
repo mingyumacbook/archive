@@ -1,11 +1,11 @@
 {
- "at": "2026-10-23T20:55:39.832Z",
- "stories": 603,
- "translated": 556,
- "summaries": 415,
+ "at": "2026-10-23T22:53:47.164Z",
+ "stories": 607,
+ "translated": 553,
+ "summaries": 418,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 1
+  "dgOK": 5,
+  "dgNo": 2
  },
  "notTranslated": [
   "Armani Exchange and Amnesia Ibiza toast a summer of fashion and music",
@@ -23,17 +23,17 @@
   "The RealReal Wants to Help Demystify Personal Style",
   "Chappell Roan wears a laced leather look from rising designer Eden Sherry",
   "The Ultimate Gift for a Beauty Lover Is a Little Something From Chanel",
-  "Cashmere Season Starts When I Get My Hands On These Under-$150 Sweaters",
   "We Already Know the Dress Trends That Will Define 2027",
+  "Cashmere Season Starts When I Get My Hands On These Under-$150 Sweaters",
   "Win a Balenciaga City Bag Filled With Our Favorite Beauty Products",
   "The Hero: Blue Nile Modern Pavé Oval Signet Ring in 14K Yellow Gold With Diamonds",
-  "이제 트위드 재킷은 ‘사모님’처럼 입지 마세요"
+  "These 9 Dress Trends Are About to Be Everywhere This Fall"
  ],
  "trOK": 0,
- "trFail": 47,
+ "trFail": 54,
  "pictures": {
-  "checked": 603,
-  "landscape": 582,
-  "portrait": 208
+  "checked": 607,
+  "landscape": 587,
+  "portrait": 207
  }
 }
