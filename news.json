@@ -1,11 +1,11 @@
 {
- "at": "2026-10-23T13:00:50.982Z",
- "stories": 609,
- "translated": 591,
- "summaries": 411,
+ "at": "2026-10-23T14:57:18.750Z",
+ "stories": 608,
+ "translated": 582,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 5
+  "dgOK": 8,
+  "dgNo": 2
  },
  "notTranslated": [
   "이제 트위드 재킷은 ‘사모님’처럼 입지 마세요",
@@ -25,13 +25,15 @@
   "The Denim Special",
   "분위기 있는 겨울 미녀로 만들어 줄 아이템",
   "형식과 내용을 분리하지 않는다, ‘게오르그 바젤리츠’ 회고전",
-  "다른 옷들과 ‘궁합 좋은 옷’이란 이걸 두고 하는 말일까요"
+  "다른 옷들과 ‘궁합 좋은 옷’이란 이걸 두고 하는 말일까요",
+  "Coco Capitán on creating bespoke artworks to celebrate the Stan Smith",
+  "Are we all being fooled by the Victoria’s Secret rebrand?"
  ],
- "trOK": 24,
- "trFail": 18,
+ "trOK": 0,
+ "trFail": 26,
  "pictures": {
-  "checked": 609,
-  "landscape": 589,
-  "portrait": 216
+  "checked": 608,
+  "landscape": 588,
+  "portrait": 213
  }
 }
