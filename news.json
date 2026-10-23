@@ -1,10 +1,10 @@
 {
- "at": "2026-10-23T14:57:18.750Z",
- "stories": 608,
- "translated": 582,
- "summaries": 414,
+ "at": "2026-10-23T16:56:20.361Z",
+ "stories": 611,
+ "translated": 574,
+ "summaries": 419,
  "summaryRun": {
-  "dgOK": 8,
+  "dgOK": 9,
   "dgNo": 2
  },
  "notTranslated": [
@@ -26,14 +26,14 @@
   "분위기 있는 겨울 미녀로 만들어 줄 아이템",
   "형식과 내용을 분리하지 않는다, ‘게오르그 바젤리츠’ 회고전",
   "다른 옷들과 ‘궁합 좋은 옷’이란 이걸 두고 하는 말일까요",
-  "Coco Capitán on creating bespoke artworks to celebrate the Stan Smith",
-  "Are we all being fooled by the Victoria’s Secret rebrand?"
+  "Your friend has an evil job. Should you cut them off?",
+  "Rosalía Wore Three Magnificent All-Black Looks to Take Over the 2026 Billboard Latin Music Awards"
  ],
  "trOK": 0,
- "trFail": 26,
+ "trFail": 37,
  "pictures": {
-  "checked": 608,
-  "landscape": 588,
-  "portrait": 213
+  "checked": 611,
+  "landscape": 591,
+  "portrait": 212
  }
 }
