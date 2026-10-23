@@ -1,35 +1,39 @@
 {
- "at": "2026-10-23T07:03:58.133Z",
- "stories": 616,
- "translated": 600,
- "summaries": 413,
+ "at": "2026-10-23T08:54:41.946Z",
+ "stories": 609,
+ "translated": 584,
+ "summaries": 410,
  "summaryRun": {
-  "dgOK": 12,
-  "dgNo": 5
+  "dgOK": 7,
+  "dgNo": 6
  },
  "notTranslated": [
   "청바지에 운동화만큼 쉬운 앵클 부츠 5",
   "이제 트위드 재킷은 ‘사모님’처럼 입지 마세요",
-  "스텔라 맥카트니 쇼트 필름의 주인공, 카일리 제너",
   "출산 6주 만에 빅토리아 시크릿 패션쇼 복귀한 바바라 팔빈의 비하인드",
   "상하이는 어떻게 뉴욕과 어깨를 나란히 하게 되었나",
+  "It's Official—Fashion People Are Wearing Jeans, Skirts and Tracksuits With This “Dated” Shoe Trend",
   "분위기 있는 겨울 미녀로 만들어 줄 아이템",
   "Every Cup, A New Story",
-  "리바이스가 오리지널을 입는 방식",
-  "It's Official—Fashion People Are Wearing Jeans, Skirts and Tracksuits With This “Dated” Shoe Trend",
   "Hundreds of Advent Calendars Pass Our Beauty Desk, But This One Impressed Me the Most This Year",
   "Are You a Mary-Kate or an Ashley?",
-  "The Denim Special",
+  "리바이스가 오리지널을 입는 방식",
   "And Now, a Definitive Guide to the Most Iconic Denim Outfits of All Time",
   "Hot Take—the Best Jeans Don't Actually Fit Anymore",
   "When—and Why—Did Jeans Become the Ultimate Luxury Item?",
-  "London, Paris, Tokyo: How the Best-Dressed in Fashionable Cities Are Styling Jeans Right Now"
+  "London, Paris, Tokyo: How the Best-Dressed in Fashionable Cities Are Styling Jeans Right Now",
+  "스텔라 맥카트니 쇼트 필름의 주인공, 카일리 제너",
+  "The Denim Special",
+  "형식과 내용을 분리하지 않는다, ‘게오르그 바젤리츠’ 회고전",
+  "잘생기고 예쁜 사람들의 연애 조언을 더 이상 듣고 싶지 않은 이유",
+  "어른들이 입는 교복이 아주 예뻐졌습니다",
+  "다른 옷들과 ‘궁합 좋은 옷’이란 이걸 두고 하는 말일까요"
  ],
  "trOK": 0,
- "trFail": 16,
+ "trFail": 25,
  "pictures": {
-  "checked": 616,
-  "landscape": 588,
-  "portrait": 209
+  "checked": 609,
+  "landscape": 585,
+  "portrait": 212
  }
 }
