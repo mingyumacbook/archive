@@ -1,20 +1,25 @@
 {
- "at": "2026-10-22T22:45:38.432Z",
- "stories": 601,
- "translated": 600,
- "summaries": 394,
+ "at": "2026-10-23T01:04:45.140Z",
+ "stories": 605,
+ "translated": 599,
+ "summaries": 396,
  "summaryRun": {
-  "dgOK": 1,
+  "dgOK": 2,
   "dgNo": 3
  },
  "notTranslated": [
-  "The 13 Best Eyeliners for Mature Eyes, According to Experts"
+  "The 13 Best Eyeliners for Mature Eyes, According to Experts",
+  "Kim Kardashian Looked Like Rabanne Royalty at Her 46th Birthday Dinner",
+  "샤넬이 기리는 허안화 감독의 영화 인생",
+  "비타민처럼 에너지를 선사하는 다이아몬드",
+  "지금부터 겨울까지 입을 스커트를 고른다면 꼭 봐야 할 것",
+  "Kate Middleton Never Wears Logos But Made an Exception for This Designer Bag"
  ],
- "trOK": 2,
- "trFail": 1,
+ "trOK": 0,
+ "trFail": 6,
  "pictures": {
-  "checked": 601,
-  "landscape": 574,
-  "portrait": 203
+  "checked": 605,
+  "landscape": 578,
+  "portrait": 206
  }
 }
