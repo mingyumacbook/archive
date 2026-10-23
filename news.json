@@ -1,28 +1,18 @@
 {
- "at": "2026-10-23T02:50:21.320Z",
- "stories": 603,
- "translated": 594,
- "summaries": 395,
+ "at": "2026-10-23T04:48:29.218Z",
+ "stories": 609,
+ "translated": 609,
+ "summaries": 403,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 3
+  "dgOK": 8,
+  "dgNo": 1
  },
- "notTranslated": [
-  "The 13 Best Eyeliners for Mature Eyes, According to Experts",
-  "Kim Kardashian Looked Like Rabanne Royalty at Her 46th Birthday Dinner",
-  "샤넬이 기리는 허안화 감독의 영화 인생",
-  "비타민처럼 에너지를 선사하는 다이아몬드",
-  "지금부터 겨울까지 입을 스커트를 고른다면 꼭 봐야 할 것",
-  "Kate Middleton Never Wears Logos But Made an Exception for This Designer Bag",
-  "부츠보다 가볍게, 운동화보다 우아하게! 올겨울 신발 3",
-  "다이몬과 계수정, 무엇이 같고 무엇이 다를까 ‘닥터X : 하얀 마피아의 시대’",
-  "가을 재킷 아래로 드러난 ‘이 바지’가 꽤 근사합니다"
- ],
- "trOK": 0,
- "trFail": 9,
+ "notTranslated": [],
+ "trOK": 18,
+ "trFail": 0,
  "pictures": {
-  "checked": 603,
-  "landscape": 576,
-  "portrait": 203
+  "checked": 609,
+  "landscape": 581,
+  "portrait": 208
  }
 }
