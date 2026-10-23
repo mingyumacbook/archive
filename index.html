@@ -830,6 +830,8 @@ button.sumb{background:none;border:0;border-bottom:1px solid currentColor;border
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dg{--hl:rgba(255,221,0,.3)}}:root[data-theme="dark"] .dg{--hl:rgba(255,221,0,.3)}
 .dgl b{font-weight:600}.dgf{font-size:14.5px;line-height:1.7;margin:0}
 .dgn{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin:12px 0 0}.dgb{display:flex;gap:8px;margin-top:16px}
+#mtInv{margin-bottom:18px}.invrow{display:flex;gap:8px;margin-top:10px;align-items:stretch}.invrow .inp{flex:1;min-width:0;font-size:13px;color:var(--ink-2)}.invrow .btn{white-space:nowrap;justify-content:center;text-align:center}
+@media (max-width:600px){.invrow{flex-wrap:wrap}.invrow .inp{flex-basis:100%}.invrow .btn{flex:1}}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -2248,6 +2250,22 @@ function digestSheet(key){const x=dgItem(key);if(!x)return;clearInterval(slideTi
   const sh=$("#sheet .sheet");if(sh)sh.classList.add("dgsheet")}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-sum]");if(!b)return;e.preventDefault();e.stopPropagation();digestSheet(b.dataset.sum)},true);
 
+/* ================= INVITE LINK (master only) ================= */
+const INV_URL=()=>location.origin+location.pathname.replace(/index\.html$/,"")+"?join=1";
+function mtInvite(){if(!ACC.admin)return;const sec=document.querySelector('#sheet .atab[data-at="members"]')||$("#sheet .sb");if(!sec||$("#mtInv"))return;
+  const d=document.createElement("div");d.id="mtInv";
+  d.innerHTML=`<div class="grp">${t("Invite link","가입 링크")}</div>
+  <p class="tip" style="margin-top:8px">${t("Send this link to people you want to invite. It opens the sign-up form; you approve each request here.","초대할 사람에게 이 링크를 보내세요. 링크를 열면 바로 회원가입 화면이 나오고, 가입 신청은 여기서 승인하면 돼요.")}</p>
+  <div class="invrow"><input class="inp" id="invUrl" readonly value="${esc(INV_URL())}" aria-label="${t("Invite link","가입 링크")}"><button class="btn" id="invCopy">${t("Copy link","링크 복사")}</button>${navigator.share?`<button class="btn ghost" id="invShare">${t("Share","공유")}</button>`:""}</div>`;
+  sec.insertBefore(d,sec.firstChild);
+  $("#invCopy").onclick=async()=>{const u=INV_URL();try{await navigator.clipboard.writeText(u)}catch(_){const i=$("#invUrl");i.select();try{document.execCommand("copy")}catch(_){}}toast(t("Link copied","링크를 복사했어요"))};
+  const sh=$("#invShare");if(sh)sh.onclick=()=>navigator.share({title:"VISUAL DEPT.",text:t("Join VISUAL DEPT.","VISUAL DEPT. 가입 링크"),url:INV_URL()}).catch(()=>{});
+  $("#invUrl").onfocus=e=>e.target.select()}
+{const _acc2=account;account=function(){const r=_acc2.apply(this,arguments);Promise.resolve(r).then(()=>setTimeout(()=>{try{mtInvite()}catch(e){console.error(e)}},0));return r}}
+/* someone opened an invite link: once the sign-in screen is showing, open the sign-up form */
+(function(){const q=new URLSearchParams(location.search);if(!q.has("join"))return;q.delete("join");history.replaceState(null,"",location.pathname+(q.toString()?"?"+q:"")+location.hash);
+  let n=0;const iv=setInterval(()=>{if(++n>80)return clearInterval(iv);const g=$("#gate"),f=$("#gateForm"),b=$("#gateUp");
+    if(g&&!g.hidden&&f&&!f.hidden&&b&&b.textContent){clearInterval(iv);b.click()}else if($("#app")&&!$("#app").hidden)clearInterval(iv)},250)})();
 /* ================= SIGN IN / BOOT ================= */
 let started=false,recovering=false;
 const gMsg=(m,err)=>{$("#gateErr").textContent=err?m:"";$("#gateMsg").textContent=err?"":m};
