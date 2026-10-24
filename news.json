@@ -1,11 +1,11 @@
 {
- "at": "2026-10-23T22:53:47.164Z",
- "stories": 607,
- "translated": 553,
- "summaries": 418,
+ "at": "2026-10-24T01:13:12.448Z",
+ "stories": 602,
+ "translated": 546,
+ "summaries": 413,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 2
+  "dgOK": 1,
+  "dgNo": 3
  },
  "notTranslated": [
   "Armani Exchange and Amnesia Ibiza toast a summer of fashion and music",
@@ -25,15 +25,15 @@
   "The Ultimate Gift for a Beauty Lover Is a Little Something From Chanel",
   "We Already Know the Dress Trends That Will Define 2027",
   "Cashmere Season Starts When I Get My Hands On These Under-$150 Sweaters",
+  "Check Off a Bucket List Item. See the Pyramids.",
   "Win a Balenciaga City Bag Filled With Our Favorite Beauty Products",
-  "The Hero: Blue Nile Modern Pavé Oval Signet Ring in 14K Yellow Gold With Diamonds",
-  "These 9 Dress Trends Are About to Be Everywhere This Fall"
+  "16 Pairs of Chanel Glasses That Shot Straight to the Top of My Holiday Wish List"
  ],
  "trOK": 0,
- "trFail": 54,
+ "trFail": 56,
  "pictures": {
-  "checked": 607,
-  "landscape": 587,
-  "portrait": 207
+  "checked": 602,
+  "landscape": 583,
+  "portrait": 208
  }
 }
