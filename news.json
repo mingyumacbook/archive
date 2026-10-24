@@ -1,39 +1,21 @@
 {
- "at": "2026-10-24T04:54:40.739Z",
- "stories": 601,
- "translated": 544,
- "summaries": 412,
+ "at": "2026-10-24T06:58:48.789Z",
+ "stories": 604,
+ "translated": 602,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 0
+  "dgOK": 3,
+  "dgNo": 1
  },
  "notTranslated": [
-  "Armani Exchange and Amnesia Ibiza toast a summer of fashion and music",
-  "Need Halloween ideas? These 5 sexy beauty icons can inspire your costume",
-  "The 30 Best Celebrity Halloween Costumes of All Time",
-  "Dua Lipa Proves the Trench Coat Is Still the Most Versatile Fall Staple",
-  "Nobody Wants This ’s Jenni Konner Thinks It’s Time for Sasha and Morgan to “Face the Music”",
-  "The Hyper-Specific Trench Coat Style That Immediately Says, \"I Know What's In\"",
-  "Not Sweatpants, Not Leggings: The Chic Pants Fashion People Wear to Work From Home",
-  "Glashütte Original Turns Back the Clock on '70s Design",
-  "Take a Break From Denim: These Are the Fall 2026 Pant Trends to Know",
-  "The Denim Special",
-  "I Know My Fashion Friends Will Be Into This New Accessory (I Certainly Want It)",
-  "Must Read: Kering Shares Fall 12% on Sales Drop, Gap Inc. To Receive Innovation Award",
-  "The RealReal Wants to Help Demystify Personal Style",
-  "Chappell Roan wears a laced leather look from rising designer Eden Sherry",
-  "The Ultimate Gift for a Beauty Lover Is a Little Something From Chanel",
-  "We Already Know the Dress Trends That Will Define 2027",
-  "Cashmere Season Starts When I Get My Hands On These Under-$150 Sweaters",
-  "Check Off a Bucket List Item. See the Pyramids.",
-  "Win a Balenciaga City Bag Filled With Our Favorite Beauty Products",
-  "The Hero: Blue Nile Modern Pavé Oval Signet Ring in 14K Yellow Gold With Diamonds"
+  "샤넬의 코코 크러쉬와 함께 떠나는 여행",
+  "Elegant Knits, Polished Outerwear and Chic Accessories: 7 Staples Forming the Foundation of My Winter Capsule"
  ],
- "trOK": 0,
- "trFail": 57,
+ "trOK": 59,
+ "trFail": 2,
  "pictures": {
-  "checked": 601,
-  "landscape": 582,
-  "portrait": 208
+  "checked": 604,
+  "landscape": 585,
+  "portrait": 209
  }
 }
