@@ -1,27 +1,30 @@
 {
- "at": "2026-10-24T10:47:14.819Z",
- "stories": 606,
- "translated": 598,
- "summaries": 420,
+ "at": "2026-10-24T12:56:53.041Z",
+ "stories": 603,
+ "translated": 592,
+ "summaries": 418,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 1
+  "dgOK": 1,
+  "dgNo": 3
  },
  "notTranslated": [
   "The Exact Denim Trend to Wear With Leather Jackets This Fall, According to Alessandra Ambrosio",
   "The Best 100% Cashmere Sweaters From J.Crew, Madewell, Nordstrom, and More",
   "올가을 옷 잘 입는 사람들은 빨간 양말을 신습니다",
   "이번 겨울엔 바지와 부츠의 궁합이 중요합니다",
-  "The Effortless Shoe Trend That Will Make Your Outfits Look Chic This Fall",
-  "If You're ITK, You're Already Styling Your Jeans With This Bold Fall Accessories Trend",
   "My Holy Trinity of Fall Boot Trends",
-  "Taylor Swift Just Wore the Jewelry Trend That Symbolizes Wealth, Power, and Protection"
+  "The Effortless Shoe Trend That Will Make Your Outfits Look Chic This Fall",
+  "Taylor Swift Just Wore the Jewelry Trend That Symbolizes Wealth, Power, and Protection",
+  "If You're ITK, You're Already Styling Your Jeans With This Bold Fall Accessories Trend",
+  "ICYMI: Gap x Victoria Beckham's Fall Collection, JT Talks Her Personal Style & Target's Newest Fragrance Brand",
+  "I Asked Fashion Brides-to-Be What They're Putting on Their Wedding Registries—Here’s What They Said",
+  "From Moss Green to Antique Gold: The Best Mid-Autumn Nail Trends Are Straight Out of a Dark Fantasy Novel"
  ],
  "trOK": 0,
- "trFail": 8,
+ "trFail": 11,
  "pictures": {
-  "checked": 606,
-  "landscape": 590,
+  "checked": 603,
+  "landscape": 587,
   "portrait": 211
  }
 }
