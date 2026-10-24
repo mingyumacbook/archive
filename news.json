@@ -1,11 +1,11 @@
 {
- "at": "2026-10-24T02:54:38.646Z",
- "stories": 600,
+ "at": "2026-10-24T04:54:40.739Z",
+ "stories": 601,
  "translated": 544,
- "summaries": 411,
+ "summaries": 412,
  "summaryRun": {
-  "dgOK": 0,
-  "dgNo": 1
+  "dgOK": 1,
+  "dgNo": 0
  },
  "notTranslated": [
   "Armani Exchange and Amnesia Ibiza toast a summer of fashion and music",
@@ -30,10 +30,10 @@
   "The Hero: Blue Nile Modern Pavé Oval Signet Ring in 14K Yellow Gold With Diamonds"
  ],
  "trOK": 0,
- "trFail": 56,
+ "trFail": 57,
  "pictures": {
-  "checked": 600,
-  "landscape": 581,
+  "checked": 601,
+  "landscape": 582,
   "portrait": 208
  }
 }
