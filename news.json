@@ -1,8 +1,8 @@
 {
- "at": "2026-10-24T16:48:24.929Z",
- "stories": 602,
- "translated": 588,
- "summaries": 418,
+ "at": "2026-10-24T18:50:30.907Z",
+ "stories": 601,
+ "translated": 586,
+ "summaries": 417,
  "summaryRun": {
   "dgOK": 1,
   "dgNo": 1
@@ -21,13 +21,14 @@
   "ICYMI: Gap x Victoria Beckham's Fall Collection, JT Talks Her Personal Style & Target's Newest Fragrance Brand",
   "Prince William Speaks on His Now-Famous Photo With Taylor Swift and Travis Kelce",
   "Nara Smith Looks Fabulous in Kallmeyer Fringe",
-  "I'm Not Ready to Say Goodbye to Fall Yet—52 Shopbop Pieces I Need to Wear Before the Season Is Over"
+  "I'm Not Ready to Say Goodbye to Fall Yet—52 Shopbop Pieces I Need to Wear Before the Season Is Over",
+  "Kim Kardashian Continues Her Birthday Dressing With a Sheer and Shimmering Erdem Dress"
  ],
  "trOK": 0,
- "trFail": 14,
+ "trFail": 15,
  "pictures": {
-  "checked": 602,
-  "landscape": 586,
-  "portrait": 212
+  "checked": 601,
+  "landscape": 585,
+  "portrait": 213
  }
 }
