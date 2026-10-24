@@ -1,21 +1,21 @@
 {
- "at": "2026-10-24T06:58:48.789Z",
- "stories": 604,
- "translated": 602,
- "summaries": 414,
+ "at": "2026-10-24T08:48:36.548Z",
+ "stories": 606,
+ "translated": 604,
+ "summaries": 417,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 6,
   "dgNo": 1
  },
  "notTranslated": [
-  "샤넬의 코코 크러쉬와 함께 떠나는 여행",
-  "Elegant Knits, Polished Outerwear and Chic Accessories: 7 Staples Forming the Foundation of My Winter Capsule"
+  "The Exact Denim Trend to Wear With Leather Jackets This Fall, According to Alessandra Ambrosio",
+  "The Best 100% Cashmere Sweaters From J.Crew, Madewell, Nordstrom, and More"
  ],
- "trOK": 59,
+ "trOK": 6,
  "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 585,
+  "checked": 606,
+  "landscape": 587,
   "portrait": 209
  }
 }
