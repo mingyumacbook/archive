@@ -1,11 +1,11 @@
 {
- "at": "2026-10-24T12:56:53.041Z",
- "stories": 603,
- "translated": 592,
- "summaries": 418,
+ "at": "2026-10-24T14:46:44.863Z",
+ "stories": 601,
+ "translated": 589,
+ "summaries": 417,
  "summaryRun": {
   "dgOK": 1,
-  "dgNo": 3
+  "dgNo": 2
  },
  "notTranslated": [
   "The Exact Denim Trend to Wear With Leather Jackets This Fall, According to Alessandra Ambrosio",
@@ -16,15 +16,16 @@
   "The Effortless Shoe Trend That Will Make Your Outfits Look Chic This Fall",
   "Taylor Swift Just Wore the Jewelry Trend That Symbolizes Wealth, Power, and Protection",
   "If You're ITK, You're Already Styling Your Jeans With This Bold Fall Accessories Trend",
+  "From Moss Green to Antique Gold: The Best Mid-Autumn Nail Trends Are Straight Out of a Dark Fantasy Novel",
   "ICYMI: Gap x Victoria Beckham's Fall Collection, JT Talks Her Personal Style & Target's Newest Fragrance Brand",
   "I Asked Fashion Brides-to-Be What They're Putting on Their Wedding Registries—Here’s What They Said",
-  "From Moss Green to Antique Gold: The Best Mid-Autumn Nail Trends Are Straight Out of a Dark Fantasy Novel"
+  "Prince William Speaks on His Now-Famous Photo With Taylor Swift and Travis Kelce"
  ],
  "trOK": 0,
- "trFail": 11,
+ "trFail": 12,
  "pictures": {
-  "checked": 603,
-  "landscape": 587,
+  "checked": 601,
+  "landscape": 585,
   "portrait": 211
  }
 }
