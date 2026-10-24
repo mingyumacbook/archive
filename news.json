@@ -1,10 +1,10 @@
 {
- "at": "2026-10-24T18:50:30.907Z",
- "stories": 601,
- "translated": 586,
- "summaries": 417,
+ "at": "2026-10-24T20:45:11.612Z",
+ "stories": 603,
+ "translated": 585,
+ "summaries": 418,
  "summaryRun": {
-  "dgOK": 1,
+  "dgOK": 2,
   "dgNo": 1
  },
  "notTranslated": [
@@ -20,15 +20,18 @@
   "From Moss Green to Antique Gold: The Best Mid-Autumn Nail Trends Are Straight Out of a Dark Fantasy Novel",
   "ICYMI: Gap x Victoria Beckham's Fall Collection, JT Talks Her Personal Style & Target's Newest Fragrance Brand",
   "Prince William Speaks on His Now-Famous Photo With Taylor Swift and Travis Kelce",
-  "Nara Smith Looks Fabulous in Kallmeyer Fringe",
   "I'm Not Ready to Say Goodbye to Fall Yet—52 Shopbop Pieces I Need to Wear Before the Season Is Over",
-  "Kim Kardashian Continues Her Birthday Dressing With a Sheer and Shimmering Erdem Dress"
+  "Nara Smith Looks Fabulous in Kallmeyer Fringe",
+  "Kim Kardashian Continues Her Birthday Dressing With a Sheer and Shimmering Erdem Dress",
+  "Adéla Swaps Her Red Leathers for a Surprisingly Simple After-Party Look",
+  "I Work in NYC But Dress Like a Parisian—6 Anti-Trend Items I Rely On to Look Chic",
+  "I Love a Minimalist Fall Look—These Are the Pieces on My Wish List Right Now"
  ],
  "trOK": 0,
- "trFail": 15,
+ "trFail": 18,
  "pictures": {
-  "checked": 601,
-  "landscape": 585,
-  "portrait": 213
+  "checked": 603,
+  "landscape": 587,
+  "portrait": 214
  }
 }
