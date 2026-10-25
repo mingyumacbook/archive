@@ -1,7 +1,7 @@
 {
- "at": "2026-10-25T18:50:55.948Z",
- "stories": 602,
- "translated": 597,
+ "at": "2026-10-25T20:44:37.749Z",
+ "stories": 601,
+ "translated": 595,
  "summaries": 420,
  "summaryRun": {
   "dgOK": 1,
@@ -12,13 +12,14 @@
   "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027",
   "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
   "All the Best Celebrity Halloween Costumes of 2026",
-  "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits"
+  "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits",
+  "7 Sweater Trends That'll Make Your Outfits Look 2027 Instead of Dated"
  ],
  "trOK": 0,
- "trFail": 5,
+ "trFail": 6,
  "pictures": {
-  "checked": 602,
-  "landscape": 585,
-  "portrait": 210
+  "checked": 601,
+  "landscape": 584,
+  "portrait": 209
  }
 }
