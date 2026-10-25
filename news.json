@@ -1,22 +1,24 @@
 {
- "at": "2026-10-25T16:47:25.759Z",
- "stories": 603,
- "translated": 600,
- "summaries": 421,
+ "at": "2026-10-25T18:50:55.948Z",
+ "stories": 602,
+ "translated": 597,
+ "summaries": 420,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 0
+  "dgOK": 1,
+  "dgNo": 1
  },
  "notTranslated": [
   "Dua Lipa’s Prada and Chanel Literature Festival Looks Are All About the Shoes",
+  "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027",
   "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
-  "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027"
+  "All the Best Celebrity Halloween Costumes of 2026",
+  "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits"
  ],
  "trOK": 0,
- "trFail": 3,
+ "trFail": 5,
  "pictures": {
-  "checked": 603,
-  "landscape": 586,
-  "portrait": 212
+  "checked": 602,
+  "landscape": 585,
+  "portrait": 210
  }
 }
