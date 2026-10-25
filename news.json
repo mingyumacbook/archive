@@ -1,11 +1,11 @@
 {
- "at": "2026-10-25T20:44:37.749Z",
+ "at": "2026-10-25T22:43:21.988Z",
  "stories": 601,
- "translated": 595,
- "summaries": 420,
+ "translated": 594,
+ "summaries": 421,
  "summaryRun": {
   "dgOK": 1,
-  "dgNo": 1
+  "dgNo": 0
  },
  "notTranslated": [
   "Dua Lipa’s Prada and Chanel Literature Festival Looks Are All About the Shoes",
@@ -13,10 +13,11 @@
   "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
   "All the Best Celebrity Halloween Costumes of 2026",
   "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits",
-  "7 Sweater Trends That'll Make Your Outfits Look 2027 Instead of Dated"
+  "7 Sweater Trends That'll Make Your Outfits Look 2027 Instead of Dated",
+  "The Winter Shoe-Print Trend That Looks Cooler With Jeans Than Black or Brown"
  ],
  "trOK": 0,
- "trFail": 6,
+ "trFail": 7,
  "pictures": {
   "checked": 601,
   "landscape": 584,
