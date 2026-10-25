@@ -1,21 +1,18 @@
 {
- "at": "2026-10-25T10:45:54.986Z",
- "stories": 603,
- "translated": 601,
- "summaries": 420,
+ "at": "2026-10-25T12:54:47.263Z",
+ "stories": 602,
+ "translated": 602,
+ "summaries": 419,
  "summaryRun": {
   "dgOK": 2,
-  "dgNo": 2
+  "dgNo": 1
  },
- "notTranslated": [
-  "Meet Boey: Botox you can ‘try before you buy’",
-  "한번쯤 입어볼까?싶은 이 코트 잘 입는 법"
- ],
- "trOK": 12,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 4,
+ "trFail": 0,
  "pictures": {
-  "checked": 603,
-  "landscape": 586,
-  "portrait": 213
+  "checked": 602,
+  "landscape": 585,
+  "portrait": 211
  }
 }
