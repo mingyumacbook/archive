@@ -1,30 +1,21 @@
 {
- "at": "2026-10-25T08:49:29.663Z",
- "stories": 609,
- "translated": 598,
- "summaries": 426,
+ "at": "2026-10-25T10:45:54.986Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 420,
  "summaryRun": {
-  "dgOK": 8,
-  "dgNo": 1
+  "dgOK": 2,
+  "dgNo": 2
  },
  "notTranslated": [
-  "27 S/S 패션위크 다이어리 – 파리",
-  "6 Styling Tips We Borrowed from The Row That Make Every Outfit Look Expensive",
-  "요즘 핫한 인플루언서들은 다 ‘이 재킷’을 입고 있어요",
-  "Sophisticated, Easy and Cool—Fashion People Will Be Wearing This Two-Tone Colour Trend All Winter",
-  "I Think At-Home Manicures Are Incredibly Chic—These 25 Designer Nail Polishes Are Forever Staples",
-  "Zara Won't Rest—9 New, Elevated Basics That Look Much More Expensive Than They Are",
-  "It’s Officially Freezing—9 Chic Winter Basics That Make Every Outfit Look Instantly More Expensive",
-  "Kristen Bell Has One of L.A.’s Best Wardrobes—These are the 3 Autumn Trends She Keeps Coming Back To",
-  "Preppy Fashion Is Back (If it Ever Left)—7 Trends the Style Set Are Adopting in 2026",
-  "I’ve Tried Dozens of Cleansers—These Are the Only 11 I’d Pick for Mature Skin",
-  "A Makeup Artist Agrees: These Are the 6 Coolest Ways to Wear Your Blusher This Winter"
+  "Meet Boey: Botox you can ‘try before you buy’",
+  "한번쯤 입어볼까?싶은 이 코트 잘 입는 법"
  ],
- "trOK": 0,
- "trFail": 11,
+ "trOK": 12,
+ "trFail": 2,
  "pictures": {
-  "checked": 609,
-  "landscape": 592,
-  "portrait": 217
+  "checked": 603,
+  "landscape": 586,
+  "portrait": 213
  }
 }
