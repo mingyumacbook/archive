@@ -1,18 +1,21 @@
 {
- "at": "2026-10-25T02:47:43.991Z",
+ "at": "2026-10-25T04:48:06.780Z",
  "stories": 602,
- "translated": 602,
- "summaries": 418,
+ "translated": 600,
+ "summaries": 419,
  "summaryRun": {
   "dgOK": 2,
   "dgNo": 0
  },
- "notTranslated": [],
- "trOK": 20,
- "trFail": 0,
+ "notTranslated": [
+  "27 S/S 패션위크 다이어리 – 파리",
+  "6 Styling Tips We Borrowed from The Row That Make Every Outfit Look Expensive"
+ ],
+ "trOK": 0,
+ "trFail": 2,
  "pictures": {
   "checked": 602,
-  "landscape": 586,
+  "landscape": 585,
   "portrait": 216
  }
 }
