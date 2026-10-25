@@ -1,18 +1,22 @@
 {
- "at": "2026-10-25T14:44:58.918Z",
- "stories": 600,
+ "at": "2026-10-25T16:47:25.759Z",
+ "stories": 603,
  "translated": 600,
- "summaries": 418,
+ "summaries": 421,
  "summaryRun": {
-  "dgOK": 0,
+  "dgOK": 3,
   "dgNo": 0
  },
- "notTranslated": [],
+ "notTranslated": [
+  "Dua Lipa’s Prada and Chanel Literature Festival Looks Are All About the Shoes",
+  "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
+  "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027"
+ ],
  "trOK": 0,
- "trFail": 0,
+ "trFail": 3,
  "pictures": {
-  "checked": 600,
-  "landscape": 583,
-  "portrait": 211
+  "checked": 603,
+  "landscape": 586,
+  "portrait": 212
  }
 }
