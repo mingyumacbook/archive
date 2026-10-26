@@ -1,29 +1,34 @@
 {
- "at": "2026-10-26T07:08:23.853Z",
- "stories": 610,
- "translated": 600,
- "summaries": 430,
+ "at": "2026-10-26T09:01:44.490Z",
+ "stories": 605,
+ "translated": 590,
+ "summaries": 427,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 5
+  "dgOK": 4,
+  "dgNo": 4
  },
  "notTranslated": [
   "생일 파티도 남다른 도자 캣? 좋아하는 캐릭터로 변신",
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
-  "청바지에 검정 니트만 입기엔 겨울이 깁니다, 컬러 니트 5",
   "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
+  "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
+  "ICYMI, This Viral Dessert-Inspired Fragrance Just Got a Major Upgrade",
+  "청바지에 검정 니트만 입기엔 겨울이 깁니다, 컬러 니트 5",
+  "Sorry, Black—Fashion's \"Tackiest\" Colour Is Suddenly Everywhere This Winter",
   "올 가을과 겨울, 청바지는 이렇게 입어야 합니다",
   "아우터가 두꺼워질수록 청바지는 ‘이렇게’ 입어야 합니다",
   "이번 가을엔 옷보다 스카프를 잘 골라야 하는 이유",
-  "Sorry, Black—Fashion's \"Tackiest\" Colour Is Suddenly Everywhere This Winter",
-  "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
-  "ICYMI, This Viral Dessert-Inspired Fragrance Just Got a Major Upgrade"
+  "이번 겨울 코트 핏은 청바지를 따라갑니다",
+  "옷 잘 입는 사람들의 어깨에는 모두 이 가방이 있습니다",
+  "Not Maxi, Not Mini—The Skirt Silhouette That Will Be Everywhere in 2027",
+  "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of",
+  "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs"
  ],
  "trOK": 0,
- "trFail": 10,
+ "trFail": 15,
  "pictures": {
-  "checked": 610,
-  "landscape": 592,
-  "portrait": 220
+  "checked": 605,
+  "landscape": 589,
+  "portrait": 221
  }
 }
