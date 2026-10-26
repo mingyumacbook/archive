@@ -1,20 +1,18 @@
 {
- "at": "2026-10-26T02:51:25.246Z",
- "stories": 601,
- "translated": 600,
- "summaries": 423,
+ "at": "2026-10-26T04:51:13.055Z",
+ "stories": 606,
+ "translated": 606,
+ "summaries": 427,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 1
+  "dgOK": 4,
+  "dgNo": 2
  },
- "notTranslated": [
-  "메종 프란시스 커정의 바카라 루쥬 540에 대한 예술적 대화"
- ],
- "trOK": 14,
- "trFail": 1,
+ "notTranslated": [],
+ "trOK": 7,
+ "trFail": 0,
  "pictures": {
-  "checked": 601,
-  "landscape": 583,
-  "portrait": 212
+  "checked": 606,
+  "landscape": 588,
+  "portrait": 215
  }
 }
