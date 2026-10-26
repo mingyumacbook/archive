@@ -1,26 +1,33 @@
 {
- "at": "2026-10-25T22:43:21.988Z",
- "stories": 601,
- "translated": 594,
- "summaries": 421,
+ "at": "2026-10-26T01:13:38.006Z",
+ "stories": 607,
+ "translated": 593,
+ "summaries": 427,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 0
+  "dgOK": 6,
+  "dgNo": 1
  },
  "notTranslated": [
+  "The Winter Shoe-Print Trend That Looks Cooler With Jeans Than Black or Brown",
   "Dua Lipa’s Prada and Chanel Literature Festival Looks Are All About the Shoes",
   "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027",
   "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
   "All the Best Celebrity Halloween Costumes of 2026",
   "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits",
   "7 Sweater Trends That'll Make Your Outfits Look 2027 Instead of Dated",
-  "The Winter Shoe-Print Trend That Looks Cooler With Jeans Than Black or Brown"
+  "입술 필러의 재발견",
+  "전통을 입고, 오늘을 짓다",
+  "스톡홀름 아크네 스튜디오 방문기",
+  "더 로우의 가을이 항구에 닿았다",
+  "향과 빛 그리고 조슈아",
+  "10월 넷째 주 별자리 운세",
+  "Breaking: Everyone Who Needs New Boots Right Now Is Eyeing This Flat-Ankle-Boot Trend"
  ],
  "trOK": 0,
- "trFail": 7,
+ "trFail": 14,
  "pictures": {
-  "checked": 601,
-  "landscape": 584,
-  "portrait": 209
+  "checked": 607,
+  "landscape": 589,
+  "portrait": 214
  }
 }
