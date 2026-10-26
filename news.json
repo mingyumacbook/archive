@@ -1,11 +1,11 @@
 {
- "at": "2026-10-26T17:04:56.952Z",
- "stories": 609,
- "translated": 565,
- "summaries": 430,
+ "at": "2026-10-26T19:10:08.598Z",
+ "stories": 606,
+ "translated": 556,
+ "summaries": 431,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 6
+  "dgOK": 6,
+  "dgNo": 4
  },
  "notTranslated": [
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
@@ -30,10 +30,10 @@
   "평안이 머무는 곳, 포시즌스 리조트 더 남하이"
  ],
  "trOK": 0,
- "trFail": 44,
+ "trFail": 50,
  "pictures": {
-  "checked": 609,
-  "landscape": 602,
+  "checked": 606,
+  "landscape": 599,
   "portrait": 228
  }
 }
