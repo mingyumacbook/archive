@@ -1,14 +1,13 @@
 {
- "at": "2026-10-26T09:01:44.490Z",
- "stories": 605,
- "translated": 590,
- "summaries": 427,
+ "at": "2026-10-26T10:58:02.613Z",
+ "stories": 608,
+ "translated": 585,
+ "summaries": 429,
  "summaryRun": {
-  "dgOK": 4,
+  "dgOK": 5,
   "dgNo": 4
  },
  "notTranslated": [
-  "생일 파티도 남다른 도자 캣? 좋아하는 캐릭터로 변신",
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
   "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
   "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
@@ -16,19 +15,25 @@
   "청바지에 검정 니트만 입기엔 겨울이 깁니다, 컬러 니트 5",
   "Sorry, Black—Fashion's \"Tackiest\" Colour Is Suddenly Everywhere This Winter",
   "올 가을과 겨울, 청바지는 이렇게 입어야 합니다",
-  "아우터가 두꺼워질수록 청바지는 ‘이렇게’ 입어야 합니다",
   "이번 가을엔 옷보다 스카프를 잘 골라야 하는 이유",
+  "생일 파티도 남다른 도자 캣? 좋아하는 캐릭터로 변신",
+  "아우터가 두꺼워질수록 청바지는 ‘이렇게’ 입어야 합니다",
   "이번 겨울 코트 핏은 청바지를 따라갑니다",
-  "옷 잘 입는 사람들의 어깨에는 모두 이 가방이 있습니다",
   "Not Maxi, Not Mini—The Skirt Silhouette That Will Be Everywhere in 2027",
   "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of",
-  "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs"
+  "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs",
+  "옷 잘 입는 사람들의 어깨에는 모두 이 가방이 있습니다",
+  "매일 입어도 안 질리는 가을 패션 공식, ‘니트에 청바지’!",
+  "‘보그’ 디렉터가 고른 올가을의 캐시미어 스웨터",
+  "열애설의 주인공, 다코타 존슨과 머신 건 켈리",
+  "킴 카다시안-크리스 제너 모녀, 과거를 되살린 레드 카펫 룩",
+  "17년 만에 가수로 컴백하는 라이언 고슬링"
  ],
  "trOK": 0,
- "trFail": 15,
+ "trFail": 23,
  "pictures": {
-  "checked": 605,
-  "landscape": 589,
-  "portrait": 221
+  "checked": 608,
+  "landscape": 593,
+  "portrait": 225
  }
 }
