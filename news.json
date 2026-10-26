@@ -1,18 +1,29 @@
 {
- "at": "2026-10-26T04:51:13.055Z",
- "stories": 606,
- "translated": 606,
- "summaries": 427,
+ "at": "2026-10-26T07:08:23.853Z",
+ "stories": 610,
+ "translated": 600,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 2
+  "dgOK": 7,
+  "dgNo": 5
  },
- "notTranslated": [],
- "trOK": 7,
- "trFail": 0,
+ "notTranslated": [
+  "생일 파티도 남다른 도자 캣? 좋아하는 캐릭터로 변신",
+  "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
+  "청바지에 검정 니트만 입기엔 겨울이 깁니다, 컬러 니트 5",
+  "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
+  "올 가을과 겨울, 청바지는 이렇게 입어야 합니다",
+  "아우터가 두꺼워질수록 청바지는 ‘이렇게’ 입어야 합니다",
+  "이번 가을엔 옷보다 스카프를 잘 골라야 하는 이유",
+  "Sorry, Black—Fashion's \"Tackiest\" Colour Is Suddenly Everywhere This Winter",
+  "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
+  "ICYMI, This Viral Dessert-Inspired Fragrance Just Got a Major Upgrade"
+ ],
+ "trOK": 0,
+ "trFail": 10,
  "pictures": {
-  "checked": 606,
-  "landscape": 588,
-  "portrait": 215
+  "checked": 610,
+  "landscape": 592,
+  "portrait": 220
  }
 }
