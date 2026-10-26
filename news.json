@@ -1,11 +1,11 @@
 {
- "at": "2026-10-26T20:58:20.940Z",
- "stories": 602,
- "translated": 550,
- "summaries": 428,
+ "at": "2026-10-26T22:57:56.449Z",
+ "stories": 606,
+ "translated": 548,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 0
+  "dgOK": 3,
+  "dgNo": 3
  },
  "notTranslated": [
   "These photos capture the shifting mood of the Paris protests",
@@ -14,6 +14,8 @@
   "Don’t Let Disco Brings Practical Magic to the Jewelry Box",
   "Apple's VP of Design on Creating a Wearable You Actually Want to Show Off",
   "Only Kim Kardashian Could Pull Off This Silhouette",
+  "The Barn Jacket Is the Anchor to Every Fall Outfit",
+  "I Visited the New Massimo Dutti Flagship in NYC, and These 9 Chic Pieces Came Home With Me",
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
   "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
   "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
@@ -25,15 +27,13 @@
   "생일 파티도 남다른 도자 캣? 좋아하는 캐릭터로 변신",
   "아우터가 두꺼워질수록 청바지는 ‘이렇게’ 입어야 합니다",
   "이번 겨울 코트 핏은 청바지를 따라갑니다",
-  "Not Maxi, Not Mini—The Skirt Silhouette That Will Be Everywhere in 2027",
-  "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs",
-  "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of"
+  "Not Maxi, Not Mini—The Skirt Silhouette That Will Be Everywhere in 2027"
  ],
  "trOK": 0,
- "trFail": 52,
+ "trFail": 58,
  "pictures": {
-  "checked": 602,
-  "landscape": 595,
-  "portrait": 229
+  "checked": 606,
+  "landscape": 599,
+  "portrait": 230
  }
 }
