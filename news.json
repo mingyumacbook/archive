@@ -1,11 +1,11 @@
 {
- "at": "2026-10-26T15:02:15.658Z",
- "stories": 612,
- "translated": 577,
- "summaries": 434,
+ "at": "2026-10-26T17:04:56.952Z",
+ "stories": 609,
+ "translated": 565,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 10,
-  "dgNo": 5
+  "dgOK": 5,
+  "dgNo": 6
  },
  "notTranslated": [
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
@@ -23,17 +23,17 @@
   "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs",
   "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of",
   "옷 잘 입는 사람들의 어깨에는 모두 이 가방이 있습니다",
-  "매일 입어도 안 질리는 가을 패션 공식, ‘니트에 청바지’!",
   "‘보그’ 디렉터가 고른 올가을의 캐시미어 스웨터",
   "열애설의 주인공, 다코타 존슨과 머신 건 켈리",
+  "매일 입어도 안 질리는 가을 패션 공식, ‘니트에 청바지’!",
   "킴 카다시안-크리스 제너 모녀, 과거를 되살린 레드 카펫 룩",
   "평안이 머무는 곳, 포시즌스 리조트 더 남하이"
  ],
  "trOK": 0,
- "trFail": 35,
+ "trFail": 44,
  "pictures": {
-  "checked": 612,
-  "landscape": 601,
-  "portrait": 227
+  "checked": 609,
+  "landscape": 602,
+  "portrait": 228
  }
 }
