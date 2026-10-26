@@ -1,13 +1,19 @@
 {
- "at": "2026-10-26T19:10:08.598Z",
- "stories": 606,
- "translated": 556,
- "summaries": 431,
+ "at": "2026-10-26T20:58:20.940Z",
+ "stories": 602,
+ "translated": 550,
+ "summaries": 428,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 4
+  "dgOK": 2,
+  "dgNo": 0
  },
  "notTranslated": [
+  "These photos capture the shifting mood of the Paris protests",
+  "I Took My Mom Shopping in NYC—These Are the Fall Essentials I Told Her to Buy",
+  "All the Fashion Girls Are Wearing This Tricky Length Skirt",
+  "Don’t Let Disco Brings Practical Magic to the Jewelry Box",
+  "Apple's VP of Design on Creating a Wearable You Actually Want to Show Off",
+  "Only Kim Kardashian Could Pull Off This Silhouette",
   "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
   "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
   "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
@@ -21,19 +27,13 @@
   "이번 겨울 코트 핏은 청바지를 따라갑니다",
   "Not Maxi, Not Mini—The Skirt Silhouette That Will Be Everywhere in 2027",
   "We're Officially In An \"Anti-Trousers\" Autumn—6 Runway Trends Tempting Us Away from Jeans and Wide-Legs",
-  "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of",
-  "옷 잘 입는 사람들의 어깨에는 모두 이 가방이 있습니다",
-  "‘보그’ 디렉터가 고른 올가을의 캐시미어 스웨터",
-  "열애설의 주인공, 다코타 존슨과 머신 건 켈리",
-  "매일 입어도 안 질리는 가을 패션 공식, ‘니트에 청바지’!",
-  "킴 카다시안-크리스 제너 모녀, 과거를 되살린 레드 카펫 룩",
-  "평안이 머무는 곳, 포시즌스 리조트 더 남하이"
+  "Banana Republic X Zankov Just Launched, And It's What Knitwear Dreams Are Made Of"
  ],
  "trOK": 0,
- "trFail": 50,
+ "trFail": 52,
  "pictures": {
-  "checked": 606,
-  "landscape": 599,
-  "portrait": 228
+  "checked": 602,
+  "landscape": 595,
+  "portrait": 229
  }
 }
