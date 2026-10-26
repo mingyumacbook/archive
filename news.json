@@ -1,33 +1,20 @@
 {
- "at": "2026-10-26T01:13:38.006Z",
- "stories": 607,
- "translated": 593,
- "summaries": 427,
+ "at": "2026-10-26T02:51:25.246Z",
+ "stories": 601,
+ "translated": 600,
+ "summaries": 423,
  "summaryRun": {
-  "dgOK": 6,
+  "dgOK": 1,
   "dgNo": 1
  },
  "notTranslated": [
-  "The Winter Shoe-Print Trend That Looks Cooler With Jeans Than Black or Brown",
-  "Dua Lipa’s Prada and Chanel Literature Festival Looks Are All About the Shoes",
-  "This and This Will Make Your Black Sneakers Look Relevant (Not Dated) in 2027",
-  "Kim Kardashian and Kris Jenner Go Archival for a Mother-Daughter Film Festival Outing",
-  "All the Best Celebrity Halloween Costumes of 2026",
-  "I'm a Fashion Editor in NYC—9 Chic Cold-Weather Essentials I’m Buying Before Winter Hits",
-  "7 Sweater Trends That'll Make Your Outfits Look 2027 Instead of Dated",
-  "입술 필러의 재발견",
-  "전통을 입고, 오늘을 짓다",
-  "스톡홀름 아크네 스튜디오 방문기",
-  "더 로우의 가을이 항구에 닿았다",
-  "향과 빛 그리고 조슈아",
-  "10월 넷째 주 별자리 운세",
-  "Breaking: Everyone Who Needs New Boots Right Now Is Eyeing This Flat-Ankle-Boot Trend"
+  "메종 프란시스 커정의 바카라 루쥬 540에 대한 예술적 대화"
  ],
- "trOK": 0,
- "trFail": 14,
+ "trOK": 14,
+ "trFail": 1,
  "pictures": {
-  "checked": 607,
-  "landscape": 589,
-  "portrait": 214
+  "checked": 601,
+  "landscape": 583,
+  "portrait": 212
  }
 }
