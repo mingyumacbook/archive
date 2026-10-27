@@ -1,11 +1,11 @@
 {
- "at": "2026-10-27T01:13:10.161Z",
- "stories": 606,
- "translated": 542,
- "summaries": 433,
+ "at": "2026-10-27T02:58:04.228Z",
+ "stories": 602,
+ "translated": 536,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 3
+  "dgOK": 2,
+  "dgNo": 0
  },
  "notTranslated": [
   "These photos capture the shifting mood of the Paris protests",
@@ -18,22 +18,22 @@
   "I Visited the New Massimo Dutti Flagship in NYC, and These 9 Chic Pieces Came Home With Me",
   "These photos capture the love, rage and chaos of the Paris protests",
   "Doja Cat’s “Anime Blush” Is Fall’s Most Adorable Makeup Trend",
+  "Not Trousers With Slingbacks: This Is the Chic Way to Style a Blazer in Winter 2026",
   "The 27 Most Wardrobe-Elevating Finds From COS, Zara, and Reformation Right Now",
   "It's Official: Celeb Nail Artists Say These 5 Nail Looks Are Dated for Fall 2026",
   "There Are 5 Days Left to Shop This Sneaky Amazon Sale—16 Winter-Proof Products I'd Add to Your Cart ASAP",
-  "Not Trousers With Slingbacks: This Is the Chic Way to Style a Blazer in Winter 2026",
-  "저스틴-헤일리 비버 커플의 ‘SKYLRK’ 애프터 파티 룩",
-  "검색량 355% 증가! 올가을 트렌치 코트가 다시 주목받는 이유",
-  "Expensive Eye Cream Isn't Always Better—These 11 Affordable Formulas Prove It",
-  "ICYMI, This Viral Dessert-Inspired Fragrance Just Got a Major Upgrade",
-  "청바지에 검정 니트만 입기엔 겨울이 깁니다, 컬러 니트 5",
-  "Sorry, Black—Fashion's \"Tackiest\" Colour Is Suddenly Everywhere This Winter"
+  "뉴욕에서 목격한 루이 비통의 새 시즌",
+  "세대를 잇는 옷장, 자라와 카라멜이 다시 만났다",
+  "샤넬 하이 주얼리가 현실이 될 때",
+  "가장 빠르게 진화한 스킨케어의 중심, 세럼",
+  "오늘도 검정? 세련된 건 알겠는데, 좀 지겹잖아요",
+  "다음 얼굴, 배우 윤계상"
  ],
  "trOK": 0,
- "trFail": 64,
+ "trFail": 66,
  "pictures": {
-  "checked": 606,
-  "landscape": 600,
-  "portrait": 235
+  "checked": 602,
+  "landscape": 598,
+  "portrait": 237
  }
 }
