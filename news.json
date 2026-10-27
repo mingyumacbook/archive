@@ -1,39 +1,18 @@
 {
- "at": "2026-10-27T11:06:12.462Z",
- "stories": 610,
- "translated": 514,
- "summaries": 437,
+ "at": "2026-10-27T13:04:27.595Z",
+ "stories": 613,
+ "translated": 613,
+ "summaries": 436,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 7
+  "dgOK": 7,
+  "dgNo": 11
  },
- "notTranslated": [
-  "These photos capture the shifting mood of the Paris protests",
-  "I Took My Mom Shopping in NYC—These Are the Fall Essentials I Told Her to Buy",
-  "All the Fashion Girls Are Wearing This Tricky Length Skirt",
-  "Don’t Let Disco Brings Practical Magic to the Jewelry Box",
-  "Apple's VP of Design on Creating a Wearable You Actually Want to Show Off",
-  "Only Kim Kardashian Could Pull Off This Silhouette",
-  "The Barn Jacket Is the Anchor to Every Fall Outfit",
-  "I Visited the New Massimo Dutti Flagship in NYC, and These 9 Chic Pieces Came Home With Me",
-  "These photos capture the love, rage and chaos of the Paris protests",
-  "Doja Cat’s “Anime Blush” Is Fall’s Most Adorable Makeup Trend",
-  "Not Trousers With Slingbacks: This Is the Chic Way to Style a Blazer in Winter 2026",
-  "The 27 Most Wardrobe-Elevating Finds From COS, Zara, and Reformation Right Now",
-  "It's Official: Celeb Nail Artists Say These 5 Nail Looks Are Dated for Fall 2026",
-  "There Are 5 Days Left to Shop This Sneaky Amazon Sale—16 Winter-Proof Products I'd Add to Your Cart ASAP",
-  "뉴욕에서 목격한 루이 비통의 새 시즌",
-  "세대를 잇는 옷장, 자라와 카라멜이 다시 만났다",
-  "샤넬 하이 주얼리가 현실이 될 때",
-  "가장 빠르게 진화한 스킨케어의 중심, 세럼",
-  "오늘도 검정? 세련된 건 알겠는데, 좀 지겹잖아요",
-  "다음 얼굴, 배우 윤계상"
- ],
- "trOK": 0,
- "trFail": 96,
+ "notTranslated": [],
+ "trOK": 109,
+ "trFail": 0,
  "pictures": {
-  "checked": 610,
-  "landscape": 605,
-  "portrait": 251
+  "checked": 613,
+  "landscape": 608,
+  "portrait": 254
  }
 }
