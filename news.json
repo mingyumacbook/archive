@@ -1,10 +1,10 @@
 {
- "at": "2026-10-27T02:58:04.228Z",
- "stories": 602,
- "translated": 536,
- "summaries": 430,
+ "at": "2026-10-27T04:58:56.703Z",
+ "stories": 604,
+ "translated": 534,
+ "summaries": 432,
  "summaryRun": {
-  "dgOK": 2,
+  "dgOK": 4,
   "dgNo": 0
  },
  "notTranslated": [
@@ -30,10 +30,10 @@
   "다음 얼굴, 배우 윤계상"
  ],
  "trOK": 0,
- "trFail": 66,
+ "trFail": 70,
  "pictures": {
-  "checked": 602,
-  "landscape": 598,
-  "portrait": 237
+  "checked": 604,
+  "landscape": 599,
+  "portrait": 241
  }
 }
