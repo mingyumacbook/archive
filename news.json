@@ -1,23 +1,38 @@
 {
- "at": "2026-10-27T15:02:16.360Z",
- "stories": 604,
- "translated": 600,
- "summaries": 428,
+ "at": "2026-10-27T17:02:23.731Z",
+ "stories": 615,
+ "translated": 596,
+ "summaries": 435,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 7
+  "dgOK": 11,
+  "dgNo": 5
  },
  "notTranslated": [
-  "Taylor Swift Brings a Bit of Country Romance Home to Nashville in a Raisa Vanessa Minidress",
   "Duchess Meghan Lands a New TV Gig Outside of England",
+  "Taylor Swift Brings a Bit of Country Romance Home to Nashville in a Raisa Vanessa Minidress",
   "Lamine Yamal Trades His Spain Jersey for a Chanel Suit With a Blooming Brooch",
-  "Wow, This Nordstrom Sale Has All of the Items Fashion People Want to Wear—These Chic Finds Won't Stay in Stock"
+  "Wow, This Nordstrom Sale Has All of the Items Fashion People Want to Wear—These Chic Finds Won't Stay in Stock",
+  "So you want to smell like a liminal space?",
+  "‘It’s group therapy’: Why UK indie fans are turning to grunge",
+  "The higher the heeled trainer, the closer to heaven",
+  "WTF is Ballhog, fashion’s most unserious aesthetic?",
+  "7 standout designers from 080 Barcelona Fashion Week",
+  "Must Read: Inside Matthieu Blazy's First Year at Chanel, Bernard Arnault on Running LVMH",
+  "The Cast of The Gilded Age Compared to the Real-Life Historical Figures",
+  "Katie Holmes and Boyfriend Jason Bard Yarmosky Master Couple Travel Style",
+  "The Influencers Telling Young Women Not to Vote",
+  "Revisiting Chanel’s Most Iconic Runway Shows",
+  "Dove's Beauty Bar Is the Most Iconic \"Clean\" Scent of All Time—Now You Can Buy It As a Fragrance",
+  "I Know They Look Expensive, But These 31 Chic Nordstrom Items Are Under $150",
+  "Not Black, Not Brown—This Printed Bag Trend Is Much, Much Cooler",
+  "From New York to Paris, These Are the Affordable Trends We're Calling for Spring 2027",
+  "If Your Vibe Is Expensive Looking and Your Budget Is $150, Here's What to Buy"
  ],
  "trOK": 0,
- "trFail": 4,
+ "trFail": 19,
  "pictures": {
-  "checked": 604,
-  "landscape": 599,
-  "portrait": 256
+  "checked": 615,
+  "landscape": 610,
+  "portrait": 258
  }
 }
