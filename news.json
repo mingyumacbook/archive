@@ -1,11 +1,11 @@
 {
- "at": "2026-10-27T09:08:30.359Z",
- "stories": 606,
- "translated": 520,
- "summaries": 433,
+ "at": "2026-10-27T11:06:12.462Z",
+ "stories": 610,
+ "translated": 514,
+ "summaries": 437,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 3
+  "dgOK": 5,
+  "dgNo": 7
  },
  "notTranslated": [
   "These photos capture the shifting mood of the Paris protests",
@@ -30,10 +30,10 @@
   "다음 얼굴, 배우 윤계상"
  ],
  "trOK": 0,
- "trFail": 86,
+ "trFail": 96,
  "pictures": {
-  "checked": 606,
-  "landscape": 601,
-  "portrait": 247
+  "checked": 610,
+  "landscape": 605,
+  "portrait": 251
  }
 }
