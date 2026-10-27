@@ -1,18 +1,23 @@
 {
- "at": "2026-10-27T13:04:27.595Z",
- "stories": 613,
- "translated": 613,
- "summaries": 436,
+ "at": "2026-10-27T15:02:16.360Z",
+ "stories": 604,
+ "translated": 600,
+ "summaries": 428,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 11
+  "dgOK": 3,
+  "dgNo": 7
  },
- "notTranslated": [],
- "trOK": 109,
- "trFail": 0,
+ "notTranslated": [
+  "Taylor Swift Brings a Bit of Country Romance Home to Nashville in a Raisa Vanessa Minidress",
+  "Duchess Meghan Lands a New TV Gig Outside of England",
+  "Lamine Yamal Trades His Spain Jersey for a Chanel Suit With a Blooming Brooch",
+  "Wow, This Nordstrom Sale Has All of the Items Fashion People Want to Wear—These Chic Finds Won't Stay in Stock"
+ ],
+ "trOK": 0,
+ "trFail": 4,
  "pictures": {
-  "checked": 613,
-  "landscape": 608,
-  "portrait": 254
+  "checked": 604,
+  "landscape": 599,
+  "portrait": 256
  }
 }
