@@ -1,18 +1,29 @@
 {
- "at": "2026-10-28T10:58:33.867Z",
- "stories": 608,
- "translated": 608,
- "summaries": 435,
+ "at": "2026-10-28T13:13:36.310Z",
+ "stories": 610,
+ "translated": 600,
+ "summaries": 432,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 4
+  "dgOK": 4,
+  "dgNo": 7
  },
- "notTranslated": [],
- "trOK": 8,
- "trFail": 0,
+ "notTranslated": [
+  "Is it rude to assume you can crash with a friend?",
+  "In pictures: How 90s rave transcended politics in the North of Ireland",
+  "In the Age of Algorithms, Teen Magazines Are Making a Comeback",
+  "Prada Reclaims Its Spot as Fashion's Hottest Brand in Q3 2026",
+  "올겨울 가장 멋진 코트는 깃부터 다릅니다",
+  "애플과 디자인 마이애미가 호명한 디자이너, 이윤정",
+  "Win £500 to Spend at Liberty!",
+  "The Partywear Pieces That Make Getting Dressed Feel Special",
+  "I’ve Found Them—The Exact Nail Polish Shades Kendall and Kylie Can’t Get Enough Of",
+  "Lily Muni He and Rebecca Donaldson Talk F1 Paddock Style, Race-Day Routines, and Beauty Pit Stops"
+ ],
+ "trOK": 0,
+ "trFail": 10,
  "pictures": {
-  "checked": 608,
-  "landscape": 603,
-  "portrait": 256
+  "checked": 610,
+  "landscape": 605,
+  "portrait": 254
  }
 }
