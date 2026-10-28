@@ -1,11 +1,11 @@
 {
- "at": "2026-10-28T09:04:00.193Z",
+ "at": "2026-10-28T10:58:33.867Z",
  "stories": 608,
  "translated": 608,
- "summaries": 433,
+ "summaries": 435,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 7
+  "dgOK": 7,
+  "dgNo": 4
  },
  "notTranslated": [],
  "trOK": 8,
