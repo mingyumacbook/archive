@@ -1,38 +1,18 @@
 {
- "at": "2026-10-28T15:09:04.033Z",
- "stories": 609,
- "translated": 590,
- "summaries": 430,
+ "at": "2026-10-28T17:03:57.505Z",
+ "stories": 610,
+ "translated": 610,
+ "summaries": 428,
  "summaryRun": {
-  "dgOK": 8,
-  "dgNo": 7
+  "dgOK": 5,
+  "dgNo": 6
  },
- "notTranslated": [
-  "Is it rude to assume you can crash with a friend?",
-  "In pictures: How 90s rave transcended politics in the North of Ireland",
-  "In the Age of Algorithms, Teen Magazines Are Making a Comeback",
-  "올겨울 가장 멋진 코트는 깃부터 다릅니다",
-  "애플과 디자인 마이애미가 호명한 디자이너, 이윤정",
-  "Win £500 to Spend at Liberty!",
-  "The Partywear Pieces That Make Getting Dressed Feel Special",
-  "I’ve Found Them—The Exact Nail Polish Shades Kendall and Kylie Can’t Get Enough Of",
-  "Prada Reclaims Its Spot as Fashion's Hottest Brand in Q3 2026",
-  "Lily Muni He and Rebecca Donaldson Talk F1 Paddock Style, Race-Day Routines, and Beauty Pit Stops",
-  "Hot Halloween is officially over",
-  "Bloody Shield is bringing impactful UK Ug to Scotland",
-  "Ashes to ashes, bust to bust: The most famous bras in fashion history",
-  "Princess Kate Shares a Meaningful Family Photo With Prince William and the Kids",
-  "The Best Fall Outfits Start With a Great Pair of Boots",
-  "Princess Catharina-Amalia of Orange Embraces Lime Green in a Silky Mango Halter Dress and Sheer Scarf",
-  "Jennifer Lawrence Gets Candid About the Plastic Surgery Procedure She Got Done After Giving Birth to Baby No. 2",
-  "Rain Boots Are Having a Fashion Moment—These Are the Pairs I'd Actually Wear",
-  "This “Dated” Trainer Trend Just Received Fashion’s Highest Honour—Here’s Why Everyone Is Wearing It Again in 2026"
- ],
- "trOK": 0,
- "trFail": 19,
+ "notTranslated": [],
+ "trOK": 29,
+ "trFail": 0,
  "pictures": {
-  "checked": 609,
-  "landscape": 604,
-  "portrait": 247
+  "checked": 610,
+  "landscape": 605,
+  "portrait": 243
  }
 }
