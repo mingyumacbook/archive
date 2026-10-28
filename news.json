@@ -1,31 +1,31 @@
 {
- "at": "2026-10-28T01:17:46.210Z",
- "stories": 607,
- "translated": 595,
- "summaries": 433,
+ "at": "2026-10-28T03:00:23.031Z",
+ "stories": 602,
+ "translated": 590,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 3
+  "dgOK": 2,
+  "dgNo": 1
  },
  "notTranslated": [
   "I’ve Been a Bridesmaid Six Times, and This Is the Face Mask I Use Before Each Wedding",
   "At the WNBA Finals, Zendaya Pairs Her Home Team Pride With a Snakeskin Tee She Co-Designed",
-  "These Are the Best New Sweaters at Nordstrom—and They're All Under $100",
-  "Surprise! These 29 Impressive Items Were Just Marked Down at Nordstrom",
   "I Spent Over 10 Years Perfecting a Frizz-Free Hair Routine—These 15 Products Are My Secret",
-  "영화 ‘이성과 감성’ 속 그림 같은 촬영지 10곳",
-  "아름다움은 더할 때 완성된다",
-  "‘이성과 감성’처럼, 로맨틱하고 자연스러운 뷰티 룩 연출법",
+  "Surprise! These 29 Impressive Items Were Just Marked Down at Nordstrom",
+  "These Are the Best New Sweaters at Nordstrom—and They're All Under $100",
   "클린 걸을 대신할 보호 걸의 계절을 위한 단 하나의 외투",
+  "영화 ‘이성과 감성’ 속 그림 같은 촬영지 10곳",
+  "‘이성과 감성’처럼, 로맨틱하고 자연스러운 뷰티 룩 연출법",
   "장과 뇌, 피부가 이어져 있을 가능성",
   "나이 들수록 인간관계가 쉬워지는 치트키 3",
-  "Every Good Winter 2026 Airport Outfit Will Include This It Item—Trust Me"
+  "Every Good Winter 2026 Airport Outfit Will Include This It Item—Trust Me",
+  "아름다움은 더할 때 완성된다"
  ],
- "trOK": 0,
+ "trOK": 2,
  "trFail": 12,
  "pictures": {
-  "checked": 607,
-  "landscape": 602,
-  "portrait": 245
+  "checked": 602,
+  "landscape": 597,
+  "portrait": 247
  }
 }
