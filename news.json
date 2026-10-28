@@ -1,24 +1,31 @@
 {
- "at": "2026-10-27T22:50:36.670Z",
- "stories": 603,
- "translated": 598,
- "summaries": 428,
+ "at": "2026-10-28T01:17:46.210Z",
+ "stories": 607,
+ "translated": 595,
+ "summaries": 433,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 2
+  "dgOK": 6,
+  "dgNo": 3
  },
  "notTranslated": [
   "I’ve Been a Bridesmaid Six Times, and This Is the Face Mask I Use Before Each Wedding",
   "At the WNBA Finals, Zendaya Pairs Her Home Team Pride With a Snakeskin Tee She Co-Designed",
+  "These Are the Best New Sweaters at Nordstrom—and They're All Under $100",
   "Surprise! These 29 Impressive Items Were Just Marked Down at Nordstrom",
   "I Spent Over 10 Years Perfecting a Frizz-Free Hair Routine—These 15 Products Are My Secret",
-  "These Are the Best New Sweaters at Nordstrom—and They're All Under $100"
+  "영화 ‘이성과 감성’ 속 그림 같은 촬영지 10곳",
+  "아름다움은 더할 때 완성된다",
+  "‘이성과 감성’처럼, 로맨틱하고 자연스러운 뷰티 룩 연출법",
+  "클린 걸을 대신할 보호 걸의 계절을 위한 단 하나의 외투",
+  "장과 뇌, 피부가 이어져 있을 가능성",
+  "나이 들수록 인간관계가 쉬워지는 치트키 3",
+  "Every Good Winter 2026 Airport Outfit Will Include This It Item—Trust Me"
  ],
  "trOK": 0,
- "trFail": 5,
+ "trFail": 12,
  "pictures": {
-  "checked": 603,
-  "landscape": 598,
-  "portrait": 243
+  "checked": 607,
+  "landscape": 602,
+  "portrait": 245
  }
 }
