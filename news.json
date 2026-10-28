@@ -1,10 +1,10 @@
 {
- "at": "2026-10-28T03:00:23.031Z",
- "stories": 602,
- "translated": 590,
- "summaries": 430,
+ "at": "2026-10-28T05:01:16.337Z",
+ "stories": 605,
+ "translated": 588,
+ "summaries": 432,
  "summaryRun": {
-  "dgOK": 2,
+  "dgOK": 4,
   "dgNo": 1
  },
  "notTranslated": [
@@ -19,13 +19,18 @@
   "장과 뇌, 피부가 이어져 있을 가능성",
   "나이 들수록 인간관계가 쉬워지는 치트키 3",
   "Every Good Winter 2026 Airport Outfit Will Include This It Item—Trust Me",
-  "아름다움은 더할 때 완성된다"
+  "아름다움은 더할 때 완성된다",
+  "옷 잘 입는 사람들은 ‘이 패딩’을 선택합니다",
+  "로퍼와 스커트, 이렇게 입으면 교복 같지 않습니다",
+  "다음 시즌 스니커즈 7가지, 미리 찜해두세요",
+  "OUTSIDE THE FRAME, BIFF에서 만난 배우 이자벨 위페르",
+  "Rotating Curling Irons Are Hairstylists' Favorite Styling Hack—6 Models They'd Put In Your Cart"
  ],
- "trOK": 2,
- "trFail": 12,
+ "trOK": 0,
+ "trFail": 17,
  "pictures": {
-  "checked": 602,
-  "landscape": 597,
-  "portrait": 247
+  "checked": 605,
+  "landscape": 600,
+  "portrait": 250
  }
 }
