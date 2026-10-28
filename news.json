@@ -1,21 +1,21 @@
 {
- "at": "2026-10-28T19:04:16.179Z",
- "stories": 605,
- "translated": 603,
- "summaries": 424,
+ "at": "2026-10-28T20:56:49.656Z",
+ "stories": 609,
+ "translated": 607,
+ "summaries": 431,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 8
+  "dgOK": 9,
+  "dgNo": 3
  },
  "notTranslated": [
-  "Bella Hadid Is So Biker-Coded in This Balmain Leather Jacket",
-  "Katie Holmes Embraces Autumn in Layers of Rich Earth Tones"
+  "Elle Fanning Takes Balletcore to Artful New Heights With a Music Box-Inspired Headpiece",
+  "Charli XCX and Her Stylist, Chris Horan, on Thrifting Looks for the Music, Fashion, Film Tour"
  ],
- "trOK": 3,
+ "trOK": 9,
  "trFail": 2,
  "pictures": {
-  "checked": 605,
-  "landscape": 600,
-  "portrait": 239
+  "checked": 609,
+  "landscape": 604,
+  "portrait": 240
  }
 }
