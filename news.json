@@ -1,18 +1,21 @@
 {
- "at": "2026-10-28T17:03:57.505Z",
- "stories": 610,
- "translated": 610,
- "summaries": 428,
+ "at": "2026-10-28T19:04:16.179Z",
+ "stories": 605,
+ "translated": 603,
+ "summaries": 424,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 6
+  "dgOK": 2,
+  "dgNo": 8
  },
- "notTranslated": [],
- "trOK": 29,
- "trFail": 0,
+ "notTranslated": [
+  "Bella Hadid Is So Biker-Coded in This Balmain Leather Jacket",
+  "Katie Holmes Embraces Autumn in Layers of Rich Earth Tones"
+ ],
+ "trOK": 3,
+ "trFail": 2,
  "pictures": {
-  "checked": 610,
-  "landscape": 605,
-  "portrait": 243
+  "checked": 605,
+  "landscape": 600,
+  "portrait": 239
  }
 }
