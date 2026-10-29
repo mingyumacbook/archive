@@ -1,21 +1,18 @@
 {
- "at": "2026-10-29T15:09:20.987Z",
- "stories": 616,
- "translated": 614,
- "summaries": 438,
+ "at": "2026-10-29T17:06:18.722Z",
+ "stories": 609,
+ "translated": 609,
+ "summaries": 432,
  "summaryRun": {
-  "dgOK": 13,
+  "dgOK": 6,
   "dgNo": 6
  },
- "notTranslated": [
-  "‘Do you miss heroin?’: Rick Owens interviews musician Spike Fuck",
-  "How to recreate an easy Harley Quinn beat for Halloween"
- ],
- "trOK": 14,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 11,
+ "trFail": 0,
  "pictures": {
-  "checked": 616,
-  "landscape": 611,
-  "portrait": 250
+  "checked": 609,
+  "landscape": 604,
+  "portrait": 240
  }
 }
