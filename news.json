@@ -1,18 +1,21 @@
 {
- "at": "2026-10-29T17:06:18.722Z",
- "stories": 609,
- "translated": 609,
- "summaries": 432,
+ "at": "2026-10-29T19:06:49.743Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 6
+  "dgOK": 3,
+  "dgNo": 3
  },
- "notTranslated": [],
- "trOK": 11,
- "trFail": 0,
+ "notTranslated": [
+  "6 tips to beat the ‘jobpocalypse’ as a creative student",
+  "Ladies Eliza and Amelia Spencer Match in Little Black Dresses for a Night Out in London"
+ ],
+ "trOK": 1,
+ "trFail": 2,
  "pictures": {
-  "checked": 609,
-  "landscape": 604,
-  "portrait": 240
+  "checked": 603,
+  "landscape": 598,
+  "portrait": 236
  }
 }
