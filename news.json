@@ -1,26 +1,21 @@
 {
- "at": "2026-10-29T01:14:57.378Z",
- "stories": 607,
- "translated": 600,
- "summaries": 430,
+ "at": "2026-10-29T03:00:06.488Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 428,
  "summaryRun": {
-  "dgOK": 5,
+  "dgOK": 2,
   "dgNo": 3
  },
  "notTranslated": [
-  "새로운 패션 주얼리, 사이들러",
-  "향을 다루는 일상의 새로운 습관",
-  "이번 가을엔 킴 카다시안처럼",
-  "불완전한 인생을 받아들이고 살아가는 법에 관하여, ‘한낮의 불운’",
-  "헤어진 뒤에도 친구로 지낼 수 있는 커플의 조건 3",
-  "Fashion Insiders Are Already Wearing What Will Be Saint Laurent's Most Coveted Designer Bag",
-  "Let's Talk About Winter Coats—These 15 J.Crew Picks Are First Up"
+  "청바지에 가죽 재킷, 딱 붙게 입거나 헐렁하게 입거나!",
+  "더 자유롭고 더 담대하게, 박보검"
  ],
- "trOK": 0,
- "trFail": 7,
+ "trOK": 8,
+ "trFail": 2,
  "pictures": {
-  "checked": 607,
-  "landscape": 602,
-  "portrait": 239
+  "checked": 603,
+  "landscape": 598,
+  "portrait": 238
  }
 }
