@@ -1,21 +1,21 @@
 {
- "at": "2026-10-29T09:05:47.440Z",
- "stories": 607,
- "translated": 605,
- "summaries": 431,
+ "at": "2026-10-29T11:00:01.201Z",
+ "stories": 606,
+ "translated": 604,
+ "summaries": 427,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 5
+  "dgOK": 1,
+  "dgNo": 6
  },
  "notTranslated": [
-  "Most Loved Photo Stories for October 2026",
-  "가을 패션은 케이티 홈즈처럼 단순하게!"
+  "드디어 첫 단독 내한 콘서트 개최하는 캣츠아이",
+  "무거운 가방은 잠시 안녕, 검색량 약 5배 증가한 프라다 파우치"
  ],
- "trOK": 5,
+ "trOK": 6,
  "trFail": 2,
  "pictures": {
-  "checked": 607,
-  "landscape": 602,
-  "portrait": 246
+  "checked": 606,
+  "landscape": 601,
+  "portrait": 250
  }
 }
