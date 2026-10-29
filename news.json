@@ -1,18 +1,21 @@
 {
- "at": "2026-10-29T07:14:48.186Z",
- "stories": 610,
- "translated": 610,
- "summaries": 430,
+ "at": "2026-10-29T09:05:47.440Z",
+ "stories": 607,
+ "translated": 605,
+ "summaries": 431,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 6
+  "dgOK": 7,
+  "dgNo": 5
  },
- "notTranslated": [],
- "trOK": 10,
- "trFail": 0,
+ "notTranslated": [
+  "Most Loved Photo Stories for October 2026",
+  "가을 패션은 케이티 홈즈처럼 단순하게!"
+ ],
+ "trOK": 5,
+ "trFail": 2,
  "pictures": {
-  "checked": 610,
-  "landscape": 605,
-  "portrait": 245
+  "checked": 607,
+  "landscape": 602,
+  "portrait": 246
  }
 }
