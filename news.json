@@ -1,21 +1,21 @@
 {
- "at": "2026-10-29T20:57:55.881Z",
- "stories": 603,
- "translated": 601,
- "summaries": 430,
+ "at": "2026-10-29T22:55:05.660Z",
+ "stories": 606,
+ "translated": 604,
+ "summaries": 434,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 6,
   "dgNo": 0
  },
  "notTranslated": [
-  "5 Movies to Watch If You’re Chasing That You Can See Everything “Wait, What?” Feeling",
-  "Who Is Cynthia Nixon’s Wife, Christine Marinoni?"
+  "Can’t Sleep? Try These 7 Expert-Approved Supplements",
+  "With Their Newest Look, Law Roach and Kim Kardashian Remind Us of Todd Oldham’s ’90s Fashion Legacy"
  ],
- "trOK": 3,
+ "trOK": 6,
  "trFail": 2,
  "pictures": {
-  "checked": 603,
-  "landscape": 598,
-  "portrait": 234
+  "checked": 606,
+  "landscape": 601,
+  "portrait": 232
  }
 }
