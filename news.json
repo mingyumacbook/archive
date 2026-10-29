@@ -1,21 +1,21 @@
 {
- "at": "2026-10-29T19:06:49.743Z",
+ "at": "2026-10-29T20:57:55.881Z",
  "stories": 603,
  "translated": 601,
  "summaries": 430,
  "summaryRun": {
   "dgOK": 3,
-  "dgNo": 3
+  "dgNo": 0
  },
  "notTranslated": [
-  "6 tips to beat the ‘jobpocalypse’ as a creative student",
-  "Ladies Eliza and Amelia Spencer Match in Little Black Dresses for a Night Out in London"
+  "5 Movies to Watch If You’re Chasing That You Can See Everything “Wait, What?” Feeling",
+  "Who Is Cynthia Nixon’s Wife, Christine Marinoni?"
  ],
- "trOK": 1,
+ "trOK": 3,
  "trFail": 2,
  "pictures": {
   "checked": 603,
   "landscape": 598,
-  "portrait": 236
+  "portrait": 234
  }
 }
