@@ -1,21 +1,18 @@
 {
- "at": "2026-10-29T11:00:01.201Z",
- "stories": 606,
- "translated": 604,
- "summaries": 427,
+ "at": "2026-10-29T13:14:57.855Z",
+ "stories": 612,
+ "translated": 612,
+ "summaries": 433,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 6
+  "dgOK": 9,
+  "dgNo": 8
  },
- "notTranslated": [
-  "드디어 첫 단독 내한 콘서트 개최하는 캣츠아이",
-  "무거운 가방은 잠시 안녕, 검색량 약 5배 증가한 프라다 파우치"
- ],
- "trOK": 6,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 14,
+ "trFail": 0,
  "pictures": {
-  "checked": 606,
-  "landscape": 601,
-  "portrait": 250
+  "checked": 612,
+  "landscape": 607,
+  "portrait": 249
  }
 }
