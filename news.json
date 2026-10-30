@@ -1,18 +1,15 @@
 {
- "at": "2026-10-30T13:11:56.247Z",
+ "at": "2026-10-30T15:07:47.718Z",
  "stories": 610,
- "translated": 608,
- "summaries": 444,
+ "translated": 610,
+ "summaries": 445,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 5
+  "dgOK": 8,
+  "dgNo": 6
  },
- "notTranslated": [
-  "These were the biggest fashion collaborations of October",
-  "Harley Weir’s expansive, powerful vision of modern-day witches"
- ],
- "trOK": 10,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 12,
+ "trFail": 0,
  "pictures": {
   "checked": 610,
   "landscape": 604,

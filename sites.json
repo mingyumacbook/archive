@@ -1,11 +1,15 @@
 {
- "at": "2026-10-30T13:12:03.322Z",
+ "at": "2026-10-30T15:08:09.987Z",
  "links": 35,
- "checkedNow": 0,
- "ok": 0,
- "unreachable": 0,
- "withDescription": 0,
- "withDirector": [],
+ "checkedNow": 35,
+ "ok": 29,
+ "unreachable": 6,
+ "withDescription": 17,
+ "withDirector": [
+  "Seung Gun Park (homepage text)",
+  "우영미 (homepage text)",
+  "우영미 (homepage text)"
+ ],
  "defaultUnreachable": [
   "juunj.com (0)",
   "minjukim.com (0)",
