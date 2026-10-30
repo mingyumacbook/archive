@@ -1,18 +1,21 @@
 {
- "at": "2026-10-30T16:59:05.319Z",
- "stories": 608,
- "translated": 608,
- "summaries": 446,
+ "at": "2026-10-30T19:00:14.871Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 447,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 3
+  "dgOK": 3,
+  "dgNo": 1
  },
- "notTranslated": [],
- "trOK": 8,
- "trFail": 0,
+ "notTranslated": [
+  "Rosie Huntington-Whiteley on the Quiet Power of Saint Laurent",
+  "Dua Lipa Accessorizes Her Embellished Chanel Suit With the Perfect Pearl Anklets"
+ ],
+ "trOK": 1,
+ "trFail": 2,
  "pictures": {
-  "checked": 608,
-  "landscape": 602,
-  "portrait": 235
+  "checked": 603,
+  "landscape": 597,
+  "portrait": 232
  }
 }
