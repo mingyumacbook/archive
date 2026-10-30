@@ -1,26 +1,29 @@
 {
- "at": "2026-10-30T01:18:37.296Z",
- "stories": 605,
- "translated": 598,
- "summaries": 436,
+ "at": "2026-10-30T03:02:34.480Z",
+ "stories": 603,
+ "translated": 593,
+ "summaries": 434,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 1
+  "dgOK": 2,
+  "dgNo": 2
  },
  "notTranslated": [
   "Can’t Sleep? Try These 7 Expert-Approved Supplements",
   "With Their Newest Look, Law Roach and Kim Kardashian Remind Us of Todd Oldham’s ’90s Fashion Legacy",
   "페라가모의 고향으로 떠났다",
-  "한때 ‘범생이 룩’인 줄 알았던 이 옷이 달라졌습니다",
   "The Rich-Looking Flat-Shoe Color That Will Define 2027",
+  "For the Person Who Wears Gold Every Day, These T by Tiffany Gifts Just Make Sense",
+  "한때 ‘범생이 룩’인 줄 알았던 이 옷이 달라졌습니다",
   "The Best Boot Trend to Wear With a Minidress in 2026 Was Considered \"Dated\" a Year Ago",
-  "For the Person Who Wears Gold Every Day, These T by Tiffany Gifts Just Make Sense"
+  "The Hirshhorn Museum’s New Sculpture Garden Is a Vision of America",
+  "이제 발목에도 드레스업이 필요해요",
+  "이번 가을 어떤 코트를 사느냐보다 ‘이것’이 있느냐가 중요해요"
  ],
  "trOK": 0,
- "trFail": 7,
+ "trFail": 10,
  "pictures": {
-  "checked": 605,
-  "landscape": 600,
-  "portrait": 231
+  "checked": 603,
+  "landscape": 598,
+  "portrait": 233
  }
 }
