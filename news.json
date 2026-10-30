@@ -1,18 +1,21 @@
 {
- "at": "2026-10-30T07:14:43.746Z",
- "stories": 609,
+ "at": "2026-10-30T09:06:09.013Z",
+ "stories": 611,
  "translated": 609,
- "summaries": 438,
+ "summaries": 440,
  "summaryRun": {
-  "dgOK": 7,
+  "dgOK": 9,
   "dgNo": 4
  },
- "notTranslated": [],
- "trOK": 24,
- "trFail": 0,
+ "notTranslated": [
+  "6 unsettling photo books to give you the chills this Halloween",
+  "5 body horror novels that’ll make your skin crawl"
+ ],
+ "trOK": 9,
+ "trFail": 2,
  "pictures": {
-  "checked": 609,
-  "landscape": 603,
+  "checked": 611,
+  "landscape": 605,
   "portrait": 239
  }
 }
