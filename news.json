@@ -1,20 +1,18 @@
 {
- "at": "2026-10-30T20:55:27.173Z",
- "stories": 609,
- "translated": 608,
- "summaries": 453,
+ "at": "2026-10-30T22:51:01.179Z",
+ "stories": 604,
+ "translated": 604,
+ "summaries": 450,
  "summaryRun": {
-  "dgOK": 7,
+  "dgOK": 4,
   "dgNo": 2
  },
- "notTranslated": [
-  "Sarah Pidgeon’s Bouncy Supermodel Blowout Is Volumemaxxing at Its Finest"
- ],
- "trOK": 10,
- "trFail": 1,
+ "notTranslated": [],
+ "trOK": 5,
+ "trFail": 0,
  "pictures": {
-  "checked": 609,
-  "landscape": 603,
-  "portrait": 232
+  "checked": 604,
+  "landscape": 598,
+  "portrait": 227
  }
 }
