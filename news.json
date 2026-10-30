@@ -1,34 +1,18 @@
 {
- "at": "2026-10-30T05:02:15.828Z",
- "stories": 605,
- "translated": 590,
- "summaries": 435,
+ "at": "2026-10-30T07:14:43.746Z",
+ "stories": 609,
+ "translated": 609,
+ "summaries": 438,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 3
+  "dgOK": 7,
+  "dgNo": 4
  },
- "notTranslated": [
-  "Can’t Sleep? Try These 7 Expert-Approved Supplements",
-  "With Their Newest Look, Law Roach and Kim Kardashian Remind Us of Todd Oldham’s ’90s Fashion Legacy",
-  "페라가모의 고향으로 떠났다",
-  "For the Person Who Wears Gold Every Day, These T by Tiffany Gifts Just Make Sense",
-  "The Rich-Looking Flat-Shoe Color That Will Define 2027",
-  "한때 ‘범생이 룩’인 줄 알았던 이 옷이 달라졌습니다",
-  "The Best Boot Trend to Wear With a Minidress in 2026 Was Considered \"Dated\" a Year Ago",
-  "The Hirshhorn Museum’s New Sculpture Garden Is a Vision of America",
-  "이제 발목에도 드레스업이 필요해요",
-  "이번 가을 어떤 코트를 사느냐보다 ‘이것’이 있느냐가 중요해요",
-  "케이티 페리, 연인 쥐스탱 트뤼도와 함께한 42번째 생일",
-  "올겨울 블랙과 브라운보다 자주 볼 매혹적인 컬러!",
-  "깊은 맛의 전통 다과를 즐기기 좋은 서울 카페 5",
-  "당신은 지금 무엇을 ‘맥싱’하고 있나요?",
-  "가방은 더 크게, 굽은 더 높게! 로살리아에게 ‘적당히’는 없다"
- ],
- "trOK": 0,
- "trFail": 15,
+ "notTranslated": [],
+ "trOK": 24,
+ "trFail": 0,
  "pictures": {
-  "checked": 605,
-  "landscape": 600,
-  "portrait": 236
+  "checked": 609,
+  "landscape": 603,
+  "portrait": 239
  }
 }
