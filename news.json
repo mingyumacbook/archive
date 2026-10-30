@@ -1,21 +1,21 @@
 {
- "at": "2026-10-30T09:06:09.013Z",
- "stories": 611,
- "translated": 609,
- "summaries": 440,
+ "at": "2026-10-30T10:58:16.483Z",
+ "stories": 605,
+ "translated": 603,
+ "summaries": 438,
  "summaryRun": {
-  "dgOK": 9,
-  "dgNo": 4
+  "dgOK": 4,
+  "dgNo": 3
  },
  "notTranslated": [
-  "6 unsettling photo books to give you the chills this Halloween",
-  "5 body horror novels that’ll make your skin crawl"
+  "AI는 허밍하지 않는다 #4 비요크",
+  "시커먼 바지의 독주를 막을 올겨울 ‘흰색 청바지’!"
  ],
- "trOK": 9,
+ "trOK": 5,
  "trFail": 2,
  "pictures": {
-  "checked": 611,
-  "landscape": 605,
+  "checked": 605,
+  "landscape": 599,
   "portrait": 239
  }
 }
