@@ -1,21 +1,20 @@
 {
- "at": "2026-10-30T19:00:14.871Z",
- "stories": 603,
- "translated": 601,
- "summaries": 447,
+ "at": "2026-10-30T20:55:27.173Z",
+ "stories": 609,
+ "translated": 608,
+ "summaries": 453,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 1
+  "dgOK": 7,
+  "dgNo": 2
  },
  "notTranslated": [
-  "Rosie Huntington-Whiteley on the Quiet Power of Saint Laurent",
-  "Dua Lipa Accessorizes Her Embellished Chanel Suit With the Perfect Pearl Anklets"
+  "Sarah Pidgeon’s Bouncy Supermodel Blowout Is Volumemaxxing at Its Finest"
  ],
- "trOK": 1,
- "trFail": 2,
+ "trOK": 10,
+ "trFail": 1,
  "pictures": {
-  "checked": 603,
-  "landscape": 597,
+  "checked": 609,
+  "landscape": 603,
   "portrait": 232
  }
 }
