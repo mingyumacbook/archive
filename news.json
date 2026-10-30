@@ -1,21 +1,26 @@
 {
- "at": "2026-10-29T22:55:05.660Z",
- "stories": 606,
- "translated": 604,
- "summaries": 434,
+ "at": "2026-10-30T01:18:37.296Z",
+ "stories": 605,
+ "translated": 598,
+ "summaries": 436,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 0
+  "dgOK": 4,
+  "dgNo": 1
  },
  "notTranslated": [
   "Can’t Sleep? Try These 7 Expert-Approved Supplements",
-  "With Their Newest Look, Law Roach and Kim Kardashian Remind Us of Todd Oldham’s ’90s Fashion Legacy"
+  "With Their Newest Look, Law Roach and Kim Kardashian Remind Us of Todd Oldham’s ’90s Fashion Legacy",
+  "페라가모의 고향으로 떠났다",
+  "한때 ‘범생이 룩’인 줄 알았던 이 옷이 달라졌습니다",
+  "The Rich-Looking Flat-Shoe Color That Will Define 2027",
+  "The Best Boot Trend to Wear With a Minidress in 2026 Was Considered \"Dated\" a Year Ago",
+  "For the Person Who Wears Gold Every Day, These T by Tiffany Gifts Just Make Sense"
  ],
- "trOK": 6,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 7,
  "pictures": {
-  "checked": 606,
-  "landscape": 601,
-  "portrait": 232
+  "checked": 605,
+  "landscape": 600,
+  "portrait": 231
  }
 }
