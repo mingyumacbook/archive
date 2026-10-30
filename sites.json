@@ -1,9 +1,9 @@
 {
- "at": "2026-10-30T03:02:51.587Z",
+ "at": "2026-10-30T05:02:21.623Z",
  "links": 35,
- "checkedNow": 1,
+ "checkedNow": 0,
  "ok": 0,
- "unreachable": 1,
+ "unreachable": 0,
  "withDescription": 0,
  "withDirector": [],
  "defaultUnreachable": [
