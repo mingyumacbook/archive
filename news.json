@@ -1,21 +1,18 @@
 {
- "at": "2026-10-31T16:50:45.344Z",
- "stories": 602,
- "translated": 600,
+ "at": "2026-10-31T18:58:20.435Z",
+ "stories": 601,
+ "translated": 601,
  "summaries": 451,
  "summaryRun": {
-  "dgOK": 2,
+  "dgOK": 1,
   "dgNo": 0
  },
- "notTranslated": [
-  "The Royals Share a Throwback Photo of Prince Louis for Halloween",
-  "Word on the Street: The 7 Biggest Trends Experts Spotted at Fashion Month"
- ],
- "trOK": 0,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 3,
+ "trFail": 0,
  "pictures": {
-  "checked": 602,
-  "landscape": 596,
+  "checked": 601,
+  "landscape": 595,
   "portrait": 228
  }
 }
