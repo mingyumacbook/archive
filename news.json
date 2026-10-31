@@ -1,18 +1,18 @@
 {
- "at": "2026-10-31T13:02:28.721Z",
- "stories": 606,
- "translated": 606,
- "summaries": 454,
+ "at": "2026-10-31T14:48:24.249Z",
+ "stories": 600,
+ "translated": 600,
+ "summaries": 449,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 0,
   "dgNo": 3
  },
  "notTranslated": [],
- "trOK": 6,
+ "trOK": 0,
  "trFail": 0,
  "pictures": {
-  "checked": 606,
-  "landscape": 600,
-  "portrait": 230
+  "checked": 600,
+  "landscape": 594,
+  "portrait": 227
  }
 }
