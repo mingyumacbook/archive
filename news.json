@@ -1,18 +1,25 @@
 {
- "at": "2026-10-31T18:58:20.435Z",
- "stories": 601,
- "translated": 601,
- "summaries": 451,
+ "at": "2026-10-31T20:50:12.971Z",
+ "stories": 606,
+ "translated": 600,
+ "summaries": 455,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 0
+  "dgOK": 4,
+  "dgNo": 2
  },
- "notTranslated": [],
- "trOK": 3,
- "trFail": 0,
+ "notTranslated": [
+  "Zendaya and Law Roach Win Halloween With a Familiar Yellow Lanvin Look Worn by Halle Berry",
+  "Gigi Hadid’s Preppy Look Is Full of Fall Statement Pieces",
+  "Dispatch from SoHo: 4 J.Crew Shoes I Tried and Tested, and Which Ones Came Home With Me",
+  "The Shirt Trend Every It-Girl Is Buying First This Fall",
+  "25 Trendy Fall Dresses That Are Peak Fashion Person",
+  "Fashion Editors Know This One Retailer Makes the Chicest Outerwear—3 Coats On My Wish List"
+ ],
+ "trOK": 0,
+ "trFail": 6,
  "pictures": {
-  "checked": 601,
-  "landscape": 595,
+  "checked": 606,
+  "landscape": 600,
   "portrait": 228
  }
 }
