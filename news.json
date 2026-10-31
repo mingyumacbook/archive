@@ -1,18 +1,21 @@
 {
- "at": "2026-10-31T02:59:10.584Z",
- "stories": 603,
- "translated": 603,
- "summaries": 450,
+ "at": "2026-10-31T04:57:06.470Z",
+ "stories": 602,
+ "translated": 600,
+ "summaries": 449,
  "summaryRun": {
   "dgOK": 2,
   "dgNo": 2
  },
- "notTranslated": [],
- "trOK": 3,
- "trFail": 0,
+ "notTranslated": [
+  "패션과 영화의 독창적 시각 실험",
+  "제니퍼 로렌스가 드디어 공개한 ‘내 아기’"
+ ],
+ "trOK": 0,
+ "trFail": 2,
  "pictures": {
-  "checked": 603,
-  "landscape": 597,
-  "portrait": 225
+  "checked": 602,
+  "landscape": 596,
+  "portrait": 226
  }
 }
