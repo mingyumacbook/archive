@@ -1,22 +1,18 @@
 {
- "at": "2026-10-31T07:09:44.202Z",
- "stories": 607,
- "translated": 604,
- "summaries": 452,
+ "at": "2026-10-31T08:55:35.783Z",
+ "stories": 603,
+ "translated": 603,
+ "summaries": 450,
  "summaryRun": {
-  "dgOK": 4,
+  "dgOK": 3,
   "dgNo": 3
  },
- "notTranslated": [
-  "어떤 날씨에도 변함없이 반짝이는 샤넬의 ‘이 주얼리’!",
-  "My Friend Asked For a Chic Winter Wardrobe On a Budget—9 H&M Buys I Sent Straight Back",
-  "I Know You're Stylish If You're Wearing This New British Brand That Rivals COS and Reformation"
- ],
+ "notTranslated": [],
  "trOK": 6,
- "trFail": 3,
+ "trFail": 0,
  "pictures": {
-  "checked": 607,
-  "landscape": 601,
+  "checked": 603,
+  "landscape": 597,
   "portrait": 229
  }
 }
