@@ -1,20 +1,21 @@
 {
- "at": "2026-10-31T22:48:09.374Z",
+ "at": "2026-11-01T01:25:17.313Z",
  "stories": 601,
- "translated": 600,
+ "translated": 599,
  "summaries": 451,
  "summaryRun": {
   "dgOK": 1,
-  "dgNo": 2
+  "dgNo": 0
  },
  "notTranslated": [
-  "Keira Knightley’s Theater Look Is a Regal Erdem Runway Fit"
+  "Keira Knightley’s Theater Look Is a Regal Erdem Runway Fit",
+  "행복해지고 싶다면, 남에게 돈 쓰세요"
  ],
- "trOK": 6,
- "trFail": 1,
+ "trOK": 0,
+ "trFail": 2,
  "pictures": {
   "checked": 601,
   "landscape": 595,
-  "portrait": 229
+  "portrait": 230
  }
 }
