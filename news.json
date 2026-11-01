@@ -1,21 +1,18 @@
 {
- "at": "2026-11-01T07:16:27.686Z",
- "stories": 606,
+ "at": "2026-11-01T08:59:03.394Z",
+ "stories": 604,
  "translated": 604,
- "summaries": 455,
+ "summaries": 454,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 2
+  "dgOK": 2,
+  "dgNo": 4
  },
- "notTranslated": [
-  "코르티스 건호, 첫 샤넬 커버 비하인드 | VOGUEMEETS",
-  "서울과 도쿄를 잇는 포시즌스"
- ],
- "trOK": 10,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 6,
+ "trFail": 0,
  "pictures": {
-  "checked": 606,
-  "landscape": 600,
-  "portrait": 233
+  "checked": 604,
+  "landscape": 598,
+  "portrait": 231
  }
 }
