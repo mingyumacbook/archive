@@ -1,21 +1,21 @@
 {
- "at": "2026-11-01T10:52:44.506Z",
- "stories": 604,
- "translated": 602,
+ "at": "2026-11-01T13:04:54.416Z",
+ "stories": 608,
+ "translated": 606,
  "summaries": 455,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 2
+  "dgOK": 3,
+  "dgNo": 5
  },
  "notTranslated": [
-  "Horoscopes November 2026: Prepare for a major transformation!",
-  "후줄근함이 매력, 니트 팬츠 스타일링은 지지처럼요"
+  "매년 입는 겨울 아우터도 ‘이 바지’ 하나면 달라집니다",
+  "OPI Just Quietly Reissued 7 Iconic Nail Colors From the '90s and Early-2000s"
  ],
- "trOK": 2,
+ "trOK": 8,
  "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 598,
-  "portrait": 229
+  "checked": 608,
+  "landscape": 602,
+  "portrait": 227
  }
 }
