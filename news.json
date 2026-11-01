@@ -1,18 +1,21 @@
 {
- "at": "2026-11-01T08:59:03.394Z",
+ "at": "2026-11-01T10:52:44.506Z",
  "stories": 604,
- "translated": 604,
- "summaries": 454,
+ "translated": 602,
+ "summaries": 455,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 4
+  "dgOK": 4,
+  "dgNo": 2
  },
- "notTranslated": [],
- "trOK": 6,
- "trFail": 0,
+ "notTranslated": [
+  "Horoscopes November 2026: Prepare for a major transformation!",
+  "후줄근함이 매력, 니트 팬츠 스타일링은 지지처럼요"
+ ],
+ "trOK": 2,
+ "trFail": 2,
  "pictures": {
   "checked": 604,
   "landscape": 598,
-  "portrait": 231
+  "portrait": 229
  }
 }
