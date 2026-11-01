@@ -1,20 +1,18 @@
 {
- "at": "2026-11-01T18:58:10.065Z",
- "stories": 601,
- "translated": 600,
- "summaries": 447,
+ "at": "2026-11-01T20:50:10.497Z",
+ "stories": 602,
+ "translated": 602,
+ "summaries": 448,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 1
+  "dgOK": 2,
+  "dgNo": 0
  },
- "notTranslated": [
-  "Kendall Jenner References Paris, Texas in a Striking Halloween Transformation"
- ],
- "trOK": 0,
- "trFail": 1,
+ "notTranslated": [],
+ "trOK": 3,
+ "trFail": 0,
  "pictures": {
-  "checked": 601,
-  "landscape": 596,
+  "checked": 602,
+  "landscape": 597,
   "portrait": 220
  }
 }
