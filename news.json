@@ -1,18 +1,21 @@
 {
- "at": "2026-11-01T20:50:10.497Z",
- "stories": 602,
- "translated": 602,
- "summaries": 448,
+ "at": "2026-11-01T22:48:54.685Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 450,
  "summaryRun": {
-  "dgOK": 2,
+  "dgOK": 3,
   "dgNo": 0
  },
- "notTranslated": [],
- "trOK": 3,
- "trFail": 0,
+ "notTranslated": [
+  "Gracie Abrams Channels Romeo and Juliet With Armor, Angel Wings, and Tons of Chanel",
+  "Anthropologie Is My Go-To For Cute Plus-Size Clothes—18 Must-Have Styles I Saw This Week"
+ ],
+ "trOK": 1,
+ "trFail": 2,
  "pictures": {
-  "checked": 602,
-  "landscape": 597,
-  "portrait": 220
+  "checked": 603,
+  "landscape": 598,
+  "portrait": 219
  }
 }
