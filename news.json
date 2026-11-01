@@ -1,21 +1,18 @@
 {
- "at": "2026-11-01T13:04:54.416Z",
- "stories": 608,
- "translated": 606,
- "summaries": 455,
+ "at": "2026-11-01T14:50:20.410Z",
+ "stories": 600,
+ "translated": 600,
+ "summaries": 447,
  "summaryRun": {
-  "dgOK": 3,
+  "dgOK": 0,
   "dgNo": 5
  },
- "notTranslated": [
-  "매년 입는 겨울 아우터도 ‘이 바지’ 하나면 달라집니다",
-  "OPI Just Quietly Reissued 7 Iconic Nail Colors From the '90s and Early-2000s"
- ],
- "trOK": 8,
- "trFail": 2,
+ "notTranslated": [],
+ "trOK": 2,
+ "trFail": 0,
  "pictures": {
-  "checked": 608,
-  "landscape": 602,
-  "portrait": 227
+  "checked": 600,
+  "landscape": 595,
+  "portrait": 220
  }
 }
