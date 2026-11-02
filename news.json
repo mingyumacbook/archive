@@ -1,21 +1,27 @@
 {
- "at": "2026-11-01T22:48:54.685Z",
- "stories": 603,
- "translated": 601,
- "summaries": 450,
+ "at": "2026-11-02T01:25:24.483Z",
+ "stories": 606,
+ "translated": 598,
+ "summaries": 452,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 0
+  "dgOK": 5,
+  "dgNo": 1
  },
  "notTranslated": [
+  "Anthropologie Is My Go-To For Cute Plus-Size Clothes—18 Must-Have Styles I Saw This Week",
   "Gracie Abrams Channels Romeo and Juliet With Armor, Angel Wings, and Tons of Chanel",
-  "Anthropologie Is My Go-To For Cute Plus-Size Clothes—18 Must-Have Styles I Saw This Week"
+  "The BEAUTY of US",
+  "향 과잉의 시대",
+  "전통과 어우러진 까르띠에",
+  "주얼리의 맥시멀리즘 시대",
+  "11월 첫째 주 별자리 운세",
+  "This Is the 3-Piece Outfit Trend 2026 Cool Girls Are Wearing Instead of Leggings and a Hoodie"
  ],
- "trOK": 1,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 8,
  "pictures": {
-  "checked": 603,
-  "landscape": 598,
-  "portrait": 219
+  "checked": 606,
+  "landscape": 601,
+  "portrait": 222
  }
 }
