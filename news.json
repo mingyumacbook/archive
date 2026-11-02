@@ -1,11 +1,11 @@
 {
- "at": "2026-11-02T09:23:03.718Z",
- "stories": 609,
- "translated": 598,
- "summaries": 454,
+ "at": "2026-11-02T11:14:15.025Z",
+ "stories": 604,
+ "translated": 589,
+ "summaries": 448,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 7
+  "dgOK": 2,
+  "dgNo": 6
  },
  "notTranslated": [
   "케이티 홈즈처럼, 이왕이면 겨울 기분 제대로 나는 스웨터",
@@ -13,18 +13,22 @@
   "올가을 청바지는 파랑도 검정도 아닌 이 컬러!",
   "펑크 록 스타로 변신한 머라이어 캐리? 때가 됐다!",
   "키이라 나이틀리, ‘타인의 삶’으로 15년 만에 웨스트엔드 복귀",
-  "지금 당장 써먹기 좋은 양말 + 신발 궁합",
   "한때의 유행이라고 하기엔 너무 멋진 요즘 이 가방",
   "I’m Giving My Winter Wardrobe a Minimalist Update—15 Zara, H&M and COS Buys That Made the Cut",
-  "The Fall Boots From Shopbop, Nordstrom, and Zara People With Classic Taste Will Love",
   "Have You Seen The Latest Zara Arrivals—These 20 Are the Most Tempting",
-  "If It's Not Chic, I Don't Care—These New Shopbop Finds Are So Good"
+  "If It's Not Chic, I Don't Care—These New Shopbop Finds Are So Good",
+  "지금 당장 써먹기 좋은 양말 + 신발 궁합",
+  "The Fall Boots From Shopbop, Nordstrom, and Zara People With Classic Taste Will Love",
+  "청바지에는 신고 벗기 편한 ‘비틀스 부츠’",
+  "플랫 슈즈는 가고, 굽 있는 신발 시대가 돌아왔습니다",
+  "샤넬 드레스 입은 줄리엣, 그레이시 에이브럼스",
+  "Jeans With This Shirt Trend and This Heel Trend Will Be the It-Girl Uniform of November 2026"
  ],
  "trOK": 0,
- "trFail": 11,
+ "trFail": 15,
  "pictures": {
-  "checked": 609,
-  "landscape": 604,
+  "checked": 604,
+  "landscape": 599,
   "portrait": 230
  }
 }
