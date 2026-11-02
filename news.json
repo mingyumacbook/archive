@@ -1,18 +1,21 @@
 {
- "at": "2026-11-02T05:16:45.119Z",
- "stories": 608,
- "translated": 608,
+ "at": "2026-11-02T07:41:22.185Z",
+ "stories": 609,
+ "translated": 607,
  "summaries": 454,
  "summaryRun": {
   "dgOK": 6,
-  "dgNo": 3
+  "dgNo": 5
  },
- "notTranslated": [],
- "trOK": 8,
- "trFail": 0,
+ "notTranslated": [
+  "케이티 홈즈처럼, 이왕이면 겨울 기분 제대로 나는 스웨터",
+  "회색과 함께 입으면 더 예뻐지는 컬러 5"
+ ],
+ "trOK": 7,
+ "trFail": 2,
  "pictures": {
-  "checked": 608,
-  "landscape": 603,
-  "portrait": 225
+  "checked": 609,
+  "landscape": 604,
+  "portrait": 228
  }
 }
