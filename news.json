@@ -1,18 +1,21 @@
 {
- "at": "2026-11-02T13:26:31.189Z",
- "stories": 604,
- "translated": 604,
- "summaries": 446,
+ "at": "2026-11-02T15:07:36.647Z",
+ "stories": 602,
+ "translated": 600,
+ "summaries": 444,
  "summaryRun": {
   "dgOK": 2,
-  "dgNo": 4
+  "dgNo": 2
  },
- "notTranslated": [],
- "trOK": 19,
- "trFail": 0,
+ "notTranslated": [
+  "The best celebrity costumes of Halloween 2026",
+  "The 10 Best Jones Road Beauty Products, According to Harper’s Bazaar Editors"
+ ],
+ "trOK": 0,
+ "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 599,
-  "portrait": 228
+  "checked": 602,
+  "landscape": 597,
+  "portrait": 227
  }
 }
