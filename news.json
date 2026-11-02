@@ -1,18 +1,21 @@
 {
- "at": "2026-11-02T17:16:38.504Z",
- "stories": 604,
- "translated": 604,
- "summaries": 444,
+ "at": "2026-11-02T19:11:53.932Z",
+ "stories": 611,
+ "translated": 609,
+ "summaries": 448,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 2
+  "dgOK": 8,
+  "dgNo": 5
  },
- "notTranslated": [],
- "trOK": 6,
- "trFail": 0,
+ "notTranslated": [
+  "Photos of the spooky style at fakemink’s Camden Town Halloween show",
+  "Renée Levi on the importance of play and working with Audemars Piguet"
+ ],
+ "trOK": 9,
+ "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 599,
-  "portrait": 228
+  "checked": 611,
+  "landscape": 606,
+  "portrait": 230
  }
 }
