@@ -1,21 +1,30 @@
 {
- "at": "2026-11-02T07:41:22.185Z",
+ "at": "2026-11-02T09:23:03.718Z",
  "stories": 609,
- "translated": 607,
+ "translated": 598,
  "summaries": 454,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 5
+  "dgOK": 5,
+  "dgNo": 7
  },
  "notTranslated": [
   "케이티 홈즈처럼, 이왕이면 겨울 기분 제대로 나는 스웨터",
-  "회색과 함께 입으면 더 예뻐지는 컬러 5"
+  "회색과 함께 입으면 더 예뻐지는 컬러 5",
+  "올가을 청바지는 파랑도 검정도 아닌 이 컬러!",
+  "펑크 록 스타로 변신한 머라이어 캐리? 때가 됐다!",
+  "키이라 나이틀리, ‘타인의 삶’으로 15년 만에 웨스트엔드 복귀",
+  "지금 당장 써먹기 좋은 양말 + 신발 궁합",
+  "한때의 유행이라고 하기엔 너무 멋진 요즘 이 가방",
+  "I’m Giving My Winter Wardrobe a Minimalist Update—15 Zara, H&M and COS Buys That Made the Cut",
+  "The Fall Boots From Shopbop, Nordstrom, and Zara People With Classic Taste Will Love",
+  "Have You Seen The Latest Zara Arrivals—These 20 Are the Most Tempting",
+  "If It's Not Chic, I Don't Care—These New Shopbop Finds Are So Good"
  ],
- "trOK": 7,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 11,
  "pictures": {
   "checked": 609,
   "landscape": 604,
-  "portrait": 228
+  "portrait": 230
  }
 }
