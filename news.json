@@ -1,21 +1,21 @@
 {
- "at": "2026-11-02T19:11:53.932Z",
- "stories": 611,
- "translated": 609,
- "summaries": 448,
+ "at": "2026-11-02T20:57:00.310Z",
+ "stories": 604,
+ "translated": 602,
+ "summaries": 443,
  "summaryRun": {
-  "dgOK": 8,
-  "dgNo": 5
+  "dgOK": 3,
+  "dgNo": 4
  },
  "notTranslated": [
-  "Photos of the spooky style at fakemink’s Camden Town Halloween show",
-  "Renée Levi on the importance of play and working with Audemars Piguet"
+  "Everything You Need to Know About Tonight’s CFDA Awards",
+  "Beyoncé, Blue Ivy, and Tina Knowles Show Off Their Individual Styles in Rare Three-Generation Photo"
  ],
- "trOK": 9,
+ "trOK": 4,
  "trFail": 2,
  "pictures": {
-  "checked": 611,
-  "landscape": 606,
-  "portrait": 230
+  "checked": 604,
+  "landscape": 600,
+  "portrait": 227
  }
 }
