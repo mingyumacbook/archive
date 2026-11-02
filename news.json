@@ -1,21 +1,21 @@
 {
- "at": "2026-11-02T20:57:00.310Z",
- "stories": 604,
- "translated": 602,
- "summaries": 443,
+ "at": "2026-11-02T22:55:10.706Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 442,
  "summaryRun": {
   "dgOK": 3,
-  "dgNo": 4
+  "dgNo": 1
  },
  "notTranslated": [
-  "Everything You Need to Know About Tonight’s CFDA Awards",
-  "Beyoncé, Blue Ivy, and Tina Knowles Show Off Their Individual Styles in Rare Three-Generation Photo"
+  "Taylor Swift Reveals the Cult Film Character She and Longtime Friend Abigail Have Been Impersonating Since They Were Teens",
+  "Jennifer Lawrence Doubles Down on an Unusual Color for Fall"
  ],
- "trOK": 4,
+ "trOK": 3,
  "trFail": 2,
  "pictures": {
-  "checked": 604,
-  "landscape": 600,
-  "portrait": 227
+  "checked": 603,
+  "landscape": 599,
+  "portrait": 230
  }
 }
