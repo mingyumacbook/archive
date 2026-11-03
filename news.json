@@ -1,21 +1,26 @@
 {
- "at": "2026-11-03T13:21:51.781Z",
- "stories": 607,
- "translated": 605,
- "summaries": 436,
+ "at": "2026-11-03T15:04:00.351Z",
+ "stories": 605,
+ "translated": 598,
+ "summaries": 432,
  "summaryRun": {
-  "dgOK": 6,
+  "dgOK": 2,
   "dgNo": 4
  },
  "notTranslated": [
+  "How to survive holiday season, with Dazed US and Michael Kors",
   "CFDA Awards 2026: The best dressed celebs on the red carpet",
-  "How to survive holiday season, with Dazed US and Michael Kors"
+  "‘UG K-Pop’: How gen Z Koreans reinvented pop music in 2026",
+  "The Thom Browne Alum Making Playful Workwear Out of Natural Fibers",
+  "Vince Staples Is Our November 2026 Music Director",
+  "The Best Dressed Celebrities at the CFDA Awards",
+  "I'm a Celebrity Makeup Artist—5 \"Eyemaxxing\" Tricks to Achieve a Chic Espresso Smoky Eye"
  ],
- "trOK": 7,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 7,
  "pictures": {
-  "checked": 607,
-  "landscape": 603,
-  "portrait": 248
+  "checked": 605,
+  "landscape": 601,
+  "portrait": 245
  }
 }
