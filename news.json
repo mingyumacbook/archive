@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T07:29:11.569Z",
- "stories": 609,
- "translated": 607,
- "summaries": 440,
+ "at": "2026-11-03T09:05:00.291Z",
+ "stories": 607,
+ "translated": 605,
+ "summaries": 437,
  "summaryRun": {
-  "dgOK": 7,
+  "dgOK": 3,
   "dgNo": 6
  },
  "notTranslated": [
-  "불가리, 메종 마르지엘라로 만나는 지금 가장 새로운 전통",
-  "카니예 웨스트, 4년 만에 ‘이지’ 런웨이 쇼 선보인다"
+  "켄달 제너-제이콥 엘로디 커플이 생일을 축하하는 법",
+  "데님 드레스로 예상치 못한 스타일 선보인 데미 무어"
  ],
- "trOK": 9,
+ "trOK": 7,
  "trFail": 2,
  "pictures": {
-  "checked": 609,
-  "landscape": 604,
-  "portrait": 246
+  "checked": 607,
+  "landscape": 602,
+  "portrait": 248
  }
 }
