@@ -1,26 +1,21 @@
 {
- "at": "2026-11-03T15:04:00.351Z",
- "stories": 605,
- "translated": 598,
+ "at": "2026-11-03T17:11:59.880Z",
+ "stories": 610,
+ "translated": 608,
  "summaries": 432,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 4
+  "dgOK": 4,
+  "dgNo": 9
  },
  "notTranslated": [
-  "How to survive holiday season, with Dazed US and Michael Kors",
-  "CFDA Awards 2026: The best dressed celebs on the red carpet",
-  "‘UG K-Pop’: How gen Z Koreans reinvented pop music in 2026",
-  "The Thom Browne Alum Making Playful Workwear Out of Natural Fibers",
-  "Vince Staples Is Our November 2026 Music Director",
-  "The Best Dressed Celebrities at the CFDA Awards",
-  "I'm a Celebrity Makeup Artist—5 \"Eyemaxxing\" Tricks to Achieve a Chic Espresso Smoky Eye"
+  "Ashley Walters: ‘Locking people up 23 hours a day doesn’t work’",
+  "Must Read: Meg Stalter Stars in Marc Jacobs 'Let It Joy' Campaign, Hugo Boss Lowers Outlook as Q3 Sales Drop"
  ],
- "trOK": 0,
- "trFail": 7,
+ "trOK": 15,
+ "trFail": 2,
  "pictures": {
-  "checked": 605,
-  "landscape": 601,
+  "checked": 610,
+  "landscape": 606,
   "portrait": 245
  }
 }
