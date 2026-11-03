@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T17:11:59.880Z",
- "stories": 610,
- "translated": 608,
- "summaries": 432,
+ "at": "2026-11-03T19:09:48.527Z",
+ "stories": 609,
+ "translated": 607,
+ "summaries": 433,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 9
+  "dgOK": 8,
+  "dgNo": 7
  },
  "notTranslated": [
-  "Ashley Walters: ‘Locking people up 23 hours a day doesn’t work’",
-  "Must Read: Meg Stalter Stars in Marc Jacobs 'Let It Joy' Campaign, Hugo Boss Lowers Outlook as Q3 Sales Drop"
+  "“Who Knew Zorro Was So Important?”—Catherine Zeta-Jones Looks Back at Her Life In Movies in Bazaar’s “Building Character” Series",
+  "The 40 Best Beauty Advent Calendars to Shop This Holiday Season"
  ],
- "trOK": 15,
+ "trOK": 9,
  "trFail": 2,
  "pictures": {
-  "checked": 610,
+  "checked": 609,
   "landscape": 606,
-  "portrait": 245
+  "portrait": 238
  }
 }
