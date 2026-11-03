@@ -1,21 +1,27 @@
 {
- "at": "2026-11-03T20:59:39.306Z",
- "stories": 603,
- "translated": 601,
- "summaries": 429,
+ "at": "2026-11-03T22:59:40.608Z",
+ "stories": 606,
+ "translated": 598,
+ "summaries": 430,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 2
+  "dgOK": 4,
+  "dgNo": 3
  },
  "notTranslated": [
+  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
   "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
-  "A Look Inside the 2026 Dia Art Foundation Fall Gala"
+  "Dior and Harper’s Bazaar Host a Screening of the New Richard Avedon Documentary in Los Angeles",
+  "The 7 Best Nail Trends to Try Right Now",
+  "Demi Moore Takes Denim-on-Denim Dressing to the Next Level in a GapStudio Dress at the 2026 CFDA Fashion Awards",
+  "How to Style White Jeans for Fall",
+  "I Just Got Back From the Swiss Alps—Here's Everything I Packed for the Fall Getaway",
+  "I'm Planning Out My Holiday Party Looks—These Are the Top Finds Sitting at Zara"
  ],
- "trOK": 3,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 8,
  "pictures": {
-  "checked": 603,
-  "landscape": 600,
-  "portrait": 231
+  "checked": 606,
+  "landscape": 603,
+  "portrait": 234
  }
 }
