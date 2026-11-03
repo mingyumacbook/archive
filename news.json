@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T11:08:12.334Z",
- "stories": 612,
- "translated": 610,
- "summaries": 441,
+ "at": "2026-11-03T13:21:51.781Z",
+ "stories": 607,
+ "translated": 605,
+ "summaries": 436,
  "summaryRun": {
-  "dgOK": 9,
-  "dgNo": 7
+  "dgOK": 6,
+  "dgNo": 4
  },
  "notTranslated": [
-  "Lil Yachty Previews Unreleased Concrete Boys x Nike Air Force 1 Mid Colorway",
-  "NEIGHBORHOOD and Converse Reunite for an Understated ALL STAR LGCY Hi Collab"
+  "CFDA Awards 2026: The best dressed celebs on the red carpet",
+  "How to survive holiday season, with Dazed US and Michael Kors"
  ],
- "trOK": 12,
+ "trOK": 7,
  "trFail": 2,
  "pictures": {
-  "checked": 612,
-  "landscape": 607,
-  "portrait": 245
+  "checked": 607,
+  "landscape": 603,
+  "portrait": 248
  }
 }
