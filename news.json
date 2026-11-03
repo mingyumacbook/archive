@@ -1,34 +1,21 @@
 {
- "at": "2026-11-03T03:05:22.661Z",
- "stories": 608,
- "translated": 593,
- "summaries": 444,
+ "at": "2026-11-03T05:08:55.122Z",
+ "stories": 605,
+ "translated": 603,
+ "summaries": 438,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 6
+  "dgOK": 1,
+  "dgNo": 9
  },
  "notTranslated": [
-  "Taylor Swift Reveals the Cult Film Character She and Longtime Friend Abigail Have Been Impersonating Since They Were Teens",
-  "Jennifer Lawrence Doubles Down on an Unusual Color for Fall",
-  "The 15 Best Moisturizers Perfect for Mature Skin",
-  "서울 멋쟁이의 시계",
-  "2026년의 워치메이킹",
-  "이 시대의 붓질, 이배",
-  "유난히 피곤해 보이는 날, 흰색이 필요합니다",
-  "CHASING WINTER",
-  "추억이 깃든 정원에서 영원을 약속하다, 이재의 특별한 결혼식",
-  "샤넬이 초대하는 생모리츠의 겨울",
-  "스타의 옷장에서 나의 옷장으로",
-  "향에 담긴 창작자의 기억과 철학",
-  "할로윈까지 제대로 하는 제니",
-  "성수에 펼쳐지는 샤넬의 겨울, 샤넬 홀리데이 팝업",
-  "카이, 더블유 디지털 커버"
+  "The 2026 CFDA Fashion Award Winners Are...",
+  "검정 코트에는 파란 청바지 대신 ‘이 청바지’!"
  ],
- "trOK": 0,
- "trFail": 15,
+ "trOK": 18,
+ "trFail": 2,
  "pictures": {
-  "checked": 608,
-  "landscape": 603,
-  "portrait": 240
+  "checked": 605,
+  "landscape": 600,
+  "portrait": 241
  }
 }
