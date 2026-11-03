@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T09:05:00.291Z",
- "stories": 607,
- "translated": 605,
- "summaries": 437,
+ "at": "2026-11-03T11:08:12.334Z",
+ "stories": 612,
+ "translated": 610,
+ "summaries": 441,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 6
+  "dgOK": 9,
+  "dgNo": 7
  },
  "notTranslated": [
-  "켄달 제너-제이콥 엘로디 커플이 생일을 축하하는 법",
-  "데님 드레스로 예상치 못한 스타일 선보인 데미 무어"
+  "Lil Yachty Previews Unreleased Concrete Boys x Nike Air Force 1 Mid Colorway",
+  "NEIGHBORHOOD and Converse Reunite for an Understated ALL STAR LGCY Hi Collab"
  ],
- "trOK": 7,
+ "trOK": 12,
  "trFail": 2,
  "pictures": {
-  "checked": 607,
-  "landscape": 602,
-  "portrait": 248
+  "checked": 612,
+  "landscape": 607,
+  "portrait": 245
  }
 }
