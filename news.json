@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T19:09:48.527Z",
- "stories": 609,
- "translated": 607,
- "summaries": 433,
+ "at": "2026-11-03T20:59:39.306Z",
+ "stories": 603,
+ "translated": 601,
+ "summaries": 429,
  "summaryRun": {
-  "dgOK": 8,
-  "dgNo": 7
+  "dgOK": 2,
+  "dgNo": 2
  },
  "notTranslated": [
-  "“Who Knew Zorro Was So Important?”—Catherine Zeta-Jones Looks Back at Her Life In Movies in Bazaar’s “Building Character” Series",
-  "The 40 Best Beauty Advent Calendars to Shop This Holiday Season"
+  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
+  "A Look Inside the 2026 Dia Art Foundation Fall Gala"
  ],
- "trOK": 9,
+ "trOK": 3,
  "trFail": 2,
  "pictures": {
-  "checked": 609,
-  "landscape": 606,
-  "portrait": 238
+  "checked": 603,
+  "landscape": 600,
+  "portrait": 231
  }
 }
