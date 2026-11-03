@@ -1,21 +1,21 @@
 {
- "at": "2026-11-03T05:08:55.122Z",
- "stories": 605,
- "translated": 603,
- "summaries": 438,
+ "at": "2026-11-03T07:29:11.569Z",
+ "stories": 609,
+ "translated": 607,
+ "summaries": 440,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 9
+  "dgOK": 7,
+  "dgNo": 6
  },
  "notTranslated": [
-  "The 2026 CFDA Fashion Award Winners Are...",
-  "검정 코트에는 파란 청바지 대신 ‘이 청바지’!"
+  "불가리, 메종 마르지엘라로 만나는 지금 가장 새로운 전통",
+  "카니예 웨스트, 4년 만에 ‘이지’ 런웨이 쇼 선보인다"
  ],
- "trOK": 18,
+ "trOK": 9,
  "trFail": 2,
  "pictures": {
-  "checked": 605,
-  "landscape": 600,
-  "portrait": 241
+  "checked": 609,
+  "landscape": 604,
+  "portrait": 246
  }
 }
