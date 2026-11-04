@@ -1,11 +1,11 @@
 {
- "at": "2026-11-04T03:05:18.579Z",
+ "at": "2026-11-04T05:15:33.210Z",
  "stories": 603,
- "translated": 587,
- "summaries": 429,
+ "translated": 584,
+ "summaries": 430,
  "summaryRun": {
   "dgOK": 3,
-  "dgNo": 2
+  "dgNo": 0
  },
  "notTranslated": [
   "The 7 Best Nail Trends to Try Right Now",
@@ -15,21 +15,24 @@
   "Dior and Harper’s Bazaar Host a Screening of the New Richard Avedon Documentary in Los Angeles",
   "I'm Planning Out My Holiday Party Looks—These Are the Top Finds Sitting at Zara",
   "Kim Kardashian Stuns in a Silvery Fringe Dress From Ashi Studio",
-  "향의 스펙트럼을 그리는 일곱 빛깔의 향수",
   "푸석해진 머릿결 되살리는 치트키 3",
+  "향의 스펙트럼을 그리는 일곱 빛깔의 향수",
   "I Found Them: The Adidas Sneakers That Look Best With Black Leggings in 2026",
+  "키 152cm, ‘옵세션’ 니키의 캐주얼 시크 사복 패션",
+  "향에 담긴 창작자의 기억과 철학 – 2",
+  "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요",
   "서울 멋쟁이의 주얼리",
   "A Look Inside the 2026 Dia Art Foundation Fall Gala",
   "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
-  "키 152cm, ‘옵세션’ 니키의 캐주얼 시크 사복 패션",
-  "향에 담긴 창작자의 기억과 철학 – 2",
-  "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요"
+  "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다",
+  "문학의 경계를 넘는 시인, 앤 카슨 대표작 4",
+  "키에 상관없이 요즘 패셔니스타들은 모두 ‘이 슈즈’를 신습니다"
  ],
  "trOK": 0,
- "trFail": 16,
+ "trFail": 19,
  "pictures": {
   "checked": 603,
   "landscape": 600,
-  "portrait": 233
+  "portrait": 234
  }
 }
