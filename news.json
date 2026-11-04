@@ -1,11 +1,11 @@
 {
- "at": "2026-11-04T11:32:46.617Z",
- "stories": 610,
- "translated": 566,
- "summaries": 430,
+ "at": "2026-11-04T13:31:41.057Z",
+ "stories": 614,
+ "translated": 556,
+ "summaries": 428,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 8
+  "dgOK": 8,
+  "dgNo": 11
  },
  "notTranslated": [
   "The 7 Best Nail Trends to Try Right Now",
@@ -30,10 +30,10 @@
   "I Have Short Lashes—These 7 Mascaras Give My Falsies a Run for Their Money"
  ],
  "trOK": 0,
- "trFail": 44,
+ "trFail": 58,
  "pictures": {
-  "checked": 610,
-  "landscape": 607,
-  "portrait": 246
+  "checked": 614,
+  "landscape": 611,
+  "portrait": 242
  }
 }
