@@ -1,32 +1,35 @@
 {
- "at": "2026-11-04T01:24:01.906Z",
- "stories": 605,
- "translated": 592,
+ "at": "2026-11-04T03:05:18.579Z",
+ "stories": 603,
+ "translated": 587,
  "summaries": 429,
  "summaryRun": {
   "dgOK": 3,
-  "dgNo": 4
+  "dgNo": 2
  },
  "notTranslated": [
-  "Dior and Harper’s Bazaar Host a Screening of the New Richard Avedon Documentary in Los Angeles",
   "The 7 Best Nail Trends to Try Right Now",
   "I Just Got Back From the Swiss Alps—Here's Everything I Packed for the Fall Getaway",
-  "I'm Planning Out My Holiday Party Looks—These Are the Top Finds Sitting at Zara",
   "Demi Moore Takes Denim-on-Denim Dressing to the Next Level in a GapStudio Dress at the 2026 CFDA Fashion Awards",
   "How to Style White Jeans for Fall",
-  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
-  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
+  "Dior and Harper’s Bazaar Host a Screening of the New Richard Avedon Documentary in Los Angeles",
+  "I'm Planning Out My Holiday Party Looks—These Are the Top Finds Sitting at Zara",
   "Kim Kardashian Stuns in a Silvery Fringe Dress From Ashi Studio",
-  "서울 멋쟁이의 주얼리",
   "향의 스펙트럼을 그리는 일곱 빛깔의 향수",
   "푸석해진 머릿결 되살리는 치트키 3",
-  "I Found Them: The Adidas Sneakers That Look Best With Black Leggings in 2026"
+  "I Found Them: The Adidas Sneakers That Look Best With Black Leggings in 2026",
+  "서울 멋쟁이의 주얼리",
+  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
+  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
+  "키 152cm, ‘옵세션’ 니키의 캐주얼 시크 사복 패션",
+  "향에 담긴 창작자의 기억과 철학 – 2",
+  "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요"
  ],
  "trOK": 0,
- "trFail": 13,
+ "trFail": 16,
  "pictures": {
-  "checked": 605,
-  "landscape": 602,
-  "portrait": 235
+  "checked": 603,
+  "landscape": 600,
+  "portrait": 233
  }
 }
