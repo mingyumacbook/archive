@@ -1,11 +1,11 @@
 {
- "at": "2026-11-04T05:15:33.210Z",
- "stories": 603,
- "translated": 584,
- "summaries": 430,
+ "at": "2026-11-04T07:37:00.372Z",
+ "stories": 611,
+ "translated": 581,
+ "summaries": 434,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 0
+  "dgOK": 7,
+  "dgNo": 4
  },
  "notTranslated": [
   "The 7 Best Nail Trends to Try Right Now",
@@ -22,17 +22,18 @@
   "향에 담긴 창작자의 기억과 철학 – 2",
   "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요",
   "서울 멋쟁이의 주얼리",
-  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
-  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
   "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다",
   "문학의 경계를 넘는 시인, 앤 카슨 대표작 4",
-  "키에 상관없이 요즘 패셔니스타들은 모두 ‘이 슈즈’를 신습니다"
+  "키에 상관없이 요즘 패셔니스타들은 모두 ‘이 슈즈’를 신습니다",
+  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
+  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
+  "요즘 헐렁한 청바지에는 이런 신발을 신습니다"
  ],
  "trOK": 0,
- "trFail": 19,
+ "trFail": 30,
  "pictures": {
-  "checked": 603,
-  "landscape": 600,
-  "portrait": 234
+  "checked": 611,
+  "landscape": 608,
+  "portrait": 238
  }
 }
