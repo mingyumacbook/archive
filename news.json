@@ -1,11 +1,11 @@
 {
- "at": "2026-11-04T07:37:00.372Z",
- "stories": 611,
- "translated": 581,
- "summaries": 434,
+ "at": "2026-11-04T09:16:02.317Z",
+ "stories": 604,
+ "translated": 570,
+ "summaries": 427,
  "summaryRun": {
-  "dgOK": 7,
-  "dgNo": 4
+  "dgOK": 1,
+  "dgNo": 7
  },
  "notTranslated": [
   "The 7 Best Nail Trends to Try Right Now",
@@ -21,19 +21,19 @@
   "키 152cm, ‘옵세션’ 니키의 캐주얼 시크 사복 패션",
   "향에 담긴 창작자의 기억과 철학 – 2",
   "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요",
-  "서울 멋쟁이의 주얼리",
   "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다",
   "문학의 경계를 넘는 시인, 앤 카슨 대표작 4",
   "키에 상관없이 요즘 패셔니스타들은 모두 ‘이 슈즈’를 신습니다",
-  "A Look Inside the 2026 Dia Art Foundation Fall Gala",
-  "Louisa Jacobson’s Suited Streetwear Couldn’t Be More Different From Her Gilded Age Character’s Style",
-  "요즘 헐렁한 청바지에는 이런 신발을 신습니다"
+  "안젤리나 졸리 막내딸 비비안도 ‘피트’ 지웠다",
+  "요즘 헐렁한 청바지에는 이런 신발을 신습니다",
+  "500시간 공들인 꾸뛰르 드레스로 존재감 발휘한 킴 카다시안",
+  "롱 코트에 헐렁한 바지, 한 끗만 바꾸면 확 다릅니다"
  ],
  "trOK": 0,
- "trFail": 30,
+ "trFail": 34,
  "pictures": {
-  "checked": 611,
-  "landscape": 608,
-  "portrait": 238
+  "checked": 604,
+  "landscape": 601,
+  "portrait": 242
  }
 }
