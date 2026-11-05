@@ -1,11 +1,11 @@
 {
- "at": "2026-11-04T23:13:11.879Z",
- "stories": 610,
- "translated": 511,
- "summaries": 416,
+ "at": "2026-11-05T01:39:23.655Z",
+ "stories": 605,
+ "translated": 501,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 9
+  "dgOK": 3,
+  "dgNo": 6
  },
  "notTranslated": [
   "Demi Moore Takes Denim-on-Denim Dressing to the Next Level in a GapStudio Dress at the 2026 CFDA Fashion Awards",
@@ -24,16 +24,16 @@
   "향에 담긴 창작자의 기억과 철학 – 2",
   "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요",
   "Blake Lively Gets Ready for the Holidays in Archival Midnight-Blue Chanel Sequins",
-  "ACCENT Is Hiring A Public Relations Publicist, Fashion & Luxury Lifestyle In New York, NY",
-  "All the Exciting Ballot Wins You May Have Missed From Election Day",
   "After the Midterms, Millennial Optimism Makes Sense Again",
-  "Queen Letizia Rewears a Favorite One-Shoulder Dress From the 2010s"
+  "ACCENT Is Hiring A Public Relations Publicist, Fashion & Luxury Lifestyle In New York, NY",
+  "Queen Letizia Rewears a Favorite One-Shoulder Dress From the 2010s",
+  "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다"
  ],
  "trOK": 0,
- "trFail": 99,
+ "trFail": 104,
  "pictures": {
-  "checked": 610,
-  "landscape": 608,
-  "portrait": 220
+  "checked": 605,
+  "landscape": 603,
+  "portrait": 222
  }
 }
