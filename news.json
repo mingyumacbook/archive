@@ -1,11 +1,11 @@
 {
- "at": "2026-11-05T13:49:08.140Z",
- "stories": 608,
- "translated": 457,
+ "at": "2026-11-05T15:34:26.873Z",
+ "stories": 606,
+ "translated": 449,
  "summaries": 413,
  "summaryRun": {
   "dgOK": 5,
-  "dgNo": 5
+  "dgNo": 4
  },
  "notTranslated": [
   "Demi Moore Takes Denim-on-Denim Dressing to the Next Level in a GapStudio Dress at the 2026 CFDA Fashion Awards",
@@ -30,10 +30,10 @@
   "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다"
  ],
  "trOK": 0,
- "trFail": 151,
+ "trFail": 157,
  "pictures": {
-  "checked": 608,
-  "landscape": 606,
-  "portrait": 232
+  "checked": 606,
+  "landscape": 604,
+  "portrait": 228
  }
 }
