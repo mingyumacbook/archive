@@ -1,10 +1,10 @@
 {
- "at": "2026-11-05T03:19:32.574Z",
- "stories": 607,
- "translated": 496,
- "summaries": 416,
+ "at": "2026-11-05T05:29:37.153Z",
+ "stories": 605,
+ "translated": 489,
+ "summaries": 413,
  "summaryRun": {
-  "dgOK": 5,
+  "dgOK": 3,
   "dgNo": 4
  },
  "notTranslated": [
@@ -30,10 +30,10 @@
   "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다"
  ],
  "trOK": 0,
- "trFail": 111,
+ "trFail": 116,
  "pictures": {
-  "checked": 607,
-  "landscape": 605,
-  "portrait": 226
+  "checked": 605,
+  "landscape": 603,
+  "portrait": 229
  }
 }
