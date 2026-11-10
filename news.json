@@ -1,39 +1,21 @@
 {
- "at": "2026-11-10T13:31:20.471Z",
- "stories": 642,
- "translated": 590,
- "summaries": 438,
+ "at": "2026-11-10T15:04:25.685Z",
+ "stories": 604,
+ "translated": 602,
+ "summaries": 411,
  "summaryRun": {
-  "dgOK": 28,
+  "dgOK": 2,
   "dgNo": 16
  },
  "notTranslated": [
-  "Demi Moore Takes Denim-on-Denim Dressing to the Next Level in a GapStudio Dress at the 2026 CFDA Fashion Awards",
-  "The 7 Best Nail Trends to Try Right Now",
-  "How to Style White Jeans for Fall",
-  "I Just Got Back From the Swiss Alps—Here's Everything I Packed for the Fall Getaway",
-  "Dior and Harper’s Bazaar Host a Screening of the New Richard Avedon Documentary in Los Angeles",
-  "I'm Planning Out My Holiday Party Looks—These Are the Top Finds Sitting at Zara",
-  "Kim Kardashian Stuns in a Silvery Fringe Dress From Ashi Studio",
-  "푸석해진 머릿결 되살리는 치트키 3",
-  "향의 스펙트럼을 그리는 일곱 빛깔의 향수",
-  "I Found Them: The Adidas Sneakers That Look Best With Black Leggings in 2026",
-  "키 152cm, ‘옵세션’ 니키의 캐주얼 시크 사복 패션",
-  "향에 담긴 창작자의 기억과 철학 – 2",
-  "한동안 자취를 감췄던 ‘이 조합’이 다시 눈에 들어오네요",
-  "아델라는 ‘얌전한’ 팝 스타가 될 생각이 없다",
-  "문학의 경계를 넘는 시인, 앤 카슨 대표작 4",
-  "키에 상관없이 요즘 패셔니스타들은 모두 ‘이 슈즈’를 신습니다",
-  "요즘 헐렁한 청바지에는 이런 신발을 신습니다",
-  "Jason Statham and Guy Ritchie Reunite for Netflix Revenge Feature 'Dogfight'",
-  "저는 왠지 이 컬러가 유행할 것만 같은 예감이 드네요",
-  "여기 추위를 손꼽아 기다리는 이들이 있습니다"
+  "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
+  "56 Fashion and Beauty Gifts Curated By and For Gen Z"
  ],
- "trOK": 165,
- "trFail": 52,
+ "trOK": 54,
+ "trFail": 2,
  "pictures": {
-  "checked": 642,
-  "landscape": 640,
-  "portrait": 247
+  "checked": 604,
+  "landscape": 602,
+  "portrait": 237
  }
 }
