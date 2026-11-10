@@ -1,21 +1,28 @@
 {
- "at": "2026-11-10T15:04:25.685Z",
- "stories": 604,
- "translated": 602,
- "summaries": 411,
+ "at": "2026-11-10T17:07:46.105Z",
+ "stories": 607,
+ "translated": 598,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 16
+  "dgOK": 5,
+  "dgNo": 4
  },
  "notTranslated": [
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
-  "56 Fashion and Beauty Gifts Curated By and For Gen Z"
+  "56 Fashion and Beauty Gifts Curated By and For Gen Z",
+  "‘The high lasted for days’: The rise of Vinted addiction",
+  "Photos from Las Vegas’s first long-hair beauty contest",
+  "Must Read: Skims Receives Backlash Over Holiday Advent Calendar, Dior’s 'Hand-Drawn' Holiday Film Draws AI Accusations",
+  "Malia and Sasha Obama Layer Up in Trench Coats for Two Different Takes on Fall Dressing",
+  "Prince Harry Says Children “Deserve to Feel Safe” in New Solo Address as Meghan Stands by His Side",
+  "Duchess Meghan Looks Somber in Monochrome Black at the Launch of the Lost Screen Memorial in Brussels",
+  "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
- "trOK": 54,
- "trFail": 2,
+ "trOK": 0,
+ "trFail": 9,
  "pictures": {
-  "checked": 604,
-  "landscape": 602,
+  "checked": 607,
+  "landscape": 605,
   "portrait": 237
  }
 }
