@@ -1,10 +1,10 @@
 {
- "at": "2026-11-10T19:14:30.824Z",
- "stories": 605,
- "translated": 591,
- "summaries": 413,
+ "at": "2026-11-10T21:01:08.586Z",
+ "stories": 604,
+ "translated": 586,
+ "summaries": 411,
  "summaryRun": {
-  "dgOK": 4,
+  "dgOK": 2,
   "dgNo": 3
  },
  "notTranslated": [
@@ -12,22 +12,26 @@
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
   "Photos from Las Vegas’s first long-hair beauty contest",
-  "Must Read: Skims Receives Backlash Over Holiday Advent Calendar, Dior’s 'Hand-Drawn' Holiday Film Draws AI Accusations",
   "Malia and Sasha Obama Layer Up in Trench Coats for Two Different Takes on Fall Dressing",
   "Prince Harry Says Children “Deserve to Feel Safe” in New Solo Address as Meghan Stands by His Side",
-  "Duchess Meghan Looks Somber in Monochrome Black at the Launch of the Lost Screen Memorial in Brussels",
   "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know",
-  "Jennifer Lawrence Continues to Embrace Electric Green This Season",
+  "Must Read: Skims Receives Backlash Over Holiday Advent Calendar, Dior’s 'Hand-Drawn' Holiday Film Draws AI Accusations",
+  "Duchess Meghan Looks Somber in Monochrome Black at the Launch of the Lost Screen Memorial in Brussels",
   "Julie Curtiss Captures Snapshots of New York City in Her Paintings",
   "¡Vamos, España!",
+  "Jennifer Lawrence Continues to Embrace Electric Green This Season",
   "The New South of France",
-  "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond"
+  "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond",
+  "Bella Hadid Hard Launches a New Icy Blond Hair Color",
+  "Angelina Jolie Masters Timeless Autumnal Layering at Dinner With Sons Pax and Knox",
+  "Max Mara Is the Quiet Luxury Blueprint",
+  "These Chanel Fine Jewelry Pieces Are Made to Become Future Heirlooms"
  ],
  "trOK": 0,
- "trFail": 14,
+ "trFail": 18,
  "pictures": {
-  "checked": 605,
-  "landscape": 603,
-  "portrait": 231
+  "checked": 604,
+  "landscape": 602,
+  "portrait": 227
  }
 }
