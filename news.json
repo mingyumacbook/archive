@@ -1,11 +1,11 @@
 {
- "at": "2026-11-10T21:01:08.586Z",
- "stories": 604,
- "translated": 586,
- "summaries": 411,
+ "at": "2026-11-10T22:58:47.762Z",
+ "stories": 606,
+ "translated": 582,
+ "summaries": 416,
  "summaryRun": {
-  "dgOK": 2,
-  "dgNo": 3
+  "dgOK": 6,
+  "dgNo": 2
  },
  "notTranslated": [
   "56 Fashion and Beauty Gifts Curated By and For Gen Z",
@@ -24,14 +24,16 @@
   "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond",
   "Bella Hadid Hard Launches a New Icy Blond Hair Color",
   "Angelina Jolie Masters Timeless Autumnal Layering at Dinner With Sons Pax and Knox",
+  "These Chanel Fine Jewelry Pieces Are Made to Become Future Heirlooms",
   "Max Mara Is the Quiet Luxury Blueprint",
-  "These Chanel Fine Jewelry Pieces Are Made to Become Future Heirlooms"
+  "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
+  "Lauren Sánchez Bezos Matches Her Inky Red Bottoms With a Vintage Two-Tone Chanel Skirt"
  ],
  "trOK": 0,
- "trFail": 18,
+ "trFail": 24,
  "pictures": {
-  "checked": 604,
-  "landscape": 602,
-  "portrait": 227
+  "checked": 606,
+  "landscape": 604,
+  "portrait": 225
  }
 }
