@@ -1,13 +1,19 @@
 {
- "at": "2026-11-10T22:58:47.762Z",
- "stories": 606,
- "translated": 582,
- "summaries": 416,
+ "at": "2026-11-11T01:25:43.658Z",
+ "stories": 603,
+ "translated": 576,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 2
+  "dgOK": 2,
+  "dgNo": 1
  },
  "notTranslated": [
+  "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
+  "The Trendiest Fragrance From the Year You Graduated School",
+  "Lauren Sánchez Bezos Matches Her Inky Red Bottoms With a Vintage Two-Tone Chanel Skirt",
+  "Hailey Bieber's Favorite Winter Tights Are Back in Stock, But They Could Sell Out Again Any Minute",
+  "Max Mara Just Launched Its First-Ever Fragrance Inspired by Its Iconic Coat—Here's Why We Love It",
+  "Kendall Isn't Wearing Flared Blue Jeans With Heels or Flats—She's Wearing These Anti-Trend Boots",
   "56 Fashion and Beauty Gifts Curated By and For Gen Z",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
@@ -21,19 +27,13 @@
   "¡Vamos, España!",
   "Jennifer Lawrence Continues to Embrace Electric Green This Season",
   "The New South of France",
-  "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond",
-  "Bella Hadid Hard Launches a New Icy Blond Hair Color",
-  "Angelina Jolie Masters Timeless Autumnal Layering at Dinner With Sons Pax and Knox",
-  "These Chanel Fine Jewelry Pieces Are Made to Become Future Heirlooms",
-  "Max Mara Is the Quiet Luxury Blueprint",
-  "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
-  "Lauren Sánchez Bezos Matches Her Inky Red Bottoms With a Vintage Two-Tone Chanel Skirt"
+  "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond"
  ],
  "trOK": 0,
- "trFail": 24,
+ "trFail": 27,
  "pictures": {
-  "checked": 606,
-  "landscape": 604,
-  "portrait": 225
+  "checked": 603,
+  "landscape": 601,
+  "portrait": 226
  }
 }
