@@ -1,11 +1,11 @@
 {
- "at": "2026-11-11T03:07:23.659Z",
- "stories": 604,
- "translated": 573,
- "summaries": 415,
+ "at": "2026-11-11T05:19:27.069Z",
+ "stories": 602,
+ "translated": 569,
+ "summaries": 414,
  "summaryRun": {
-  "dgOK": 4,
-  "dgNo": 1
+  "dgOK": 2,
+  "dgNo": 0
  },
  "notTranslated": [
   "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
@@ -14,26 +14,26 @@
   "Hailey Bieber's Favorite Winter Tights Are Back in Stock, But They Could Sell Out Again Any Minute",
   "Max Mara Just Launched Its First-Ever Fragrance Inspired by Its Iconic Coat—Here's Why We Love It",
   "Kendall Isn't Wearing Flared Blue Jeans With Heels or Flats—She's Wearing These Anti-Trend Boots",
-  "몽클레르의 계절이 돌아왔다",
   "가장 화려한 인생을 살았던 엘리자베스 테일러의 주얼리",
   "울적한가요? 가을 탈 때 꼭 먹어야 할 음식 5",
+  "몽클레르의 계절이 돌아왔다",
+  "올겨울 코트는 턱끝까지 잠그는 게 멋입니다",
+  "겨울에는 베이스를 이렇게 발라야 예뻐 보여요",
+  "아드리아 아르호나, 막스마라가 선택한 미래의 얼굴",
+  "이번 겨울, 퍼 머플러 하나쯤은 있어야겠습니다",
   "56 Fashion and Beauty Gifts Curated By and For Gen Z",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
   "Photos from Las Vegas’s first long-hair beauty contest",
   "Malia and Sasha Obama Layer Up in Trench Coats for Two Different Takes on Fall Dressing",
   "Prince Harry Says Children “Deserve to Feel Safe” in New Solo Address as Meghan Stands by His Side",
-  "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know",
-  "Must Read: Skims Receives Backlash Over Holiday Advent Calendar, Dior’s 'Hand-Drawn' Holiday Film Draws AI Accusations",
-  "Duchess Meghan Looks Somber in Monochrome Black at the Launch of the Lost Screen Memorial in Brussels",
-  "Julie Curtiss Captures Snapshots of New York City in Her Paintings",
-  "¡Vamos, España!"
+  "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
  "trOK": 0,
- "trFail": 31,
+ "trFail": 33,
  "pictures": {
-  "checked": 604,
-  "landscape": 602,
-  "portrait": 228
+  "checked": 602,
+  "landscape": 600,
+  "portrait": 227
  }
 }
