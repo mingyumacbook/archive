@@ -1,10 +1,10 @@
 {
- "at": "2026-11-11T22:00:31.351Z",
- "stories": 609,
- "translated": 512,
- "summaries": 416,
+ "at": "2026-11-11T23:18:36.550Z",
+ "stories": 603,
+ "translated": 503,
+ "summaries": 413,
  "summaryRun": {
-  "dgOK": 9,
+  "dgOK": 2,
   "dgNo": 1
  },
  "notTranslated": [
@@ -30,10 +30,10 @@
   "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
  "trOK": 0,
- "trFail": 97,
+ "trFail": 100,
  "pictures": {
-  "checked": 609,
-  "landscape": 607,
-  "portrait": 241
+  "checked": 603,
+  "landscape": 601,
+  "portrait": 235
  }
 }
