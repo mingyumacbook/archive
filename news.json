@@ -1,10 +1,10 @@
 {
- "at": "2026-11-11T17:24:01.456Z",
- "stories": 611,
- "translated": 528,
- "summaries": 418,
+ "at": "2026-11-11T19:27:40.897Z",
+ "stories": 605,
+ "translated": 517,
+ "summaries": 411,
  "summaryRun": {
-  "dgOK": 9,
+  "dgOK": 4,
   "dgNo": 3
  },
  "notTranslated": [
@@ -27,13 +27,13 @@
   "제니가 선택한 휴식! 국내 프라이빗 온천 5",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
-  "Photos from Las Vegas’s first long-hair beauty contest"
+  "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
  "trOK": 0,
- "trFail": 83,
+ "trFail": 88,
  "pictures": {
-  "checked": 611,
-  "landscape": 609,
+  "checked": 605,
+  "landscape": 603,
   "portrait": 241
  }
 }
