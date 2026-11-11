@@ -1,11 +1,11 @@
 {
- "at": "2026-11-11T11:20:37.762Z",
- "stories": 607,
- "translated": 552,
- "summaries": 417,
+ "at": "2026-11-11T13:37:12.535Z",
+ "stories": 612,
+ "translated": 545,
+ "summaries": 418,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 6
+  "dgOK": 6,
+  "dgNo": 8
  },
  "notTranslated": [
   "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
@@ -30,10 +30,10 @@
   "Photos from Las Vegas’s first long-hair beauty contest"
  ],
  "trOK": 0,
- "trFail": 55,
+ "trFail": 67,
  "pictures": {
-  "checked": 607,
-  "landscape": 605,
-  "portrait": 237
+  "checked": 612,
+  "landscape": 610,
+  "portrait": 238
  }
 }
