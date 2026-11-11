@@ -1,11 +1,11 @@
 {
- "at": "2026-11-11T07:36:42.036Z",
- "stories": 608,
- "translated": 567,
- "summaries": 419,
+ "at": "2026-11-11T09:17:31.866Z",
+ "stories": 607,
+ "translated": 559,
+ "summaries": 418,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 3
+  "dgOK": 3,
+  "dgNo": 7
  },
  "notTranslated": [
   "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
@@ -24,16 +24,16 @@
   "올겨울 부츠는 허벅지까지 따뜻해야 합니다",
   "56 Fashion and Beauty Gifts Curated By and For Gen Z",
   "발레 플랫 졸업하고 이 슈즈를 신으려고요",
+  "제니가 선택한 휴식! 국내 프라이빗 온천 5",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
-  "Photos from Las Vegas’s first long-hair beauty contest",
-  "Malia and Sasha Obama Layer Up in Trench Coats for Two Different Takes on Fall Dressing"
+  "새로운 헤어스타일과 새로운 연인, 벨라 하디드의 변화"
  ],
  "trOK": 0,
- "trFail": 41,
+ "trFail": 48,
  "pictures": {
-  "checked": 608,
-  "landscape": 606,
-  "portrait": 231
+  "checked": 607,
+  "landscape": 605,
+  "portrait": 233
  }
 }
