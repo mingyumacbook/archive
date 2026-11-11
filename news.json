@@ -1,10 +1,10 @@
 {
- "at": "2026-11-11T01:25:43.658Z",
- "stories": 603,
- "translated": 576,
- "summaries": 414,
+ "at": "2026-11-11T03:07:23.659Z",
+ "stories": 604,
+ "translated": 573,
+ "summaries": 415,
  "summaryRun": {
-  "dgOK": 2,
+  "dgOK": 4,
   "dgNo": 1
  },
  "notTranslated": [
@@ -14,6 +14,9 @@
   "Hailey Bieber's Favorite Winter Tights Are Back in Stock, But They Could Sell Out Again Any Minute",
   "Max Mara Just Launched Its First-Ever Fragrance Inspired by Its Iconic Coat—Here's Why We Love It",
   "Kendall Isn't Wearing Flared Blue Jeans With Heels or Flats—She's Wearing These Anti-Trend Boots",
+  "몽클레르의 계절이 돌아왔다",
+  "가장 화려한 인생을 살았던 엘리자베스 테일러의 주얼리",
+  "울적한가요? 가을 탈 때 꼭 먹어야 할 음식 5",
   "56 Fashion and Beauty Gifts Curated By and For Gen Z",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
@@ -24,16 +27,13 @@
   "Must Read: Skims Receives Backlash Over Holiday Advent Calendar, Dior’s 'Hand-Drawn' Holiday Film Draws AI Accusations",
   "Duchess Meghan Looks Somber in Monochrome Black at the Launch of the Lost Screen Memorial in Brussels",
   "Julie Curtiss Captures Snapshots of New York City in Her Paintings",
-  "¡Vamos, España!",
-  "Jennifer Lawrence Continues to Embrace Electric Green This Season",
-  "The New South of France",
-  "Yes, Cyber Month! Shopbop Already Has Huge Designer Discounts, and These 25 Finds Are Beyond"
+  "¡Vamos, España!"
  ],
  "trOK": 0,
- "trFail": 27,
+ "trFail": 31,
  "pictures": {
-  "checked": 603,
-  "landscape": 601,
-  "portrait": 226
+  "checked": 604,
+  "landscape": 602,
+  "portrait": 228
  }
 }
