@@ -1,11 +1,11 @@
 {
- "at": "2026-11-11T09:17:31.866Z",
+ "at": "2026-11-11T11:20:37.762Z",
  "stories": 607,
- "translated": 559,
- "summaries": 418,
+ "translated": 552,
+ "summaries": 417,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 7
+  "dgOK": 5,
+  "dgNo": 6
  },
  "notTranslated": [
   "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
@@ -27,13 +27,13 @@
   "제니가 선택한 휴식! 국내 프라이빗 온천 5",
   "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
   "‘The high lasted for days’: The rise of Vinted addiction",
-  "새로운 헤어스타일과 새로운 연인, 벨라 하디드의 변화"
+  "Photos from Las Vegas’s first long-hair beauty contest"
  ],
  "trOK": 0,
- "trFail": 48,
+ "trFail": 55,
  "pictures": {
   "checked": 607,
   "landscape": 605,
-  "portrait": 233
+  "portrait": 237
  }
 }
