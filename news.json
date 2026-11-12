@@ -1,11 +1,11 @@
 {
- "at": "2026-11-12T05:30:31.889Z",
- "stories": 603,
- "translated": 494,
- "summaries": 410,
+ "at": "2026-11-12T07:52:09.655Z",
+ "stories": 607,
+ "translated": 491,
+ "summaries": 412,
  "summaryRun": {
-  "dgOK": 1,
-  "dgNo": 3
+  "dgOK": 4,
+  "dgNo": 5
  },
  "notTranslated": [
   "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
@@ -30,10 +30,10 @@
   "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
  "trOK": 0,
- "trFail": 109,
+ "trFail": 116,
  "pictures": {
-  "checked": 603,
-  "landscape": 602,
-  "portrait": 238
+  "checked": 607,
+  "landscape": 606,
+  "portrait": 240
  }
 }
