@@ -1,7 +1,7 @@
 {
- "at": "2026-11-12T01:43:21.207Z",
+ "at": "2026-11-12T03:19:01.127Z",
  "stories": 603,
- "translated": 500,
+ "translated": 497,
  "summaries": 412,
  "summaryRun": {
   "dgOK": 2,
@@ -30,10 +30,10 @@
   "From Wellies to Nostalgic Styles, These Are the Winter 2026 Shoe Trends to Know"
  ],
  "trOK": 0,
- "trFail": 103,
+ "trFail": 106,
  "pictures": {
   "checked": 603,
   "landscape": 601,
-  "portrait": 235
+  "portrait": 236
  }
 }
