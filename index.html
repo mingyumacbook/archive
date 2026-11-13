@@ -1562,6 +1562,10 @@ document.addEventListener("dragover",e=>{if(!FDRAG)return;const el=fTarget(e);fC
   e.preventDefault();e.dataTransfer.dropEffect="move";el.classList.add("fdz-"+fZone(el,e))},true);
 document.addEventListener("drop",e=>{if(!FDRAG)return;const el=fTarget(e);const id=FDRAG;FDRAG=null;fClear();if(!el)return;e.preventDefault();e.stopPropagation();
   const to=el.dataset.fdrop||el.dataset.fold;if(!to||to===id)return;fMove(id,to,fZone(el,e))},true);
+/* Backspace inside a folder goes up one level (not while typing or with a window open) */
+document.addEventListener("keydown",e=>{if(e.key!=="Backspace"||e.metaKey||e.ctrlKey||e.altKey||route!=="archive"||aFolder==="all")return;
+  const a=document.activeElement;if(a&&(a.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)))return;if(document.querySelector("#sheet")||(typeof VC!=="undefined"&&VC.open))return;
+  e.preventDefault();const f=FOLDERS.find(x=>x.id===aFolder);aFolder=f&&f.parent&&FOLDERS.some(x=>x.id===f.parent)?f.parent:"all";render(false)});
 function drawArchiveGrid(){const g=$("#agrid");if(g)g.innerHTML=archiveGrid();const c=$("#acount");if(c)c.textContent=archiveList().length}
 function fCrumbs(){if(aFolder==="all"||aFolder==="__none"||!FOLDERS.some(f=>f.id===aFolder))return "";const path=fPath(aFolder),kids=fKids(aFolder);
   const n=id=>ARC.filter(a=>subIds(id).has(a.folder)).length;
@@ -1961,7 +1965,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
- {v:"2026.11.13-4",d:"2026.11.13",ko:["폴더를 끌어서 옮길 수 있어요 · 폴더 위에 놓으면 그 안으로, 가장자리에 놓으면 옆자리로, 경로의 '전체'에 놓으면 최상위로"],en:["Drag folders to move them — drop on a folder to put it inside, on its edge to place it next to it, on All in the path to move it to the top"]},
+ {v:"2026.11.13-4",d:"2026.11.13",ko:["폴더 안에서 키보드 백스페이스를 누르면 이전 폴더로 돌아가요","폴더를 끌어서 옮길 수 있어요 · 폴더 위에 놓으면 그 안으로, 가장자리에 놓으면 옆자리로, 경로의 '전체'에 놓으면 최상위로"],en:["Press Backspace inside a folder to go back up a level","Drag folders to move them — drop on a folder to put it inside, on its edge to place it next to it, on All in the path to move it to the top"]},
  {v:"2026.11.13-3",d:"2026.11.13",ko:["아카이브 이미지를 그 자리에서 편집할 수 있어요 · 칸의 자르기 아이콘을 누르면 자르기(자유 · 1:1 · 4:5 · 3:4 · 16:9), 회전, 좌우 반전, 크기 조절"],en:["Edit archive images right on the page — tap the crop icon on a tile to crop (free, 1:1, 4:5, 3:4, 16:9), rotate, flip and resize"]},
  {v:"2026.11.13-2",d:"2026.11.13",ko:["국내 디자이너 · 레퍼런스 사이트 · 즐겨찾기 등 내가 바꾼 항목이 계정 기준으로 모든 기기에 똑같이 맞춰져요 · 다른 기기에서 바꾼 내용은 앱으로 돌아오면 바로 반영돼요"],en:["Your own lists — Korean designers, reference sites, favourites — now follow your account on every device; changes from another device show up when you come back to the app"]},
  {v:"2026.11.13-1",d:"2026.11.13",ko:["아카이브 폴더 안에 폴더를 만들 수 있어요 · 화살표로 펼치고 접고, 폴더에 들어가면 경로가 보여요","아카이브를 폴더 단위로 보여줘요 · 폴더 표지는 안의 이미지 4장, 이미지를 폴더로 끌어 옮길 수 있어요","이미지와 폴더 이름을 바로 고치고(연필 또는 더블클릭) 지울 수 있어요 · 칸 크기를 같게 맞췄어요","북마크 저장 버튼이 작은 창에서 저장하고 닫혀요 · 보던 사이트에 그대로 있어요 (버튼을 다시 끌어 놓아 주세요)"],en:["Archive folders can now hold folders — open and close them with the arrow; inside a folder you see its path","The archive opens on your folders, each with a 4-image cover; drag an image onto a folder to move it","Rename (pencil or double-click) and delete images and folders right on the page; tiles are all the same size","The bookmark save button now saves in a small window that closes itself, so you stay on the site (drag the button to your bar again)"]},
