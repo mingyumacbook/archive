@@ -20,12 +20,18 @@ const sh = c => execSync(c, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"
 const PROTECTED = [/^config\.js$/, /^\.github\//, /^scripts\/dev-chat\.mjs$/, /^CLAUDE\.md$/];
 
 async function check() {
+  const out = v => { if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `has=${v}\n`); };
+  try { await api("dev_msgs?select=id&limit=1"); } catch (e) { console.log("developer room not set up yet (run the Supabase update)"); return out(false); }
+  if (!process.env.CLAUDE_CODE_OAUTH_TOKEN) {
+    const q = await api("dev_msgs?select=id&sender=eq.m&st=eq.queued");
+    if (q?.length) { await say("아직 Claude 연결 토큰이 등록되지 않았어요. GitHub → Settings → Secrets → Actions에 CLAUDE_CODE_OAUTH_TOKEN을 추가하면 바로 시작할게요."); await mark(q.map(x => x.id), "failed"); }
+    return out(false);
+  }
   // a run that died part-way leaves requests "working": give them back after 50 minutes
   const stale = await api(`dev_msgs?select=id&sender=eq.m&st=eq.working&created_at=lt.${new Date(Date.now() - 50 * 60e3).toISOString()}`).catch(() => []);
   if (stale?.length) { await mark(stale.map(x => x.id), "queued"); }
   const q = await api("dev_msgs?select=id&sender=eq.m&st=eq.queued&limit=1");
-  const has = !!q?.length; console.log(has ? "request waiting" : "nothing to do");
-  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `has=${has}\n`);
+  const has = !!q?.length; console.log(has ? "request waiting" : "nothing to do"); out(has);
 }
 
 async function run() {
