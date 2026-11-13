@@ -119,3 +119,22 @@ begin
   update public.members set pw_status = 'none', pw_decided_at = now() where user_id = auth.uid() and pw_status = 'approved';
 end $$;
 grant execute on function public.vd_pw_used() to authenticated;
+
+-- 11) 개발자 채팅방 (마스터 ↔ Claude) · 마스터만 볼 수 있어요
+--    마스터가 보낸 요청을 GitHub의 자동 작업이 읽고, Claude가 고친 뒤 답장을 남겨요.
+create table if not exists public.dev_msgs (
+  id uuid primary key default gen_random_uuid(),
+  sender text not null check (sender in ('m','c')),
+  body text not null default '',
+  img text,
+  st text not null default 'queued' check (st in ('queued','working','done','failed','info')),
+  created_at timestamptz not null default now()
+);
+alter table public.dev_msgs enable row level security;
+drop policy if exists "dev msgs read" on public.dev_msgs;
+create policy "dev msgs read" on public.dev_msgs for select to authenticated using ((select public.vd_admin()));
+drop policy if exists "dev msgs add" on public.dev_msgs;
+create policy "dev msgs add" on public.dev_msgs for insert to authenticated
+  with check ((select public.vd_admin()) and sender = 'm' and st = 'queued');
+drop policy if exists "dev msgs delete" on public.dev_msgs;
+create policy "dev msgs delete" on public.dev_msgs for delete to authenticated using ((select public.vd_admin()));
