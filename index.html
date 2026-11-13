@@ -1115,7 +1115,23 @@ let saved={};
 let db=null,ASSET=null,UJOINED="";
 const PREF={lang:null,fav:["low-classic","kimhekim"],removedDes:[],addedDes:[],dirEdits:{},cdov:{},sites:null,profile:{name:"",brand:""},fitG:"f"};
 let prefT=null;
-function savePrefs(){clearTimeout(prefT);prefT=setTimeout(()=>{if(db)db.doc("prefs/vd").set(JSON.parse(JSON.stringify(PREF))).catch(()=>toast(t("Couldn't save — check your connection","저장하지 못했어요 · 연결을 확인해 주세요")))},350)}
+let PREF_BASE={};const prefSnap=()=>{PREF_BASE={};Object.keys(PREF).forEach(k=>PREF_BASE[k]=JSON.stringify(PREF[k]))};
+async function prefPull(){try{if(typeof SB==="undefined"||!UID)return null;const {data,error}=await SB.from("docs").select("data").eq("collection","prefs").eq("id","vd").eq("owner",UID).maybeSingle();if(error)return null;return (data&&data.data)||{}}catch(_){return null}}
+const prefDirty=()=>Object.keys(PREF).filter(k=>JSON.stringify(PREF[k])!==PREF_BASE[k]);
+/* take what other devices saved for everything you haven't changed here; true if something new came in */
+function prefTake(srv,dirty){let got=false;Object.keys(srv).forEach(k=>{if(dirty.includes(k)||k==="lang")return;if(JSON.stringify(PREF[k])!==JSON.stringify(srv[k])){PREF[k]=srv[k];got=true}});return got}
+function prefApply(){try{SITES=PREF.sites||DATA.sites.map(x=>({...x}));FAV=new Set(PREF.fav||[]);if(PREF.fitG)FIT=PREF.fitG;buildDES()}catch(e){console.error(e)}}
+let prefBusy=false;
+function savePrefs(){clearTimeout(prefT);prefT=setTimeout(async()=>{if(!db)return;if(prefBusy){savePrefs();return}prefBusy=true;
+  try{const dirty=prefDirty(),srv=await prefPull();let got=false;const out=JSON.parse(JSON.stringify(PREF));
+    if(srv){got=prefTake(srv,dirty);Object.keys(srv).forEach(k=>{if(!dirty.includes(k)&&k!=="lang")out[k]=srv[k]})}
+    await db.doc("prefs/vd").set(out);prefSnap();if(got){prefApply();if(!document.activeElement?.closest?.("input,textarea,select"))render(false)}}
+  catch(_){toast(t("Couldn't save — check your connection","저장하지 못했어요 · 연결을 확인해 주세요"))}finally{prefBusy=false}},350)}
+async function prefRefresh(){if(!db||prefBusy||!Object.keys(PREF_BASE).length)return;const srv=await prefPull();if(!srv)return;
+  if(prefTake(srv,prefDirty())){prefSnap();prefApply();if(!document.activeElement?.closest?.("input,textarea,select")&&!document.querySelector("#sheet.on"))render(false)}}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")prefRefresh()});
+window.addEventListener("focus",()=>prefRefresh());
+setInterval(()=>{if(document.visibilityState==="visible")prefRefresh()},60000);
 const safeId=s=>String(s).replace(/[^A-Za-z0-9_-]/g,"_").slice(0,120)||("x"+Date.now());
 const blobSrc=id=>id?window.__OFFLINE_BLOBS[id]:"";
 async function signedUrl(id){if(SIGNED.has(id))return SIGNED.get(id);const {data}=await SB.storage.from("archive").createSignedUrl(id,60*60*24*7);if(data?.signedUrl){SIGNED.set(id,data.signedUrl);return data.signedUrl}return ""}
@@ -1138,7 +1154,7 @@ async function loadAll(){
   FOLDERS=fo.docs.map(d=>({id:d.id,...d.data()})).filter(f=>f.name);sortFolders();
   ARC=ar.docs.map(d=>arcFromDoc(d.id,d.data()));
   FEEDROWS=fd.docs.map(d=>({id:d.id,...d.data()}));buildNews();
-  FIT=PREF.fitG||"f";SITES=PREF.sites||DATA.sites.map(x=>({...x}));FAV=new Set(PREF.fav||[]);buildDES();
+  FIT=PREF.fitG||"f";SITES=PREF.sites||DATA.sites.map(x=>({...x}));FAV=new Set(PREF.fav||[]);buildDES();prefSnap();
   db.collection("feed").onSnapshot(s=>{FEEDROWS=s.docs.map(d=>({id:d.id,...d.data()}));buildNews();if(route==="home"&&!document.activeElement?.closest?.("input"))render(false)},()=>{});
 }
 /* saved news & issues */
@@ -1857,6 +1873,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.11.13-2",d:"2026.11.13",ko:["국내 디자이너 · 레퍼런스 사이트 · 즐겨찾기 등 내가 바꾼 항목이 계정 기준으로 모든 기기에 똑같이 맞춰져요 · 다른 기기에서 바꾼 내용은 앱으로 돌아오면 바로 반영돼요"],en:["Your own lists — Korean designers, reference sites, favourites — now follow your account on every device; changes from another device show up when you come back to the app"]},
  {v:"2026.11.13-1",d:"2026.11.13",ko:["아카이브 폴더 안에 폴더를 만들 수 있어요 · 화살표로 펼치고 접고, 폴더에 들어가면 경로가 보여요","아카이브를 폴더 단위로 보여줘요 · 폴더 표지는 안의 이미지 4장, 이미지를 폴더로 끌어 옮길 수 있어요","이미지와 폴더 이름을 바로 고치고(연필 또는 더블클릭) 지울 수 있어요 · 칸 크기를 같게 맞췄어요","북마크 저장 버튼이 작은 창에서 저장하고 닫혀요 · 보던 사이트에 그대로 있어요 (버튼을 다시 끌어 놓아 주세요)"],en:["Archive folders can now hold folders — open and close them with the arrow; inside a folder you see its path","The archive opens on your folders, each with a 4-image cover; drag an image onto a folder to move it","Rename (pencil or double-click) and delete images and folders right on the page; tiles are all the same size","The bookmark save button now saves in a small window that closes itself, so you stay on the site (drag the button to your bar again)"]},
  {v:"2026.10.21-2",d:"2026.10.21",ko:["뉴스에 요약 보기를 추가했어요 · 기사 본문의 핵심 문장만 골라 국문/영문으로 보여주고, 매출·증감 같은 중요한 수치에는 형광펜을 칠해요"],en:["News now has a Summary — key sentences from the article itself in your language, with the important figures (sales, growth, decline) highlighted"]},
  {v:"2026.10.21-1",d:"2026.10.21",ko:["사용 가이드를 그림 카드로 바꿨어요 · 버튼 모양과 위치를 한눈에 볼 수 있어요"],en:["The how-to guide is now picture cards — see each button and where it is at a glance"]},
