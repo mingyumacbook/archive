@@ -1,39 +1,37 @@
 {
- "at": "2026-11-13T01:32:23.959Z",
- "stories": 617,
- "translated": 447,
- "summaries": 416,
+ "at": "2026-11-21T20:39:33.744Z",
+ "stories": 648,
+ "translated": 630,
+ "summaries": 437,
  "summaryRun": {
-  "dgOK": 13,
-  "dgNo": 12
+  "dgOK": 35,
+  "dgNo": 17
  },
  "notTranslated": [
-  "Three Prada Obsessives Unpack Miuccia’s Defining Decade",
-  "The Trendiest Fragrance From the Year You Graduated School",
-  "Lauren Sánchez Bezos Matches Her Inky Red Bottoms With a Vintage Two-Tone Chanel Skirt",
-  "Hailey Bieber's Favorite Winter Tights Are Back in Stock, But They Could Sell Out Again Any Minute",
-  "Max Mara Just Launched Its First-Ever Fragrance Inspired by Its Iconic Coat—Here's Why We Love It",
-  "Kendall Isn't Wearing Flared Blue Jeans With Heels or Flats—She's Wearing These Anti-Trend Boots",
-  "가장 화려한 인생을 살았던 엘리자베스 테일러의 주얼리",
-  "울적한가요? 가을 탈 때 꼭 먹어야 할 음식 5",
-  "몽클레르의 계절이 돌아왔다",
-  "올겨울 코트는 턱끝까지 잠그는 게 멋입니다",
-  "겨울에는 베이스를 이렇게 발라야 예뻐 보여요",
-  "아드리아 아르호나, 막스마라가 선택한 미래의 얼굴",
-  "이번 겨울, 퍼 머플러 하나쯤은 있어야겠습니다",
-  "올겨울 부츠는 허벅지까지 따뜻해야 합니다",
-  "56 Fashion and Beauty Gifts Curated By and For Gen Z",
-  "제니가 선택한 휴식! 국내 프라이빗 온천 5",
-  "This Celebrity Esthetician Doesn't Believe in 'Anti-Aging'",
-  "‘The high lasted for days’: The rise of Vinted addiction",
-  "Photos from Las Vegas’s first long-hair beauty contest",
-  "Malia and Sasha Obama Layer Up in Trench Coats for Two Different Takes on Fall Dressing"
+  "The Dazed 2026 holiday gift guide",
+  "5 of the best acts at Camp Flog Gnaw",
+  "Charli xcx, Connor Storrie and ROSÉ are Le Smoking hot for Saint Laurent",
+  "5 Nike releases to look out for in 2027",
+  "BexBlu and Paul Stephan’s definitive guide to mellow grime",
+  "How I Became returns with Dazed editor-in-chief Ted Stansfield",
+  "Inside the satanic, Y2K glamour of The Body",
+  "Why are men getting full-body tattoos under anaesthetic?",
+  "ICYMI: Kristin Ess Launches Otherwise, Macy Grimshaw Wins the 2026 H&M Design Award & Fashion Books Worth Gifting",
+  "Must Read: Gap Inc. Names New Athleta Brand President and CEO, Nike Enters Long-Term Formula One Apparel Partnership",
+  "Weekly Drop Watch: Gap Studio, Dairy Boy x Hanes, Rhode and More",
+  "This Model-Turned-Founder Believes Meaningful Jewelry Should Be Worn Everyday",
+  "The 2026 Black Friday and Cyber Monday Sales We've Already Bookmarked",
+  "How Shopbop's Senior Fashion Director Manages Her Super Busy, Cross-Functional Role",
+  "Tony Bianco Opens First L.A. Pop-Up",
+  "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
+  "Kim Kardashian Makes Her Las Vegas Grand Prix Entrance in Ferrari-Red Dior by John Galliano",
+  "Rosalía Sweeps the Los40 Music Awards in One Over-the-Top Headpiece After Another"
  ],
- "trOK": 0,
- "trFail": 170,
+ "trOK": 200,
+ "trFail": 18,
  "pictures": {
-  "checked": 617,
-  "landscape": 616,
-  "portrait": 243
+  "checked": 648,
+  "landscape": 647,
+  "portrait": 259
  }
 }
