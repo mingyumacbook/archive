@@ -8,6 +8,8 @@ import { writeFileSync, appendFileSync, mkdirSync, rmSync, existsSync } from "no
 const URL_ = process.env.SUPABASE_URL?.trim().replace(/\/(rest|auth|storage)\/v1\/?.*$/, "").replace(/\/+$/, "");
 const KEY = process.env.SUPABASE_SERVICE_KEY;
 if (!URL_ || !KEY) { console.error("Missing SUPABASE_URL or SUPABASE_SERVICE_KEY."); process.exit(1); }
+// a token pasted from the terminal can carry line breaks or spaces (the terminal wraps long lines): keep only the token itself
+if (process.env.CLAUDE_CODE_OAUTH_TOKEN) process.env.CLAUDE_CODE_OAUTH_TOKEN = process.env.CLAUDE_CODE_OAUTH_TOKEN.replace(/\s+/g, "");
 const H = { apikey: KEY, Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" };
 const api = async (path, opt = {}) => {
   const r = await fetch(`${URL_}/rest/v1/${path}`, { ...opt, headers: { ...H, ...(opt.headers || {}) } });
