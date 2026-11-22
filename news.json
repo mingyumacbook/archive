@@ -1,13 +1,18 @@
 {
- "at": "2026-11-22T02:19:44.801Z",
- "stories": 604,
- "translated": 582,
- "summaries": 405,
+ "at": "2026-11-22T10:00:08.655Z",
+ "stories": 607,
+ "translated": 578,
+ "summaries": 408,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 14
+  "dgOK": 6,
+  "dgNo": 2
  },
  "notTranslated": [
+  "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
+  "Jennifer Lawrence Slips Into Statement Slippers for an Easy Autumn Walk",
+  "Olivia Dean Goes Backless in Straight-Off-the-Runway Conner Ives",
+  "당신의 월요병은 완전한 착각이다",
+  "These Holiday Dresses That Are Very It-Girl Coded",
   "Charli xcx, Connor Storrie and ROSÉ are Le Smoking hot for Saint Laurent",
   "5 Nike releases to look out for in 2027",
   "The Dazed 2026 holiday gift guide",
@@ -21,19 +26,14 @@
   "Weekly Drop Watch: Gap Studio, Dairy Boy x Hanes, Rhode and More",
   "This Model-Turned-Founder Believes Meaningful Jewelry Should Be Worn Everyday",
   "The 2026 Black Friday and Cyber Monday Sales We've Already Bookmarked",
-  "Tony Bianco Opens First L.A. Pop-Up",
   "How Shopbop's Senior Fashion Director Manages Her Super Busy, Cross-Functional Role",
-  "Kim Kardashian Makes Her Las Vegas Grand Prix Entrance in Ferrari-Red Dior by John Galliano",
-  "Rosalía Sweeps the Los40 Music Awards in One Over-the-Top Headpiece After Another",
-  "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
-  "Jennifer Lawrence Slips Into Statement Slippers for an Easy Autumn Walk",
-  "Olivia Dean Goes Backless in Straight-Off-the-Runway Conner Ives"
+  "Tony Bianco Opens First L.A. Pop-Up"
  ],
  "trOK": 0,
- "trFail": 22,
+ "trFail": 29,
  "pictures": {
-  "checked": 604,
-  "landscape": 603,
-  "portrait": 247
+  "checked": 607,
+  "landscape": 606,
+  "portrait": 248
  }
 }
