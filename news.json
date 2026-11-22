@@ -1,11 +1,11 @@
 {
- "at": "2026-11-22T17:56:42.757Z",
+ "at": "2026-11-22T23:44:05.121Z",
  "stories": 605,
- "translated": 571,
- "summaries": 408,
+ "translated": 566,
+ "summaries": 409,
  "summaryRun": {
-  "dgOK": 3,
-  "dgNo": 3
+  "dgOK": 5,
+  "dgNo": 2
  },
  "notTranslated": [
   "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
@@ -14,7 +14,6 @@
   "당신의 월요병은 완전한 착각이다",
   "These Holiday Dresses That Are Very It-Girl Coded",
   "올겨울 한 끗 포인트는 발끝에서 나옵니다",
-  "올겨울엔 목도리 없이도 끄떡없는 코트가 유행입니다",
   "Your Outfits Aren’t Boring, But *Maybe* Your Jeans Are—5 New Denim Trends That'll Change Everything",
   "4 Beauty Insiders Reveal the Christmas Gifts They Are *Actually* Asking for This Year",
   "Suddenly, Tasteful Dressers Are All Ditching Jeans for This \"Tricky\" Skirt Trend",
@@ -27,13 +26,14 @@
   "BexBlu and Paul Stephan’s definitive guide to mellow grime",
   "How I Became returns with Dazed editor-in-chief Ted Stansfield",
   "Inside the satanic, Y2K glamour of The Body",
-  "Why are men getting full-body tattoos under anaesthetic?"
+  "Why are men getting full-body tattoos under anaesthetic?",
+  "ICYMI: Kristin Ess Launches Otherwise, Macy Grimshaw Wins the 2026 H&M Design Award & Fashion Books Worth Gifting"
  ],
  "trOK": 0,
- "trFail": 34,
+ "trFail": 39,
  "pictures": {
   "checked": 605,
   "landscape": 604,
-  "portrait": 247
+  "portrait": 249
  }
 }
