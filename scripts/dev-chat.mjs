@@ -16,7 +16,9 @@ const api = async (path, opt = {}) => {
   if (!r.ok) throw new Error(`${r.status} ${await r.text()}`);
   const t = await r.text(); return t ? JSON.parse(t) : null;
 };
-const say = (body, st = "info") => api("dev_msgs", { method: "POST", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ sender: "c", body: String(body).slice(0, 6000), st }) });
+// never echo a key or token back into the chat (error messages can contain request headers)
+const hide = t => String(t).replace(/sk-ant-[\w-]+/g, "[토큰 숨김]").replace(/eyJ[\w-]+\.[\w-]+\.[\w-]+/g, "[키 숨김]").replace(/Bearer\s+\S+/gi, "Bearer [숨김]");
+const say = (body, st = "info") => api("dev_msgs", { method: "POST", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ sender: "c", body: hide(body).slice(0, 6000), st }) });
 const mark = (ids, st) => ids.length && api(`dev_msgs?id=in.(${ids.join(",")})`, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ st }) });
 const sh = c => execSync(c, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
 const PROTECTED = [/^config\.js$/, /^\.github\//, /^scripts\/dev-chat\.mjs$/, /^CLAUDE\.md$/];
