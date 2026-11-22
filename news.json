@@ -1,17 +1,17 @@
 {
- "at": "2026-11-21T20:39:33.744Z",
- "stories": 648,
- "translated": 630,
- "summaries": 437,
+ "at": "2026-11-22T02:19:44.801Z",
+ "stories": 604,
+ "translated": 582,
+ "summaries": 405,
  "summaryRun": {
-  "dgOK": 35,
-  "dgNo": 17
+  "dgOK": 3,
+  "dgNo": 14
  },
  "notTranslated": [
-  "The Dazed 2026 holiday gift guide",
-  "5 of the best acts at Camp Flog Gnaw",
   "Charli xcx, Connor Storrie and ROSÉ are Le Smoking hot for Saint Laurent",
   "5 Nike releases to look out for in 2027",
+  "The Dazed 2026 holiday gift guide",
+  "5 of the best acts at Camp Flog Gnaw",
   "BexBlu and Paul Stephan’s definitive guide to mellow grime",
   "How I Became returns with Dazed editor-in-chief Ted Stansfield",
   "Inside the satanic, Y2K glamour of The Body",
@@ -21,17 +21,19 @@
   "Weekly Drop Watch: Gap Studio, Dairy Boy x Hanes, Rhode and More",
   "This Model-Turned-Founder Believes Meaningful Jewelry Should Be Worn Everyday",
   "The 2026 Black Friday and Cyber Monday Sales We've Already Bookmarked",
-  "How Shopbop's Senior Fashion Director Manages Her Super Busy, Cross-Functional Role",
   "Tony Bianco Opens First L.A. Pop-Up",
-  "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
+  "How Shopbop's Senior Fashion Director Manages Her Super Busy, Cross-Functional Role",
   "Kim Kardashian Makes Her Las Vegas Grand Prix Entrance in Ferrari-Red Dior by John Galliano",
-  "Rosalía Sweeps the Los40 Music Awards in One Over-the-Top Headpiece After Another"
+  "Rosalía Sweeps the Los40 Music Awards in One Over-the-Top Headpiece After Another",
+  "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
+  "Jennifer Lawrence Slips Into Statement Slippers for an Easy Autumn Walk",
+  "Olivia Dean Goes Backless in Straight-Off-the-Runway Conner Ives"
  ],
- "trOK": 200,
- "trFail": 18,
+ "trOK": 0,
+ "trFail": 22,
  "pictures": {
-  "checked": 648,
-  "landscape": 647,
-  "portrait": 259
+  "checked": 604,
+  "landscape": 603,
+  "portrait": 247
  }
 }
