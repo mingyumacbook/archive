@@ -892,6 +892,14 @@ button.sumb{background:none;border:0;border-bottom:1px solid currentColor;border
 .dgn{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin:12px 0 0}.dgb{display:flex;gap:8px;margin-top:16px}
 #mtInv{margin-bottom:18px}.invrow{display:flex;gap:8px;margin-top:10px;align-items:stretch}.invrow .inp{flex:1;min-width:0;font-size:13px;color:var(--ink-2)}.invrow .btn{white-space:nowrap;justify-content:center;text-align:center}
 @media (max-width:600px){.invrow{flex-wrap:wrap}.invrow .inp{flex-basis:100%}.invrow .btn{flex:1}}
+/* menu: compact, left-aligned list */
+.mgrid{grid-template-columns:repeat(4,minmax(0,max-content));justify-content:start;gap:28px 72px;padding-block:40px 48px}
+.mgrid section{grid-template-columns:26px auto;gap:6px 0;align-items:baseline}
+.mgrid .n{grid-column:1;font-size:11px}
+.mgrid h3{grid-column:2;font-size:20px;line-height:1.2}
+.mgrid ul{grid-column:2;gap:7px;font-size:14px;margin-top:6px}
+@media (max-width:900px){.mgrid{grid-template-columns:repeat(2,minmax(0,max-content));gap:28px 56px}}
+@media (max-width:600px){.mgrid{grid-template-columns:1fr;gap:24px;padding-block:28px 36px}.mgrid h3{font-size:19px}}
 </style>
 
 <div id="gate"><form id="gateForm" autocomplete="on"><h1 class="mark gmark">VISUAL DEPT.</h1>
@@ -1996,6 +2004,7 @@ function histCount(b){if(!HISTIDX&&!HISTIDXL){HISTIDXL=true;SB.from("shared_docs
    Each item has a stable id (version#index). The owner can hide items; hidden ids are stored in
    shared_docs appmeta/notes and are never shown to other members. */
 const NOTES=[
+ {v:"2026.11.23-1",d:"2026.11.23",ko:["메뉴를 작고 깔끔하게 정리했어요 · 항목이 왼쪽 정렬로 한눈에 보여요"],en:["The menu is now smaller and tidier — every item lined up on the left"]},
  {v:"2026.11.13-5",d:"2026.11.13",ko:["북마크 저장 버튼에서 저장할 폴더를 고를 수 있어요 · 최근 폴더가 맨 위, 폴더 이름을 쳐서 찾거나 바로 새로 만들어요 · 저장 후 창이 닫혀서 보던 사이트에 그대로 있어요"],en:["The bookmark save button lets you pick the folder — last used on top, type to find or make one — then closes so you stay on the site"]},
  {v:"2026.11.13-4",d:"2026.11.13",ko:["폴더 안에서 키보드 백스페이스를 누르면 이전 폴더로 돌아가요","폴더를 끌어서 옮길 수 있어요 · 폴더 위에 놓으면 그 안으로, 가장자리에 놓으면 옆자리로, 경로의 '전체'에 놓으면 최상위로"],en:["Press Backspace inside a folder to go back up a level","Drag folders to move them — drop on a folder to put it inside, on its edge to place it next to it, on All in the path to move it to the top"]},
  {v:"2026.11.13-3",d:"2026.11.13",ko:["아카이브 이미지를 그 자리에서 편집할 수 있어요 · 칸의 자르기 아이콘을 누르면 자르기(자유 · 1:1 · 4:5 · 3:4 · 16:9), 회전, 좌우 반전, 크기 조절"],en:["Edit archive images right on the page — tap the crop icon on a tile to crop (free, 1:1, 4:5, 3:4, 16:9), rotate, flip and resize"]},
