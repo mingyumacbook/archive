@@ -1,18 +1,12 @@
 {
- "at": "2026-11-22T10:00:26.073Z",
- "links": 35,
- "checkedNow": 6,
- "ok": 0,
- "unreachable": 6,
- "withDescription": 0,
- "withDirector": [],
- "defaultUnreachable": [
-  "juunj.com (0)",
-  "kusikohc.com (0)",
-  "minjukim.com (0)",
-  "nohant.co.kr (0)",
-  "recto.co.kr (0)",
-  "restandrecreation.co.kr (0)",
-  "thugclub.net (0)"
- ]
+ "at": "2026-11-22T17:57:11.841Z",
+ "links": 13,
+ "checkedNow": 13,
+ "ok": 13,
+ "unreachable": 0,
+ "withDescription": 1,
+ "withDirector": [
+  "Patrizio Bertelli (wikidata)"
+ ],
+ "defaultUnreachable": []
 }

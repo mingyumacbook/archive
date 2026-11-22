@@ -1,11 +1,11 @@
 {
- "at": "2026-11-22T10:00:08.655Z",
- "stories": 607,
- "translated": 578,
+ "at": "2026-11-22T17:56:42.757Z",
+ "stories": 605,
+ "translated": 571,
  "summaries": 408,
  "summaryRun": {
-  "dgOK": 6,
-  "dgNo": 2
+  "dgOK": 3,
+  "dgNo": 3
  },
  "notTranslated": [
   "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
@@ -13,6 +13,13 @@
   "Olivia Dean Goes Backless in Straight-Off-the-Runway Conner Ives",
   "당신의 월요병은 완전한 착각이다",
   "These Holiday Dresses That Are Very It-Girl Coded",
+  "올겨울 한 끗 포인트는 발끝에서 나옵니다",
+  "올겨울엔 목도리 없이도 끄떡없는 코트가 유행입니다",
+  "Your Outfits Aren’t Boring, But *Maybe* Your Jeans Are—5 New Denim Trends That'll Change Everything",
+  "4 Beauty Insiders Reveal the Christmas Gifts They Are *Actually* Asking for This Year",
+  "Suddenly, Tasteful Dressers Are All Ditching Jeans for This \"Tricky\" Skirt Trend",
+  "Forget Style Tribes—Show Me Your Ugg Boots, and I’ll Tell You Exactly What Kind of Dresser You Are",
+  "Stylish Women Have Declared This the It Bag of Winter 2026—Now, It’s 20% Off in the Sale",
   "Charli xcx, Connor Storrie and ROSÉ are Le Smoking hot for Saint Laurent",
   "5 Nike releases to look out for in 2027",
   "The Dazed 2026 holiday gift guide",
@@ -20,20 +27,13 @@
   "BexBlu and Paul Stephan’s definitive guide to mellow grime",
   "How I Became returns with Dazed editor-in-chief Ted Stansfield",
   "Inside the satanic, Y2K glamour of The Body",
-  "Why are men getting full-body tattoos under anaesthetic?",
-  "ICYMI: Kristin Ess Launches Otherwise, Macy Grimshaw Wins the 2026 H&M Design Award & Fashion Books Worth Gifting",
-  "Must Read: Gap Inc. Names New Athleta Brand President and CEO, Nike Enters Long-Term Formula One Apparel Partnership",
-  "Weekly Drop Watch: Gap Studio, Dairy Boy x Hanes, Rhode and More",
-  "This Model-Turned-Founder Believes Meaningful Jewelry Should Be Worn Everyday",
-  "The 2026 Black Friday and Cyber Monday Sales We've Already Bookmarked",
-  "How Shopbop's Senior Fashion Director Manages Her Super Busy, Cross-Functional Role",
-  "Tony Bianco Opens First L.A. Pop-Up"
+  "Why are men getting full-body tattoos under anaesthetic?"
  ],
  "trOK": 0,
- "trFail": 29,
+ "trFail": 34,
  "pictures": {
-  "checked": 607,
-  "landscape": 606,
-  "portrait": 248
+  "checked": 605,
+  "landscape": 604,
+  "portrait": 247
  }
 }
