@@ -1,11 +1,11 @@
 {
- "at": "2026-11-22T23:44:05.121Z",
- "stories": 605,
- "translated": 566,
- "summaries": 409,
+ "at": "2026-11-23T07:54:02.661Z",
+ "stories": 620,
+ "translated": 561,
+ "summaries": 415,
  "summaryRun": {
-  "dgOK": 5,
-  "dgNo": 2
+  "dgOK": 11,
+  "dgNo": 9
  },
  "notTranslated": [
   "Must Read: Inside the Hidden Costs of a Viral Product, The Wave of Contemporary Brands Offering More Accessible Luxury",
@@ -27,13 +27,13 @@
   "How I Became returns with Dazed editor-in-chief Ted Stansfield",
   "Inside the satanic, Y2K glamour of The Body",
   "Why are men getting full-body tattoos under anaesthetic?",
-  "ICYMI: Kristin Ess Launches Otherwise, Macy Grimshaw Wins the 2026 H&M Design Award & Fashion Books Worth Gifting"
+  "Hailey Bieber’s 30 Best Looks in Honor of Her 30th Birthday"
  ],
  "trOK": 0,
- "trFail": 39,
+ "trFail": 59,
  "pictures": {
-  "checked": 605,
-  "landscape": 604,
-  "portrait": 249
+  "checked": 620,
+  "landscape": 619,
+  "portrait": 262
  }
 }
