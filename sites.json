@@ -1,12 +1,10 @@
 {
- "at": "2026-11-23T20:32:20.230Z",
+ "at": "2026-11-24T05:08:51.702Z",
  "links": 13,
- "checkedNow": 13,
- "ok": 13,
+ "checkedNow": 0,
+ "ok": 0,
  "unreachable": 0,
- "withDescription": 1,
- "withDirector": [
-  "Patrizio Bertelli (wikidata)"
- ],
+ "withDescription": 0,
+ "withDirector": [],
  "defaultUnreachable": []
 }
